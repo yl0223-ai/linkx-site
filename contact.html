@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>联系我们 · LINK-X Capital</title>
+  <meta name="description" content="LINK-X Capital — 订阅前沿日报、基金新闻，或与我们交流合作。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <style>
+    :root {
+      --bg: #FAF8F4;
+      --bg-warm: #F2EBE0;
+      --border: #DDD5CA;
+      --border-light: #EAE4DC;
+      --text: #1C1917;
+      --text-muted: #78716C;
+      --text-light: #A8A29E;
+      --purple: #660874;
+      --purple-mid: #8B3A9A;
+      --purple-soft: #B07CC0;
+      --purple-wash: #F3EAF6;
+
+      --font-serif: "Instrument Serif", "Noto Serif SC", Georgia, serif;
+      --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+      --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+      --max: 1180px;
+      --px: clamp(24px, 6vw, 80px);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--px);
+    }
+
+    /* ---------- Progress bar ---------- */
+    .progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; background: var(--purple);
+      z-index: 999; transition: width 0.1s linear;
+    }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(250,248,244,0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 16px; padding-bottom: 16px;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; color: var(--text);
+      font-family: var(--font-serif); font-size: 20px;
+      letter-spacing: -0.02em;
+    }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a {
+      text-decoration: none; color: var(--text-muted);
+      font-size: 14px; font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .lang-toggle {
+      display: flex; align-items: center; gap: 8px;
+      font-family: var(--font-mono); font-size: 11px;
+      letter-spacing: 0.06em; color: var(--text-light);
+    }
+    .lang-toggle button {
+      background: none; border: none; cursor: pointer;
+      font-family: inherit; font-size: inherit;
+      letter-spacing: inherit; color: var(--text-light);
+      transition: color 0.2s ease;
+    }
+    .lang-toggle button:hover,
+    .lang-toggle button.active { color: var(--purple); }
+    .lang-toggle .sep { color: var(--border); }
+
+    /* ---------- Page hero ---------- */
+    .page-hero {
+      padding: clamp(100px, 14vw, 200px) 0 clamp(60px, 8vw, 100px);
+    }
+    .page-hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 400; letter-spacing: -0.025em;
+      line-height: 1.15; max-width: 14ch;
+    }
+    .page-hero h1 em { font-style: italic; color: var(--purple); }
+    .page-hero .sub {
+      margin-top: 20px; color: var(--text-muted);
+      font-size: 17px; line-height: 1.7; max-width: 56ch;
+    }
+
+    /* ---------- List — a16z style ---------- */
+    .nl-list {
+      border-top: 1px solid var(--border);
+    }
+    .nl-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: center;
+      padding: 56px 0;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.25s ease;
+    }
+    .nl-item:hover { background: var(--purple-wash); }
+    .nl-info { max-width: 56ch; }
+    .nl-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 12px;
+    }
+    .nl-info h3 {
+      font-family: var(--font-serif);
+      font-size: clamp(26px, 2.8vw, 36px);
+      font-weight: 400;
+      letter-spacing: -0.015em;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+    .nl-info p {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    .nl-action { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+
+    .nl-form {
+      display: flex;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      min-width: 320px;
+    }
+    .nl-form input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      padding: 16px 18px;
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 14px;
+      outline: none;
+      min-width: 0;
+    }
+    .nl-form input::placeholder { color: var(--text-light); }
+    .nl-form button {
+      background: var(--purple); color: #fff;
+      border: none; padding: 0 28px;
+      font-family: var(--font-sans);
+      font-size: 14px; font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      white-space: nowrap;
+    }
+    .nl-form button:hover { background: var(--purple-mid); }
+    .nl-form.success { border-color: #2d6a4f; }
+    .nl-form.success button { background: #2d6a4f; }
+
+    .nl-note {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+
+    .nl-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      letter-spacing: 0.04em;
+      color: var(--purple);
+      text-decoration: none;
+      border-bottom: 1px solid var(--purple-soft);
+      padding-bottom: 2px;
+      transition: gap 0.2s ease;
+    }
+    .nl-email:hover { gap: 10px; }
+
+    /* ---------- Footer ---------- */
+    footer {
+      background: var(--text);
+      color: rgba(250,248,244,0.6);
+      padding: 60px 0 40px;
+    }
+    .footer-inner {
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 16px;
+    }
+    .footer-brand .brand { color: var(--bg); margin-bottom: 4px; font-size: 18px; }
+    .footer-brand p {
+      color: rgba(250,248,244,0.4);
+      font-size: 13px; max-width: 34ch; line-height: 1.6;
+    }
+    .footer-bottom {
+      display: flex; align-items: center; gap: 24px;
+      font-family: var(--font-mono); font-size: 10px;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(250,248,244,0.2);
+    }
+    .footer-bottom a {
+      color: rgba(250,248,244,0.35);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .footer-bottom a:hover { color: rgba(250,248,244,0.6); }
+
+    /* ---------- Reveal ---------- */
+    .reveal {
+      opacity: 0; transform: translateY(16px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* ---------- i18n ---------- */
+    [data-lang="zh"] .en-only { display: none; }
+    [data-lang="en"] .zh-only { display: none; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 720px) {
+      .nav-links { display: none; }
+      .nl-item {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 40px 0;
+      }
+      .nl-action { align-items: flex-start; }
+      .nl-form { min-width: 0; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="brand" aria-label="LINK-X Capital">LINK-X</a>
+    <nav class="nav-links">
+      <a href="index.html#beliefs" data-i18n="nav.beliefs">理念</a>
+      <a href="index.html#daily" data-i18n="nav.daily">日报</a>
+      <a href="index.html#focus" data-i18n="nav.focus">关注领域</a>
+      <a href="portfolio.html" data-i18n="nav.portfolio">投资组合</a>
+      <a href="team.html" data-i18n="nav.team">团队</a>
+      <a href="contact.html" data-i18n="nav.contact">联系</a>
+    </nav>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button data-set-lang="en">EN</button>
+      <span class="sep">|</span>
+      <button data-set-lang="zh" class="active">中</button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="page-hero">
+  <div class="container reveal">
+    <h1 data-i18n="hero.title">保持<em>联系</em>。</h1>
+    <p class="sub" data-i18n="hero.sub">订阅我们的研究简报与基金动态，或与团队取得联系。</p>
+  </div>
+</section>
+
+<!-- ============ LIST ============ -->
+<section>
+  <div class="container">
+    <div class="nl-list reveal">
+
+      <!-- Subscribe -->
+      <div class="nl-item">
+        <div class="nl-info">
+          <div class="nl-label" data-i18n="nl.sub.label">Newsletter</div>
+          <h3 data-i18n="nl.sub.title">订阅基金新闻与每日前沿动态</h3>
+          <p data-i18n="nl.sub.desc">基金新闻：新投资、行业洞察与 LINK-X 动态，季度更新。每日前沿日报：每个工作日一封邮件，关于 AI 前沿的高密度研究与解读。</p>
+        </div>
+        <div class="nl-action">
+          <form class="nl-form" onsubmit="event.preventDefault(); this.classList.add('success'); this.querySelector('button').textContent='✓';">
+            <input type="email" placeholder="you@company.com" required />
+            <button type="submit" data-i18n="nl.btn">订阅</button>
+          </form>
+          <span class="nl-note" data-i18n="nl.sub.note">随时退订</span>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div class="nl-item">
+        <div class="nl-info">
+          <div class="nl-label">Contact</div>
+          <h3 data-i18n="nl.con.title">联系我们</h3>
+          <p data-i18n="nl.con.desc">BP 投递、LP 合作、媒体采访、研究交流或其他合作意向，欢迎联系。</p>
+        </div>
+        <div class="nl-action">
+          <a href="mailto:hello@linkx.vc" class="nl-email">hello@linkx.vc →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="brand">LINK-X Capital</div>
+        <p data-i18n="footer.desc">Investing in the AI capability frontier. 投资 AI 能力跃迁。</p>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 LINK-X Capital</span>
+        <a href="legal.html" data-i18n="footer.legal">法律声明</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const i18n = {
+    zh: {
+      "nav.beliefs": "理念", "nav.daily": "日报", "nav.focus": "关注领域",
+      "nav.portfolio": "投资组合", "nav.team": "团队", "nav.contact": "联系",
+      "hero.title": "保持<em>联系</em>。",
+      "hero.sub": "订阅我们的研究简报与基金动态，或与团队取得联系。",
+      "nl.sub.label": "Newsletter",
+      "nl.sub.title": "订阅基金新闻与每日前沿动态",
+      "nl.sub.desc": "基金新闻：新投资、行业洞察与 LINK-X 动态，季度更新。每日前沿日报：每个工作日一封邮件，关于 AI 前沿的高密度研究与解读。",
+      "nl.sub.note": "随时退订",
+      "nl.con.title": "联系我们",
+      "nl.con.desc": "BP 投递、LP 合作、媒体采访、研究交流或其他合作意向，欢迎联系。",
+      "nl.btn": "订阅",
+      "footer.desc": "Investing in the AI capability frontier. 投资 AI 能力跃迁。",
+      "footer.legal": "法律声明"
+    },
+    en: {
+      "nav.beliefs": "Beliefs", "nav.daily": "Daily", "nav.focus": "Focus",
+      "nav.portfolio": "Portfolio", "nav.team": "Team", "nav.contact": "Contact",
+      "hero.title": "Stay in <em>touch</em>.",
+      "hero.sub": "Subscribe to our research briefings and fund updates, or get in touch.",
+      "nl.sub.label": "Newsletter",
+      "nl.sub.title": "Subscribe to Fund News & Daily AI Briefing",
+      "nl.sub.desc": "Fund News: new investments, industry insights and LINK-X updates, quarterly. Daily AI Briefing: one email every weekday with dense research and analysis on the AI frontier.",
+      "nl.sub.note": "Unsubscribe anytime",
+      "nl.con.title": "Get in Touch",
+      "nl.con.desc": "Pitch decks, LP partnerships, media inquiries, research collaboration or other inquiries.",
+      "nl.btn": "Subscribe",
+      "footer.desc": "Investing in the AI capability frontier.",
+      "footer.legal": "Legal"
+    }
+  };
+
+  function applyLang(lang) {
+    const dict = i18n[lang];
+    document.documentElement.setAttribute("data-lang", lang);
+    document.documentElement.setAttribute("lang", lang === "zh" ? "zh-CN" : "en");
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      if (!dict[key]) return;
+      const val = dict[key];
+      if (val.indexOf("<em>") !== -1) el.innerHTML = val;
+      else el.textContent = val;
+    });
+    document.querySelectorAll("[data-set-lang]").forEach(btn => {
+      btn.classList.toggle("active", btn.getAttribute("data-set-lang") === lang);
+    });
+    try { localStorage.setItem("linkx.lang", lang); } catch(e){}
+  }
+
+  document.querySelectorAll("[data-set-lang]").forEach(btn => {
+    btn.addEventListener("click", () => applyLang(btn.getAttribute("data-set-lang")));
+  });
+
+  (function initLang() {
+    let lang = "zh";
+    try {
+      const saved = localStorage.getItem("linkx.lang");
+      if (saved === "en" || saved === "zh") lang = saved;
+      else if ((navigator.language || "").toLowerCase().startsWith("en")) lang = "en";
+    } catch(e) {}
+    applyLang(lang);
+  })();
+
+  const bar = document.getElementById("progressBar");
+  window.addEventListener("scroll", () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + "%";
+  }, { passive: true });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add("in"); io.unobserve(entry.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
