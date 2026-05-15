@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>2026年在等到AGI之前，我们先做什么 · LINK-X Capital</title>
+  <meta name="description" content="AGI拐点未至，技术演进的主线是什么？创业者该如何把握阶段性机会？星连资本关于AI产业七个方向的深度思考。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <style>
+    :root {
+      --bg: #FAF8F4;
+      --bg-warm: #F2EBE0;
+      --border: #DDD5CA;
+      --border-light: #EAE4DC;
+      --text: #1C1917;
+      --text-soft: #44403C;
+      --text-muted: #78716C;
+      --text-light: #A8A29E;
+      --purple: #660874;
+      --purple-mid: #8B3A9A;
+      --purple-soft: #B07CC0;
+      --purple-pale: #E8D5EE;
+      --purple-wash: #F3EAF6;
+      --font-serif: "Instrument Serif", "Noto Serif SC", Georgia, serif;
+      --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+      --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+      --max: 1180px;
+      --px: clamp(24px, 6vw, 80px);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--px);
+    }
+
+    /* ---------- Progress bar ---------- */
+    .progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; background: var(--purple);
+      z-index: 999; transition: width 0.1s linear;
+    }
+
+    /* ---------- Header — matches index.html ---------- */
+    header.site-header {
+      position: sticky; top: 0; z-index: 300;
+      background: rgba(250,248,244,0.84);
+      backdrop-filter: blur(18px) saturate(120%);
+      -webkit-backdrop-filter: blur(18px) saturate(120%);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .nav {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      height: 76px;
+      padding: 0 clamp(20px, 4vw, 48px);
+    }
+    .brand-logo {
+      display: inline-flex; align-items: center; gap: 13px;
+      color: var(--text); text-decoration: none; white-space: nowrap;
+    }
+    .brand-mark {
+      width: 42px; height: 42px;
+      color: var(--purple); flex: 0 0 auto;
+    }
+    .brand-lockup { display: grid; gap: 1px; line-height: 1; }
+    .brand-cn {
+      font-family: var(--font-sans); font-size: 20px;
+      font-weight: 700; letter-spacing: 0.03em;
+    }
+    .brand-en {
+      font-family: var(--font-sans); font-size: 11.5px;
+      font-weight: 700; letter-spacing: 0.045em;
+    }
+    .nav-actions {
+      display: flex; align-items: center; justify-content: flex-end;
+      gap: clamp(18px, 2.4vw, 34px);
+      font-size: 13px; font-weight: 400; color: var(--text-muted);
+    }
+    .lang-toggle {
+      display: flex; align-items: center; gap: 6px;
+      font-family: var(--font-mono); font-size: 12px;
+      letter-spacing: 0.04em; color: var(--text-light);
+    }
+    .lang-toggle button {
+      background: none; border: none;
+      padding: 2px 4px; cursor: pointer;
+      color: var(--text-light); font: inherit;
+      transition: color 0.2s ease;
+    }
+    .lang-toggle button.active { color: var(--text); }
+    .lang-toggle button:hover { color: var(--purple); }
+    .lang-toggle .sep { color: var(--border); padding: 0 2px; }
+    .menu-toggle {
+      display: inline-flex; align-items: center; gap: 13px;
+      min-height: 40px; background: transparent; border: 0;
+      color: var(--text); cursor: pointer;
+      font: 500 13px/1 var(--font-sans); padding: 0;
+    }
+    .menu-toggle-mark { display: grid; gap: 5px; width: 34px; }
+    .menu-toggle-mark span {
+      display: block; height: 1px; background: currentColor;
+      transform-origin: right center; transition: transform 0.2s ease;
+    }
+    .menu-toggle:hover .menu-toggle-mark span:first-child { transform: scaleX(0.64); }
+    .menu-toggle:hover .menu-toggle-mark span:last-child { transform: scaleX(1.18); }
+    .menu-toggle-text {
+      font-family: var(--font-mono); font-size: 12px;
+      letter-spacing: 0.07em; text-transform: uppercase;
+    }
+
+    /* ---------- Menu panel — matches index.html ---------- */
+    body.menu-open { overflow: hidden; }
+    .menu-overlay {
+      position: fixed; inset: 0 0 0 auto;
+      width: min(720px, 50vw); z-index: 500;
+      color: var(--bg);
+      background:
+        linear-gradient(90deg, rgba(250,248,244,0.035) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(250,248,244,0.03) 1px, transparent 1px),
+        linear-gradient(135deg, #151012 0%, #21161E 52%, #2A162F 100%);
+      background-size: 96px 96px, 96px 96px, auto;
+      opacity: 0; visibility: hidden; pointer-events: none;
+      overflow-x: hidden; overflow-y: auto; scrollbar-width: none;
+      box-shadow: -28px 0 70px rgba(28,25,23,0.22);
+      transform: translateX(24px);
+      transition: opacity 0.28s ease, transform 0.28s ease, visibility 0s linear 0.28s;
+    }
+    .menu-overlay::-webkit-scrollbar { display: none; }
+    .menu-overlay.is-open {
+      opacity: 1; visibility: visible; pointer-events: auto;
+      transform: translateX(0); transition-delay: 0s;
+    }
+    .menu-overlay::before {
+      content: "LINK-X"; position: absolute;
+      right: -0.08em; bottom: -0.28em;
+      font-family: var(--font-serif);
+      font-size: clamp(130px, 24vw, 360px); line-height: 1;
+      color: rgba(250,248,244,0.045); pointer-events: none; letter-spacing: 0;
+    }
+    .menu-shell {
+      position: relative; z-index: 1; min-height: 100dvh;
+      display: grid; grid-template-rows: auto 1fr auto;
+      padding: 0 clamp(22px, 3vw, 40px) 28px;
+    }
+    .menu-top {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 76px; border-bottom: 1px solid rgba(250,248,244,0.12);
+    }
+    .menu-label { display: inline-flex; align-items: baseline; gap: 10px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(250,248,244,0.48); }
+    .menu-label span { color: var(--purple-pale); }
+    .menu-label i { font-style: normal; color: rgba(250,248,244,0.28); }
+    .menu-label em { font-style: normal; color: rgba(250,248,244,0.42); }
+    .menu-close {
+      position: relative; width: 44px; height: 44px;
+      display: grid; place-items: center;
+      background: transparent; border: 1px solid rgba(250,248,244,0.22);
+      color: var(--bg); cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+    .menu-close:hover { background: rgba(250,248,244,0.08); border-color: rgba(250,248,244,0.5); }
+    .menu-close span {
+      position: absolute; width: 18px; height: 1px; background: currentColor;
+    }
+    .menu-close span:first-child { transform: rotate(45deg); }
+    .menu-close span:last-child { transform: rotate(-45deg); }
+    .menu-grid {
+      display: grid; grid-template-columns: minmax(0,1fr);
+      gap: 22px; align-items: start;
+      padding: clamp(24px, 4vh, 34px) 0;
+    }
+    .menu-primary {
+      display: flex; flex-direction: column;
+      border-top: 1px solid rgba(250,248,244,0.16);
+    }
+    .menu-primary a {
+      display: grid; grid-template-columns: 36px 1fr auto;
+      gap: 16px; align-items: baseline;
+      padding: clamp(10px, 1.4vh, 12px) 0;
+      border-bottom: 1px solid rgba(250,248,244,0.16);
+      color: rgba(250,248,244,0.9);
+      opacity: 0; transform: translateY(18px);
+      transition: color 0.2s ease, opacity 0.4s ease, transform 0.4s ease;
+      text-decoration: none;
+    }
+    .menu-overlay.is-open .menu-primary a { opacity: 1; transform: none; }
+    .menu-overlay.is-open .menu-primary a:nth-child(1) { transition-delay: 0.06s; }
+    .menu-overlay.is-open .menu-primary a:nth-child(2) { transition-delay: 0.1s; }
+    .menu-overlay.is-open .menu-primary a:nth-child(3) { transition-delay: 0.14s; }
+    .menu-overlay.is-open .menu-primary a:nth-child(4) { transition-delay: 0.18s; }
+    .menu-overlay.is-open .menu-primary a:nth-child(5) { transition-delay: 0.22s; }
+    .menu-overlay.is-open .menu-primary a:nth-child(6) { transition-delay: 0.26s; }
+    .menu-overlay.is-open .menu-primary a:nth-child(7) { transition-delay: 0.3s; }
+    .menu-primary a:hover { color: #fff; }
+    .menu-primary .menu-num {
+      font-family: var(--font-mono); font-size: 11px;
+      letter-spacing: 0.1em; color: rgba(232,213,238,0.54);
+    }
+    .menu-primary strong {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 2.8vw, 40px);
+      font-weight: 400; line-height: 1.02; letter-spacing: 0;
+    }
+    .menu-primary em {
+      font-family: var(--font-mono); font-size: 11px;
+      font-style: normal; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(250,248,244,0.35);
+    }
+    .menu-side {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
+      opacity: 0; transform: translateY(18px);
+      transition: opacity 0.45s ease 0.24s, transform 0.45s ease 0.24s;
+    }
+    .menu-overlay.is-open .menu-side { opacity: 1; transform: none; }
+    .menu-panel {
+      border: 1px solid rgba(250,248,244,0.14);
+      background: rgba(250,248,244,0.055);
+      padding: clamp(18px, 2vw, 22px);
+    }
+    .menu-kicker {
+      font-family: var(--font-mono); font-size: 10px;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--purple-pale); margin-bottom: 18px;
+    }
+    .menu-panel p {
+      color: rgba(250,248,244,0.74); font-size: 13.5px;
+      line-height: 1.7; margin-bottom: 18px;
+    }
+    .menu-panel a {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--font-mono); font-size: 11px;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: #fff; text-decoration: none;
+      border-bottom: 1px solid rgba(250,248,244,0.36);
+      padding-bottom: 4px;
+      transition: gap 0.2s ease, border-color 0.2s ease;
+    }
+    .menu-panel a:hover { gap: 13px; border-color: #fff; }
+    .menu-footer {
+      display: flex; justify-content: space-between; gap: 24px;
+      padding-top: 24px; border-top: 1px solid rgba(250,248,244,0.12);
+      font-family: var(--font-mono); font-size: 10px;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(250,248,244,0.42);
+    }
+    .menu-footer a { color: rgba(250,248,244,0.42); text-decoration: none; }
+    .menu-footer a:hover { color: #fff; }
+
+    /* ---------- Article hero ---------- */
+    .article-hero {
+      padding: clamp(80px, 12vw, 160px) 0 0;
+    }
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .article-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: var(--purple);
+      padding: 4px 12px;
+      border: 1px solid var(--purple-soft);
+    }
+    .article-date {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--text-light);
+    }
+    .article-hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 4.5vw, 52px);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      text-wrap: balance;
+    }
+
+    /* ---------- Article body ---------- */
+    .article-body {
+      max-width: 700px;
+      padding: clamp(48px, 6vw, 80px) 0 clamp(80px, 10vw, 140px);
+    }
+    .article-body p {
+      font-size: 17px;
+      line-height: 1.9;
+      color: var(--text-soft);
+      margin-bottom: 24px;
+      text-align: justify;
+      hyphens: auto;
+      text-wrap: pretty;
+    }
+    .article-body h2 {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin-top: 56px;
+      margin-bottom: 20px;
+      line-height: 1.3;
+      text-wrap: balance;
+    }
+    .article-body h3 {
+      font-family: var(--font-sans);
+      font-size: 18px;
+      font-weight: 600;
+      margin-top: 40px;
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+
+    /* ---------- Back link ---------- */
+    .article-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(102, 8, 116, 0.5);
+      text-decoration: none;
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(102, 8, 116, 0.18);
+      transition: color 0.2s ease;
+    }
+    .article-back:hover { color: rgba(102, 8, 116, 0.8); }
+
+    /* ---------- Footer ---------- */
+    footer {
+      background:
+        linear-gradient(135deg, #151012 0%, #21161E 52%, #2A162F 100%);
+      color: rgba(250, 248, 244, 0.6);
+      padding: 60px 0 40px;
+    }
+    .footer-inner {
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 16px;
+    }
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-left .brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-left .brand-cn {
+      color: var(--bg);
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .footer-left .brand-en {
+      color: var(--bg);
+      font-size: 13px;
+      font-family: var(--font-mono);
+      letter-spacing: 0.08em;
+    }
+    .footer-left p {
+      color: rgba(250, 248, 244, 0.4);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .footer-copy {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(250, 248, 244, 0.2);
+    }
+    .footer-copy a {
+      color: rgba(250, 248, 244, 0.35);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .footer-copy a:hover { color: rgba(250, 248, 244, 0.6); }
+
+    /* ---------- i18n ---------- */
+    [data-lang="zh"] .en-only { display: none; }
+    [data-lang="en"] .zh-only { display: none; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 720px) {
+      .brand-logo { gap: 9px; }
+      .brand-mark { width: 30px; height: 30px; }
+      .brand-cn { font-size: 17px; letter-spacing: 0.02em; }
+      .brand-en { display: none; }
+      .article-hero h1 { font-size: clamp(28px, 7vw, 38px); }
+      .article-body h2 { font-size: 24px; }
+      .article-body p { font-size: 16px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="nav">
+    <a href="index.html" class="brand-logo" aria-label="星连资本 LINK-X Capital">
+      <svg class="brand-mark" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(8.2 8.2)" fill="currentColor"/>
+        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(26 8.2)" fill="currentColor"/>
+        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(43.8 8.2)" fill="currentColor"/>
+        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(8.2 26)" fill="currentColor"/>
+        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(43.8 26)" fill="currentColor"/>
+        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(8.2 43.8)" fill="currentColor"/>
+        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(26 43.8)" fill="currentColor"/>
+        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(43.8 43.8)" fill="currentColor"/>
+      </svg>
+      <span class="brand-lockup">
+        <span class="brand-cn">星连资本</span>
+        <span class="brand-en">LINK-X CAPITAL</span>
+      </span>
+    </a>
+    <div class="nav-actions">
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="en">EN</button>
+        <span class="sep">|</span>
+        <button data-set-lang="zh" class="active">中</button>
+      </span>
+      <button class="menu-toggle" type="button" aria-controls="siteMenu" aria-expanded="false" data-menu-open>
+        <span class="menu-toggle-text" data-i18n="menu.open">Menu</span>
+        <span class="menu-toggle-mark" aria-hidden="true">
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MENU ============ -->
+<div class="menu-overlay" id="siteMenu" aria-hidden="true">
+  <div class="menu-shell">
+    <div class="menu-top">
+      <div class="menu-label"><span>导航</span><i>/</i><em>Menu</em></div>
+      <button class="menu-close" type="button" aria-label="Close menu" data-menu-close>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div class="menu-grid">
+      <nav class="menu-primary" aria-label="Primary navigation">
+        <a href="index.html#about-fund" data-menu-link><span class="menu-num">01</span><strong data-i18n="nav.about">关于</strong><em>About</em></a>
+        <a href="index.html#beliefs" data-menu-link><span class="menu-num">02</span><strong data-i18n="nav.beliefs">理念</strong><em>Beliefs</em></a>
+        <a href="insights.html" data-menu-link><span class="menu-num">03</span><strong data-i18n="nav.daily">洞察</strong><em>Insights</em></a>
+        <a href="index.html#focus" data-menu-link><span class="menu-num">04</span><strong data-i18n="nav.focus">关注领域</strong><em>Focus Areas</em></a>
+        <a href="index.html#portfolio" data-menu-link><span class="menu-num">05</span><strong data-i18n="nav.portfolio">投资组合</strong><em>Portfolio</em></a>
+        <a href="team.html" data-menu-link><span class="menu-num">06</span><strong data-i18n="nav.team">团队</strong><em>Team</em></a>
+        <a href="contact.html" data-menu-link><span class="menu-num">07</span><strong data-i18n="nav.contact">联系</strong><em>Contact</em></a>
+      </nav>
+      <aside class="menu-side" aria-label="Featured links">
+        <div class="menu-panel">
+          <div class="menu-kicker" data-i18n="menu.research.kicker">Insights Feed</div>
+          <p data-i18n="menu.research.text">持续跟踪模型、infra、agent 与前沿计算的真实变化，记录 AI 生态的一线信号。</p>
+          <a href="insights.html" data-menu-link><span data-i18n="menu.research.link">获取最新动态</span><span aria-hidden="true">→</span></a>
+        </div>
+        <div class="menu-panel">
+          <div class="menu-kicker" data-i18n="menu.contact.kicker">Build With Us</div>
+          <p data-i18n="menu.contact.text">创始人、LP、媒体与研究伙伴，可以从这里找到 LINK-X 团队。</p>
+          <a href="contact.html" data-menu-link><span data-i18n="menu.contact.link">联系我们</span><span aria-hidden="true">→</span></a>
+        </div>
+      </aside>
+    </div>
+    <div class="menu-footer">
+      <span data-i18n="menu.footer.meta">LINK-X Capital · 北京清华科技园</span>
+      <a href="mailto:hello@linkx.vc">hello@linkx.vc</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ARTICLE HERO ============ -->
+<section class="article-hero">
+  <div class="container">
+    <div class="article-meta">
+      <span class="article-tag">观点</span>
+      <span class="article-date">2026.01.04</span>
+    </div>
+    <h1 data-i18n="title">2026年在等到AGI之前，<br>我们先做什么。</h1>
+  </div>
+</section>
+
+<!-- ============ ARTICLE BODY ============ -->
+<section>
+  <div class="container">
+    <div class="article-body">
+
+      <p data-i18n="p1">2026年开年即起风，AI行业IPO热潮席卷资本市场，壁仞科技、智谱AI、MiniMax密集推进上市进程，也因此有媒体判断2026年是"IPO大年"。这也从侧面印证了 AI 行业国产大模型正式从"技术探索期"迈入"<strong>产业深耕期</strong>"。</p>
+
+      <p data-i18n="p2">然而，产业化进程的加快，并不意味着技术路径已然收敛。在AGI尚未出现明确拐点的当下，<strong>技术演进的主线是什么？创业者该如何把握阶段性机会？</strong>这是AI领域从业者与投资者共同关注的核心命题。</p>
+
+      <p data-i18n="p3">在当前技术能力仍处于线性增长的阶段，一方面，持续探索模型的智能上限仍是最重要的任务；另一方面，如何将模型已经具备的能力在真实、复杂场景中有效激活与释放，也成为无法回避的现实挑战。这两点，构成了当前行业关注的核心问题。</p>
+
+      <p data-i18n="p4">在这样的背景下，理解"拐点未至时该做什么"，成为判断下一阶段技术与产业趋势的关键前提。</p>
+
+      <h2 data-i18n="h2_1">七个方向</h2>
+
+      <h3 data-i18n="h3_1">01 拐点未至：探索智能上界仍是重点，Scaling仍是最高效的方法</h3>
+
+      <p data-i18n="p5">预训练使得大模型已经掌握世界常识知识，并且具备简单推理能力。更多数据、更大参数和更饱和的计算仍然是scaling基座模型最高效的办法。过去两年，行业在多模态、端到端语音等方向进行了大量尝试，但实践证明，真正决定模型智能上限的，依然是文本。当前模型的知识量和基本的推理能力都依靠"大量读书"，也就是承载人类常识知识的文本数据。从第一性原理的角度，要探索智能上限，第一个核心要素就是更大规模的数据，尤其是<strong>常识知识数据</strong>（真实数据、合成数据及蒸馏数据）。同时，尽管在模型层和infra（基础设施）层，大家都在探索更高效的方式，但在可预见的时间内，scale仍然是<strong>提升模型能力最有效的路径</strong>——除了更大规模的数据，更大的模型参数规模，以及更多的算力投入仍然必要。</p>
+
+      <h3 data-i18n="h3_2">02 现有模型能力释放的关键：激活对齐与增强推理能力</h3>
+
+      <p data-i18n="p6">激活对齐和增强推理能力，尤其是激活更全面的长尾能力是保证模型效果的另一关键。即使模型具备了常识知识，如果无法被有效激活，其能力也难以释放。过去，对齐主要依赖SFT、CoT等方式，而当前<strong>强化学习</strong>正逐步成为主流路径：<strong>通过构造场景和数据，让模型在强化学习中自我优化，以激活智能上界</strong>。但现实挑战在于，通用benchmark的出现一方面可以评测模型的通用效果，但也可能使得很多模型过拟合。同时，评测benchmark数量有限，而真实世界的应用场景几乎无限。随着大量Agent的出现，对齐的复杂度显著提升——如果说过去模型对齐更像是在考语文、数学等知识点，那么Agent更接近真实工作环境，工种多样、情境复杂，甚至需要一定的"情商"。例如订机票、订酒店，本质上是通过引入Agent数据，与人类行为对齐，从而激活模型能力。因此，下一个阶段要取得的突破是让模型更快、更好地对齐长尾的真实场景。<strong>Mid-training和Post-training</strong>将使得更多场景的快速对齐和强推理能力成为可能。</p>
+
+      <h3 data-i18n="h3_3">03 Agent演进：跨环境泛化与迁移仍是难题，简单解法是构造环境数据+强化学习</h3>
+
+      <p data-i18n="p7">Agent是模型能力扩展的一个里程碑，也是体现AI模型进入人类真实（虚拟/物理）世界的关键。没有Agent能力，大模型将停留在（理论学习）阶段，难以将知识积累转化为真实生产力。接下来的一年里，将会继续涌现大量Agent——这个判断已经不再新鲜。但要推进Agent大规模应用落地，核心首先在于理解AI的本质不是创造全新的能力，而是系统性替代人类的部分工作或能力。这也是决定Agent必然爆发的关键因素。其次，尽管早期的Agent主要通过模型应用实现，但当前模型已经可以将Agent数据直接集成到训练过程，从而增强模型的通用性。然而，难题在于不同Agent环境之间的泛化与迁移。因此，应用层最简单的路径正如前文所言——<strong>不断引入更多不同Agent环境的数据，并针对不同环境进行强化学习</strong>。</p>
+
+      <h3 data-i18n="h3_4">04 模型能力突破的重点：记忆、在线学习与自我评估</h3>
+
+      <p data-i18n="p8">应用层：围绕不同工种构建应用，并保持足够"薄"以适应模型能力演进。</p>
+
+      <p data-i18n="p9">关于应用层，有两个主要判断：一是在大模型发展越来越端到端的情况下，模型研发和模型应用不可避免地需要被结合起来。应用层必须做得足够"薄"，能够快速适配基座模型的能力变化，迅速上线、迭代和验证价值；二是，构建模型应用应该以帮助人、创造新的价值为出发点。如果做一个AI软件没人用，也就无法创造价值，那么它注定缺乏生命力。</p>
+
+      <p data-i18n="p10">具体而言，AI软件究竟应该做什么？回到第一性原理，AI不需要创建新的应用，其本质是<strong>模拟人或代替人或帮助人实现人类某些必须要做到的事（某些工种）</strong>。从这个角度，未来的应用主要分为两类：将过去的软件AI化，原来需要人参与的部分改为AI；创造对齐人类某个公众的AI软件，替代人类工作。</p>
+
+      <h3 data-i18n="h3_5">05 具身智能：在更多真实场景解锁模型能力，需解决数据规模和硬件技术问题</h3>
+
+      <p data-i18n="p11">虚拟世界之外，与Agent爆发相对应的，是具身智能的发展。当前机器人大脑已经具备较强智能，下一步的关键在于<strong>将大模型能力与机器人行为做好对齐并加以激活</strong>。随着硬件技术逐步成熟，具身智能有望在更多真实场景中释放模型能力。但同时，和Agent面临的难以泛化的问题一样，通过少样本激活通用具身能力基本不可能实现。这就需要突破大规模数据获取的问题。</p>
+
+      <h3 data-i18n="h3_6">06 多模态：长期重要方向，高效路径是文本、多模态理解、多模态生成并行探索</h3>
+
+      <p data-i18n="p12">尽管多模态尚未在探索AGI的智能上限方面有实质帮助，但其无疑是一个重要方向。当前有效的路径仍然是文本、多模态理解、多模态生成并行发展，并适度探索三者的结合，寻找新的能力涌现。当然，三者结合的探索不仅需要技术探索上的勇气，也需要长期、持续的资本投入。</p>
+
+      <h3 data-i18n="h3_7">07 领域模型：理性看待阶段性机会</h3>
+
+      <p data-i18n="p13">在AGI终局下，领域模型很可能会被基座模型覆盖，领域的数据、流程、Agent数据都会逐渐进入主模型。但在AGI尚未实现的阶段，只要有持续投入的决心，在拥有领域数据并与基座模型保持紧密耦合的情况下，仍有机会在特定竞争窗口中建立领先优势。</p>
+
+      <a href="insights.html" class="article-back" data-i18n="back">← 返回洞察</a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-left">
+      <div class="brand-lockup">
+        <span class="brand-cn">星连资本</span>
+        <span class="brand-en">LINK-X CAPITAL</span>
+      </div>
+      <p>与 AGI 时代的定义者同行。</p>
+    </div>
+    <div class="footer-copy">
+      <span>&copy; 2026 北京星连肇基私募基金管理有限责任公司</span>
+      <a href="legal.html">法律声明</a>
+    </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ---------- i18n ---------- */
+  const i18n = {
+    zh: {
+      "nav.about": "关于", "nav.beliefs": "理念", "nav.daily": "洞察", "nav.focus": "关注领域",
+      "nav.portfolio": "投资组合", "nav.team": "团队", "nav.contact": "联系",
+      "menu.open": "Menu",
+      "menu.research.kicker": "Insights Feed",
+      "menu.research.text": "持续跟踪模型、infra、agent 与前沿计算的真实变化，记录 AI 生态的一线信号。",
+      "menu.research.link": "获取最新动态",
+      "menu.contact.kicker": "Build With Us",
+      "menu.contact.text": "创始人、LP、媒体与研究伙伴，可以从这里找到 LINK-X 团队。",
+      "menu.contact.link": "联系我们",
+      "menu.footer.meta": "LINK-X Capital · 北京清华科技园",
+      "title": "2026年在等到AGI之前，我们先做什么。",
+      "kicker": "AGI Next 全明星峰会落幕｜",
+      "p1": "2026年开年即起风，AI行业IPO热潮席卷资本市场，壁仞科技、智谱AI、MiniMax密集推进上市进程，也因此有媒体判断2026年是\"IPO大年\"。这也从侧面印证了 AI 行业国产大模型正式从\"技术探索期\"迈入\"<strong>产业深耕期</strong>\"。",
+      "p2": "然而，产业化进程的加快，并不意味着技术路径已然收敛。在AGI尚未出现明确拐点的当下，<strong>技术演进的主线是什么？创业者该如何把握阶段性机会？</strong>这是AI领域从业者与投资者共同关注的核心命题。",
+      "p3": "在当前技术能力仍处于线性增长的阶段，一方面，持续探索模型的智能上限仍是最重要的任务；另一方面，如何将模型已经具备的能力在真实、复杂场景中有效激活与释放，也成为无法回避的现实挑战。这两点，构成了当前行业关注的核心问题。",
+      "p4": "在这样的背景下，理解\"拐点未至时该做什么\"，成为判断下一阶段技术与产业趋势的关键前提。",
+      "h2_1": "七个方向",
+      "h3_1": "01 拐点未至：探索智能上界仍是重点，Scaling仍是最高效的方法",
+      "p5": "预训练使得大模型已经掌握世界常识知识，并且具备简单推理能力。更多数据、更大参数和更饱和的计算仍然是scaling基座模型最高效的办法。过去两年，行业在多模态、端到端语音等方向进行了大量尝试，但实践证明，真正决定模型智能上限的，依然是文本。当前模型的知识量和基本的推理能力都依靠\"大量读书\"，也就是承载人类常识知识的文本数据。从第一性原理的角度，要探索智能上限，第一个核心要素就是更大规模的数据，尤其是<strong>常识知识数据</strong>（真实数据、合成数据及蒸馏数据）。同时，尽管在模型层和infra（基础设施）层，大家都在探索更高效的方式，但在可预见的时间内，scale仍然是<strong>提升模型能力最有效的路径</strong>——除了更大规模的数据，更大的模型参数规模，以及更多的算力投入仍然必要。",
+      "h3_2": "02 现有模型能力释放的关键：激活对齐与增强推理能力",
+      "p6": "激活对齐和增强推理能力，尤其是激活更全面的长尾能力是保证模型效果的另一关键。即使模型具备了常识知识，如果无法被有效激活，其能力也难以释放。过去，对齐主要依赖SFT、CoT等方式，而当前<strong>强化学习</strong>正逐步成为主流路径：<strong>通过构造场景和数据，让模型在强化学习中自我优化，以激活智能上界</strong>。但现实挑战在于，通用benchmark的出现一方面可以评测模型的通用效果，但也可能使得很多模型过拟合。同时，评测benchmark数量有限，而真实世界的应用场景几乎无限。随着大量Agent的出现，对齐的复杂度显著提升——如果说过去模型对齐更像是在考语文、数学等知识点，那么Agent更接近真实工作环境，工种多样、情境复杂，甚至需要一定的\"情商\"。例如订机票、订酒店，本质上是通过引入Agent数据，与人类行为对齐，从而激活模型能力。因此，下一个阶段要取得的突破是让模型更快、更好地对齐长尾的真实场景。<strong>Mid-training和Post-training</strong>将使得更多场景的快速对齐和强推理能力成为可能。",
+      "h3_3": "03 Agent演进：跨环境泛化与迁移仍是难题，简单解法是构造环境数据+强化学习",
+      "p7": "Agent是模型能力扩展的一个里程碑，也是体现AI模型进入人类真实（虚拟/物理）世界的关键。没有Agent能力，大模型将停留在（理论学习）阶段，难以将知识积累转化为真实生产力。接下来的一年里，将会继续涌现大量Agent——这个判断已经不再新鲜。但要推进Agent大规模应用落地，核心首先在于理解AI的本质不是创造全新的能力，而是系统性替代人类的部分工作或能力。这也是决定Agent必然爆发的关键因素。其次，尽管早期的Agent主要通过模型应用实现，但当前模型已经可以将Agent数据直接集成到训练过程，从而增强模型的通用性。然而，难题在于不同Agent环境之间的泛化与迁移。因此，应用层最简单的路径正如前文所言——<strong>不断引入更多不同Agent环境的数据，并针对不同环境进行强化学习</strong>。",
+      "h3_4": "04 模型能力突破的重点：记忆、在线学习与自我评估",
+      "p8": "应用层：围绕不同工种构建应用，并保持足够\"薄\"以适应模型能力演进。",
+      "p9": "关于应用层，有两个主要判断：一是在大模型发展越来越端到端的情况下，模型研发和模型应用不可避免地需要被结合起来。应用层必须做得足够\"薄\"，能够快速适配基座模型的能力变化，迅速上线、迭代和验证价值；二是，构建模型应用应该以帮助人、创造新的价值为出发点。如果做一个AI软件没人用，也就无法创造价值，那么它注定缺乏生命力。",
+      "p10": "具体而言，AI软件究竟应该做什么？回到第一性原理，AI不需要创建新的应用，其本质是<strong>模拟人或代替人或帮助人实现人类某些必须要做到的事（某些工种）</strong>。从这个角度，未来的应用主要分为两类：将过去的软件AI化，原来需要人参与的部分改为AI；创造对齐人类某个公众的AI软件，替代人类工作。",
+      "h3_5": "05 具身智能：在更多真实场景解锁模型能力，需解决数据规模和硬件技术问题",
+      "p11": "虚拟世界之外，与Agent爆发相对应的，是具身智能的发展。当前机器人大脑已经具备较强智能，下一步的关键在于<strong>将大模型能力与机器人行为做好对齐并加以激活</strong>。随着硬件技术逐步成熟，具身智能有望在更多真实场景中释放模型能力。但同时，和Agent面临的难以泛化的问题一样，通过少样本激活通用具身能力基本不可能实现。这就需要突破大规模数据获取的问题。",
+      "h3_6": "06 多模态：长期重要方向，高效路径是文本、多模态理解、多模态生成并行探索",
+      "p12": "尽管多模态尚未在探索AGI的智能上限方面有实质帮助，但其无疑是一个重要方向。当前有效的路径仍然是文本、多模态理解、多模态生成并行发展，并适度探索三者的结合，寻找新的能力涌现。当然，三者结合的探索不仅需要技术探索上的勇气，也需要长期、持续的资本投入。",
+      "h3_7": "07 领域模型：理性看待阶段性机会",
+      "p13": "在AGI终局下，领域模型很可能会被基座模型覆盖，领域的数据、流程、Agent数据都会逐渐进入主模型。但在AGI尚未实现的阶段，只要有持续投入的决心，在拥有领域数据并与基座模型保持紧密耦合的情况下，仍有机会在特定竞争窗口中建立领先优势。",
+      "back": "← 返回洞察"
+    },
+    en: {
+      "nav.about": "About", "nav.beliefs": "Beliefs", "nav.daily": "Insights", "nav.focus": "Focus",
+      "nav.portfolio": "Portfolio", "nav.team": "Team", "nav.contact": "Contact",
+      "menu.open": "Menu",
+      "menu.research.kicker": "Insights Feed",
+      "menu.research.text": "Tracking real changes in models, infra, agents, and frontier computing.",
+      "menu.research.link": "Latest Updates",
+      "menu.contact.kicker": "Build With Us",
+      "menu.contact.text": "Founders, LPs, media and research partners — reach the LINK-X team here.",
+      "menu.contact.link": "Contact Us",
+      "menu.footer.meta": "LINK-X Capital · Beijing Tsinghua Science Park",
+      "title": "What Do We Do in 2026 Before AGI Arrives?",
+      "kicker": "AGI Next Summit Recap｜",
+      "p1": "The 2026 new year opened with a surge — an AI IPO wave swept through the capital markets as Birentech, Zhipu AI, and MiniMax all accelerated their listing processes, leading media to dub 2026 an 'IPO mega-year.' This also confirms that China's domestic LLMs have officially transitioned from a 'technology exploration phase' to an '<strong>industry deep-cultivation phase</strong>'.",
+      "p2": "Yet faster industrialization does not mean technical paths have converged. With no clear AGI inflection point in sight, <strong>what is the main line of technological evolution? How should entrepreneurs seize interim opportunities?</strong> This is the core question shared by AI practitioners and investors alike.",
+      "p3": "At the current stage where technical capabilities are still in linear growth, on one hand, continuously exploring the upper bound of model intelligence remains the most important task; on the other hand, how to effectively activate and release the capabilities models already possess in real, complex scenarios has become an unavoidable practical challenge. These two points constitute the core of current industry focus.",
+      "p4": "In this context, understanding 'what to do when the inflection point hasn't arrived' becomes the key prerequisite for judging the next phase's technology and industry trends.",
+      "h2_1": "Seven Directions",
+      "h3_1": "01 Before the Inflection Point: Exploring the Intelligence Ceiling Remains the Priority — Scaling Remains the Most Efficient Method",
+      "p5": "Pre-training has given large models world common sense knowledge and basic reasoning capabilities. More data, larger parameters, and more saturated compute remain the most efficient approach to scaling foundation models. Over the past two years, the industry has made extensive attempts in multi-modality and end-to-end voice, but practice has proven that what truly determines a model's intelligence ceiling is still text. Current models' knowledge and basic reasoning abilities both depend on 'reading extensively' — that is, the text data that carries human common sense knowledge. From a first-principles perspective, the first core element for exploring the intelligence ceiling is larger-scale data, especially <strong>common sense knowledge data</strong> (real data, synthetic data, and distilled data). Meanwhile, although more efficient methods are being explored at the model layer and infra layer, within the foreseeable future, scale remains <strong>the most effective path to improving model capabilities</strong> — beyond larger-scale data, larger model parameter sizes and more compute investment are still necessary.",
+      "h3_2": "02 Key to Unlocking Existing Model Capabilities: Activation Alignment and Enhanced Reasoning",
+      "p6": "Activation alignment and enhanced reasoning capabilities — especially activating more comprehensive long-tail capabilities — are another key to ensuring model effectiveness. Even if a model possesses common sense knowledge, if it cannot be effectively activated, its capabilities are difficult to release. In the past, alignment mainly relied on SFT, CoT, and similar methods, but currently <strong>reinforcement learning</strong> is gradually becoming the mainstream path: <strong>by constructing scenarios and data, models self-optimize in reinforcement learning to activate their intelligence ceiling</strong>. But real-world challenges exist: the emergence of general benchmarks can on one hand evaluate models' general effectiveness, but may also lead many models to overfit. Meanwhile, the number of evaluation benchmarks is limited, while real-world application scenarios are virtually infinite. With the proliferation of Agents, alignment complexity has significantly increased — if past model alignment was more like taking exams on language and math knowledge points, Agents are closer to real work environments, with diverse job types, complex situations, and even requiring a certain level of 'emotional intelligence.' For example, booking flights and hotels essentially involves introducing Agent data to align with human behavior, thereby activating model capabilities. Therefore, the breakthrough for the next phase is making models align long-tail real-world scenarios faster and better. <strong>Mid-training and post-training</strong> will make rapid alignment and strong reasoning capabilities across more scenarios possible.",
+      "h3_3": "03 Agent Evolution: Cross-Environment Generalization and Migration Remain Difficult — Simplest Solution: Construct Environment Data + Reinforcement Learning",
+      "p7": "Agent is a milestone in model capability expansion and the key to AI models entering humans' real (virtual/physical) world. Without Agent capabilities, large models will remain at the (theoretical learning) stage, unable to convert knowledge accumulation into real productivity. Over the next year, more Agents will continue to emerge — this judgment is no longer fresh. But to drive Agent large-scale application and deployment, the core first lies in understanding that AI's essence is not creating entirely new capabilities, but systematically replacing part of humans' work or capabilities. This is also the key factor determining Agent's inevitable explosion. Second, although early Agents primarily implemented through model applications, current models can already integrate Agent data directly into the training process, enhancing model generality. However, the difficulty lies in generalization and migration between different Agent environments. Therefore, the simplest path at the application layer, as mentioned earlier, is to <strong>continuously introduce data from more different Agent environments and conduct reinforcement learning for different environments</strong>.",
+      "h3_4": "04 Focus for Model Capability Breakthroughs: Memory, Online Learning, and Self-Evaluation",
+      "p8": "At the application layer: build applications around different job types, and keep them sufficiently 'thin' to adapt to model capability evolution.",
+      "p9": "Regarding the application layer, there are two main judgments: First, as large models develop increasingly end-to-end, model R&D and model applications inevitably need to be combined. The application layer must be kept sufficiently 'thin,' able to quickly adapt to foundation model capability changes, and rapidly launch, iterate, and verify value. Second, building model applications should start from the perspective of helping people and creating new value. If you build an AI software nobody uses, it cannot create value, and thus is destined to lack vitality.",
+      "p10": "Specifically, what should AI software actually do? Returning to first principles, AI does not need to create new applications — its essence is to <strong>simulate people, replace people, or help people accomplish what humans must do (certain job types)</strong>. From this perspective, future applications mainly divide into two categories: AI-enabling past software, changing parts that originally required human involvement to AI; creating AI software that aligns with some human population, replacing human work.",
+      "h3_5": "05 Embodied Intelligence: Unlocking Model Capabilities in More Real Scenarios — Data Scale and Hardware Technology Issues Need to Be Resolved",
+      "p11": "Beyond the virtual world, corresponding to the Agent explosion is the development of embodied intelligence. Robot brains now have fairly strong intelligence — the next key is to <strong>properly align and activate large model capabilities with robot behaviors</strong>. As hardware technology gradually matures, embodied intelligence is expected to release model capabilities in more real-world scenarios. But like the generalization difficulties Agents face, activating universal embodied capabilities through few samples is essentially impossible. This requires breaking through the problem of large-scale data acquisition.",
+      "h3_6": "06 Multi-Modality: A Long-Term Important Direction — Efficient Path: Parallel Exploration of Text, Multi-Modal Understanding, and Multi-Modal Generation",
+      "p12": "Although multi-modality hasn't yet provided substantial help in exploring the AGI intelligence ceiling, it is undoubtedly an important direction. The current effective path remains parallel development of text, multi-modal understanding, and multi-modal generation, with moderate exploration of their combination to discover new capability emergence. Of course, exploration of their combination requires not only courage in technical exploration but also long-term, sustained capital investment.",
+      "h3_7": "07 Domain Models: Rationally Viewing阶段性 Opportunities",
+      "p13": "Under the AGI endgame, domain models will likely be covered by foundation models — domain data, processes, and Agent data will gradually enter the main model. But in the phase before AGI is achieved, with sustained commitment, and when possessing domain data and maintaining close coupling with foundation models, opportunities still exist to establish leading advantages in specific competitive windows.",
+      "back": "← Back to Insights"
+    }
+  };
+
+  function applyLang(lang) {
+    const dict = i18n[lang];
+    document.documentElement.setAttribute("data-lang", lang);
+    document.documentElement.setAttribute("lang", lang === "zh" ? "zh-CN" : "en");
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      if (!dict[key]) return;
+      el.innerHTML = dict[key];
+    });
+    document.querySelectorAll("[data-set-lang]").forEach(btn => {
+      btn.classList.toggle("active", btn.getAttribute("data-set-lang") === lang);
+    });
+    try { localStorage.setItem("linkx.lang", lang); } catch(e){}
+  }
+
+  document.querySelectorAll("[data-set-lang]").forEach(btn => {
+    btn.addEventListener("click", () => applyLang(btn.getAttribute("data-set-lang")));
+  });
+
+  (function initLang() {
+    let lang = "zh";
+    try {
+      const saved = localStorage.getItem("linkx.lang");
+      if (saved === "en" || saved === "zh") lang = saved;
+      else if ((navigator.language || "").toLowerCase().startsWith("en")) lang = "en";
+    } catch(e) {}
+    applyLang(lang);
+  })();
+
+  /* ---------- Progress bar ---------- */
+  const bar = document.getElementById("progressBar");
+  window.addEventListener("scroll", () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + "%";
+  }, { passive: true });
+
+  /* ---------- Menu ---------- */
+  const menuOverlay = document.getElementById("siteMenu");
+  const menuOpeners = document.querySelectorAll("[data-menu-open]");
+  const menuClosers = document.querySelectorAll("[data-menu-close]");
+  const menuLinks = document.querySelectorAll("[data-menu-link]");
+  let lastMenuTrigger = null;
+
+  function setMenuOpen(open) {
+    if (!menuOverlay) return;
+    menuOverlay.classList.toggle("is-open", open);
+    menuOverlay.setAttribute("aria-hidden", open ? "false" : "true");
+    document.body.classList.toggle("menu-open", open);
+    menuOpeners.forEach(btn => btn.setAttribute("aria-expanded", open ? "true" : "false"));
+    if (open) { lastMenuTrigger = document.activeElement; const cb = menuOverlay.querySelector("[data-menu-close]"); if (cb) cb.focus(); }
+    else if (lastMenuTrigger && typeof lastMenuTrigger.focus === "function") { lastMenuTrigger.focus(); }
+  }
+  menuOpeners.forEach(btn => { btn.addEventListener("click", () => setMenuOpen(true)); });
+  menuClosers.forEach(btn => { btn.addEventListener("click", () => setMenuOpen(false)); });
+  menuLinks.forEach(link => { link.addEventListener("click", () => setMenuOpen(false)); });
+  document.addEventListener("click", (e) => {
+    if (!menuOverlay || !menuOverlay.classList.contains("is-open")) return;
+    if (e.target.closest("[data-menu-open]") || e.target.closest("[data-menu-close]")) return;
+    if (!menuOverlay.contains(e.target)) setMenuOpen(false);
+  });
+  document.addEventListener("keydown", (e) => {
+    if (!menuOverlay || !menuOverlay.classList.contains("is-open")) return;
+    if (e.key === "Escape") { setMenuOpen(false); return; }
+    if (e.key !== "Tab") return;
+    const f = Array.from(menuOverlay.querySelectorAll("a[href], button:not([disabled])"));
+    if (!f.length) return;
+    if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f[f.length-1].focus(); }
+    else if (!e.shiftKey && document.activeElement === f[f.length-1]) { e.preventDefault(); f[0].focus(); }
+  });
+</script>
+
+</body>
+</html>

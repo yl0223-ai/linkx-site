@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>管理团队 · LINK-X Ventures</title>
-  <meta name="description" content="LINK-X Ventures 管理团队 — 研究与投资的长期伙伴。" />
+  <title>管理团队 · LINK-X Capital</title>
+  <meta name="description" content="LINK-X Capital 管理团队 — 连接科研、产业与长期资本的投资伙伴。" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -45,6 +45,9 @@
       color: var(--text);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
     }
     .container {
       max-width: var(--max);
@@ -62,68 +65,66 @@
       transition: width 0.1s linear;
     }
 
-    /* ---------- Header ---------- */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(250, 248, 244, 0.85);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border-light);
-    }
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 16px;
-      padding-bottom: 16px;
-    }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: var(--text);
-      font-family: var(--font-serif);
-      font-size: 20px;
-      letter-spacing: -0.02em;
-    }
-    .brand-mark { flex-shrink: 0; }
-    .nav-links {
-      display: flex;
-      gap: 32px;
-    }
-    .nav-links a {
-      text-decoration: none;
-      color: var(--text-muted);
-      font-size: 14px;
-      font-weight: 500;
-      transition: color 0.2s ease;
-    }
-    .nav-links a:hover { color: var(--text); }
-    .lang-toggle {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.06em;
-      color: var(--text-light);
-    }
-    .lang-toggle button {
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-family: inherit;
-      font-size: inherit;
-      letter-spacing: inherit;
-      color: var(--text-light);
-      transition: color 0.2s ease;
-    }
-    .lang-toggle button:hover,
-    .lang-toggle button.active { color: var(--purple); }
-    .lang-toggle .sep { color: var(--border); }
+    /* ---------- Header — matches index.html ---------- */
+    header.site-header { position: sticky; top: 0; z-index: 300; background: rgba(250,248,244,0.84); backdrop-filter: blur(18px) saturate(120%); -webkit-backdrop-filter: blur(18px) saturate(120%); border-bottom: 1px solid var(--border-light); }
+    .nav { display: grid; grid-template-columns: auto 1fr; align-items: center; height: 76px; padding: 0 clamp(20px, 4vw, 48px); flex: 0 0 auto; }
+    .brand-logo { display: inline-flex; align-items: center; gap: 13px; color: var(--text); text-decoration: none; white-space: nowrap; }
+    .brand-mark { width: 42px; height: 42px; color: var(--purple); flex: 0 0 auto; }
+    .brand-lockup { display: grid; gap: 1px; line-height: 1; }
+    .brand-cn { font-family: var(--font-sans); font-size: 20px; font-weight: 700; letter-spacing: 0.03em; }
+    .brand-en { font-family: var(--font-sans); font-size: 11.5px; font-weight: 700; letter-spacing: 0.045em; }
+    .nav-actions { display: flex; align-items: center; justify-content: flex-end; gap: clamp(18px, 2.4vw, 34px); font-size: 13px; color: var(--text-muted); }
+    .lang-toggle { display: flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; color: var(--text-light); }
+    .lang-toggle button { background: none; border: none; padding: 2px 4px; cursor: pointer; color: var(--text-light); font: inherit; transition: color 0.2s ease; }
+    .lang-toggle button.active { color: var(--text); }
+    .lang-toggle button:hover { color: var(--purple); }
+    .lang-toggle .sep { color: var(--border); padding: 0 2px; }
+    .menu-toggle { display: inline-flex; align-items: center; gap: 13px; min-height: 40px; background: transparent; border: 0; color: var(--text); cursor: pointer; font: 500 13px/1 var(--font-sans); padding: 0; }
+    .menu-toggle-mark { display: grid; gap: 5px; width: 34px; }
+    .menu-toggle-mark span { display: block; height: 1px; background: currentColor; transform-origin: right center; transition: transform 0.2s ease; }
+    .menu-toggle:hover .menu-toggle-mark span:first-child { transform: scaleX(0.64); }
+    .menu-toggle:hover .menu-toggle-mark span:last-child { transform: scaleX(1.18); }
+    .menu-toggle-text { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.07em; text-transform: uppercase; }
+    body.menu-open { overflow: hidden; }
+    .menu-overlay { position: fixed; inset: 0 0 0 auto; width: min(720px, 50vw); z-index: 500; color: var(--bg); background: linear-gradient(90deg, rgba(250,248,244,0.035) 1px, transparent 1px), linear-gradient(0deg, rgba(250,248,244,0.03) 1px, transparent 1px), linear-gradient(135deg, #151012 0%, #21161E 52%, #2A162F 100%); background-size: 96px 96px, 96px 96px, auto; opacity: 0; visibility: hidden; pointer-events: none; overflow-x: hidden; overflow-y: auto; scrollbar-width: none; box-shadow: -28px 0 70px rgba(28,25,23,0.22); transform: translateX(24px); transition: opacity 0.28s ease, transform 0.28s ease, visibility 0s linear 0.28s; }
+    .menu-overlay::-webkit-scrollbar { display: none; }
+    .menu-overlay.is-open { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(0); transition-delay: 0s; }
+    .menu-overlay::before { content: "LINK-X"; position: absolute; right: -0.08em; bottom: -0.28em; font-family: var(--font-serif); font-size: clamp(130px, 24vw, 360px); line-height: 1; color: rgba(250,248,244,0.045); pointer-events: none; letter-spacing: 0; }
+    .menu-shell { position: relative; z-index: 1; min-height: 100dvh; display: grid; grid-template-rows: auto 1fr auto; padding: 0 clamp(22px, 3vw, 40px) 28px; }
+    .menu-top { display: flex; align-items: center; justify-content: space-between; height: 76px; border-bottom: 1px solid rgba(250,248,244,0.12); }
+    .menu-label { display: inline-flex; align-items: baseline; gap: 10px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(250,248,244,0.48); }
+    .menu-label span { color: var(--purple-pale); }
+    .menu-label i { font-style: normal; color: rgba(250,248,244,0.28); }
+    .menu-label em { font-style: normal; color: rgba(250,248,244,0.42); }
+    .menu-close { position: relative; width: 44px; height: 44px; display: grid; place-items: center; background: transparent; border: 1px solid rgba(250,248,244,0.22); color: var(--bg); cursor: pointer; transition: border-color 0.2s ease, background 0.2s ease; }
+    .menu-close:hover { background: rgba(250,248,244,0.08); border-color: rgba(250,248,244,0.5); }
+    .menu-close span { position: absolute; width: 18px; height: 1px; background: currentColor; }
+    .menu-close span:first-child { transform: rotate(45deg); }
+    .menu-close span:last-child { transform: rotate(-45deg); }
+    .menu-grid { display: grid; grid-template-columns: minmax(0,1fr); gap: 22px; align-items: start; padding: clamp(24px, 4vh, 34px) 0; }
+    .menu-primary { display: flex; flex-direction: column; border-top: 1px solid rgba(250,248,244,0.16); }
+    .menu-primary a { display: grid; grid-template-columns: 36px 1fr auto; gap: 16px; align-items: baseline; padding: clamp(9px, 1.15vh, 11px) 0; border-bottom: 1px solid rgba(250,248,244,0.16); color: rgba(250,248,244,0.9); opacity: 0; transform: translateY(18px); transition: color 0.2s ease, opacity 0.4s ease, transform 0.4s ease; text-decoration: none; }
+    .menu-overlay.is-open .menu-primary a { opacity: 1; transform: none; }
+    .menu-overlay.is-open .menu-primary a:nth-child(1) { transition-delay: 0.06s; }
+    .menu-overlay.is-open .menu-primary a:nth-child(2) { transition-delay: 0.1s; }
+    .menu-overlay.is-open .menu-primary a:nth-child(3) { transition-delay: 0.14s; }
+    .menu-overlay.is-open .menu-primary a:nth-child(4) { transition-delay: 0.18s; }
+    .menu-overlay.is-open .menu-primary a:nth-child(5) { transition-delay: 0.22s; }
+    .menu-overlay.is-open .menu-primary a:nth-child(6) { transition-delay: 0.26s; }
+    .menu-primary a:hover { color: #fff; }
+    .menu-primary .menu-num { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; color: rgba(232,213,238,0.54); }
+    .menu-primary strong { font-family: var(--font-serif); font-size: clamp(26px, 2.45vw, 36px); font-weight: 400; line-height: 1.02; letter-spacing: 0; }
+    .menu-primary em { font-family: var(--font-mono); font-size: 11px; font-style: normal; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(250,248,244,0.35); }
+    .menu-side { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; opacity: 0; transform: translateY(18px); transition: opacity 0.45s ease 0.24s, transform 0.45s ease 0.24s; }
+    .menu-overlay.is-open .menu-side { opacity: 1; transform: none; }
+    .menu-panel { border: 1px solid rgba(250,248,244,0.14); background: rgba(250,248,244,0.055); padding: clamp(18px, 2vw, 22px); }
+    .menu-kicker { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--purple-pale); margin-bottom: 18px; }
+    .menu-panel p { color: rgba(250,248,244,0.74); font-size: 13.5px; line-height: 1.7; margin-bottom: 18px; }
+    .menu-panel a { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #fff; text-decoration: none; border-bottom: 1px solid rgba(250,248,244,0.36); padding-bottom: 4px; transition: gap 0.2s ease, border-color 0.2s ease; }
+    .menu-panel a:hover { gap: 13px; border-color: #fff; }
+    .menu-footer { display: flex; justify-content: space-between; gap: 24px; padding-top: 24px; border-top: 1px solid rgba(250,248,244,0.12); font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(250,248,244,0.42); }
+    .menu-footer a { color: rgba(250,248,244,0.42); text-decoration: none; }
+    .menu-footer a:hover { color: #fff; }
 
     /* ---------- Section head ---------- */
     .kicker {
@@ -139,48 +140,50 @@
     .section-alt {
       background: var(--bg-warm);
     }
+    .team-section {
+      flex: 1 1 auto;
+      display: flex;
+      align-items: center;
+      padding: clamp(18px, 3vh, 30px) 0 clamp(26px, 4vh, 42px);
+    }
 
     /* ---------- Team page hero ---------- */
     .team-hero {
-      padding: clamp(100px, 14vw, 200px) 0 clamp(60px, 8vw, 100px);
+      flex: 0 0 auto;
+      padding: clamp(22px, 3vh, 34px) 0 clamp(10px, 1.5vh, 16px);
     }
-    .team-hero h1 {
-      font-family: var(--font-serif);
-      font-size: clamp(36px, 5vw, 64px);
-      font-weight: 400;
-      letter-spacing: -0.025em;
-      line-height: 1.15;
-      max-width: 14ch;
+    .team-hero .container {
+      display: flex;
+      align-items: center;
+      min-height: 30px;
+      border-bottom: 1px solid var(--border);
+      max-width: 1280px;
     }
-    .team-hero h1 em {
-      font-style: italic;
-      color: var(--purple);
-    }
-    .team-hero .sub {
-      margin-top: 20px;
-      color: var(--text-muted);
-      font-size: 17px;
-      line-height: 1.7;
-      max-width: 52ch;
+    .team-hero .kicker {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      margin-bottom: 16px;
     }
 
     /* ---------- Team grid ---------- */
     .team-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      border-top: 1px solid var(--border);
-      border-left: 1px solid var(--border);
+      gap: 12px;
+    }
+    .team-section .container {
+      max-width: 1280px;
+      width: min(100%, 1280px);
     }
     .team-member {
       display: flex;
       flex-direction: column;
-      border-right: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+      border: 1px solid var(--border);
       position: relative;
       overflow: hidden;
       cursor: pointer;
       background: var(--bg);
+      outline: none;
     }
     .member-photo {
       aspect-ratio: 3 / 4;
@@ -197,20 +200,21 @@
     }
     .team-member:hover .member-photo img {
       filter: grayscale(0%);
-      transform: scale(1.05);
+      transform: scale(1.035);
     }
     .member-info {
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
-      padding: 60px 24px 24px;
+      padding: 54px 20px 20px;
       background: linear-gradient(to top, rgba(28,25,23,0.7) 0%, rgba(28,25,23,0) 100%);
       color: #fff;
+      z-index: 3;
     }
     .team-member h3 {
       font-family: var(--font-serif);
-      font-size: 22px;
+      font-size: 21px;
       font-weight: 400;
       letter-spacing: -0.01em;
       color: #fff;
@@ -225,12 +229,43 @@
       text-transform: uppercase;
       color: rgba(255,255,255,0.65);
     }
+    .member-bio {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 2;
+      margin: 0;
+      padding: 72px 20px 88px;
+      color: rgba(250,248,244,0.82);
+      font-size: 12.5px;
+      line-height: 1.62;
+      max-width: none;
+      background: linear-gradient(to top, rgba(28,25,23,0.86) 0%, rgba(42,22,47,0.54) 62%, rgba(28,25,23,0) 100%);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(42px);
+      transition: opacity 0.24s ease, transform 0.24s ease, visibility 0.24s ease;
+      pointer-events: none;
+    }
+    .member-bio::before {
+      content: none;
+    }
+    .team-member:hover .member-bio,
+    .team-member:focus-within .member-bio,
+    .team-member:focus .member-bio {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
 
     /* ---------- Footer ---------- */
     footer {
-      background: var(--text);
+      background:
+        linear-gradient(135deg, #151012 0%, #21161E 52%, #2A162F 100%);
       color: rgba(250, 248, 244, 0.6);
-      padding: 60px 0 40px;
+      flex: 0 0 auto;
+      padding: 22px 0;
       font-size: 14px;
     }
     .footer-inner {
@@ -240,25 +275,27 @@
       flex-wrap: wrap;
       gap: 16px;
     }
-    .footer-brand .brand {
-      color: var(--bg);
-      margin-bottom: 4px;
-      font-size: 18px;
-    }
-    .footer-brand .brand-mark { flex-shrink: 0; }
-    .footer-brand p {
-      color: rgba(250, 248, 244, 0.4);
-      font-size: 13px;
-      max-width: 34ch;
-      line-height: 1.6;
-    }
+    .footer-left { display: flex; flex-direction: column; gap: 6px; }
+    .footer-left .brand-lockup { display: flex; align-items: center; gap: 10px; }
+    .footer-left .brand-cn { color: rgba(250,248,244,0.88); font-size: 17px; font-weight: 600; letter-spacing: 0.02em; }
+    .footer-left .brand-en { color: rgba(250,248,244,0.55); font-size: 13px; font-family: var(--font-mono); letter-spacing: 0.08em; }
+    .footer-left p { color: rgba(250, 248, 244, 0.4); font-size: 13px; line-height: 1.6; }
     .footer-copy {
+      display: flex;
+      align-items: center;
+      gap: 18px;
       font-family: var(--font-mono);
       font-size: 10px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: rgba(250, 248, 244, 0.2);
     }
+    .footer-copy a {
+      color: rgba(250, 248, 244, 0.35);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .footer-copy a:hover { color: rgba(250, 248, 244, 0.6); }
 
     /* ---------- Reveal ---------- */
     .reveal {
@@ -275,11 +312,21 @@
     /* ---------- Responsive ---------- */
     @media (max-width: 1024px) {
       .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .team-section { align-items: flex-start; }
+      .member-photo { aspect-ratio: 4 / 5; }
     }
     @media (max-width: 720px) {
-      .nav-links { display: none; }
+      .brand-logo { gap: 9px; }
+      .brand-mark { width: 30px; height: 30px; }
+      .brand-cn { font-size: 17px; letter-spacing: 0.02em; }
+      .brand-en { display: none; }
+      .team-hero { padding: 24px 0 16px; }
+      .team-hero .kicker { margin-bottom: 12px; }
       .team-grid { grid-template-columns: 1fr; }
+      .member-photo { aspect-ratio: 4 / 5; }
       .footer-inner { flex-direction: column; align-items: flex-start; }
+      .footer-left .brand-lockup { flex-wrap: wrap; }
+      .footer-copy { flex-direction: column; align-items: flex-start; gap: 8px; }
     }
   </style>
 </head>
@@ -288,85 +335,130 @@
 <div class="progress-bar" id="progressBar"></div>
 
 <!-- ============ HEADER ============ -->
-<header class="site-header">
-  <div class="container nav">
-    <a href="index.html" class="brand" aria-label="LINK-X Ventures">
-      <svg class="brand-mark" width="34" height="34" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <defs><path id="s" d="M0,-8 Q2.2,-2.2 8,0 Q2.2,2.2 0,8 Q-2.2,2.2 -8,0 Q-2.2,-2.2 0,-8Z" fill="#660874"/></defs>
-        <use href="#s" transform="translate(8,8)"/>
-        <use href="#s" transform="translate(24,8)"/>
-        <use href="#s" transform="translate(8,24)"/>
-        <use href="#s" transform="translate(8,40)"/>
-        <use href="#s" transform="translate(24,40)"/>
-        <use href="#s" transform="translate(44,8)"/>
-        <use href="#s" transform="translate(44,24)"/>
-        <use href="#s" transform="translate(44,44)"/>
-      </svg>
-      <span>LINK-X</span>
-    </a>
-    <nav class="nav-links">
-      <a href="index.html#beliefs" data-i18n="nav.beliefs">理念</a>
-      <a href="index.html#daily" data-i18n="nav.daily">日报</a>
-      <a href="index.html#focus" data-i18n="nav.focus">关注领域</a>
-      <a href="index.html#portfolio" data-i18n="nav.portfolio">Portfolio</a>
-      <a href="team.html" data-i18n="nav.team">团队</a>
-      <a href="contact.html" data-i18n="nav.contact">联系</a>
-    </nav>
+<div class="nav">
+  <a href="index.html" class="brand-logo" aria-label="星连资本 LINK-X Capital">
+    <svg class="brand-mark" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(8.2 8.2)" fill="currentColor"/>
+      <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(26 8.2)" fill="currentColor"/>
+      <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(43.8 8.2)" fill="currentColor"/>
+      <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(8.2 26)" fill="currentColor"/>
+      <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(43.8 26)" fill="currentColor"/>
+      <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(8.2 43.8)" fill="currentColor"/>
+      <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(26 43.8)" fill="currentColor"/>
+      <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(43.8 43.8)" fill="currentColor"/>
+    </svg>
+    <span class="brand-lockup">
+      <span class="brand-cn">星连资本</span>
+      <span class="brand-en">LINK-X CAPITAL</span>
+    </span>
+  </a>
+  <div class="nav-actions">
     <div class="lang-toggle" role="group" aria-label="Language">
       <button data-set-lang="en">EN</button>
       <span class="sep">|</span>
       <button data-set-lang="zh" class="active">中</button>
     </div>
+    <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="menu-overlay" data-menu-open>
+      <div class="menu-toggle-mark" aria-hidden="true"><span></span><span></span></div>
+      <span class="menu-toggle-text" data-i18n="menu.open">Menu</span>
+    </button>
   </div>
-</header>
+</div>
+
+<!-- ============ MENU OVERLAY ============ -->
+<div class="menu-overlay" id="menu-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Navigation">
+  <div class="menu-shell">
+    <div class="menu-top">
+      <div class="menu-label"><span data-i18n="menu.label">导航</span><i>/</i><em>Menu</em></div>
+      <button class="menu-close" aria-label="Close menu" data-menu-close>
+        <span></span><span></span>
+      </button>
+    </div>
+
+    <nav class="menu-grid">
+      <div class="menu-primary">
+        <a href="index.html" data-menu-link><span class="menu-num">01</span><strong data-i18n="menu.home">首页</strong><em data-i18n="nav.about">理念</em></a>
+        <a href="index.html#daily" data-menu-link><span class="menu-num">02</span><strong data-i18n="menu.research">洞察</strong><em>Research</em></a>
+        <a href="index.html#focus" data-menu-link><span class="menu-num">03</span><strong data-i18n="menu.focus">关注领域</strong><em>Focus</em></a>
+        <a href="index.html#portfolio" data-menu-link><span class="menu-num">04</span><strong data-i18n="menu.portfolio">投资组合</strong><em>Portfolio</em></a>
+        <a href="team.html" data-menu-link><span class="menu-num">05</span><strong data-i18n="menu.team">团队</strong><em>Team</em></a>
+      </div>
+      <div class="menu-side">
+        <div class="menu-panel">
+          <div class="menu-kicker" data-i18n="menu.research.kicker">Insights Feed</div>
+          <p data-i18n="menu.research.text">持续跟踪模型、infra、agent 与前沿计算的真实变化，记录 AI 生态的一线信号。</p>
+          <a href="insights.html" data-menu-link>
+            <span data-i18n="menu.research.link">获取最新动态</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+        <div class="menu-panel">
+          <div class="menu-kicker" data-i18n="menu.contact.kicker">Build With Us</div>
+          <p data-i18n="menu.contact.text">创始人、LP、媒体与研究伙伴，可以从这里找到 LINK-X 团队。</p>
+          <a href="contact.html" data-menu-link>
+            <span data-i18n="menu.contact.link">联系我们</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="menu-footer">
+      <a href="index.html">星连资本 LINK-X Capital</a>
+      <span data-i18n="menu.footer.meta">© 2026 · 保留所有权利</span>
+    </div>
+  </div>
+</div>
 
 <!-- ============ TEAM HERO ============ -->
 <section class="team-hero">
   <div class="container reveal">
-    <span class="kicker">Team · 管理团队</span>
-    <h1 data-i18n="team.hero">研究与投资的<em>长期伙伴</em>。</h1>
-    <p class="sub" data-i18n="team.sub">我们在清华与斯坦福之间来回奔走，以每日研究驱动投资判断，陪伴定义下一代智能范式的团队。</p>
+    <span class="kicker" data-i18n="team.kicker">Team · 管理团队</span>
   </div>
 </section>
 
 <!-- ============ TEAM GRID ============ -->
-<section class="section-alt">
+<section class="section-alt team-section">
   <div class="container">
     <div class="team-grid reveal">
-      <div class="team-member">
+      <div class="team-member" tabindex="0">
         <div class="member-photo">
           <img src="assets/team-zhangmc.png" alt="张鸣晨" />
         </div>
         <div class="member-info">
           <h3 data-i18n="team.n1">张鸣晨</h3>
           <span class="member-title" data-i18n="team.t1">主管合伙人 / Managing Partner</span>
+          <p class="member-bio" data-i18n="team.b1">15年以上 TMT 早期投资与互联网经验，曾任红点中国合伙人，投资智谱 AI、小马智行、辉羲智能等头部科技企业。</p>
         </div>
       </div>
-      <div class="team-member">
+      <div class="team-member" tabindex="0">
         <div class="member-photo">
           <img src="assets/team-wangp.png" alt="王璞" />
         </div>
         <div class="member-info">
           <h3 data-i18n="team.n2">王璞</h3>
           <span class="member-title" data-i18n="team.t2">合伙人 / Partner</span>
+          <p class="member-bio" data-i18n="team.b2">10年以上早期投资与互联网经验，深耕新能源汽车、AI 行业应用与互联网，曾任汉富资本董事总经理、策源创投投资总监。</p>
         </div>
       </div>
-      <div class="team-member">
+      <div class="team-member" tabindex="0">
         <div class="member-photo">
           <img src="assets/team-wangc.png" alt="王晨" />
         </div>
         <div class="member-info">
           <h3 data-i18n="team.n3">王晨</h3>
           <span class="member-title" data-i18n="team.t3">合伙人 / Partner</span>
+          <p class="member-bio" data-i18n="team.b3">覆盖创业、风险投资与战略投资，曾任茄子科技首席战略官、快手投资部总经理、美团战略投资部高级总监。</p>
         </div>
       </div>
-      <div class="team-member">
+      <div class="team-member" tabindex="0">
         <div class="member-photo">
           <img src="assets/team-liwj.png" alt="李文珏" />
         </div>
         <div class="member-info">
           <h3 data-i18n="team.n4">李文珏</h3>
           <span class="member-title" data-i18n="team.t4">合伙人 / Partner</span>
+          <p class="member-bio" data-i18n="team.b4">福布斯 30 Under 30，曾任中科创星投资总监、北京智源研究院成果转化总监，长期关注大模型与科研成果转化。</p>
         </div>
       </div>
     </div>
@@ -377,24 +469,17 @@
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="brand">
-          <svg class="brand-mark" width="28" height="28" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <defs><path id="sf" d="M0,-8 Q2.2,-2.2 8,0 Q2.2,2.2 0,8 Q-2.2,2.2 -8,0 Q-2.2,-2.2 0,-8Z" fill="currentColor"/></defs>
-            <use href="#sf" transform="translate(8,8)"/>
-            <use href="#sf" transform="translate(24,8)"/>
-            <use href="#sf" transform="translate(8,24)"/>
-            <use href="#sf" transform="translate(8,40)"/>
-            <use href="#sf" transform="translate(24,40)"/>
-            <use href="#sf" transform="translate(44,8)"/>
-            <use href="#sf" transform="translate(44,24)"/>
-            <use href="#sf" transform="translate(44,44)"/>
-          </svg>
-          <span>LINK-X Ventures</span>
+      <div class="footer-left">
+        <div class="brand-lockup">
+          <span class="brand-cn">星连资本</span>
+          <span class="brand-en">LINK-X CAPITAL</span>
         </div>
-        <p data-i18n="footer.desc">Investing in the AI capability frontier. 投资 AI 能力跃迁。</p>
+        <p data-i18n="footer.desc">与 AGI 时代的定义者同行。</p>
       </div>
-      <span class="footer-copy">&copy; 2026 LINK-X Capital · <a href="legal.html" style="color:rgba(250,248,244,0.35);text-decoration:none;">法律声明</a></span>
+      <div class="footer-copy">
+        <span data-i18n="footer.copy">&copy; 2026 北京星连肇基私募基金管理有限责任公司</span>
+        <a href="legal.html" data-i18n="footer.legal">法律声明</a>
+      </div>
     </div>
   </div>
 </footer>
@@ -402,26 +487,70 @@
 <script>
   const i18n = {
     zh: {
-      "nav.beliefs": "理念", "nav.daily": "日报", "nav.focus": "关注领域", "nav.portfolio": "投资组合", "nav.team": "团队", "nav.contact": "联系",
-      "team.hero": "研究与投资的<em>长期伙伴</em>。",
-      "team.sub": "我们在清华与斯坦福之间来回奔走，以每日研究驱动投资判断，陪伴定义下一代智能范式的团队。",
+      "menu.open": "Menu", "menu.label": "导航", "menu.home": "首页", "menu.research": "洞察", "menu.focus": "关注领域", "menu.portfolio": "投资组合", "menu.team": "团队", "menu.contact": "联系我们", "menu.footer.meta": "© 2026 · 保留所有权利", "menu.research.kicker": "Insights Feed", "menu.research.text": "持续跟踪模型、infra、agent 与前沿计算的真实变化，记录 AI 生态的一线信号。", "menu.research.link": "获取最新动态", "menu.contact.kicker": "Build With Us", "menu.contact.text": "创始人、LP、媒体与研究伙伴，可以从这里找到 LINK-X 团队。", "menu.contact.link": "联系我们",
+      "nav.beliefs": "理念", "nav.daily": "洞察", "nav.focus": "关注领域", "nav.portfolio": "投资组合", "nav.team": "团队", "nav.contact": "联系",
+      "team.kicker": "Team · 管理团队",
       "team.n1": "张鸣晨", "team.t1": "主管合伙人 / Managing Partner",
       "team.n2": "王璞", "team.t2": "合伙人 / Partner",
       "team.n3": "王晨", "team.t3": "合伙人 / Partner",
       "team.n4": "李文珏", "team.t4": "合伙人 / Partner",
-      "footer.desc": "Investing in the AI capability frontier. 投资 AI 能力跃迁。"
+      "team.b1": "15年以上 TMT 早期投资与互联网经验，曾任红点中国合伙人，投资智谱 AI、小马智行、辉羲智能等头部科技企业。",
+      "team.b2": "10年以上早期投资与互联网经验，深耕新能源汽车、AI 行业应用与互联网，曾任汉富资本董事总经理、策源创投投资总监。",
+      "team.b3": "覆盖创业、风险投资与战略投资，曾任茄子科技首席战略官、快手投资部总经理、美团战略投资部高级总监。",
+      "team.b4": "福布斯 30 Under 30，曾任中科创星投资总监、北京智源研究院成果转化总监，长期关注大模型与科研成果转化。",
+      "footer.desc": "与 AGI 时代的定义者同行。",
+      "footer.copy": "© 2026 北京星连肇基私募基金管理有限责任公司",
+      "footer.legal": "法律声明"
     },
     en: {
-      "nav.beliefs": "Beliefs", "nav.daily": "Daily", "nav.focus": "Focus", "nav.portfolio": "Portfolio", "nav.team": "Team", "nav.contact": "Contact",
-      "team.hero": "Long-term partners in <em>research and investment</em>.",
-      "team.sub": "We shuttle between Tsinghua and Stanford, driving investment conviction through daily research — partnering with teams that define the next paradigm of intelligence.",
+      "menu.open": "Menu", "menu.label": "Navigation", "menu.home": "Home", "menu.research": "Insights", "menu.focus": "Focus", "menu.portfolio": "Portfolio", "menu.team": "Team", "menu.contact": "Contact", "menu.footer.meta": "© 2026 · All rights reserved", "menu.research.kicker": "Research Feed", "menu.research.text": "Tracking real developments in models, infra, agents and frontier computing — one signal at a time.", "menu.research.link": "Get Latest Updates", "menu.contact.kicker": "Build With Us", "menu.contact.text": "Founders, LPs, media and research partners can reach the LINK-X team here.", "menu.contact.link": "Contact Us",
+      "nav.beliefs": "Beliefs", "nav.daily": "Insights", "nav.focus": "Focus", "nav.portfolio": "Portfolio", "nav.team": "Team", "nav.contact": "Contact",
+      "team.kicker": "Team",
       "team.n1": "Mingchen Zhang", "team.t1": "Managing Partner",
       "team.n2": "Pu Wang", "team.t2": "Partner",
       "team.n3": "Chen Wang", "team.t3": "Partner",
       "team.n4": "Wenjue Li", "team.t4": "Partner",
-      "footer.desc": "Investing in the AI capability frontier."
+      "team.b1": "15+ years in early-stage TMT investing and internet operations; former Partner at Redpoint China, with investments including Zhipu AI, Pony.ai and Huixi Intelligence.",
+      "team.b2": "10+ years in early-stage investing and internet; focused on EV, AI applications and internet platforms, formerly Managing Director at Hanfor Capital and Investment Director at Morningside.",
+      "team.b3": "Experience across startups, venture capital and strategic investment; formerly CSO of SHAREit, Head of Investment at Kuaishou and senior investment leader at Meituan.",
+      "team.b4": "Forbes 30 Under 30; formerly Investment Director at CAS Star and Director of Technology Transfer at BAAI, focused on large models and research commercialization.",
+      "footer.desc": "Partnering with the founders defining the AGI era.",
+      "footer.copy": "© 2026 LINK-X Capital",
+      "footer.legal": "Legal"
     }
   };
+
+  function setMenuOpen(open) {
+    const menu = document.getElementById("menu-overlay");
+    const toggle = document.querySelector(".menu-toggle");
+    if (!menu || !toggle) return;
+    menu.classList.toggle("is-open", open);
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    menu.setAttribute("aria-hidden", open ? "false" : "true");
+    document.body.classList.toggle("menu-open", open);
+    if (open) menu.querySelector(".menu-close").focus();
+    else toggle.focus();
+  }
+  document.addEventListener("keydown", e => {
+    const menu = document.getElementById("menu-overlay");
+    if (!menu || !menu.classList.contains("is-open")) return;
+    if (e.key === "Escape") { setMenuOpen(false); return; }
+    if (e.key === "Tab") {
+      const focusable = menu.querySelectorAll('a[href], button, [tabindex]:not([tabindex="-1"])');
+      const first = focusable[0], last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+  document.querySelectorAll("[data-menu-open]").forEach(el => el.addEventListener("click", () => setMenuOpen(true)));
+  document.querySelectorAll("[data-menu-close]").forEach(el => el.addEventListener("click", () => setMenuOpen(false)));
+  document.querySelectorAll("[data-menu-link]").forEach(el => el.addEventListener("click", () => setMenuOpen(false)));
+  document.addEventListener("click", (e) => {
+    const menu = document.getElementById("menu-overlay");
+    if (!menu || !menu.classList.contains("is-open")) return;
+    if (e.target.closest("[data-menu-open]") || e.target.closest("[data-menu-close]")) return;
+    if (!menu.contains(e.target)) setMenuOpen(false);
+  });
 
   function applyLang(lang) {
     const dict = i18n[lang];

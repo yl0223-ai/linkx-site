@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>联系我们 · LINK-X Capital</title>
-  <meta name="description" content="LINK-X Capital — 订阅前沿日报、基金新闻，或与我们交流合作。" />
+  <meta name="description" content="LINK-X Capital — 订阅前沿洞察、基金动态，或与我们交流合作。" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -22,6 +22,7 @@
       --purple: #660874;
       --purple-mid: #8B3A9A;
       --purple-soft: #B07CC0;
+      --purple-pale: #E8D5EE;
       --purple-wash: #F3EAF6;
 
       --font-serif: "Instrument Serif", "Noto Serif SC", Georgia, serif;
@@ -54,49 +55,86 @@
       z-index: 999; transition: width 0.1s linear;
     }
 
-    /* ---------- Header ---------- */
-    .site-header {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(250,248,244,0.85);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+    /* ---------- Header — matches index.html ---------- */
+    header.site-header {
+      position: sticky; top: 0; z-index: 300;
+      background: rgba(250,248,244,0.84);
+      backdrop-filter: blur(18px) saturate(120%);
+      -webkit-backdrop-filter: blur(18px) saturate(120%);
       border-bottom: 1px solid var(--border-light);
     }
     .nav {
-      display: flex; align-items: center; justify-content: space-between;
-      padding-top: 16px; padding-bottom: 16px;
+      display: grid; grid-template-columns: auto 1fr;
+      align-items: center; height: 76px;
+      padding: 0 clamp(20px, 4vw, 48px);
     }
-    .brand {
-      display: flex; align-items: center; gap: 10px;
-      text-decoration: none; color: var(--text);
-      font-family: var(--font-serif); font-size: 20px;
-      letter-spacing: -0.02em;
-    }
-    .nav-links { display: flex; gap: 32px; }
-    .nav-links a {
-      text-decoration: none; color: var(--text-muted);
-      font-size: 14px; font-weight: 500;
-      transition: color 0.2s ease;
-    }
-    .nav-links a:hover { color: var(--text); }
-    .lang-toggle {
-      display: flex; align-items: center; gap: 8px;
-      font-family: var(--font-mono); font-size: 11px;
-      letter-spacing: 0.06em; color: var(--text-light);
-    }
-    .lang-toggle button {
-      background: none; border: none; cursor: pointer;
-      font-family: inherit; font-size: inherit;
-      letter-spacing: inherit; color: var(--text-light);
-      transition: color 0.2s ease;
-    }
-    .lang-toggle button:hover,
-    .lang-toggle button.active { color: var(--purple); }
-    .lang-toggle .sep { color: var(--border); }
+    .brand-logo { display: inline-flex; align-items: center; gap: 13px; color: var(--text); text-decoration: none; white-space: nowrap; }
+    .brand-mark { width: 42px; height: 42px; color: var(--purple); flex: 0 0 auto; }
+    .brand-lockup { display: grid; gap: 1px; line-height: 1; }
+    .brand-cn { font-family: var(--font-sans); font-size: 20px; font-weight: 700; letter-spacing: 0.03em; }
+    .brand-en { font-family: var(--font-sans); font-size: 11.5px; font-weight: 700; letter-spacing: 0.045em; }
+    .nav-actions { display: flex; align-items: center; justify-content: flex-end; gap: clamp(18px, 2.4vw, 34px); font-size: 13px; color: var(--text-muted); }
+    .lang-toggle { display: flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; color: var(--text-light); }
+    .lang-toggle button { background: none; border: none; padding: 2px 4px; cursor: pointer; color: var(--text-light); font: inherit; transition: color 0.2s ease; }
+    .lang-toggle button.active { color: var(--text); }
+    .lang-toggle button:hover { color: var(--purple); }
+    .lang-toggle .sep { color: var(--border); padding: 0 2px; }
+    .menu-toggle { display: inline-flex; align-items: center; gap: 13px; min-height: 40px; background: transparent; border: 0; color: var(--text); cursor: pointer; font: 500 13px/1 var(--font-sans); padding: 0; }
+    .menu-toggle-mark { display: grid; gap: 5px; width: 34px; }
+    .menu-toggle-mark span { display: block; height: 1px; background: currentColor; transform-origin: right center; transition: transform 0.2s ease; }
+    .menu-toggle:hover .menu-toggle-mark span:first-child { transform: scaleX(0.64); }
+    .menu-toggle:hover .menu-toggle-mark span:last-child { transform: scaleX(1.18); }
+    .menu-toggle-text { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.07em; text-transform: uppercase; }
+    body.menu-open { overflow: hidden; }
+    .menu-overlay { position: fixed; inset: 0 0 0 auto; width: min(720px, 50vw); z-index: 500; color: var(--bg); background: linear-gradient(90deg, rgba(250,248,244,0.035) 1px, transparent 1px), linear-gradient(0deg, rgba(250,248,244,0.03) 1px, transparent 1px), linear-gradient(135deg, #151012 0%, #21161E 52%, #2A162F 100%); background-size: 96px 96px, 96px 96px, auto; opacity: 0; visibility: hidden; pointer-events: none; overflow-x: hidden; overflow-y: auto; scrollbar-width: none; box-shadow: -28px 0 70px rgba(28,25,23,0.22); transform: translateX(24px); transition: opacity 0.28s ease, transform 0.28s ease, visibility 0s linear 0.28s; }
+    .menu-overlay::-webkit-scrollbar { display: none; }
+    .menu-overlay.is-open { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(0); transition-delay: 0s; }
+    .menu-overlay::before { content: "LINK-X"; position: absolute; right: -0.08em; bottom: -0.28em; font-family: var(--font-serif); font-size: clamp(130px, 24vw, 360px); line-height: 1; color: rgba(250,248,244,0.045); pointer-events: none; letter-spacing: 0; }
+    .menu-shell { position: relative; z-index: 1; min-height: 100dvh; display: grid; grid-template-rows: auto 1fr auto; padding: 0 clamp(22px, 3vw, 40px) 28px; }
+    .menu-top { display: flex; align-items: center; justify-content: space-between; height: 76px; border-bottom: 1px solid rgba(250,248,244,0.12); }
+    .menu-label { display: inline-flex; align-items: baseline; gap: 10px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(250,248,244,0.48); }
+    .menu-label span { color: var(--purple-pale); }
+    .menu-label i { font-style: normal; color: rgba(250,248,244,0.28); }
+    .menu-label em { font-style: normal; color: rgba(250,248,244,0.42); }
+    .menu-close { position: relative; width: 44px; height: 44px; display: grid; place-items: center; background: transparent; border: 1px solid rgba(250,248,244,0.22); color: var(--bg); cursor: pointer; transition: border-color 0.2s ease, background 0.2s ease; }
+    .menu-close:hover { background: rgba(250,248,244,0.08); border-color: rgba(250,248,244,0.5); }
+    .menu-close span { position: absolute; width: 18px; height: 1px; background: currentColor; }
+    .menu-close span:first-child { transform: rotate(45deg); }
+    .menu-close span:last-child { transform: rotate(-45deg); }
+    .menu-grid { display: grid; grid-template-columns: minmax(0,1fr); gap: 22px; align-items: start; padding: clamp(24px, 4vh, 34px) 0; }
+    .menu-primary { display: flex; flex-direction: column; border-top: 1px solid rgba(250,248,244,0.16); }
+    .menu-primary a { display: grid; grid-template-columns: 36px 1fr auto; gap: 16px; align-items: baseline; padding: clamp(9px, 1.15vh, 11px) 0; border-bottom: 1px solid rgba(250,248,244,0.16); color: rgba(250,248,244,0.9); opacity: 0; transform: translateY(18px); transition: color 0.2s ease, opacity 0.4s ease, transform 0.4s ease; text-decoration: none; }
+    .menu-overlay.is-open .menu-primary a { opacity: 1; transform: none; }
+    .menu-overlay.is-open .menu-primary a:nth-child(1) { transition-delay: 0.06s; }
+    .menu-overlay.is-open .menu-primary a:nth-child(2) { transition-delay: 0.1s; }
+    .menu-overlay.is-open .menu-primary a:nth-child(3) { transition-delay: 0.14s; }
+    .menu-overlay.is-open .menu-primary a:nth-child(4) { transition-delay: 0.18s; }
+    .menu-overlay.is-open .menu-primary a:nth-child(5) { transition-delay: 0.22s; }
+    .menu-overlay.is-open .menu-primary a:nth-child(6) { transition-delay: 0.26s; }
+    .menu-primary a:hover { color: #fff; }
+    .menu-primary .menu-num { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; color: rgba(232,213,238,0.54); }
+    .menu-primary strong { font-family: var(--font-serif); font-size: clamp(26px, 2.45vw, 36px); font-weight: 400; line-height: 1.02; letter-spacing: 0; }
+    .menu-primary em { font-family: var(--font-mono); font-size: 11px; font-style: normal; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(250,248,244,0.35); }
+    .menu-side { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; opacity: 0; transform: translateY(18px); transition: opacity 0.45s ease 0.24s, transform 0.45s ease 0.24s; }
+    .menu-overlay.is-open .menu-side { opacity: 1; transform: none; }
+    .menu-panel { border: 1px solid rgba(250,248,244,0.14); background: rgba(250,248,244,0.055); padding: clamp(18px, 2vw, 22px); }
+    .menu-kicker { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--purple-pale); margin-bottom: 18px; }
+    .menu-panel p { color: rgba(250,248,244,0.74); font-size: 13.5px; line-height: 1.7; margin-bottom: 18px; }
+    .menu-panel a { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #fff; text-decoration: none; border-bottom: 1px solid rgba(250,248,244,0.36); padding-bottom: 4px; transition: gap 0.2s ease, border-color 0.2s ease; }
+    .menu-panel a:hover { gap: 13px; border-color: #fff; }
+    .menu-footer { display: flex; justify-content: space-between; gap: 24px; padding-top: 24px; border-top: 1px solid rgba(250,248,244,0.12); font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(250,248,244,0.42); }
+    .menu-footer a { color: rgba(250,248,244,0.42); text-decoration: none; }
+    .menu-footer a:hover { color: #fff; }
 
     /* ---------- Page hero ---------- */
     .page-hero {
-      padding: clamp(100px, 14vw, 200px) 0 clamp(60px, 8vw, 100px);
+      padding: clamp(44px, 5vw, 72px) 0 clamp(28px, 4vw, 48px);
+    }
+    .page-hero .container {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.72fr);
+      gap: clamp(36px, 7vw, 92px);
+      align-items: end;
     }
     .page-hero h1 {
       font-family: var(--font-serif);
@@ -106,8 +144,9 @@
     }
     .page-hero h1 em { font-style: italic; color: var(--purple); }
     .page-hero .sub {
-      margin-top: 20px; color: var(--text-muted);
-      font-size: 17px; line-height: 1.7; max-width: 56ch;
+      color: var(--text-muted);
+      font-size: 17px; line-height: 1.82; max-width: 40ch;
+      padding-bottom: 6px;
     }
 
     /* ---------- List — a16z style ---------- */
@@ -119,7 +158,7 @@
       grid-template-columns: 1fr auto;
       gap: 40px;
       align-items: center;
-      padding: 56px 0;
+      padding: 46px 0;
       border-bottom: 1px solid var(--border);
       transition: background 0.25s ease;
     }
@@ -212,11 +251,11 @@
       display: flex; justify-content: space-between;
       align-items: center; flex-wrap: wrap; gap: 16px;
     }
-    .footer-brand .brand { color: var(--bg); margin-bottom: 4px; font-size: 18px; }
-    .footer-brand p {
-      color: rgba(250,248,244,0.4);
-      font-size: 13px; max-width: 34ch; line-height: 1.6;
-    }
+    .footer-left { display: flex; flex-direction: column; gap: 6px; }
+    .footer-left .brand-lockup { display: flex; align-items: center; gap: 10px; }
+    .footer-left .brand-cn { color: rgba(250,248,244,0.88); font-size: 17px; font-weight: 600; letter-spacing: 0.02em; }
+    .footer-left .brand-en { color: rgba(250,248,244,0.55); font-size: 13px; font-family: var(--font-mono); letter-spacing: 0.08em; }
+    .footer-left p { color: rgba(250, 248, 244, 0.4); font-size: 13px; line-height: 1.6; }
     .footer-bottom {
       display: flex; align-items: center; gap: 24px;
       font-family: var(--font-mono); font-size: 10px;
@@ -242,8 +281,18 @@
     [data-lang="en"] .zh-only { display: none; }
 
     /* ---------- Responsive ---------- */
+    @media (max-width: 1024px) {
+      .page-hero .container { grid-template-columns: 1fr; gap: 18px; }
+      .page-hero .sub { max-width: 58ch; padding-bottom: 0; }
+    }
     @media (max-width: 720px) {
-      .nav-links { display: none; }
+      .brand-logo { gap: 9px; }
+      .brand-mark { width: 30px; height: 30px; }
+      .brand-cn { font-size: 17px; letter-spacing: 0.02em; }
+      .brand-en { display: none; }
+      .page-hero { padding: 42px 0 30px; }
+      .page-hero h1 { font-size: clamp(34px, 9vw, 44px); }
+      .page-hero .sub { font-size: 15px; line-height: 1.72; }
       .nl-item {
         grid-template-columns: 1fr;
         gap: 24px;
@@ -261,29 +310,44 @@
 
 <!-- ============ HEADER ============ -->
 <header class="site-header">
-  <div class="container nav">
-    <a href="index.html" class="brand" aria-label="LINK-X Capital">LINK-X</a>
-    <nav class="nav-links">
-      <a href="index.html#beliefs" data-i18n="nav.beliefs">理念</a>
-      <a href="index.html#daily" data-i18n="nav.daily">日报</a>
-      <a href="index.html#focus" data-i18n="nav.focus">关注领域</a>
-      <a href="portfolio.html" data-i18n="nav.portfolio">投资组合</a>
-      <a href="team.html" data-i18n="nav.team">团队</a>
-      <a href="contact.html" data-i18n="nav.contact">联系</a>
-    </nav>
-    <div class="lang-toggle" role="group" aria-label="Language">
-      <button data-set-lang="en">EN</button>
-      <span class="sep">|</span>
-      <button data-set-lang="zh" class="active">中</button>
+  <div class="nav">
+    <a href="index.html" class="brand-logo" aria-label="星连资本 LINK-X Capital">
+      <svg class="brand-mark" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(8.2 8.2)" fill="currentColor"/>
+        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(26 8.2)" fill="currentColor"/>
+        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(43.8 8.2)" fill="currentColor"/>
+        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(8.2 26)" fill="currentColor"/>
+        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(43.8 26)" fill="currentColor"/>
+        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(8.2 43.8)" fill="currentColor"/>
+        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(26 43.8)" fill="currentColor"/>
+        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(43.8 43.8)" fill="currentColor"/>
+      </svg>
+      <span class="brand-lockup">
+        <span class="brand-cn">星连资本</span>
+        <span class="brand-en">LINK-X CAPITAL</span>
+      </span>
+    </a>
+    <div class="nav-actions">
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="en">EN</button>
+        <span class="sep">|</span>
+        <button data-set-lang="zh" class="active">中</button>
+      </span>
+      <button class="menu-toggle" type="button" aria-controls="siteMenu" aria-expanded="false" data-menu-open>
+        <span class="menu-toggle-text" data-i18n="menu.open">Menu</span>
+        <span class="menu-toggle-mark" aria-hidden="true"><span></span><span></span></span>
+      </button>
     </div>
   </div>
 </header>
+<div class="menu-overlay" id="siteMenu" aria-hidden="true"><div class="menu-shell"><div class="menu-top">
+      <div class="menu-label"><span data-i18n="menu.label">导航</span><i>/</i><em>Menu</em></div>
+      <button class="menu-close" type="button" aria-label="Close menu" data-menu-close><span></span><span></span></button></div><div class="menu-grid"><nav class="menu-primary" aria-label="Primary navigation"><a href="index.html#about-fund" data-menu-link><span class="menu-num">01</span><strong data-i18n="nav.about">关于</strong><em>About</em></a><a href="index.html#beliefs" data-menu-link><span class="menu-num">02</span><strong data-i18n="nav.beliefs">理念</strong><em>Beliefs</em></a><a href="insights.html" data-menu-link><span class="menu-num">03</span><strong data-i18n="nav.daily">洞察</strong><em>Insights</em></a><a href="index.html#focus" data-menu-link><span class="menu-num">04</span><strong data-i18n="nav.focus">关注领域</strong><em>Focus Areas</em></a><a href="index.html#portfolio" data-menu-link><span class="menu-num">05</span><strong data-i18n="nav.portfolio">投资组合</strong><em>Portfolio</em></a><a href="team.html" data-menu-link><span class="menu-num">06</span><strong data-i18n="nav.team">团队</strong><em>Team</em></a></nav><aside class="menu-side" aria-label="Featured links"><div class="menu-panel"><div class="menu-kicker" data-i18n="menu.research.kicker">Insights Feed</div><p data-i18n="menu.research.text">持续跟踪模型、infra、agent 与前沿计算的真实变化，记录 AI 生态的一线信号。</p><a href="insights.html" data-menu-link><span data-i18n="menu.research.link">获取最新动态</span><span aria-hidden="true">→</span></a></div><div class="menu-panel"><div class="menu-kicker" data-i18n="menu.contact.kicker">Build With Us</div><p data-i18n="menu.contact.text">创始人、LP、媒体与研究伙伴，可以从这里找到 LINK-X 团队。</p><a href="contact.html" data-menu-link><span data-i18n="menu.contact.link">联系我们</span><span aria-hidden="true">→</span></a></div></aside></div><div class="menu-footer"><span data-i18n="menu.footer.meta">LINK-X Capital · 北京清华科技园</span><a href="mailto:hello@linkx.vc">hello@linkx.vc</a></div></div></div>
 
 <!-- ============ HERO ============ -->
 <section class="page-hero">
   <div class="container reveal">
     <h1 data-i18n="hero.title">保持<em>联系</em>。</h1>
-    <p class="sub" data-i18n="hero.sub">订阅我们的研究简报与基金动态，或与团队取得联系。</p>
   </div>
 </section>
 
@@ -296,8 +360,8 @@
       <div class="nl-item">
         <div class="nl-info">
           <div class="nl-label" data-i18n="nl.sub.label">Newsletter</div>
-          <h3 data-i18n="nl.sub.title">订阅基金新闻与每日前沿动态</h3>
-          <p data-i18n="nl.sub.desc">基金新闻：新投资、行业洞察与 LINK-X 动态，季度更新。每日前沿日报：每个工作日一封邮件，关于 AI 前沿的高密度研究与解读。</p>
+          <h3 data-i18n="nl.sub.title">订阅前沿洞察与基金动态</h3>
+          <p data-i18n="nl.sub.desc">基金动态：新投资、行业洞察与 LINK-X 更新，季度发布。前沿洞察：关于 AI 前沿的高密度研究与解读。</p>
         </div>
         <div class="nl-action">
           <form class="nl-form" onsubmit="event.preventDefault(); this.classList.add('success'); this.querySelector('button').textContent='✓';">
@@ -328,9 +392,12 @@
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="brand">LINK-X Capital</div>
-        <p data-i18n="footer.desc">Investing in the AI capability frontier. 投资 AI 能力跃迁。</p>
+            <div class="footer-left">
+        <div class="brand-lockup">
+          <span class="brand-cn">星连资本</span>
+          <span class="brand-en">LINK-X CAPITAL</span>
+        </div>
+        <p data-i18n="footer.desc">与 AGI 时代的定义者同行。</p>
       </div>
       <div class="footer-bottom">
         <span>&copy; 2026 LINK-X Capital</span>
@@ -343,33 +410,51 @@
 <script>
   const i18n = {
     zh: {
-      "nav.beliefs": "理念", "nav.daily": "日报", "nav.focus": "关注领域",
+      "nav.about": "关于", "nav.beliefs": "理念", "nav.daily": "洞察", "nav.focus": "关注领域",
       "nav.portfolio": "投资组合", "nav.team": "团队", "nav.contact": "联系",
+      "menu.open": "Menu",
+      "menu.label": "导航",
+      "menu.research.kicker": "Insights Feed",
+      "menu.research.text": "持续跟踪模型、infra、agent 与前沿计算的真实变化，记录 AI 生态的一线信号。",
+      "menu.research.link": "获取最新动态",
+      "menu.contact.kicker": "Build With Us",
+      "menu.contact.text": "创始人、LP、媒体与研究伙伴，可以从这里找到 LINK-X 团队。",
+      "menu.contact.link": "联系我们",
+      "menu.footer.meta": "LINK-X Capital · 北京清华科技园",
       "hero.title": "保持<em>联系</em>。",
-      "hero.sub": "订阅我们的研究简报与基金动态，或与团队取得联系。",
+      "hero.sub": "订阅我们的前沿洞察与基金动态，或与团队取得联系。",
       "nl.sub.label": "Newsletter",
-      "nl.sub.title": "订阅基金新闻与每日前沿动态",
-      "nl.sub.desc": "基金新闻：新投资、行业洞察与 LINK-X 动态，季度更新。每日前沿日报：每个工作日一封邮件，关于 AI 前沿的高密度研究与解读。",
+      "nl.sub.title": "订阅前沿洞察与基金动态",
+      "nl.sub.desc": "基金动态：新投资、行业洞察与 LINK-X 更新，季度发布。前沿洞察：关于 AI 前沿的高密度研究与解读。",
       "nl.sub.note": "随时退订",
       "nl.con.title": "联系我们",
       "nl.con.desc": "BP 投递、LP 合作、媒体采访、研究交流或其他合作意向，欢迎联系。",
       "nl.btn": "订阅",
-      "footer.desc": "Investing in the AI capability frontier. 投资 AI 能力跃迁。",
+      "footer.desc": "与 AGI 时代的定义者同行。",
       "footer.legal": "法律声明"
     },
     en: {
-      "nav.beliefs": "Beliefs", "nav.daily": "Daily", "nav.focus": "Focus",
+      "nav.about": "About", "nav.beliefs": "Beliefs", "nav.daily": "Insights", "nav.focus": "Focus",
       "nav.portfolio": "Portfolio", "nav.team": "Team", "nav.contact": "Contact",
+      "menu.open": "Menu",
+      "menu.label": "Navigation",
+      "menu.research.kicker": "Insights Feed",
+      "menu.research.text": "Tracking real changes in models, infra, agents, and frontier computing — first-hand signals from the AI ecosystem.",
+      "menu.research.link": "Latest Updates",
+      "menu.contact.kicker": "Build With Us",
+      "menu.contact.text": "Founders, LPs, media and research partners — reach the LINK-X team here.",
+      "menu.contact.link": "Contact Us",
+      "menu.footer.meta": "LINK-X Capital · Beijing Tsinghua Science Park",
       "hero.title": "Stay in <em>touch</em>.",
       "hero.sub": "Subscribe to our research briefings and fund updates, or get in touch.",
       "nl.sub.label": "Newsletter",
-      "nl.sub.title": "Subscribe to Fund News & Daily AI Briefing",
-      "nl.sub.desc": "Fund News: new investments, industry insights and LINK-X updates, quarterly. Daily AI Briefing: one email every weekday with dense research and analysis on the AI frontier.",
+      "nl.sub.title": "Subscribe to Frontier Insights & Fund Updates",
+      "nl.sub.desc": "Fund Updates: new investments, industry insights and LINK-X updates, quarterly. Frontier Insights: dense research and analysis on the AI frontier.",
       "nl.sub.note": "Unsubscribe anytime",
       "nl.con.title": "Get in Touch",
       "nl.con.desc": "Pitch decks, LP partnerships, media inquiries, research collaboration or other inquiries.",
       "nl.btn": "Subscribe",
-      "footer.desc": "Investing in the AI capability frontier.",
+      "footer.desc": "Partnering with the founders defining the AGI era.",
       "footer.legal": "Legal"
     }
   };
@@ -417,6 +502,39 @@
     });
   }, { threshold: 0.1 });
   document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+  /* ---------- Menu ---------- */
+  const menuOverlay = document.getElementById("siteMenu");
+  const menuOpeners = document.querySelectorAll("[data-menu-open]");
+  const menuClosers = document.querySelectorAll("[data-menu-close]");
+  const menuLinks = document.querySelectorAll("[data-menu-link]");
+  let lastMenuTrigger = null;
+  function setMenuOpen(open) {
+    if (!menuOverlay) return;
+    menuOverlay.classList.toggle("is-open", open);
+    menuOverlay.setAttribute("aria-hidden", open ? "false" : "true");
+    document.body.classList.toggle("menu-open", open);
+    menuOpeners.forEach(btn => btn.setAttribute("aria-expanded", open ? "true" : "false"));
+    if (open) { lastMenuTrigger = document.activeElement; const cb = menuOverlay.querySelector("[data-menu-close]"); if (cb) cb.focus(); }
+    else if (lastMenuTrigger && typeof lastMenuTrigger.focus === "function") { lastMenuTrigger.focus(); }
+  }
+  menuOpeners.forEach(btn => { btn.addEventListener("click", () => setMenuOpen(true)); });
+  menuClosers.forEach(btn => { btn.addEventListener("click", () => setMenuOpen(false)); });
+  menuLinks.forEach(link => { link.addEventListener("click", () => setMenuOpen(false)); });
+  document.addEventListener("click", (e) => {
+    if (!menuOverlay || !menuOverlay.classList.contains("is-open")) return;
+    if (e.target.closest("[data-menu-open]") || e.target.closest("[data-menu-close]")) return;
+    if (!menuOverlay.contains(e.target)) setMenuOpen(false);
+  });
+  document.addEventListener("keydown", (e) => {
+    if (!menuOverlay || !menuOverlay.classList.contains("is-open")) return;
+    if (e.key === "Escape") { setMenuOpen(false); return; }
+    if (e.key !== "Tab") return;
+    const f = Array.from(menuOverlay.querySelectorAll("a[href], button:not([disabled])"));
+    if (!f.length) return;
+    if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f[f.length-1].focus(); }
+    else if (!e.shiftKey && document.activeElement === f[f.length-1]) { e.preventDefault(); f[0].focus(); }
+  });
 </script>
 
 </body>

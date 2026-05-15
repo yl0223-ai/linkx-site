@@ -1,1 +1,6 @@
 .DS_Store
+*.md
+!README.md
+*.docx
+*.doc
+image-*.png

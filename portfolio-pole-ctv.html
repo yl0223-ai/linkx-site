@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>珀乐互动 CTO 徐京徽：AI泛娱乐如何演进？ · LINK-X Capital</title>
+  <meta name="description" content="珀乐互动CTO徐京徽：AI泛娱乐如何演进？星连资本被投企业深度访谈。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <style>
+    :root {
+      --bg: #FAF8F4; --bg-warm: #F2EBE0; --border: #DDD5CA; --border-light: #EAE4DC;
+      --text: #1C1917; --text-soft: #44403C; --text-muted: #78716C; --text-light: #A8A29E;
+      --purple: #660874; --purple-mid: #8B3A9A; --purple-soft: #B07CC0; --purple-pale: #E8D5EE;
+      --font-serif: "Instrument Serif", "Noto Serif SC", Georgia, serif;
+      --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+      --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+      --max: 1180px; --px: clamp(24px, 6vw, 80px);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-sans); background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 var(--px); }
+    .progress-bar { position: fixed; top: 0; left: 0; height: 2px; background: var(--purple); z-index: 999; transition: width 0.1s linear; }
+
+    /* ---------- Header ---------- */
+    header.site-header { position: sticky; top: 0; z-index: 300; background: rgba(250,248,244,0.84); backdrop-filter: blur(18px) saturate(120%); -webkit-backdrop-filter: blur(18px) saturate(120%); border-bottom: 1px solid var(--border-light); }
+    .nav { display: grid; grid-template-columns: auto 1fr; align-items: center; height: 76px; padding: 0 clamp(20px, 4vw, 48px); }
+    .brand-logo { display: inline-flex; align-items: center; gap: 13px; color: var(--text); text-decoration: none; white-space: nowrap; }
+    .brand-mark { width: 42px; height: 42px; color: var(--purple); flex: 0 0 auto; }
+    .brand-lockup { display: grid; gap: 1px; line-height: 1; }
+    .brand-cn { font-family: var(--font-sans); font-size: 20px; font-weight: 700; letter-spacing: 0.03em; }
+    .brand-en { font-family: var(--font-sans); font-size: 11.5px; font-weight: 700; letter-spacing: 0.045em; }
+    .nav-actions { display: flex; align-items: center; justify-content: flex-end; gap: clamp(18px, 2.4vw, 34px); font-size: 13px; color: var(--text-muted); }
+    .lang-toggle { display: flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; color: var(--text-light); }
+    .lang-toggle button { background: none; border: none; padding: 2px 4px; cursor: pointer; color: var(--text-light); font: inherit; transition: color 0.2s ease; }
+    .lang-toggle button.active { color: var(--text); }
+    .lang-toggle button:hover { color: var(--purple); }
+    .lang-toggle .sep { color: var(--border); padding: 0 2px; }
+    .menu-toggle { display: inline-flex; align-items: center; gap: 13px; min-height: 40px; background: transparent; border: 0; color: var(--text); cursor: pointer; font: 500 13px/1 var(--font-sans); padding: 0; }
+    .menu-toggle-mark { display: grid; gap: 5px; width: 34px; }
+    .menu-toggle-mark span { display: block; height: 1px; background: currentColor; transform-origin: right center; transition: transform 0.2s ease; }
+    .menu-toggle:hover .menu-toggle-mark span:first-child { transform: scaleX(0.64); }
+    .menu-toggle:hover .menu-toggle-mark span:last-child { transform: scaleX(1.18); }
+    .menu-toggle-text { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.07em; text-transform: uppercase; }
+
+    body.menu-open { overflow: hidden; }
+    .menu-overlay { position: fixed; inset: 0 0 0 auto; width: min(720px, 50vw); z-index: 500; color: var(--bg); background: linear-gradient(90deg, rgba(250,248,244,0.035) 1px, transparent 1px), linear-gradient(0deg, rgba(250,248,244,0.03) 1px, transparent 1px), linear-gradient(135deg, #151012 0%, #21161E 52%, #2A162F 100%); background-size: 96px 96px, 96px 96px, auto; opacity: 0; visibility: hidden; pointer-events: none; overflow-x: hidden; overflow-y: auto; scrollbar-width: none; box-shadow: -28px 0 70px rgba(28,25,23,0.22); transform: translateX(24px); transition: opacity 0.28s ease, transform 0.28s ease, visibility 0s linear 0.28s; }
+    .menu-overlay::-webkit-scrollbar { display: none; }
+    .menu-overlay.is-open { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(0); transition-delay: 0s; }
+    .menu-overlay::before { content: "LINK-X"; position: absolute; right: -0.08em; bottom: -0.28em; font-family: var(--font-serif); font-size: clamp(130px, 24vw, 360px); line-height: 1; color: rgba(250,248,244,0.045); pointer-events: none; letter-spacing: 0; }
+    .menu-shell { position: relative; z-index: 1; min-height: 100dvh; display: grid; grid-template-rows: auto 1fr auto; padding: 0 clamp(22px, 3vw, 40px) 28px; }
+    .menu-top { display: flex; align-items: center; justify-content: space-between; height: 76px; border-bottom: 1px solid rgba(250,248,244,0.12); }
+    .menu-label { display: inline-flex; align-items: baseline; gap: 10px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(250,248,244,0.48); }
+    .menu-label span { color: var(--purple-pale); }
+    .menu-label i { font-style: normal; color: rgba(250,248,244,0.28); }
+    .menu-label em { font-style: normal; color: rgba(250,248,244,0.42); }
+    .menu-close { position: relative; width: 44px; height: 44px; display: grid; place-items: center; background: transparent; border: 1px solid rgba(250,248,244,0.22); color: var(--bg); cursor: pointer; transition: border-color 0.2s ease, background 0.2s ease; }
+    .menu-close:hover { background: rgba(250,248,244,0.08); border-color: rgba(250,248,244,0.5); }
+    .menu-close span { position: absolute; width: 18px; height: 1px; background: currentColor; }
+    .menu-close span:first-child { transform: rotate(45deg); }
+    .menu-close span:last-child { transform: rotate(-45deg); }
+    .menu-grid { display: grid; grid-template-columns: minmax(0,1fr); gap: 22px; align-items: start; padding: clamp(24px, 4vh, 34px) 0; }
+    .menu-primary { display: flex; flex-direction: column; border-top: 1px solid rgba(250,248,244,0.16); }
+    .menu-primary a { display: grid; grid-template-columns: 36px 1fr auto; gap: 16px; align-items: baseline; padding: clamp(9px, 1.15vh, 11px) 0; border-bottom: 1px solid rgba(250,248,244,0.16); color: rgba(250,248,244,0.9); opacity: 0; transform: translateY(18px); transition: color 0.2s ease, opacity 0.4s ease, transform 0.4s ease; text-decoration: none; }
+    .menu-overlay.is-open .menu-primary a { opacity: 1; transform: none; }
+    .menu-overlay.is-open .menu-primary a:nth-child(1) { transition-delay: 0.06s; }
+    .menu-overlay.is-open .menu-primary a:nth-child(2) { transition-delay: 0.1s; }
+    .menu-overlay.is-open .menu-primary a:nth-child(3) { transition-delay: 0.14s; }
+    .menu-overlay.is-open .menu-primary a:nth-child(4) { transition-delay: 0.18s; }
+    .menu-overlay.is-open .menu-primary a:nth-child(5) { transition-delay: 0.22s; }
+    .menu-overlay.is-open .menu-primary a:nth-child(6) { transition-delay: 0.26s; }
+    .menu-primary a:hover { color: #fff; }
+    .menu-primary .menu-num { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; color: rgba(232,213,238,0.54); }
+    .menu-primary strong { font-family: var(--font-serif); font-size: clamp(26px, 2.45vw, 36px); font-weight: 400; line-height: 1.02; letter-spacing: 0; }
+    .menu-primary em { font-family: var(--font-mono); font-size: 11px; font-style: normal; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(250,248,244,0.35); }
+    .menu-side { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; opacity: 0; transform: translateY(18px); transition: opacity 0.45s ease 0.24s, transform 0.45s ease 0.24s; }
+    .menu-overlay.is-open .menu-side { opacity: 1; transform: none; }
+    .menu-panel { border: 1px solid rgba(250,248,244,0.14); background: rgba(250,248,244,0.055); padding: clamp(18px, 2vw, 22px); }
+    .menu-kicker { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--purple-pale); margin-bottom: 18px; }
+    .menu-panel p { color: rgba(250,248,244,0.74); font-size: 13.5px; line-height: 1.7; margin-bottom: 18px; }
+    .menu-panel a { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #fff; text-decoration: none; border-bottom: 1px solid rgba(250,248,244,0.36); padding-bottom: 4px; transition: gap 0.2s ease, border-color 0.2s ease; }
+    .menu-panel a:hover { gap: 13px; border-color: #fff; }
+    .menu-footer { display: flex; justify-content: space-between; gap: 24px; padding-top: 24px; border-top: 1px solid rgba(250,248,244,0.12); font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(250,248,244,0.42); }
+    .menu-footer a { color: rgba(250,248,244,0.42); text-decoration: none; }
+    .menu-footer a:hover { color: #fff; }
+
+    /* ---------- Article ---------- */
+    .article-hero { padding: clamp(80px, 12vw, 160px) 0 0; }
+    .article-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+    .article-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; color: var(--purple); padding: 4px 12px; border: 1px solid var(--purple-soft); }
+    .article-date { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--text-light); }
+    .article-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 4.5vw, 52px); font-weight: 400; letter-spacing: -0.02em; line-height: 1.2; text-wrap: balance; }
+    .article-body { max-width: 700px; padding: clamp(48px, 6vw, 80px) 0 clamp(80px, 10vw, 140px); }
+    .article-body p { font-size: 17px; line-height: 1.9; color: var(--text-soft); margin-bottom: 24px; text-align: justify; hyphens: auto; text-wrap: pretty; }
+    .article-body h2 { font-family: var(--font-serif); font-size: 28px; font-weight: 400; letter-spacing: -0.01em; margin-top: 56px; margin-bottom: 20px; line-height: 1.3; text-wrap: balance; }
+    .article-back { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); text-decoration: none; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); transition: color 0.2s ease; }
+    .article-back:hover { color: var(--purple); }
+
+    /* ---------- Footer ---------- */
+    footer { background: var(--text); color: rgba(250,248,244,0.6); padding: 60px 0 40px; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-brand .brand-logo { color: var(--bg); margin-bottom: 12px; }
+    .footer-brand .brand-mark { color: #fff; }
+    .footer-brand p { color: rgba(250,248,244,0.4); font-size: 13px; max-width: 34ch; line-height: 1.6; }
+    .footer-bottom { display: flex; align-items: center; gap: 24px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(250,248,244,0.2); }
+    .footer-bottom a { color: rgba(250,248,244,0.35); text-decoration: none; transition: color 0.2s ease; }
+    .footer-bottom a:hover { color: rgba(250,248,244,0.6); }
+    [data-lang="zh"] .en-only { display: none; }
+    [data-lang="en"] .zh-only { display: none; }
+    @media (max-width: 720px) {
+      .brand-logo { gap: 9px; } .brand-mark { width: 30px; height: 30px; }
+      .brand-cn { font-size: 17px; letter-spacing: 0.02em; } .brand-en { display: none; }
+      .article-hero h1 { font-size: clamp(28px, 7vw, 38px); }
+      .article-body h2 { font-size: 24px; } .article-body p { font-size: 16px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="nav">
+    <a href="index.html" class="brand-logo" aria-label="星连资本 LINK-X Capital">
+      <svg class="brand-mark" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(8.2 8.2)" fill="currentColor"/>
+        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(26 8.2)" fill="currentColor"/>
+        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(43.8 8.2)" fill="currentColor"/>
+        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(8.2 26)" fill="currentColor"/>
+        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(43.8 26)" fill="currentColor"/>
+        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(8.2 43.8)" fill="currentColor"/>
+        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(26 43.8)" fill="currentColor"/>
+        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(43.8 43.8)" fill="currentColor"/>
+      </svg>
+      <span class="brand-lockup"><span class="brand-cn">星连资本</span><span class="brand-en">LINK-X CAPITAL</span></span>
+    </a>
+    <div class="nav-actions">
+      <span class="lang-toggle" role="group" aria-label="Language"><button data-set-lang="en">EN</button><span class="sep">|</span><button data-set-lang="zh" class="active">中</button></span>
+      <button class="menu-toggle" type="button" aria-controls="siteMenu" aria-expanded="false" data-menu-open><span class="menu-toggle-text" data-i18n="menu.open">Menu</span><span class="menu-toggle-mark" aria-hidden="true"><span></span><span></span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="menu-overlay" id="siteMenu" aria-hidden="true">
+  <div class="menu-shell">
+    <div class="menu-top">
+      <div class="menu-label"><span data-i18n="menu.label">导航</span><i>/</i><em>Menu</em></div>
+      <button class="menu-close" type="button" aria-label="Close menu" data-menu-close>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div class="menu-grid">
+      <nav class="menu-primary" aria-label="Primary navigation">
+        <a href="index.html#about-fund" data-menu-link>
+          <span class="menu-num">01</span>
+          <strong data-i18n="nav.about">关于</strong>
+          <em>About</em>
+        </a>
+        <a href="index.html#beliefs" data-menu-link>
+          <span class="menu-num">02</span>
+          <strong data-i18n="nav.beliefs">理念</strong>
+          <em>Beliefs</em>
+        </a>
+        <a href="insights.html" data-menu-link>
+          <span class="menu-num">03</span>
+          <strong data-i18n="nav.daily">洞察</strong>
+          <em>Insights</em>
+        </a>
+        <a href="index.html#focus" data-menu-link>
+          <span class="menu-num">04</span>
+          <strong data-i18n="nav.focus">关注领域</strong>
+          <em>Focus Areas</em>
+        </a>
+        <a href="index.html#portfolio" data-menu-link>
+          <span class="menu-num">05</span>
+          <strong data-i18n="nav.portfolio">投资组合</strong>
+          <em>Portfolio</em>
+        </a>
+        <a href="team.html" data-menu-link>
+          <span class="menu-num">06</span>
+          <strong data-i18n="nav.team">团队</strong>
+          <em>Team</em>
+        </a>
+      </nav>
+      <aside class="menu-side" aria-label="Featured links">
+        <div class="menu-panel">
+          <div class="menu-kicker" data-i18n="menu.research.kicker">Insights Feed</div>
+          <p data-i18n="menu.research.text">持续跟踪模型、infra、agent 与前沿计算的真实变化，记录 AI 生态的一线信号。</p>
+          <a href="insights.html" data-menu-link>
+            <span data-i18n="menu.research.link">获取最新动态</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+        <div class="menu-panel">
+          <div class="menu-kicker" data-i18n="menu.contact.kicker">Build With Us</div>
+          <p data-i18n="menu.contact.text">创始人、LP、媒体与研究伙伴，可以从这里找到 LINK-X 团队。</p>
+          <a href="contact.html" data-menu-link>
+            <span data-i18n="menu.contact.link">联系我们</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </aside>
+    </div>
+    <div class="menu-footer">
+      <span data-i18n="menu.footer.meta">LINK-X Capital · 北京清华科技园</span>
+      <a href="mailto:hello@linkx.vc">hello@linkx.vc</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ARTICLE HERO ============ -->
+<section class="article-hero">
+  <div class="container">
+    <div class="article-meta">
+      <span class="article-tag" data-i18n="article.tag.portfolio">投资组合</span>
+      <span class="article-tag" data-i18n="article.tag.perspective">观点</span>
+      <span class="article-date">2026.03.18</span>
+    </div>
+    <h1 data-i18n="title">珀乐互动 CTO 徐京徽：<br>AI泛娱乐如何演进？</h1>
+  </div>
+</section>
+
+<!-- ============ ARTICLE BODY ============ -->
+<section>
+  <div class="container">
+    <div class="article-body">
+
+      <p data-i18n="p1">在生成式AI深入泛娱乐产业实践之后，行业发展已经不只是"效率提升"，而是生产、体验与商业生态层面的全方位重构。本文分享自星连资本被投企业<strong>珀乐互动</strong> CTO 徐京徽。结合珀乐互动科技的实战经验，系统梳理了他对AI泛娱乐行业演进、痛点及破局路径的理解。</p>
+
+      <h2 data-i18n="h2_1">AI泛娱乐四年演进：技术跃迁与工具短板并存</h2>
+
+      <p data-i18n="p2">自2022年ChatGPT引爆AI概念以来，四年间AI泛娱乐完成了单模态到多模态的演进：从大语言模型的智能涌现，到静态视觉生成的突破，再到动态视频生成、音频和音乐生成的迭代，2026年已迈向原生多模态融合新阶段。</p>
+
+      <p data-i18n="p3">但不同模态AI工具仍有短板：静态视觉生成模型难以理解物理规律、细节易崩坏，内容同质化严重；动态视频生成模型存在物理逻辑错误，算力成本高昂，个人创作者参与门槛高；音频、音乐生成音轨模型难编辑、节拍混乱。这些，均成为行业规模化发展的基础阻碍。</p>
+
+      <h2 data-i18n="h2_2">行业深层痛点：三重壁垒制约规模化发展</h2>
+
+      <p data-i18n="p4">若说工具短板是基础问题，贯穿技术底层、产业发展、工业生产的三重壁垒才是核心阻碍，其中技术底层的"不可能三角"是根源。</p>
+
+      <p data-i18n="p5">在产业层面，互动文字游戏的需求往往超过了长文本叙事自身存在的10万字安全边界，导致生成的内容易出现幻觉、逻辑断裂。全球版权监管趋严也使得视觉资产生成合规风险愈加凸显，让商业化后问题更突出。同时，AI生成内容同质化容易触及到资产合规的边界。在未来出现内容出海需求时，内容很可能会面临Netflix等流媒体巨头的合规审查。</p>
+
+      <p data-i18n="p6">在工业层面，痛点更集中在IP一致性与创作平权上。商业片和IP化内容对IP特征一致性要求极高，细微形象变化就会让IP失值，即便搭建复杂工作流也难完美解决；而视频生成算力成本居高不下，使得个人创作者试错成本过高，创作平权还只能仅停留在大语言模型和静态视觉领域。</p>
+
+      <h2 data-i18n="h2_3">破局策略：以"人类艺术家主导+AI赋能"为核心</h2>
+
+      <p data-i18n="p7">面对当前行业痛点，徐京徽结合珀乐互动实战经验，给出了以"人类艺术家主导+AI赋能"为核心的破局策略，这也是珀乐互动破解合规、同质化、IP不一致等问题的根本出路。</p>
+
+      <p data-i18n="p8">这一核心原则的核心逻辑，在于明确人类艺术家与AI的定位边界，坚守以人为本的创作初心。具体而言，在珀乐的AI语境中，人类艺术家承担着不可替代的核心职责，负责整体创意把控、审美方向判断、IP原创设计以及内容情感内核的塑造。这部分是AI无法复制的，也是避免内容同质化、缺乏情感温度的关键。</p>
+
+      <p data-i18n="p9">AI在创作与生成过程中回归工具本质，作为高效辅助手段承担基础创作、批量内容生成、重复性编辑等繁琐工作。其核心作用是降低创作成本，提升生产效率。这种分工模式，既有效解决了AI生成内容普遍存在的同质化、情感缺失等问题，也为数字资产的合规性奠定了坚实基础。用人类艺术家作为主导，加上AI的赋能去协同生产，才能构建真正有意义、可沉淀、可复用的数字资产。</p>
+
+      <p data-i18n="p10">为推动这一核心策略落地，珀乐团队从多维度细化执行方案。</p>
+
+      <p data-i18n="p11">在IP合规层面，珀乐采用"双轨并行"策略。在商业IP合作中，先与刘慈欣、开心麻花等顶级IP方完成确权，再开展后续创作。同时原创IP通过留存完整线稿、手稿及时间戳记录，筑牢知识产权合规防线。</p>
+
+      <p data-i18n="p12">在技术层面，珀乐一方面搭建多模态融合处理管线，借助特征锁定技术缓解IP一致性不足的问题。另一方面采用"Agent微服务化+核心中控"的解耦设计，既能适配模型快速迭代的需求，又能有效防控安全风险，确保核心策略稳定落地。</p>
+
+      <h2 data-i18n="h2_4">未来展望：打造"Netflix+Roblox"超级沙盒生态</h2>
+
+      <p data-i18n="p13">徐京徽认为，未来AI的角色将从生产辅助工具升级为内容创作与体验的同伴，陪伴用户共创专属故事。与此同时，数字资产将打破模态壁垒，从而实现跨场景复用。在商业链路层面，行业的发展重点也将从传统的"注意力变现"，重构为"交互/生成变现"模式。</p>
+
+      <p data-i18n="p14">AI泛娱乐行业将摆脱纯PGC产能扩张的传统模式，打造"Netflix+Roblox"式超级沙盒生态——平台通过打造顶级精品内容作为核心世界观框架，成为行业规则的制定者；同时开放交互平台，让用户能在既定框架下贡献数字资产，参与内容创作，甚至售卖自身原创内容，形成"平台搭框架、用户做内容"的全民共创格局，助力用户在平行宇宙中实现娱乐、创作与社交的深度融合。</p>
+
+      <h2 data-i18n="h2_5">结语：技术为舟，情感为舵</h2>
+
+      <p data-i18n="p15">从羊皮纸到印刷术，从硅片到硅基大模型，人类每一次技术变革的核心都是在降低人类表达自我和寻找情感共鸣的成本。而AI泛娱乐的所有探索与发展，最终也将回归人类的情感需求，这也是AIGC在泛娱乐领域的终极核心价值。</p>
+
+      <p data-i18n="p16">于AIGC的星辰大海中，AI的技术与安全是承载梦想的舟船。只有创作者的灵魂才是指引未来的唯一罗盘。</p>
+
+      <a href="insights.html" class="article-back" data-i18n="article.back">← 返回洞察</a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-left">
+      <div class="brand-lockup">
+        <span class="brand-cn">星连资本</span>
+        <span class="brand-en">LINK-X CAPITAL</span>
+      </div>
+      <p data-i18n="footer.desc">与 AGI 时代的定义者同行。</p>
+    </div>
+    <div class="footer-copy">
+      <span data-i18n="footer.copy">&copy; 2026 北京星连肇基私募基金管理有限责任公司</span>
+      <a href="legal.html" data-i18n="footer.legal">法律声明</a>
+    </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const i18n = {
+    zh: {
+      "nav.about": "关于", "nav.beliefs": "理念", "nav.daily": "洞察", "nav.focus": "关注领域",
+      "nav.portfolio": "投资组合", "nav.team": "团队", "nav.contact": "联系",
+      "menu.open": "Menu", "menu.label": "导航", "menu.research.kicker": "Insights Feed",
+      "menu.research.text": "持续跟踪模型、infra、agent 与前沿计算的真实变化，记录 AI 生态的一线信号。",
+      "menu.research.link": "获取最新动态", "menu.contact.kicker": "Build With Us",
+      "menu.contact.text": "创始人、LP、媒体与研究伙伴，可以从这里找到 LINK-X 团队。",
+      "menu.contact.link": "联系我们", "menu.footer.meta": "LINK-X Capital · 北京清华科技园",
+      "tag": "观点",
+      "article.tag.portfolio": "投资组合",
+      "article.tag.perspective": "观点",
+      "article.back": "← 返回洞察",
+      "title": "珀乐互动 CTO 徐京徽：<br>AI泛娱乐如何演进？",
+      "p1": "在生成式AI深入泛娱乐产业实践之后，行业发展已经不只是\"效率提升\"，而是生产、体验与商业生态层面的全方位重构。本文分享自星连资本被投企业<strong>珀乐互动</strong> CTO 徐京徽。结合珀乐互动科技的实战经验，系统梳理了他对AI泛娱乐行业演进、痛点及破局路径的理解。",
+      "h2_1": "AI泛娱乐四年演进：技术跃迁与工具短板并存",
+      "p2": "自2022年ChatGPT引爆AI概念以来，四年间AI泛娱乐完成了单模态到多模态的演进：从大语言模型的智能涌现，到静态视觉生成的突破，再到动态视频生成、音频和音乐生成的迭代，2026年已迈向原生多模态融合新阶段。",
+      "p3": "但不同模态AI工具仍有短板：静态视觉生成模型难以理解物理规律、细节易崩坏，内容同质化严重；动态视频生成模型存在物理逻辑错误，算力成本高昂，个人创作者参与门槛高；音频、音乐生成音轨模型难编辑、节拍混乱。这些，均成为行业规模化发展的基础阻碍。",
+      "h2_2": "行业深层痛点：三重壁垒制约规模化发展",
+      "p4": "若说工具短板是基础问题，贯穿技术底层、产业发展、工业生产的三重壁垒才是核心阻碍，其中技术底层的\"不可能三角\"是根源。",
+      "p5": "在产业层面，互动文字游戏的需求往往超过了长文本叙事自身存在的10万字安全边界，导致生成的内容易出现幻觉、逻辑断裂。全球版权监管趋严也使得视觉资产生成合规风险愈加凸显，让商业化后问题更突出。同时，AI生成内容同质化容易触及到资产合规的边界。在未来出现内容出海需求时，内容很可能会面临Netflix等流媒体巨头的合规审查。",
+      "p6": "在工业层面，痛点更集中在IP一致性与创作平权上。商业片和IP化内容对IP特征一致性要求极高，细微形象变化就会让IP失值，即便搭建复杂工作流也难完美解决；而视频生成算力成本居高不下，使得个人创作者试错成本过高，创作平权还只能仅停留在大语言模型和静态视觉领域。",
+      "h2_3": "破局策略：以\"人类艺术家主导+AI赋能\"为核心",
+      "p7": "面对当前行业痛点，徐京徽结合珀乐互动实战经验，给出了以\"人类艺术家主导+AI赋能\"为核心的破局策略，这也是珀乐互动破解合规、同质化、IP不一致等问题的根本出路。",
+      "p8": "这一核心原则的核心逻辑，在于明确人类艺术家与AI的定位边界，坚守以人为本的创作初心。具体而言，在珀乐的AI语境中，人类艺术家承担着不可替代的核心职责，负责整体创意把控、审美方向判断、IP原创设计以及内容情感内核的塑造。这部分是AI无法复制的，也是避免内容同质化、缺乏情感温度的关键。",
+      "p9": "AI在创作与生成过程中回归工具本质，作为高效辅助手段承担基础创作、批量内容生成、重复性编辑等繁琐工作。其核心作用是降低创作成本，提升生产效率。这种分工模式，既有效解决了AI生成内容普遍存在的同质化、情感缺失等问题，也为数字资产的合规性奠定了坚实基础。用人类艺术家作为主导，加上AI的赋能去协同生产，才能构建真正有意义、可沉淀、可复用的数字资产。",
+      "p10": "为推动这一核心策略落地，珀乐团队从多维度细化执行方案。",
+      "p11": "在IP合规层面，珀乐采用\"双轨并行\"策略。在商业IP合作中，先与刘慈欣、开心麻花等顶级IP方完成确权，再开展后续创作。同时原创IP通过留存完整线稿、手稿及时间戳记录，筑牢知识产权合规防线。",
+      "p12": "在技术层面，珀乐一方面搭建多模态融合处理管线，借助特征锁定技术缓解IP一致性不足的问题。另一方面采用\"Agent微服务化+核心中控\"的解耦设计，既能适配模型快速迭代的需求，又能有效防控安全风险，确保核心策略稳定落地。",
+      "h2_4": "未来展望：打造\"Netflix+Roblox\"超级沙盒生态",
+      "p13": "徐京徽认为，未来AI的角色将从生产辅助工具升级为内容创作与体验的同伴，陪伴用户共创专属故事。与此同时，数字资产将打破模态壁垒，从而实现跨场景复用。在商业链路层面，行业的发展重点也将从传统的\"注意力变现\"，重构为\"交互/生成变现\"模式。",
+      "p14": "AI泛娱乐行业将摆脱纯PGC产能扩张的传统模式，打造\"Netflix+Roblox\"式超级沙盒生态——平台通过打造顶级精品内容作为核心世界观框架，成为行业规则的制定者；同时开放交互平台，让用户能在既定框架下贡献数字资产，参与内容创作，甚至售卖自身原创内容，形成\"平台搭框架、用户做内容\"的全民共创格局，助力用户在平行宇宙中实现娱乐、创作与社交的深度融合。",
+      "h2_5": "结语：技术为舟，情感为舵",
+      "p15": "从羊皮纸到印刷术，从硅片到硅基大模型，人类每一次技术变革的核心都是在降低人类表达自我和寻找情感共鸣的成本。而AI泛娱乐的所有探索与发展，最终也将回归人类的情感需求，这也是AIGC在泛娱乐领域的终极核心价值。",
+      "p16": "于AIGC的星辰大海中，AI的技术与安全是承载梦想的舟船。只有创作者的灵魂才是指引未来的唯一罗盘。",
+      "back": "← 返回洞察",
+      "footer.desc": "与 AGI 时代的定义者同行。",
+      "footer.copy": "© 2026 北京星连肇基私募基金管理有限责任公司",
+      "footer.legal": "法律声明"
+    },
+    en: {
+      "nav.about": "About", "nav.beliefs": "Beliefs", "nav.daily": "Insights", "nav.focus": "Focus",
+      "nav.portfolio": "Portfolio", "nav.team": "Team", "nav.contact": "Contact",
+      "menu.open": "Menu", "menu.label": "Navigation", "menu.research.kicker": "Insights Feed",
+      "menu.research.text": "Tracking real changes in models, infra, agents, and frontier computing — first-hand signals from the AI ecosystem.",
+      "menu.research.link": "Latest Updates", "menu.contact.kicker": "Build With Us",
+      "menu.contact.text": "Founders, LPs, media and research partners — reach the LINK-X team here.",
+      "menu.contact.link": "Contact Us", "menu.footer.meta": "LINK-X Capital · Beijing Tsinghua Science Park",
+      "tag": "Perspectives",
+      "article.tag.portfolio": "Portfolio",
+      "article.tag.perspective": "Perspectives",
+      "article.back": "← Back to Insights",
+      "title": "How Will AI-Powered Entertainment Evolve?",
+      "p1": "After generative AI deeply integrated into entertainment industry practices, development has moved beyond mere 'efficiency gains' — it's a comprehensive restructuring of production, experience, and business ecosystems. This piece shares insights from <strong>Xu Jinghui</strong>, CTO of <strong>Pole Interactive</strong>, a LINK-X portfolio company. Drawing on Pole Interactive's hands-on experience, it systematically maps his understanding of AI entertainment's evolution, pain points, and breakthrough paths.",
+      "h2_1": "Four Years of AI Entertainment Evolution: Technological Leaps and Tooling Gaps Coexist",
+      "p2": "Since ChatGPT ignited the AI wave in 2022, AI entertainment has evolved from single-modality to multi-modality over four years: from the emergence of LLM intelligence, to breakthroughs in static visual generation, to iterative progress in dynamic video generation, audio, and music generation — by 2026, we've entered a new phase of native multi-modal fusion.",
+      "p3": "Yet AI tools across different modalities still have significant gaps: static visual generation models struggle to understand physical laws, with details prone to collapse and serious content homogenization; dynamic video generation models suffer from physical logic errors and prohibitively high compute costs, raising the barrier for individual creators; audio and music generation models produce hard-to-edit tracks with chaotic beats. All of these constitute fundamental barriers to the industry's scaled development.",
+      "h2_2": "Deep-Rooted Industry Pain Points: Three Layers of Barriers Constraining Scale",
+      "p4": "If tooling gaps are the foundational issue, the three barriers running through the technical base, industrial development, and manufacturing layers are the core obstacles — with the 'impossible triangle' at the technical base being the root cause.",
+      "p5": "At the industrial level, interactive text game requirements often exceed the 100,000-character safety boundary inherent in long-text narratives, leading to hallucination and logical breaks in generated content. Tightening global copyright regulation has also made compliance risks for visual asset generation increasingly prominent, making post-commercialization problems even more acute. Meanwhile, AI-generated content homogenization easily touches asset compliance boundaries. When content goes overseas in the future, it may face compliance reviews from streaming giants like Netflix.",
+      "p6": "At the manufacturing level, pain points concentrate on IP consistency and creative democratization. Commercial and IP-driven content demand extremely high IP characteristic consistency — subtle character changes can devalue the IP, and even building complex workflows can't perfectly solve this; while the high cost of video generation compute keeps individual creators' trial costs prohibitively high, and creative democratization remains confined to LLMs and static visual generation.",
+      "h2_3": "Breakthrough Strategy: 'Human Artists Lead + AI Empowerment' as the Core",
+      "p7": "Facing current industry pain points, Xu Jinghui, drawing on Pole Interactive's practical experience, proposed a breakthrough strategy centered on 'human artists lead + AI empowerment' — this is also the fundamental path for Pole Interactive to solve compliance, homogenization, and IP inconsistency issues.",
+      "p8": "The core logic of this principle lies in clearly defining the boundary between human artists and AI, and adhering to a people-first creative philosophy. Specifically, in Pole Interactive's AI context, human artists assume irreplaceable core responsibilities: overall creative direction, aesthetic judgment, original IP design, and shaping the emotional core of content. This is what AI cannot replicate, and is the key to avoiding content homogenization and lack of emotional warmth.",
+      "p9": "In the creation and generation process, AI returns to its essence as a tool — a highly efficient auxiliary means that handles basic creation, batch content generation, repetitive editing, and other tedious work. Its core role is to reduce creative costs and improve production efficiency. This division of labor effectively solves the homogenization and emotional absence common in AI-generated content, while laying a solid foundation for digital asset compliance. With human artists leading and AI empowering collaborative production, we can build truly meaningful, sustainable, and reusable digital assets.",
+      "p10": "To drive this core strategy's implementation, the Pole team refines its execution plan from multiple dimensions.",
+      "p11": "At the IP compliance level, Pole Interactive adopts a 'dual-track parallel' strategy. In commercial IP partnerships, they first complete rights confirmation with top IP holders like Liu Cixin and Happy Mahua, then proceed with subsequent creation. For original IPs, they build a solid intellectual property compliance defense by preserving complete line drawings, manuscripts, and timestamp records.",
+      "p12": "At the technical level, Pole Interactive builds a multi-modal fusion processing pipeline on one hand, using feature locking technology to alleviate IP consistency issues. On the other hand, they employ a 'Agent microservice + core control' decoupled design, which can both adapt to rapid model iteration needs and effectively control security risks, ensuring stable implementation of core strategies.",
+      "h2_4": "Future Outlook: Building a 'Netflix + Roblox' Super Sandbox Ecosystem",
+      "p13": "Xu Jinghui believes AI's role will evolve from a production assistance tool to a companion in content creation and experience, accompanying users in co-creating personalized stories. Meanwhile, digital assets will break modality barriers to achieve cross-scenario reuse. At the business level, the industry's development focus will shift from traditional 'attention monetization' to 'interaction/generation monetization'.",
+      "p14": "The AI entertainment industry will break free from the traditional model of pure PGC capacity expansion, creating a 'Netflix + Roblox' style super sandbox ecosystem — platforms become industry rule-makers by building top-tier premium content as the core worldview framework; simultaneously opening the interaction platform, allowing users to contribute digital assets within the established framework, participate in content creation, and even sell their original content, forming a 'platform builds framework, users create content' crowd-creation pattern that helps users achieve deep integration of entertainment, creation, and social connection in parallel universes.",
+      "h2_5": "Conclusion: Technology as the Boat, Emotion as the Helm",
+      "p15": "From parchment to the printing press, from silicon chips to silicon-based large models, the core of every technological transformation in human history has been reducing the cost of expressing ourselves and finding emotional resonance. All exploration and development of AI entertainment will ultimately return to human emotional needs — this is the ultimate core value of AIGC in the entertainment field.",
+      "p16": "In the vast ocean of AIGC, AI's technology and security are the boats that carry our dreams. Only the creator's soul is the sole compass pointing toward the future.",
+      "back": "← Back to Insights",
+      "footer.desc": "Partnering with the founders defining the AGI era.",
+      "footer.copy": "© 2026 LINK-X Capital",
+      "footer.legal": "Legal"
+    }
+  };
+  function applyLang(lang) {
+    const dict = i18n[lang]; document.documentElement.setAttribute("data-lang", lang);
+    document.documentElement.setAttribute("lang", lang === "zh" ? "zh-CN" : "en");
+    document.querySelectorAll("[data-i18n]").forEach(el => { const k = el.getAttribute("data-i18n"); if (dict[k]) el.innerHTML = dict[k]; });
+    document.querySelectorAll("[data-set-lang]").forEach(btn => { btn.classList.toggle("active", btn.getAttribute("data-set-lang") === lang); });
+    try { localStorage.setItem("linkx.lang", lang); } catch(e){}
+  }
+  document.querySelectorAll("[data-set-lang]").forEach(btn => { btn.addEventListener("click", () => applyLang(btn.getAttribute("data-set-lang"))); });
+  (function() { let l = "zh"; try { const s = localStorage.getItem("linkx.lang"); if (s === "en" || s === "zh") l = s; else if ((navigator.language||"").toLowerCase().startsWith("en")) l = "en"; } catch(e){} applyLang(l); })();
+  const bar = document.getElementById("progressBar");
+  window.addEventListener("scroll", () => { const h = document.documentElement.scrollHeight - window.innerHeight; bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + "%"; }, { passive: true });
+  const menuOverlay = document.getElementById("siteMenu");
+  const menuOpeners = document.querySelectorAll("[data-menu-open]");
+  const menuClosers = document.querySelectorAll("[data-menu-close]");
+  const menuLinks = document.querySelectorAll("[data-menu-link]");
+  let lastMenuTrigger = null;
+  function setMenuOpen(open) {
+    if (!menuOverlay) return; menuOverlay.classList.toggle("is-open", open);
+    menuOverlay.setAttribute("aria-hidden", open ? "false" : "true");
+    document.body.classList.toggle("menu-open", open);
+    menuOpeners.forEach(btn => btn.setAttribute("aria-expanded", open ? "true" : "false"));
+    if (open) { lastMenuTrigger = document.activeElement; const cb = menuOverlay.querySelector("[data-menu-close]"); if (cb) cb.focus(); }
+    else if (lastMenuTrigger && typeof lastMenuTrigger.focus === "function") { lastMenuTrigger.focus(); }
+  }
+  menuOpeners.forEach(btn => { btn.addEventListener("click", () => setMenuOpen(true)); });
+  menuClosers.forEach(btn => { btn.addEventListener("click", () => setMenuOpen(false)); });
+  menuLinks.forEach(link => { link.addEventListener("click", () => setMenuOpen(false)); });
+  document.addEventListener("click", (e) => {
+    if (!menuOverlay || !menuOverlay.classList.contains("is-open")) return;
+    if (e.target.closest("[data-menu-open]") || e.target.closest("[data-menu-close]")) return;
+    if (!menuOverlay.contains(e.target)) setMenuOpen(false);
+  });
+  document.addEventListener("keydown", (e) => {
+    if (!menuOverlay || !menuOverlay.classList.contains("is-open")) return;
+    if (e.key === "Escape") { setMenuOpen(false); return; }
+    if (e.key !== "Tab") return;
+    const f = Array.from(menuOverlay.querySelectorAll("a[href], button:not([disabled])"));
+    if (!f.length) return;
+    if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f[f.length-1].focus(); }
+    else if (!e.shiftKey && document.activeElement === f[f.length-1]) { e.preventDefault(); f[0].focus(); }
+  });
+</script>
+
+<style>
+    footer {
+      background:
+        linear-gradient(135deg, #151012 0%, #21161E 52%, #2A162F 100%);
+      color: rgba(250, 248, 244, 0.6);
+      padding: 60px 0 40px;
+    }
+    .footer-inner {
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 16px;
+    }
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-left .brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-left .brand-cn {
+      color: rgba(250,248,244,0.88);
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .footer-left .brand-en {
+      color: rgba(250,248,244,0.55);
+      font-size: 13px;
+      font-family: var(--font-mono);
+      letter-spacing: 0.08em;
+    }
+    .footer-left p {
+      color: rgba(250, 248, 244, 0.4);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .footer-copy {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(250, 248, 244, 0.2);
+    }
+    .footer-copy a {
+      color: rgba(250, 248, 244, 0.35);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .footer-copy a:hover { color: rgba(250, 248, 244, 0.6); }
+    .article-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(102, 8, 116, 0.5);
+      text-decoration: none;
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(102, 8, 116, 0.18);
+      transition: color 0.2s ease;
+    }
+    .article-back:hover { color: rgba(102, 8, 116, 0.8); }
+</style>
+
+</body>
+</html>

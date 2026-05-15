@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>投资组合 · LINK-X Capital 星连资本</title>
-  <meta name="description" content="LINK-X Capital 投资组合 — 新一代人工智能领军企业。" />
+  <meta name="description" content="LINK-X Capital 投资组合 — 新一代人工智能企业。" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -42,18 +42,66 @@
     /* ---------- Progress bar ---------- */
     .progress-bar { position: fixed; top: 0; left: 0; height: 2px; background: var(--purple); z-index: 999; transition: width 0.1s linear; }
 
-    /* ---------- Header ---------- */
-    .site-header { position: sticky; top: 0; z-index: 100; background: rgba(250,248,244,0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-light); }
-    .nav { display: flex; align-items: center; justify-content: space-between; padding-top: 16px; padding-bottom: 16px; }
-    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-family: var(--font-serif); font-size: 20px; letter-spacing: -0.02em; }
-    .brand-mark { flex-shrink: 0; }
-    .nav-links { display: flex; gap: 32px; }
-    .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 14px; font-weight: 500; transition: color 0.2s ease; }
-    .nav-links a:hover { color: var(--text); }
-    .lang-toggle { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; color: var(--text-light); }
-    .lang-toggle button { background: none; border: none; cursor: pointer; font-family: inherit; font-size: inherit; letter-spacing: inherit; color: var(--text-light); transition: color 0.2s ease; }
-    .lang-toggle button:hover, .lang-toggle button.active { color: var(--purple); }
-    .lang-toggle .sep { color: var(--border); }
+    /* ---------- Header — matches index.html ---------- */
+    header.site-header { position: sticky; top: 0; z-index: 300; background: rgba(250,248,244,0.84); backdrop-filter: blur(18px) saturate(120%); -webkit-backdrop-filter: blur(18px) saturate(120%); border-bottom: 1px solid var(--border-light); }
+    .nav { display: grid; grid-template-columns: auto 1fr; align-items: center; height: 76px; padding: 0 clamp(20px, 4vw, 48px); }
+    .brand-logo { display: inline-flex; align-items: center; gap: 13px; color: var(--text); text-decoration: none; white-space: nowrap; }
+    .brand-mark { width: 42px; height: 42px; color: var(--purple); flex: 0 0 auto; }
+    .brand-lockup { display: grid; gap: 1px; line-height: 1; }
+    .brand-cn { font-family: var(--font-sans); font-size: 20px; font-weight: 700; letter-spacing: 0.03em; }
+    .brand-en { font-family: var(--font-sans); font-size: 11.5px; font-weight: 700; letter-spacing: 0.045em; }
+    .nav-actions { display: flex; align-items: center; justify-content: flex-end; gap: clamp(18px, 2.4vw, 34px); font-size: 13px; color: var(--text-muted); }
+    .lang-toggle { display: flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; color: var(--text-light); }
+    .lang-toggle button { background: none; border: none; padding: 2px 4px; cursor: pointer; color: var(--text-light); font: inherit; transition: color 0.2s ease; }
+    .lang-toggle button.active { color: var(--text); }
+    .lang-toggle button:hover { color: var(--purple); }
+    .lang-toggle .sep { color: var(--border); padding: 0 2px; }
+    .menu-toggle { display: inline-flex; align-items: center; gap: 13px; min-height: 40px; background: transparent; border: 0; color: var(--text); cursor: pointer; font: 500 13px/1 var(--font-sans); padding: 0; }
+    .menu-toggle-mark { display: grid; gap: 5px; width: 34px; }
+    .menu-toggle-mark span { display: block; height: 1px; background: currentColor; transform-origin: right center; transition: transform 0.2s ease; }
+    .menu-toggle:hover .menu-toggle-mark span:first-child { transform: scaleX(0.64); }
+    .menu-toggle:hover .menu-toggle-mark span:last-child { transform: scaleX(1.18); }
+    .menu-toggle-text { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.07em; text-transform: uppercase; }
+    body.menu-open { overflow: hidden; }
+    .menu-overlay { position: fixed; inset: 0 0 0 auto; width: min(720px, 50vw); z-index: 500; color: var(--bg); background: linear-gradient(90deg, rgba(250,248,244,0.035) 1px, transparent 1px), linear-gradient(0deg, rgba(250,248,244,0.03) 1px, transparent 1px), linear-gradient(135deg, #151012 0%, #21161E 52%, #2A162F 100%); background-size: 96px 96px, 96px 96px, auto; opacity: 0; visibility: hidden; pointer-events: none; overflow-x: hidden; overflow-y: auto; scrollbar-width: none; box-shadow: -28px 0 70px rgba(28,25,23,0.22); transform: translateX(24px); transition: opacity 0.28s ease, transform 0.28s ease, visibility 0s linear 0.28s; }
+    .menu-overlay::-webkit-scrollbar { display: none; }
+    .menu-overlay.is-open { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(0); transition-delay: 0s; }
+    .menu-overlay::before { content: "LINK-X"; position: absolute; right: -0.08em; bottom: -0.28em; font-family: var(--font-serif); font-size: clamp(130px, 24vw, 360px); line-height: 1; color: rgba(250,248,244,0.045); pointer-events: none; letter-spacing: 0; }
+    .menu-shell { position: relative; z-index: 1; min-height: 100dvh; display: grid; grid-template-rows: auto 1fr auto; padding: 0 clamp(22px, 3vw, 40px) 28px; }
+    .menu-top { display: flex; align-items: center; justify-content: space-between; height: 76px; border-bottom: 1px solid rgba(250,248,244,0.12); }
+    .menu-label { display: inline-flex; align-items: baseline; gap: 10px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(250,248,244,0.48); }
+    .menu-label span { color: var(--purple-pale); }
+    .menu-label i { font-style: normal; color: rgba(250,248,244,0.28); }
+    .menu-label em { font-style: normal; color: rgba(250,248,244,0.42); }
+    .menu-close { position: relative; width: 44px; height: 44px; display: grid; place-items: center; background: transparent; border: 1px solid rgba(250,248,244,0.22); color: var(--bg); cursor: pointer; transition: border-color 0.2s ease, background 0.2s ease; }
+    .menu-close:hover { background: rgba(250,248,244,0.08); border-color: rgba(250,248,244,0.5); }
+    .menu-close span { position: absolute; width: 18px; height: 1px; background: currentColor; }
+    .menu-close span:first-child { transform: rotate(45deg); }
+    .menu-close span:last-child { transform: rotate(-45deg); }
+    .menu-grid { display: grid; grid-template-columns: minmax(0,1fr); gap: 22px; align-items: start; padding: clamp(24px, 4vh, 34px) 0; }
+    .menu-primary { display: flex; flex-direction: column; border-top: 1px solid rgba(250,248,244,0.16); }
+    .menu-primary a { display: grid; grid-template-columns: 36px 1fr auto; gap: 16px; align-items: baseline; padding: clamp(9px, 1.15vh, 11px) 0; border-bottom: 1px solid rgba(250,248,244,0.16); color: rgba(250,248,244,0.9); opacity: 0; transform: translateY(18px); transition: color 0.2s ease, opacity 0.4s ease, transform 0.4s ease; text-decoration: none; }
+    .menu-overlay.is-open .menu-primary a { opacity: 1; transform: none; }
+    .menu-overlay.is-open .menu-primary a:nth-child(1) { transition-delay: 0.06s; }
+    .menu-overlay.is-open .menu-primary a:nth-child(2) { transition-delay: 0.1s; }
+    .menu-overlay.is-open .menu-primary a:nth-child(3) { transition-delay: 0.14s; }
+    .menu-overlay.is-open .menu-primary a:nth-child(4) { transition-delay: 0.18s; }
+    .menu-overlay.is-open .menu-primary a:nth-child(5) { transition-delay: 0.22s; }
+    .menu-overlay.is-open .menu-primary a:nth-child(6) { transition-delay: 0.26s; }
+    .menu-primary a:hover { color: #fff; }
+    .menu-primary .menu-num { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; color: rgba(232,213,238,0.54); }
+    .menu-primary strong { font-family: var(--font-serif); font-size: clamp(26px, 2.45vw, 36px); font-weight: 400; line-height: 1.02; letter-spacing: 0; }
+    .menu-primary em { font-family: var(--font-mono); font-size: 11px; font-style: normal; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(250,248,244,0.35); }
+    .menu-side { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; opacity: 0; transform: translateY(18px); transition: opacity 0.45s ease 0.24s, transform 0.45s ease 0.24s; }
+    .menu-overlay.is-open .menu-side { opacity: 1; transform: none; }
+    .menu-panel { border: 1px solid rgba(250,248,244,0.14); background: rgba(250,248,244,0.055); padding: clamp(18px, 2vw, 22px); }
+    .menu-kicker { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--purple-pale); margin-bottom: 18px; }
+    .menu-panel p { color: rgba(250,248,244,0.74); font-size: 13.5px; line-height: 1.7; margin-bottom: 18px; }
+    .menu-panel a { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #fff; text-decoration: none; border-bottom: 1px solid rgba(250,248,244,0.36); padding-bottom: 4px; transition: gap 0.2s ease, border-color 0.2s ease; }
+    .menu-panel a:hover { gap: 13px; border-color: #fff; }
+    .menu-footer { display: flex; justify-content: space-between; gap: 24px; padding-top: 24px; border-top: 1px solid rgba(250,248,244,0.12); font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(250,248,244,0.42); }
+    .menu-footer a { color: rgba(250,248,244,0.42); text-decoration: none; }
+    .menu-footer a:hover { color: #fff; }
 
     /* ---------- Kicker / section head ---------- */
     .kicker { display: inline-block; font-family: var(--font-mono); font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--purple); margin-bottom: 14px; }
@@ -71,26 +119,160 @@
     .filter-btn:hover { border-color: var(--purple-soft); color: var(--purple); }
     .filter-btn.active { background: var(--purple); color: #fff; border-color: var(--purple); }
 
-    /* ---------- Portfolio list ---------- */
-    .pf-list { display: flex; flex-direction: column; }
-    .pf-item { display: grid; grid-template-columns: 200px 1fr auto; gap: 40px; padding: 36px 0; border-bottom: 1px solid var(--border-light); align-items: start; transition: background 0.25s ease; text-decoration: none; color: inherit; }
-    .pf-item:hover { background: var(--purple-wash); }
-    .pf-item:first-child { border-top: 1px solid var(--border); }
-    .pf-name { font-family: var(--font-serif); font-size: clamp(22px, 2.2vw, 28px); font-weight: 400; letter-spacing: -0.01em; line-height: 1.25; }
-    .pf-name .en { display: block; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; color: var(--text-light); margin-top: 4px; text-transform: uppercase; }
-    .pf-body h3 { font-family: var(--font-serif); font-size: 20px; font-weight: 400; letter-spacing: -0.01em; margin-bottom: 8px; }
-    .pf-body p { color: var(--text-muted); font-size: 15px; line-height: 1.7; max-width: 60ch; }
-    .pf-body .pf-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--purple); text-decoration: none; transition: gap 0.2s ease; }
-    .pf-body .pf-link:hover { gap: 10px; }
-    .pf-track { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-light); padding: 6px 14px; border: 1px solid var(--border); white-space: nowrap; align-self: center; }
+    /* ---------- Portfolio grid ---------- */
+    .pf-list {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      overflow: visible;
+    }
+    .pf-item {
+      position: relative;
+      min-height: 224px;
+      padding: 24px;
+      background: var(--bg);
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      isolation: isolate;
+      transition: transform 0.22s ease, background 0.22s ease;
+    }
+    .pf-item:hover,
+    .pf-item:focus-within {
+      transform: translateY(-4px);
+      z-index: 20;
+    }
+    .pf-logo {
+      min-height: 128px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: var(--text);
+    }
+    .pf-logo-main {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 2.5vw, 38px);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+    .pf-logo-en {
+      display: block;
+      margin-top: 8px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+    .pf-item:nth-child(3n+1) .pf-logo-main { color: var(--purple); }
+    .pf-item:nth-child(3n+2) .pf-logo-main { color: var(--text); }
+    .pf-item:nth-child(3n) .pf-logo-main { color: var(--accent-hover); }
+    .pf-card-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border-light);
+    }
+    .pf-track {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      white-space: nowrap;
+    }
+    .pf-more {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--purple);
+      text-transform: uppercase;
+    }
+    .pf-hover {
+      position: absolute;
+      top: -18px;
+      left: -18px;
+      right: -18px;
+      min-height: 376px;
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 22px;
+      padding: 28px;
+      background:
+        linear-gradient(145deg, #faf8f4, #f2ebe0);
+      border: 1px solid var(--purple-soft);
+      box-shadow: 0 28px 80px rgba(28,25,23,0.16);
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.96);
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+    .pf-item:hover .pf-hover,
+    .pf-item:focus-within .pf-hover {
+      opacity: 1;
+      pointer-events: auto;
+      transform: scale(1);
+    }
+    .pf-hover-kicker {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--purple);
+    }
+    .pf-hover h3 {
+      margin-top: 12px;
+      font-family: var(--font-serif);
+      font-size: 24px;
+      line-height: 1.18;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+    .pf-hover p {
+      margin-top: 12px;
+      color: var(--text-muted);
+      font-size: 13.5px;
+      line-height: 1.6;
+    }
+    .pf-site {
+      align-self: flex-start;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--purple);
+      text-decoration: none;
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 3px;
+    }
+    .pf-site.is-muted {
+      color: var(--text-light);
+      border-bottom-color: transparent;
+    }
 
     /* ---------- Footer ---------- */
-    footer { background: var(--text); color: rgba(250,248,244,0.6); padding: 60px 0 40px; font-size: 14px; }
+    footer {
+      background:
+        linear-gradient(135deg, #151012 0%, #21161E 52%, #2A162F 100%);
+      color: rgba(250, 248, 244, 0.6);
+      padding: 60px 0 40px;
+      font-size: 14px;
+    }
     .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
-    .footer-brand .brand { color: var(--bg); margin-bottom: 4px; font-size: 18px; }
-    .footer-brand .brand-mark { flex-shrink: 0; }
-    .footer-brand p { color: rgba(250,248,244,0.4); font-size: 13px; max-width: 34ch; line-height: 1.6; }
-    .footer-copy { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(250,248,244,0.2); }
+    .footer-brand .brand-logo { color: var(--bg); margin-bottom: 12px; }
+    .footer-brand .brand-mark { color: #fff; }
+    .footer-brand p { color: rgba(250, 248, 244, 0.4); font-size: 13px; max-width: 34ch; line-height: 1.6; }
+    .footer-copy { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(250, 248, 244, 0.2); display: flex; align-items: center; gap: 24px; }
+    .footer-copy a { color: rgba(250, 248, 244, 0.35); text-decoration: none; transition: color 0.2s ease; }
+    .footer-copy a:hover { color: rgba(250, 248, 244, 0.6); }
 
     /* ---------- Reveal ---------- */
     .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.8s ease, transform 0.8s ease; }
@@ -102,13 +284,33 @@
 
     /* ---------- Responsive ---------- */
     @media (max-width: 1024px) {
-      .pf-item { grid-template-columns: 160px 1fr; gap: 24px; }
-      .pf-track { grid-column: 1 / -1; justify-self: start; }
+      .pf-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 720px) {
-      .nav-links { display: none; }
-      .pf-item { grid-template-columns: 1fr; gap: 12px; }
-      .pf-track { align-self: flex-start; }
+      .brand-logo { gap: 9px; }
+      .brand-mark { width: 30px; height: 30px; }
+      .brand-cn { font-size: 17px; letter-spacing: 0.02em; }
+      .brand-en { display: none; }
+      .pf-list { grid-template-columns: 1fr; }
+      .pf-item { min-height: auto; }
+      .pf-logo { min-height: 100px; justify-items: start; text-align: left; }
+      .pf-hover {
+        position: static;
+        inset: auto;
+        min-height: auto;
+        opacity: 1;
+        pointer-events: auto;
+        transform: none;
+        border: 0;
+        border-top: 1px solid var(--border-light);
+        box-shadow: none;
+        background: transparent;
+        padding: 18px 0 0;
+      }
+      .pf-item:hover,
+      .pf-item:focus-within {
+        transform: none;
+      }
       .footer-inner { flex-direction: column; align-items: flex-start; }
     }
   </style>
@@ -118,44 +320,87 @@
 <div class="progress-bar" id="progressBar"></div>
 
 <!-- ============ HEADER ============ -->
-<header class="site-header">
-  <div class="container nav">
-    <a href="index.html" class="brand" aria-label="LINK-X Ventures">
-      <svg class="brand-mark" width="34" height="34" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <defs><path id="s" d="M0,-8 Q2.2,-2.2 8,0 Q2.2,2.2 0,8 Q-2.2,2.2 -8,0 Q-2.2,-2.2 0,-8Z" fill="#660874"/></defs>
-        <use href="#s" transform="translate(8,8)"/>
-        <use href="#s" transform="translate(24,8)"/>
-        <use href="#s" transform="translate(8,24)"/>
-        <use href="#s" transform="translate(8,40)"/>
-        <use href="#s" transform="translate(24,40)"/>
-        <use href="#s" transform="translate(44,8)"/>
-        <use href="#s" transform="translate(44,24)"/>
-        <use href="#s" transform="translate(44,44)"/>
-      </svg>
-      <span>LINK-X</span>
-    </a>
-    <nav class="nav-links">
-      <a href="index.html#beliefs" data-i18n="nav.beliefs">理念</a>
-      <a href="index.html#daily" data-i18n="nav.daily">日报</a>
-      <a href="index.html#focus" data-i18n="nav.focus">关注领域</a>
-      <a href="portfolio.html" data-i18n="nav.portfolio">投资组合</a>
-      <a href="team.html" data-i18n="nav.team">团队</a>
-      <a href="contact.html" data-i18n="nav.contact">联系</a>
-    </nav>
+<div class="nav">
+  <a href="index.html" class="brand-logo" aria-label="星连资本 LINK-X Capital">
+    <svg class="brand-mark" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(8.2 8.2)" fill="currentColor"/>
+      <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(26 8.2)" fill="currentColor"/>
+      <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(43.8 8.2)" fill="currentColor"/>
+      <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(8.2 26)" fill="currentColor"/>
+      <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(43.8 26)" fill="currentColor"/>
+      <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(8.2 43.8)" fill="currentColor"/>
+      <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(26 43.8)" fill="currentColor"/>
+      <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(43.8 43.8)" fill="currentColor"/>
+    </svg>
+    <span class="brand-lockup">
+      <span class="brand-cn">星连资本</span>
+      <span class="brand-en">LINK-X CAPITAL</span>
+    </span>
+  </a>
+  <div class="nav-actions">
     <div class="lang-toggle" role="group" aria-label="Language">
       <button data-set-lang="en">EN</button>
       <span class="sep">|</span>
       <button data-set-lang="zh" class="active">中</button>
     </div>
+    <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="menu-overlay">
+      <div class="menu-toggle-mark" aria-hidden="true"><span></span><span></span></div>
+      <span class="menu-toggle-text" data-i18n="menu.open">Menu</span>
+    </button>
   </div>
-</header>
+</div>
+
+<!-- ============ MENU OVERLAY ============ -->
+<div class="menu-overlay" id="menu-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Navigation">
+  <div class="menu-shell">
+    <div class="menu-top">
+      <div class="menu-label"><span>导航</span><i>/</i><em>Menu</em></div>
+      <button class="menu-close" aria-label="Close menu" data-menu-close>
+        <span></span><span></span>
+      </button>
+    </div>
+
+    <nav class="menu-grid">
+      <div class="menu-primary">
+        <a href="index.html" data-menu-link><span class="menu-num">01</span><strong data-i18n="menu.home">首页</strong><em data-i18n="nav.about">理念</em></a>
+        <a href="index.html#daily" data-menu-link><span class="menu-num">02</span><strong data-i18n="menu.research">洞察</strong><em>Research</em></a>
+        <a href="index.html#focus" data-menu-link><span class="menu-num">03</span><strong data-i18n="menu.focus">关注领域</strong><em>Focus</em></a>
+        <a href="index.html#portfolio" data-menu-link><span class="menu-num">04</span><strong data-i18n="menu.portfolio">投资组合</strong><em>Portfolio</em></a>
+        <a href="team.html" data-menu-link><span class="menu-num">05</span><strong data-i18n="menu.team">团队</strong><em>Team</em></a>
+      </div>
+      <div class="menu-side">
+        <div class="menu-panel">
+          <div class="menu-kicker" data-i18n="menu.research.kicker">Insights Feed</div>
+          <p data-i18n="menu.research.text">持续跟踪模型、infra、agent 与前沿计算的真实变化，记录 AI 生态的一线信号。</p>
+          <a href="insights.html" data-menu-link>
+            <span data-i18n="menu.research.link">获取最新动态</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+        <div class="menu-panel">
+          <div class="menu-kicker" data-i18n="menu.contact.kicker">Build With Us</div>
+          <p data-i18n="menu.contact.text">创始人、LP、媒体与研究伙伴，可以从这里找到 LINK-X 团队。</p>
+          <a href="contact.html" data-menu-link>
+            <span data-i18n="menu.contact.link">联系我们</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="menu-footer">
+      <a href="index.html">星连资本 LINK-X Capital</a>
+      <span data-i18n="menu.footer.meta">© 2026 · 保留所有权利</span>
+    </div>
+  </div>
+</div>
 
 <!-- ============ PAGE HERO ============ -->
 <section class="page-hero">
   <div class="container reveal">
     <span class="kicker">Portfolio · 投资组合</span>
     <h1 data-i18n="pf.hero">与定义<em>AI 时代</em>的团队为伍。</h1>
-    <p class="sub" data-i18n="pf.sub">我们陪伴 14 家新一代人工智能领军企业，从模型到应用，从算力到安全，覆盖 AI 全产业链。</p>
+    <p class="sub" data-i18n="pf.sub">我们陪伴 14 家新一代人工智能企业，从模型到应用，从算力到安全，覆盖 AI 全产业链。</p>
   </div>
 </section>
 
@@ -173,142 +418,131 @@
       <button class="filter-btn" data-filter="Agent">Agent</button>
     </div>
     <div class="pf-list reveal" id="pfList">
-
-      <a class="pf-item" id="zhipu" href="https://www.zhipuai.cn" target="_blank" rel="noopener" data-track="模型">
-        <div class="pf-name">智谱 AI<span class="en">Zhipu AI</span></div>
-        <div class="pf-body">
-          <h3 data-i18n="pf.zhipu.t">新一代通用大模型平台</h3>
-          <p data-i18n="pf.zhipu.d">智谱 AI 是国内领先的大模型公司，打造 GLM 系列通用大模型，覆盖文本、代码、多模态等能力，致力于成为"中国版 OpenAI"。已推出 ChatGLM、CogView 等标杆产品，服务数百万开发者与企业客户。</p>
-          <span class="pf-link">zhipuai.cn →</span>
+      <article class="pf-item" id="zhipu" data-track="模型">
+        <div class="pf-logo"><div><span class="pf-logo-main">智谱 AI</span><span class="pf-logo-en">ZHIPU AI</span></div></div>
+        <div class="pf-card-foot"><span class="pf-track">模型</span><span class="pf-more">View</span></div>
+        <div class="pf-hover">
+          <div><span class="pf-hover-kicker">Foundation Model</span><h3 data-i18n="pf.zhipu.t">港交所上市的 GLM 大模型公司</h3><p data-i18n="pf.zhipu.d">智谱（Z.AI）于 2026 年 1 月在港交所主板挂牌上市；公司构建 GLM 模型、MaaS 模型服务和智能体应用。</p></div>
+          <a class="pf-site" href="https://www.zhipuai.cn" target="_blank" rel="noopener">zhipuai.cn →</a>
         </div>
-        <span class="pf-track">模型</span>
-      </a>
+      </article>
 
-      <a class="pf-item" id="modelbest" href="https://modelbest.cn" target="_blank" rel="noopener" data-track="模型">
-        <div class="pf-name">面壁智能<span class="en">ModelBest</span></div>
-        <div class="pf-body">
-          <h3 data-i18n="pf.modelbest.t">高效大模型研发与端侧部署</h3>
-          <p data-i18n="pf.modelbest.d">面壁智能专注大模型的高效训练与推理，推动模型小型化与端侧部署。其 CPM 系列模型在参数效率上持续突破，让大模型能力延伸至手机、IoT 等边缘设备。</p>
-          <span class="pf-link">modelbest.cn →</span>
+      <article class="pf-item" id="modelbest" data-track="模型">
+        <div class="pf-logo"><div><span class="pf-logo-main">面壁智能</span><span class="pf-logo-en">MODELBEST</span></div></div>
+        <div class="pf-card-foot"><span class="pf-track">模型</span><span class="pf-more">View</span></div>
+        <div class="pf-hover">
+          <div><span class="pf-hover-kicker">Efficient LLM</span><h3 data-i18n="pf.modelbest.t">高效端侧大模型 MiniCPM</h3><p data-i18n="pf.modelbest.d">面壁智能围绕 MiniCPM 端侧模型系列，提升模型知识密度与部署效率，让轻量高性能大模型运行在手机、AIPC、座舱和机器人等终端。</p></div>
+          <a class="pf-site" href="https://modelbest.cn" target="_blank" rel="noopener">modelbest.cn →</a>
         </div>
-        <span class="pf-track">模型</span>
-      </a>
+      </article>
 
-      <a class="pf-item" id="shengshu" href="https://shengshu.fun" target="_blank" rel="noopener" data-track="模型">
-        <div class="pf-name">生数科技<span class="en">ShengShu</span></div>
-        <div class="pf-body">
-          <h3 data-i18n="pf.shengshu.t">多模态生成式 AI</h3>
-          <p data-i18n="pf.shengshu.d">生数科技打造原生多模态生成大模型，深度融合文本、图像与视频生成能力。其 Vidu 视频生成模型在国际上率先实现长时高质量视频生成，是国产多模态领域的先行者。</p>
-          <span class="pf-link">shengshu.fun →</span>
+      <article class="pf-item" id="shengshu" data-track="模型">
+        <div class="pf-logo"><div><span class="pf-logo-main">生数科技</span><span class="pf-logo-en">SHENGSHU</span></div></div>
+        <div class="pf-card-foot"><span class="pf-track">模型</span><span class="pf-more">View</span></div>
+        <div class="pf-hover">
+          <div><span class="pf-hover-kicker">Multimodal AI</span><h3 data-i18n="pf.shengshu.t">多模态通用大模型与 Vidu</h3><p data-i18n="pf.shengshu.d">生数科技专注多模态通用大模型与应用，Vidu 面向视频生成和多模态内容创作，提供 SaaS、MaaS 与开放平台能力。</p></div>
+          <a class="pf-site" href="https://www.shengshu.com/zh" target="_blank" rel="noopener">shengshu.com →</a>
         </div>
-        <span class="pf-track">模型</span>
-      </a>
+      </article>
 
-      <a class="pf-item" id="infrawaves" href="https://www.infrawaves.ai" target="_blank" rel="noopener" data-track="Infra">
-        <div class="pf-name">基流科技<span class="en">Infrawaves</span></div>
-        <div class="pf-body">
-          <h3 data-i18n="pf.infrawaves.t">大模型训练与推理基础设施</h3>
-          <p data-i18n="pf.infrawaves.d">基流科技提供大模型训练与推理的高性能 GPU 集群服务，为 AI 公司和科研团队提供弹性算力、集群管理与调度方案，是国内大模型算力供给的重要基础设施。</p>
-          <span class="pf-link">infrawaves.ai →</span>
+      <article class="pf-item" id="infrawaves" data-track="Infra">
+        <div class="pf-logo"><div><span class="pf-logo-main">基流科技</span><span class="pf-logo-en">INFRAWAVES</span></div></div>
+        <div class="pf-card-foot"><span class="pf-track">Infra</span><span class="pf-more">View</span></div>
+        <div class="pf-hover">
+          <div><span class="pf-hover-kicker">AI Compute</span><h3 data-i18n="pf.infrawaves.t">AI 算力集群网络与智算平台</h3><p data-i18n="pf.infrawaves.d">基流科技围绕 AI 算力集群提供高性能网络、通信优化和 Venus 智算平台，覆盖部署、调度、训推、监控与维护。</p></div>
+          <a class="pf-site" href="https://infrawaves.com" target="_blank" rel="noopener">infrawaves.com →</a>
         </div>
-        <span class="pf-track">Infra</span>
-      </a>
+      </article>
 
-      <a class="pf-item" id="agic" href="#" data-track="Infra">
-        <div class="pf-name">谦和益邦<span class="en">AGICmicro</span></div>
-        <div class="pf-body">
-          <h3 data-i18n="pf.agic.t">面向 AI 工作负载的专用芯片</h3>
-          <p data-i18n="pf.agic.d">AGICmicro 设计面向 AI 推理和训练的专用芯片，在能效比和成本上相对通用 GPU 实现突破，为国内 AI 产业提供自主可控的底层算力支撑。</p>
+      <article class="pf-item" id="agic" data-track="Infra">
+        <div class="pf-logo"><div><span class="pf-logo-main">AGICmicro</span><span class="pf-logo-en">谦合益邦</span></div></div>
+        <div class="pf-card-foot"><span class="pf-track">Infra</span><span class="pf-more">View</span></div>
+        <div class="pf-hover">
+          <div><span class="pf-hover-kicker">AI Silicon</span><h3 data-i18n="pf.agic.t">AIoT 与云端流媒体芯片方案</h3><p data-i18n="pf.agic.d">谦合益邦以 AIoT 高能效技术和云端高清流媒体加速技术为核心，提供高能效 SoC、云端游戏芯片及芯片设计服务。</p></div>
+          <a class="pf-site" href="https://www.agicmicro.com" target="_blank" rel="noopener">agicmicro.com →</a>
         </div>
-        <span class="pf-track">Infra</span>
-      </a>
+      </article>
 
-      <a class="pf-item" id="infinelligence" href="https://infini-ai.com" target="_blank" rel="noopener" data-track="Infra">
-        <div class="pf-name">无问芯穹<span class="en">Infinelligence</span></div>
-        <div class="pf-body">
-          <h3 data-i18n="pf.infinelligence.t">大模型算力基础设施与推理优化</h3>
-          <p data-i18n="pf.infinelligence.d">无问芯穹打造大模型算力基础设施平台，整合异构算力资源，提供从模型适配、推理加速到部署运维的全链路服务，让企业低成本高效使用大模型。</p>
-          <span class="pf-link">infini-ai.com →</span>
+      <article class="pf-item" id="infinelligence" data-track="Infra">
+        <div class="pf-logo"><div><span class="pf-logo-main">无问芯穹</span><span class="pf-logo-en">INFINI-AI</span></div></div>
+        <div class="pf-card-foot"><span class="pf-track">Infra</span><span class="pf-more">View</span></div>
+        <div class="pf-hover">
+          <div><span class="pf-hover-kicker">Compute Platform</span><h3 data-i18n="pf.infinelligence.t">大模型训练推理一体化平台</h3><p data-i18n="pf.infinelligence.d">无问芯穹提供 Agentic Infra 与 Agentic MaaS，统一纳管多种芯片，支撑大模型训练、生产级推理和企业级智能体运行。</p></div>
+          <a class="pf-site" href="https://www.infinigence-ai.com/" target="_blank" rel="noopener">infinigence-ai.com →</a>
         </div>
-        <span class="pf-track">Infra</span>
-      </a>
+      </article>
 
-      <a class="pf-item" id="approaching" href="https://approaching.ai" target="_blank" rel="noopener" data-track="Infra">
-        <div class="pf-name">趋境科技<span class="en">Approaching.AI</span></div>
-        <div class="pf-body">
-          <h3 data-i18n="pf.approaching.t">推理侧系统优化</h3>
-          <p data-i18n="pf.approaching.d">趋境科技专注大模型推理侧的系统性优化，通过算法与系统的协同设计，大幅降低推理延迟与成本，让大模型在大规模部署场景中真正做到又快又省。</p>
-          <span class="pf-link">approaching.ai →</span>
+      <article class="pf-item" id="approaching" data-track="Infra">
+        <div class="pf-logo"><div><span class="pf-logo-main">趋境科技</span><span class="pf-logo-en">APPROACHING.AI</span></div></div>
+        <div class="pf-card-foot"><span class="pf-track">Infra</span><span class="pf-more">View</span></div>
+        <div class="pf-hover">
+          <div><span class="pf-hover-kicker">Inference System</span><h3 data-i18n="pf.approaching.t">高效能 AI Token 生产基础设施</h3><p data-i18n="pf.approaching.d">趋境科技聚焦大规模 AI 推理与 Token 生产，通过异构计算协同和存算优化提升单位算力输出，降低企业部署成本。</p></div>
+          <a class="pf-site" href="https://approaching.ai" target="_blank" rel="noopener">approaching.ai →</a>
         </div>
-        <span class="pf-track">Infra</span>
-      </a>
+      </article>
 
-      <a class="pf-item" id="pule" href="#" data-track="应用">
-        <div class="pf-name">珀乐科技<span class="en">Pule Tech</span></div>
-        <div class="pf-body">
-          <h3 data-i18n="pf.pule.t">AI 驱动的垂直行业应用</h3>
-          <p data-i18n="pf.pule.d">珀乐科技将大模型能力落地垂直行业，打造面向特定业务场景的 AI 应用产品，帮助传统企业以低门槛拥抱智能化转型。</p>
+      <article class="pf-item" id="pule" data-track="应用">
+        <div class="pf-logo"><div><span class="pf-logo-main">珀乐互动</span><span class="pf-logo-en">PULE TECH</span></div></div>
+        <div class="pf-card-foot"><span class="pf-track">模型应用</span><span class="pf-more">View</span></div>
+        <div class="pf-hover">
+          <div><span class="pf-hover-kicker">AI Application</span><h3 data-i18n="pf.pule.t">AI+IP 数字内容与互动娱乐</h3><p data-i18n="pf.pule.d">珀乐互动通过自研技术中台，将 AI 大模型能力应用于 IP 开发、运营与衍生环节，提升数字内容生产与商业化效率。</p></div>
+          <span class="pf-site is-muted">官网待补充</span>
         </div>
-        <span class="pf-track">模型应用</span>
-      </a>
+      </article>
 
-      <a class="pf-item" id="aippt" href="https://aippt.cn" target="_blank" rel="noopener" data-track="应用">
-        <div class="pf-name"><span class="en-only" style="font-family:var(--font-mono);font-size:20px;">AIPPT</span><span class="zh-only">AIPPT</span></div>
-        <div class="pf-body">
-          <h3 data-i18n="pf.aippt.t">AI 一键生成演示文稿</h3>
-          <p data-i18n="pf.aippt.d">AIPPT 是国内领先的 AI 演示文稿生成工具，用户只需输入主题或大纲即可一键生成完整 PPT，大幅提升办公效率，产品已服务数百万用户。</p>
-          <span class="pf-link">aippt.cn →</span>
+      <article class="pf-item" id="aippt" data-track="应用">
+        <div class="pf-logo"><div><span class="pf-logo-main">AIPPT</span><span class="pf-logo-en">PRESENTATION AI</span></div></div>
+        <div class="pf-card-foot"><span class="pf-track">模型应用</span><span class="pf-more">View</span></div>
+        <div class="pf-hover">
+          <div><span class="pf-hover-kicker">Productivity</span><h3 data-i18n="pf.aippt.t">AI 一键生成演示文稿</h3><p data-i18n="pf.aippt.d">AiPPT 是智能生成演示幻灯片的在线工具，支持标题生成、文档导入、在线编辑、模板切换和多格式导出。</p></div>
+          <a class="pf-site" href="https://aippt.cn" target="_blank" rel="noopener">aippt.cn →</a>
         </div>
-        <span class="pf-track">模型应用</span>
-      </a>
+      </article>
 
-      <a class="pf-item" id="biogeometry" href="https://biogeometry.com" target="_blank" rel="noopener" data-track="AI4S">
-        <div class="pf-name">百奥几何<span class="en">BioGeometry</span></div>
-        <div class="pf-body">
-          <h3 data-i18n="pf.biogeometry.t">AI for Science — 蛋白质与分子设计</h3>
-          <p data-i18n="pf.biogeometry.d">百奥几何是 AI for Science 领域的领军企业，利用生成式 AI 进行蛋白质与分子结构预测与设计，加速药物研发与合成生物学创新。由 AI 顶会学者创立。</p>
-          <span class="pf-link">biogeometry.com →</span>
+      <article class="pf-item" id="biogeometry" data-track="AI4S">
+        <div class="pf-logo"><div><span class="pf-logo-main">百奥几何</span><span class="pf-logo-en">BIOGEOMETRY</span></div></div>
+        <div class="pf-card-foot"><span class="pf-track">AI4S</span><span class="pf-more">View</span></div>
+        <div class="pf-hover">
+          <div><span class="pf-hover-kicker">AI for Science</span><h3 data-i18n="pf.biogeometry.t">生成式 AI 蛋白设计</h3><p data-i18n="pf.biogeometry.d">百奥几何专注生成式 AI 蛋白设计，搭建蛋白序列、结构和功能之间的桥梁，服务生物医药和合成生物学。</p></div>
+          <a class="pf-site" href="https://www.biogeom.com/zh/" target="_blank" rel="noopener">biogeom.com →</a>
         </div>
-        <span class="pf-track">AI4S</span>
-      </a>
+      </article>
 
-      <a class="pf-item" id="realai" href="https://www.realai.cn" target="_blank" rel="noopener" data-track="安全">
-        <div class="pf-name">瑞莱智慧<span class="en">RealAI</span></div>
-        <div class="pf-body">
-          <h3 data-i18n="pf.realai.t">AI 安全基础设施</h3>
-          <p data-i18n="pf.realai.d">瑞莱智慧是国内 AI 安全领域的开创者，提供模型安全评测、对抗攻击防御、深度伪造检测等全栈安全方案，确保 AI 系统的可靠、可控与可解释。由清华大学团队孵化。</p>
-          <span class="pf-link">realai.cn →</span>
+      <article class="pf-item" id="realai" data-track="安全">
+        <div class="pf-logo"><div><span class="pf-logo-main">瑞莱智慧</span><span class="pf-logo-en">REALAI</span></div></div>
+        <div class="pf-card-foot"><span class="pf-track">AI 安全</span><span class="pf-more">View</span></div>
+        <div class="pf-hover">
+          <div><span class="pf-hover-kicker">AI Safety</span><h3 data-i18n="pf.realai.t">安全可靠可控 AI 基础设施</h3><p data-i18n="pf.realai.d">瑞莱智慧依托清华大学人工智能研究院发起设立，面向城市治理、金融、教育科研、智能汽车等场景提供 AI 平台与安全解决方案。</p></div>
+          <a class="pf-site" href="https://www.realai.ai" target="_blank" rel="noopener">realai.ai →</a>
         </div>
-        <span class="pf-track">AI 安全</span>
-      </a>
+      </article>
 
-      <a class="pf-item" id="dongyi" href="#" data-track="具身">
-        <div class="pf-name">动易科技<span class="en">Dongyi Tech</span></div>
-        <div class="pf-body">
-          <h3 data-i18n="pf.dongyi.t">具身智能机器人</h3>
-          <p data-i18n="pf.dongyi.d">动易科技研发具身智能机器人，面向工业制造与仓储物流等场景，将大模型的感知与决策能力嵌入物理世界，推动机器人从"执行工具"走向"自主智能体"。</p>
+      <article class="pf-item" id="dongyi" data-track="具身">
+        <div class="pf-logo"><div><span class="pf-logo-main">动易科技</span><span class="pf-logo-en">PHYBOT</span></div></div>
+        <div class="pf-card-foot"><span class="pf-track">具身/机器人</span><span class="pf-more">View</span></div>
+        <div class="pf-hover">
+          <div><span class="pf-hover-kicker">Embodied AI</span><h3 data-i18n="pf.dongyi.t">Robot for AI 通用具身智能体</h3><p data-i18n="pf.dongyi.d">动易科技通过全栈自研硬件、端到端运动控制系统和多模态大模型，面向生产制造、特种作业、生活服务等场景打造具身智能体。</p></div>
+          <a class="pf-site" href="https://www.phybot.tech" target="_blank" rel="noopener">phybot.tech →</a>
         </div>
-        <span class="pf-track">具身/机器人</span>
-      </a>
+      </article>
 
-      <a class="pf-item" id="amigos" href="#" data-track="具身">
-        <div class="pf-name">阿米奥<span class="en">Amigos</span></div>
-        <div class="pf-body">
-          <h3 data-i18n="pf.amigos.t">通用人形机器人研发</h3>
-          <p data-i18n="pf.amigos.d">阿米奥专注通用人形机器人研发，将 AI 大脑与仿生本体结合，打造能在真实环境中自主行动的通用机器人，探索人机共存的未来。</p>
+      <article class="pf-item" id="amigos" data-track="具身">
+        <div class="pf-logo"><div><span class="pf-logo-main">阿米奥机器人</span><span class="pf-logo-en">AMIGOS</span></div></div>
+        <div class="pf-card-foot"><span class="pf-track">具身/机器人</span><span class="pf-more">View</span></div>
+        <div class="pf-hover">
+          <div><span class="pf-hover-kicker">Commercial Robotics</span><h3 data-i18n="pf.amigos.t">规模化商业场景机器人应用</h3><p data-i18n="pf.amigos.d">阿米奥机器人面向物流、仓储、零售等规模化商业场景，研发智能机器人系统与应用解决方案，推动商业流程自动化。</p></div>
+          <span class="pf-site is-muted">官网待补充</span>
         </div>
-        <span class="pf-track">具身/机器人</span>
-      </a>
+      </article>
 
-      <a class="pf-item" id="zijing" href="#" data-track="Agent">
-        <div class="pf-name">紫荆智康<span class="en">Zijing Health</span></div>
-        <div class="pf-body">
-          <h3 data-i18n="pf.zijing.t">医疗 AI Agent</h3>
-          <p data-i18n="pf.zijing.d">紫荆智康打造医疗领域的 AI Agent 系统，赋能从辅助诊断、病历生成到治疗方案推荐的临床诊疗全流程，让 AI 成为医生的高效助手。</p>
+      <article class="pf-item" id="zijing" data-track="Agent">
+        <div class="pf-logo"><div><span class="pf-logo-main">紫荆智康</span><span class="pf-logo-en">TAIREX</span></div></div>
+        <div class="pf-card-foot"><span class="pf-track">Agent</span><span class="pf-more">View</span></div>
+        <div class="pf-hover">
+          <div><span class="pf-hover-kicker">Healthcare Agent</span><h3 data-i18n="pf.zijing.t">Agent Hospital 医疗智能体系统</h3><p data-i18n="pf.zijing.d">紫荆智康研发 Tairex Agent Hospital，以医疗智能体为核心，为患者、医生和医院提供智能化辅助与流程服务。</p></div>
+          <a class="pf-site" href="https://www.tairex.cn" target="_blank" rel="noopener">tairex.cn →</a>
         </div>
-        <span class="pf-track">Agent</span>
-      </a>
-
+      </article>
     </div>
   </div>
 </section>
@@ -318,68 +552,118 @@
   <div class="container">
     <div class="footer-inner">
       <div class="footer-brand">
-        <div class="brand">
-          <svg class="brand-mark" width="28" height="28" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <defs><path id="sf" d="M0,-8 Q2.2,-2.2 8,0 Q2.2,2.2 0,8 Q-2.2,2.2 -8,0 Q-2.2,-2.2 0,-8Z" fill="currentColor"/></defs>
-            <use href="#sf" transform="translate(8,8)"/>
-            <use href="#sf" transform="translate(24,8)"/>
-            <use href="#sf" transform="translate(8,24)"/>
-            <use href="#sf" transform="translate(8,40)"/>
-            <use href="#sf" transform="translate(24,40)"/>
-            <use href="#sf" transform="translate(44,8)"/>
-            <use href="#sf" transform="translate(44,24)"/>
-            <use href="#sf" transform="translate(44,44)"/>
+        <div class="brand-logo">
+          <svg class="brand-mark" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(8.2 8.2)" fill="currentColor"/>
+            <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(26 8.2)" fill="currentColor"/>
+            <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(43.8 8.2)" fill="currentColor"/>
+            <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(8.2 26)" fill="currentColor"/>
+            <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(43.8 26)" fill="currentColor"/>
+            <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(8.2 43.8)" fill="currentColor"/>
+            <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(26 43.8)" fill="currentColor"/>
+            <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(43.8 43.8)" fill="currentColor"/>
           </svg>
-          <span>LINK-X Ventures</span>
+          <span class="brand-lockup">
+            <span class="brand-cn">星连资本</span>
+            <span class="brand-en">LINK-X CAPITAL</span>
+          </span>
         </div>
-        <p data-i18n="footer.desc">Investing in the AI capability frontier. 投资 AI 能力跃迁。</p>
+        <p data-i18n="footer.desc">星连资本 LINK-X Capital · 与 AGI 时代的定义者同行。</p>
       </div>
-      <span class="footer-copy">&copy; 2026 LINK-X Capital · <a href="legal.html" style="color:rgba(250,248,244,0.35);text-decoration:none;">法律声明</a></span>
+      <div class="footer-copy">
+        <span>&copy; 2026 北京星连肇基私募基金管理有限责任公司</span>
+        <a href="legal.html">法律声明</a>
+      </div>
     </div>
   </div>
 </footer>
 
 <script>
+  function setMenuOpen(open) {
+    const menu = document.getElementById("menu-overlay");
+    const toggle = document.querySelector(".menu-toggle");
+    if (!menu || !toggle) return;
+    menu.classList.toggle("is-open", open);
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    menu.setAttribute("aria-hidden", open ? "false" : "true");
+    document.body.classList.toggle("menu-open", open);
+    if (open) {
+      menu.querySelector(".menu-close").focus();
+    } else {
+      toggle.focus();
+    }
+  }
+
+  document.addEventListener("keydown", e => {
+    const menu = document.getElementById("menu-overlay");
+    if (!menu || !menu.classList.contains("is-open")) return;
+    if (e.key === "Escape") { setMenuOpen(false); return; }
+    if (e.key === "Tab") {
+      const focusable = menu.querySelectorAll('a[href], button, [tabindex]:not([tabindex="-1"])');
+      const first = focusable[0], last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+
+  document.querySelectorAll("[data-menu-open]").forEach(el => {
+    el.addEventListener("click", () => setMenuOpen(true));
+  });
+  document.querySelectorAll("[data-menu-close]").forEach(el => {
+    el.addEventListener("click", () => setMenuOpen(false));
+  });
+  document.querySelectorAll("[data-menu-link]").forEach(el => {
+    el.addEventListener("click", () => setMenuOpen(false));
+  });
+  document.addEventListener("click", (e) => {
+    const menu = document.getElementById("menu-overlay");
+    if (!menu || !menu.classList.contains("is-open")) return;
+    if (e.target.closest("[data-menu-open]") || e.target.closest("[data-menu-close]")) return;
+    if (!menu.contains(e.target)) setMenuOpen(false);
+  });
+
   const i18n = {
     zh: {
-      "nav.beliefs": "理念", "nav.daily": "日报", "nav.focus": "关注领域", "nav.portfolio": "投资组合", "nav.team": "团队", "nav.contact": "联系",
+      "menu.open": "Menu", "menu.home": "首页", "menu.research": "洞察", "menu.focus": "关注领域", "menu.portfolio": "投资组合", "menu.team": "团队", "menu.contact": "联系我们", "menu.footer.meta": "© 2026 · 保留所有权利", "menu.research.kicker": "Insights Feed", "menu.research.text": "持续跟踪模型、infra、agent 与前沿计算的真实变化，记录 AI 生态的一线信号。", "menu.research.link": "获取最新动态", "menu.contact.kicker": "Build With Us", "menu.contact.text": "创始人、LP、媒体与研究伙伴，可以从这里找到 LINK-X 团队。", "menu.contact.link": "联系我们",
+      "nav.beliefs": "理念", "nav.daily": "洞察", "nav.focus": "关注领域", "nav.portfolio": "投资组合", "nav.team": "团队", "nav.contact": "联系",
       "pf.hero": "与定义<em>AI 时代</em>的团队为伍。",
-      "pf.sub": "我们陪伴 14 家新一代人工智能领军企业，从模型到应用，从算力到安全，覆盖 AI 全产业链。",
-      "pf.zhipu.t": "新一代通用大模型平台", "pf.zhipu.d": "智谱 AI 是国内领先的大模型公司，打造 GLM 系列通用大模型，覆盖文本、代码、多模态等能力，致力于成为"中国版 OpenAI"。已推出 ChatGLM、CogView 等标杆产品，服务数百万开发者与企业客户。",
-      "pf.modelbest.t": "高效大模型研发与端侧部署", "pf.modelbest.d": "面壁智能专注大模型的高效训练与推理，推动模型小型化与端侧部署。其 CPM 系列模型在参数效率上持续突破，让大模型能力延伸至手机、IoT 等边缘设备。",
-      "pf.shengshu.t": "多模态生成式 AI", "pf.shengshu.d": "生数科技打造原生多模态生成大模型，深度融合文本、图像与视频生成能力。其 Vidu 视频生成模型在国际上率先实现长时高质量视频生成，是国产多模态领域的先行者。",
-      "pf.infrawaves.t": "大模型训练与推理基础设施", "pf.infrawaves.d": "基流科技提供大模型训练与推理的高性能 GPU 集群服务，为 AI 公司和科研团队提供弹性算力、集群管理与调度方案，是国内大模型算力供给的重要基础设施。",
-      "pf.agic.t": "面向 AI 工作负载的专用芯片", "pf.agic.d": "AGICmicro 设计面向 AI 推理和训练的专用芯片，在能效比和成本上相对通用 GPU 实现突破，为国内 AI 产业提供自主可控的底层算力支撑。",
-      "pf.infinelligence.t": "大模型算力基础设施与推理优化", "pf.infinelligence.d": "无问芯穹打造大模型算力基础设施平台，整合异构算力资源，提供从模型适配、推理加速到部署运维的全链路服务，让企业低成本高效使用大模型。",
-      "pf.approaching.t": "推理侧系统优化", "pf.approaching.d": "趋境科技专注大模型推理侧的系统性优化，通过算法与系统的协同设计，大幅降低推理延迟与成本，让大模型在大规模部署场景中真正做到又快又省。",
-      "pf.pule.t": "AI 驱动的垂直行业应用", "pf.pule.d": "珀乐科技将大模型能力落地垂直行业，打造面向特定业务场景的 AI 应用产品，帮助传统企业以低门槛拥抱智能化转型。",
-      "pf.aippt.t": "AI 一键生成演示文稿", "pf.aippt.d": "AIPPT 是国内领先的 AI 演示文稿生成工具，用户只需输入主题或大纲即可一键生成完整 PPT，大幅提升办公效率，产品已服务数百万用户。",
-      "pf.biogeometry.t": "AI for Science — 蛋白质与分子设计", "pf.biogeometry.d": "百奥几何是 AI for Science 领域的领军企业，利用生成式 AI 进行蛋白质与分子结构预测与设计，加速药物研发与合成生物学创新。由 AI 顶会学者创立。",
-      "pf.realai.t": "AI 安全基础设施", "pf.realai.d": "瑞莱智慧是国内 AI 安全领域的开创者，提供模型安全评测、对抗攻击防御、深度伪造检测等全栈安全方案，确保 AI 系统的可靠、可控与可解释。由清华大学团队孵化。",
-      "pf.dongyi.t": "具身智能机器人", "pf.dongyi.d": "动易科技研发具身智能机器人，面向工业制造与仓储物流等场景，将大模型的感知与决策能力嵌入物理世界，推动机器人从"执行工具"走向"自主智能体"。",
-      "pf.amigos.t": "通用人形机器人研发", "pf.amigos.d": "阿米奥专注通用人形机器人研发，将 AI 大脑与仿生本体结合，打造能在真实环境中自主行动的通用机器人，探索人机共存的未来。",
-      "pf.zijing.t": "医疗 AI Agent", "pf.zijing.d": "紫荆智康打造医疗领域的 AI Agent 系统，赋能从辅助诊断、病历生成到治疗方案推荐的临床诊疗全流程，让 AI 成为医生的高效助手。",
-      "footer.desc": "Investing in the AI capability frontier. 投资 AI 能力跃迁。"
+      "pf.sub": "我们陪伴 14 家新一代人工智能企业，从模型到应用，从算力到安全，覆盖 AI 全产业链。",
+      "pf.zhipu.t": "港交所上市的 GLM 大模型公司", "pf.zhipu.d": "智谱（Z.AI）于 2026 年 1 月在港交所主板挂牌上市；公司构建 GLM 模型、MaaS 模型服务和智能体应用。",
+      "pf.modelbest.t": "高效端侧大模型 MiniCPM", "pf.modelbest.d": "面壁智能围绕 MiniCPM 端侧模型系列，提升模型知识密度与部署效率，让轻量高性能大模型运行在手机、AIPC、座舱和机器人等终端。",
+      "pf.shengshu.t": "多模态通用大模型与 Vidu", "pf.shengshu.d": "生数科技专注多模态通用大模型与应用，Vidu 面向视频生成和多模态内容创作，提供 SaaS、MaaS 与开放平台能力。",
+      "pf.infrawaves.t": "AI 算力集群网络与智算平台", "pf.infrawaves.d": "基流科技围绕 AI 算力集群提供高性能网络、通信优化和 Venus 智算平台，覆盖部署、调度、训推、监控与维护。",
+      "pf.agic.t": "AIoT 与云端流媒体芯片方案", "pf.agic.d": "谦合益邦以 AIoT 高能效技术和云端高清流媒体加速技术为核心，提供高能效 SoC、云端游戏芯片及芯片设计服务。",
+      "pf.infinelligence.t": "大模型训练推理一体化平台", "pf.infinelligence.d": "无问芯穹提供 Agentic Infra 与 Agentic MaaS，统一纳管多种芯片，支撑大模型训练、生产级推理和企业级智能体运行。",
+      "pf.approaching.t": "高效能 AI Token 生产基础设施", "pf.approaching.d": "趋境科技聚焦大规模 AI 推理与 Token 生产，通过异构计算协同和存算优化提升单位算力输出，降低企业部署成本。",
+      "pf.pule.t": "AI+IP 数字内容与互动娱乐", "pf.pule.d": "珀乐互动通过自研技术中台，将 AI 大模型能力应用于 IP 开发、运营与衍生环节，提升数字内容生产与商业化效率。",
+      "pf.aippt.t": "AI 一键生成演示文稿", "pf.aippt.d": "AiPPT 是智能生成演示幻灯片的在线工具，支持标题生成、文档导入、在线编辑、模板切换和多格式导出。",
+      "pf.biogeometry.t": "生成式 AI 蛋白设计", "pf.biogeometry.d": "百奥几何专注生成式 AI 蛋白设计，搭建蛋白序列、结构和功能之间的桥梁，服务生物医药和合成生物学。",
+      "pf.realai.t": "安全可靠可控 AI 基础设施", "pf.realai.d": "瑞莱智慧依托清华大学人工智能研究院发起设立，面向城市治理、金融、教育科研、智能汽车等场景提供 AI 平台与安全解决方案。",
+      "pf.dongyi.t": "Robot for AI 通用具身智能体", "pf.dongyi.d": "动易科技通过全栈自研硬件、端到端运动控制系统和多模态大模型，面向生产制造、特种作业、生活服务等场景打造具身智能体。",
+      "pf.amigos.t": "规模化商业场景机器人应用", "pf.amigos.d": "阿米奥机器人面向物流、仓储、零售等规模化商业场景，研发智能机器人系统与应用解决方案，推动商业流程自动化。",
+      "pf.zijing.t": "Agent Hospital 医疗智能体系统", "pf.zijing.d": "紫荆智康研发 Tairex Agent Hospital，以医疗智能体为核心，为患者、医生和医院提供智能化辅助与流程服务。",
+      "footer.desc": "星连资本 LINK-X Capital · 与 AGI 时代的定义者同行。"
     },
     en: {
-      "nav.beliefs": "Beliefs", "nav.daily": "Daily", "nav.focus": "Focus", "nav.portfolio": "Portfolio", "nav.team": "Team", "nav.contact": "Contact",
+      "menu.open": "Menu", "menu.home": "Home", "menu.research": "Insights", "menu.focus": "Focus", "menu.portfolio": "Portfolio", "menu.team": "Team", "menu.contact": "Contact", "menu.footer.meta": "© 2026 · All rights reserved", "menu.research.kicker": "Research Feed", "menu.research.text": "Tracking real developments in models, infra, agents and frontier computing — one signal at a time.", "menu.research.link": "Get Latest Updates", "menu.contact.kicker": "Build With Us", "menu.contact.text": "Founders, LPs, media and research partners can reach the LINK-X team here.", "menu.contact.link": "Contact Us",
+      "nav.beliefs": "Beliefs", "nav.daily": "Insights", "nav.focus": "Focus", "nav.portfolio": "Portfolio", "nav.team": "Team", "nav.contact": "Contact",
       "pf.hero": "Partnering with the teams defining the <em>AI era</em>.",
-      "pf.sub": "We back 14 next-gen AI leaders — from foundation models to applications, from compute to safety, across the full AI value chain.",
-      "pf.zhipu.t": "Next-gen General Foundation Model Platform", "pf.zhipu.d": "Zhipu AI is a leading Chinese large model company building the GLM series of general-purpose models spanning text, code and multimodal capabilities. With products like ChatGLM and CogView, it serves millions of developers and enterprise customers.",
-      "pf.modelbest.t": "Efficient LLM R&D and On-Device Deployment", "pf.modelbest.d": "ModelBest focuses on efficient training and inference of large models, pioneering model miniaturization and edge deployment. Its CPM model series pushes parameter efficiency, extending LLM capabilities to phones and IoT devices.",
-      "pf.shengshu.t": "Multimodal Generative AI", "pf.shengshu.d": "ShengShu builds natively multimodal generative models, deeply integrating text, image and video generation. Its Vidu video generation model was among the first globally to produce long, high-quality videos — a frontrunner in Chinese multimodal AI.",
-      "pf.infrawaves.t": "LLM Training & Inference Infrastructure", "pf.infrawaves.d": "Infrawaves provides high-performance GPU cluster services for LLM training and inference, offering elastic compute, cluster management and scheduling — a key piece of China's LLM compute supply chain.",
-      "pf.agic.t": "Purpose-Built AI Silicon", "pf.agic.d": "AGICmicro designs ASICs purpose-built for AI inference and training workloads, achieving breakthroughs in performance-per-watt and cost versus general-purpose GPUs — providing sovereign compute for the domestic AI industry.",
-      "pf.infinelligence.t": "LLM Compute Infrastructure & Inference Optimization", "pf.infinelligence.d": "Infinelligence builds an LLM compute platform integrating heterogeneous GPU resources with full-stack services from model adaptation and inference acceleration to deployment and ops — enabling enterprises to use large models at low cost and high efficiency.",
-      "pf.approaching.t": "Inference-Side System Optimization", "pf.approaching.d": "Approaching.AI specializes in systematic optimization on the inference side, co-designing algorithms and systems to slash inference latency and cost — making LLM deployment truly fast and affordable at scale.",
-      "pf.pule.t": "AI-Driven Vertical Industry Applications", "pf.pule.d": "Pule Tech brings LLM capabilities to vertical industries, building AI application products for specific business scenarios and helping traditional enterprises adopt intelligent transformation with minimal friction.",
-      "pf.aippt.t": "AI-Powered Presentation Generation", "pf.aippt.d": "AIPPT is a leading AI presentation tool in China — users input a topic or outline and get a complete PPT in one click, dramatically boosting office productivity for millions of users.",
-      "pf.biogeometry.t": "AI for Science — Protein & Molecular Design", "pf.biogeometry.d": "BioGeometry is a leader in AI for Science, using generative AI for protein and molecular structure prediction and design, accelerating drug discovery and synthetic biology innovation. Founded by top AI conference researchers.",
-      "pf.realai.t": "AI Safety Infrastructure", "pf.realai.d": "RealAI is a pioneer in Chinese AI safety, providing full-stack solutions including model safety evaluation, adversarial defense, and deepfake detection — ensuring AI systems are reliable, controllable and interpretable. Incubated at Tsinghua University.",
-      "pf.dongyi.t": "Embodied Intelligence Robots", "pf.dongyi.d": "Dongyi Tech develops embodied intelligence robots for industrial manufacturing and warehouse logistics, embedding LLM perception and decision-making into the physical world — pushing robots from execution tools to autonomous agents.",
-      "pf.amigos.t": "General-Purpose Humanoid Robots", "pf.amigos.d": "Amigos focuses on general-purpose humanoid robot R&D, combining an AI brain with a biomimetic body to build robots that act autonomously in real environments — exploring the future of human-robot coexistence.",
-      "pf.zijing.t": "Healthcare AI Agent", "pf.zijing.d": "Zijing Health builds AI agent systems for healthcare, empowering the full clinical workflow from assisted diagnosis and medical record generation to treatment plan recommendations — making AI an efficient partner for doctors.",
-      "footer.desc": "Investing in the AI capability frontier."
+      "pf.sub": "We back 14 next-generation AI companies, spanning foundation models, applications, compute, safety and the broader AI value chain.",
+      "pf.zhipu.t": "HKEX-Listed GLM Foundation Model Company", "pf.zhipu.d": "Zhipu / Z.AI listed on the HKEX Main Board in January 2026; the company builds GLM models, MaaS model services and agent applications.",
+      "pf.modelbest.t": "Efficient On-Device MiniCPM Models", "pf.modelbest.d": "ModelBest builds the MiniCPM on-device model family, improving model knowledge density and deployment efficiency across phones, AIPCs, cockpits and robots.",
+      "pf.shengshu.t": "Multimodal Foundation Models and Vidu", "pf.shengshu.d": "ShengShu develops multimodal foundation models and applications. Vidu supports video generation and multimodal content creation through SaaS, MaaS and open-platform offerings.",
+      "pf.infrawaves.t": "AI Compute Cluster Networking and Compute Platform", "pf.infrawaves.d": "Infrawaves provides high-performance networking, communication optimization and the Venus compute platform for AI clusters, covering deployment, scheduling, training, inference, monitoring and maintenance.",
+      "pf.agic.t": "AIoT and Cloud Streaming Chip Solutions", "pf.agic.d": "AGICmicro centers on AIoT energy efficiency and cloud HD streaming acceleration, offering high-efficiency SoCs, cloud gaming chips and chip design services.",
+      "pf.infinelligence.t": "Integrated Large-Model Training and Inference Platform", "pf.infinelligence.d": "Infinigence provides Agentic Infra and Agentic MaaS, managing multiple chip types for large-model training, production inference and enterprise agents.",
+      "pf.approaching.t": "High-Performance AI Token Production Infrastructure", "pf.approaching.d": "Approaching AI focuses on large-scale inference and token production, using heterogeneous compute coordination and memory-compute optimization to lower deployment cost.",
+      "pf.pule.t": "AI+IP Digital Content and Interactive Entertainment", "pf.pule.d": "Pule applies large-model capabilities to IP development, operations and derivatives through an in-house technology platform, improving digital-content production and monetization.",
+      "pf.aippt.t": "AI-Powered Presentation Generation", "pf.aippt.d": "AiPPT is an online AI slide-generation tool supporting title-based generation, document import, online editing, template switching and multi-format export.",
+      "pf.biogeometry.t": "Generative AI Protein Design", "pf.biogeometry.d": "BioGeometry focuses on generative AI protein design, bridging protein sequence, structure and function for biopharma and synthetic biology.",
+      "pf.realai.t": "Safe, Reliable and Controllable AI Infrastructure", "pf.realai.d": "RealAI, initiated by Tsinghua University's Institute for AI Industry Research, provides AI platform and safety solutions across governance, finance, research, education and mobility.",
+      "pf.dongyi.t": "Robot for AI General Embodied Agents", "pf.dongyi.d": "PHYBOT builds embodied agents through full-stack hardware, end-to-end motion control and multimodal models for manufacturing, special operations and life services.",
+      "pf.amigos.t": "Robotics for Scaled Commercial Scenarios", "pf.amigos.d": "Amigos develops intelligent robot systems and application solutions for large-scale commercial scenarios such as logistics, warehousing and retail automation.",
+      "pf.zijing.t": "Agent Hospital Medical Agent System", "pf.zijing.d": "Tairex builds Agent Hospital around medical agents, providing intelligent assistance and workflow services for patients, doctors and hospitals.",
+      "footer.desc": "Partnering with the founders defining the AGI era."
     }
   };
 
