@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>从模型突破到产业落地：2025 AI全景观察与2026展望 · LINK-X Capital</title>
+  <meta name="description" content="敢想敢为 以后「星」程，星连资本2025年度大会观点分享。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <style>
+    :root {
+      --bg: #FAF8F4;
+      --bg-warm: #F2EBE0;
+      --border: #DDD5CA;
+      --border-light: #EAE4DC;
+      --text: #1C1917;
+      --text-soft: #44403C;
+      --text-muted: #78716C;
+      --text-light: #A8A29E;
+      --purple: #660874;
+      --purple-mid: #8B3A9A;
+      --purple-soft: #B07CC0;
+      --purple-pale: #E8D5EE;
+      --purple-wash: #F3EAF6;
+      --font-serif: "Instrument Serif", "Noto Serif SC", Georgia, serif;
+      --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+      --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+      --max: 1180px;
+      --px: clamp(24px, 6vw, 80px);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--px);
+    }
+
+    /* ---------- Progress bar ---------- */
+    .progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; background: var(--purple);
+      z-index: 999; transition: width 0.1s linear;
+    }
+
+    /* ---------- Header — matches index.html ---------- */
+    header.site-header {
+      position: sticky; top: 0; z-index: 300;
+      background: rgba(250,248,244,0.84);
+      backdrop-filter: blur(18px) saturate(120%);
+      -webkit-backdrop-filter: blur(18px) saturate(120%);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .nav {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      height: 76px;
+      padding: 0 clamp(20px, 4vw, 48px);
+    }
+    .brand-logo {
+      display: inline-flex; align-items: center; gap: 13px;
+      color: var(--text); text-decoration: none; white-space: nowrap;
+    }
+    .brand-mark {
+      width: 42px; height: 42px;
+      color: var(--purple); flex: 0 0 auto;
+    }
+    .brand-lockup { display: grid; gap: 1px; line-height: 1; }
+    .brand-cn {
+      font-family: var(--font-sans); font-size: 20px;
+      font-weight: 700; letter-spacing: 0.03em;
+    }
+    .brand-en {
+      font-family: var(--font-sans); font-size: 11.5px;
+      font-weight: 700; letter-spacing: 0.045em;
+    }
+    .nav-actions {
+      display: flex; align-items: center; justify-content: flex-end;
+      gap: clamp(18px, 2.4vw, 34px);
+      font-size: 13px; font-weight: 400; color: var(--text-muted);
+    }
+    .lang-toggle {
+      display: flex; align-items: center; gap: 6px;
+      font-family: var(--font-mono); font-size: 12px;
+      letter-spacing: 0.04em; color: var(--text-light);
+    }
+    .lang-toggle button {
+      background: none; border: none;
+      padding: 2px 4px; cursor: pointer;
+      color: var(--text-light); font: inherit;
+      transition: color 0.2s ease;
+    }
+    .lang-toggle button.active { color: var(--text); }
+    .lang-toggle button:hover { color: var(--purple); }
+    .lang-toggle .sep { color: var(--border); padding: 0 2px; }
+    .menu-toggle {
+      display: inline-flex; align-items: center; gap: 13px;
+      min-height: 40px; background: transparent; border: 0;
+      color: var(--text); cursor: pointer;
+      font: 500 13px/1 var(--font-sans); padding: 0;
+    }
+    .menu-toggle-mark { display: grid; gap: 5px; width: 34px; }
+    .menu-toggle-mark span {
+      display: block; height: 1px; background: currentColor;
+      transform-origin: right center; transition: transform 0.2s ease;
+    }
+    .menu-toggle:hover .menu-toggle-mark span:first-child { transform: scaleX(0.64); }
+    .menu-toggle:hover .menu-toggle-mark span:last-child { transform: scaleX(1.18); }
+    .menu-toggle-text {
+      font-family: var(--font-mono); font-size: 12px;
+      letter-spacing: 0.07em; text-transform: uppercase;
+    }
+
+    /* ---------- Menu panel — matches index.html ---------- */
+    body.menu-open { overflow: hidden; }
+    .menu-overlay {
+      position: fixed; inset: 0 0 0 auto;
+      width: min(720px, 50vw); z-index: 500;
+      color: var(--bg);
+      background:
+        linear-gradient(90deg, rgba(250,248,244,0.035) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(250,248,244,0.03) 1px, transparent 1px),
+        linear-gradient(135deg, #151012 0%, #21161E 52%, #2A162F 100%);
+      background-size: 96px 96px, 96px 96px, auto;
+      opacity: 0; visibility: hidden; pointer-events: none;
+      overflow-x: hidden; overflow-y: auto; scrollbar-width: none;
+      box-shadow: -28px 0 70px rgba(28,25,23,0.22);
+      transform: translateX(24px);
+      transition: opacity 0.28s ease, transform 0.28s ease, visibility 0s linear 0.28s;
+    }
+    .menu-overlay::-webkit-scrollbar { display: none; }
+    .menu-overlay.is-open {
+      opacity: 1; visibility: visible; pointer-events: auto;
+      transform: translateX(0); transition-delay: 0s;
+    }
+    .menu-overlay::before {
+      content: "LINK-X"; position: absolute;
+      right: -0.08em; bottom: -0.28em;
+      font-family: var(--font-serif);
+      font-size: clamp(130px, 24vw, 360px); line-height: 1;
+      color: rgba(250,248,244,0.045); pointer-events: none; letter-spacing: 0;
+    }
+    .menu-shell {
+      position: relative; z-index: 1; min-height: 100dvh;
+      display: grid; grid-template-rows: auto 1fr auto;
+      padding: 0 clamp(22px, 3vw, 40px) 28px;
+    }
+    .menu-top {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 76px; border-bottom: 1px solid rgba(250,248,244,0.12);
+    }
+    .menu-label { display: inline-flex; align-items: baseline; gap: 10px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(250,248,244,0.48); }
+    .menu-label span { color: var(--purple-pale); }
+    .menu-label i { font-style: normal; color: rgba(250,248,244,0.28); }
+    .menu-label em { font-style: normal; color: rgba(250,248,244,0.42); }
+    .menu-close {
+      position: relative; width: 44px; height: 44px;
+      display: grid; place-items: center;
+      background: transparent; border: 1px solid rgba(250,248,244,0.22);
+      color: var(--bg); cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+    .menu-close:hover { background: rgba(250,248,244,0.08); border-color: rgba(250,248,244,0.5); }
+    .menu-close span {
+      position: absolute; width: 18px; height: 1px; background: currentColor;
+    }
+    .menu-close span:first-child { transform: rotate(45deg); }
+    .menu-close span:last-child { transform: rotate(-45deg); }
+    .menu-grid {
+      display: grid; grid-template-columns: minmax(0,1fr);
+      gap: 22px; align-items: start;
+      padding: clamp(24px, 4vh, 34px) 0;
+    }
+    .menu-primary {
+      display: flex; flex-direction: column;
+      border-top: 1px solid rgba(250,248,244,0.16);
+    }
+    .menu-primary a {
+      display: grid; grid-template-columns: 36px 1fr auto;
+      gap: 16px; align-items: baseline;
+      padding: clamp(9px, 1.15vh, 11px) 0;
+      border-bottom: 1px solid rgba(250,248,244,0.16);
+      color: rgba(250,248,244,0.9);
+      opacity: 0; transform: translateY(18px);
+      transition: color 0.2s ease, opacity 0.4s ease, transform 0.4s ease;
+      text-decoration: none;
+    }
+    .menu-overlay.is-open .menu-primary a { opacity: 1; transform: none; }
+    .menu-overlay.is-open .menu-primary a:nth-child(1) { transition-delay: 0.06s; }
+    .menu-overlay.is-open .menu-primary a:nth-child(2) { transition-delay: 0.1s; }
+    .menu-overlay.is-open .menu-primary a:nth-child(3) { transition-delay: 0.14s; }
+    .menu-overlay.is-open .menu-primary a:nth-child(4) { transition-delay: 0.18s; }
+    .menu-overlay.is-open .menu-primary a:nth-child(5) { transition-delay: 0.22s; }
+    .menu-overlay.is-open .menu-primary a:nth-child(6) { transition-delay: 0.26s; }
+    .menu-primary a:hover { color: #fff; }
+    .menu-primary .menu-num {
+      font-family: var(--font-mono); font-size: 11px;
+      letter-spacing: 0.1em; color: rgba(232,213,238,0.54);
+    }
+    .menu-primary strong {
+      font-family: var(--font-serif);
+      font-size: clamp(26px, 2.45vw, 36px);
+      font-weight: 400; line-height: 1.02; letter-spacing: 0;
+    }
+    .menu-primary em {
+      font-family: var(--font-mono); font-size: 11px;
+      font-style: normal; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(250,248,244,0.35);
+    }
+    .menu-side {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
+      opacity: 0; transform: translateY(18px);
+      transition: opacity 0.45s ease 0.24s, transform 0.45s ease 0.24s;
+    }
+    .menu-overlay.is-open .menu-side { opacity: 1; transform: none; }
+    .menu-panel {
+      border: 1px solid rgba(250,248,244,0.14);
+      background: rgba(250,248,244,0.055);
+      padding: clamp(18px, 2vw, 22px);
+    }
+    .menu-kicker {
+      font-family: var(--font-mono); font-size: 10px;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--purple-pale); margin-bottom: 18px;
+    }
+    .menu-panel p {
+      color: rgba(250,248,244,0.74); font-size: 13.5px;
+      line-height: 1.7; margin-bottom: 18px;
+    }
+    .menu-panel a {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--font-mono); font-size: 11px;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: #fff; text-decoration: none;
+      border-bottom: 1px solid rgba(250,248,244,0.36);
+      padding-bottom: 4px;
+      transition: gap 0.2s ease, border-color 0.2s ease;
+    }
+    .menu-panel a:hover { gap: 13px; border-color: #fff; }
+    .menu-footer {
+      display: flex; justify-content: space-between; gap: 24px;
+      padding-top: 24px; border-top: 1px solid rgba(250,248,244,0.12);
+      font-family: var(--font-mono); font-size: 10px;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(250,248,244,0.42);
+    }
+    .menu-footer a { color: rgba(250,248,244,0.42); text-decoration: none; }
+    .menu-footer a:hover { color: #fff; }
+
+    /* ---------- Article hero ---------- */
+    .article-hero {
+      padding: clamp(80px, 12vw, 160px) 0 0;
+    }
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .article-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: var(--purple);
+      padding: 4px 12px;
+      border: 1px solid var(--purple-soft);
+    }
+    .article-date {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--text-light);
+    }
+    .article-hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 4.5vw, 52px);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      text-wrap: balance;
+    }
+
+    /* ---------- Article body ---------- */
+    .article-body {
+      max-width: 700px;
+      padding: clamp(48px, 6vw, 80px) 0 clamp(80px, 10vw, 140px);
+    }
+    .article-body p {
+      font-size: 17px;
+      line-height: 1.9;
+      color: var(--text-soft);
+      margin-bottom: 24px;
+      text-align: justify;
+      hyphens: auto;
+      text-wrap: pretty;
+    }
+    .article-body h2 {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin-top: 56px;
+      margin-bottom: 20px;
+      line-height: 1.3;
+      text-wrap: balance;
+    }
+    .article-body h3 {
+      font-family: var(--font-sans);
+      font-size: 18px;
+      font-weight: 600;
+      margin-top: 36px;
+      margin-bottom: 16px;
+      line-height: 1.4;
+      color: var(--text);
+    }
+    .article-body ul {
+      margin: 16px 0 24px 24px;
+      list-style: disc;
+    }
+    .article-body li {
+      font-size: 17px;
+      line-height: 1.9;
+      color: var(--text-soft);
+      margin-bottom: 10px;
+    }
+
+    /* ---------- Back link ---------- */
+    .article-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      text-decoration: none;
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      transition: color 0.2s ease;
+    }
+    .article-back:hover { color: var(--purple); }
+
+    /* ---------- Footer ---------- */
+    footer {
+      background:
+        linear-gradient(135deg, #151012 0%, #21161E 52%, #2A162F 100%);
+      color: rgba(250, 248, 244, 0.6);
+      padding: 60px 0 40px;
+    }
+    .footer-inner {
+      display: flex; justify-content: space-between;
+      align-items: flex-end; flex-wrap: wrap; gap: 24px;
+    }
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-left .brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-left .brand-cn {
+      color: rgba(250,248,244,0.88);
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .footer-left .brand-en {
+      color: rgba(250,248,244,0.55);
+      font-size: 13px;
+      font-family: var(--font-mono);
+      letter-spacing: 0.08em;
+    }
+    .footer-left p {
+      color: rgba(250, 248, 244, 0.4);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .footer-copy {
+      font-family: var(--font-mono); font-size: 10px;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(250, 248, 244, 0.2);
+      display: flex; flex-direction: column; align-items: flex-end; gap: 10px;
+    }
+    .footer-copy a {
+      color: rgba(250, 248, 244, 0.35);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .footer-copy a:hover { color: rgba(250, 248, 244, 0.6); }
+
+    /* ---------- Reveal ---------- */
+    .reveal {
+      opacity: 0; transform: translateY(16px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* ---------- i18n ---------- */
+    [data-lang="zh"] .en-only { display: none; }
+    [data-lang="en"] .zh-only { display: none; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 720px) {
+      .brand-logo { gap: 9px; }
+      .brand-mark { width: 30px; height: 30px; }
+      .brand-cn { font-size: 17px; letter-spacing: 0.02em; }
+      .brand-en { display: none; }
+      .article-hero h1 { font-size: clamp(28px, 7vw, 38px); }
+      .article-body h2 { font-size: 24px; }
+      .article-body p { font-size: 16px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="nav">
+    <a href="index.html" class="brand-logo" aria-label="星连资本 LINK-X Capital">
+      <svg class="brand-mark" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(8.2 8.2)" fill="currentColor"/>
+        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(26 8.2)" fill="currentColor"/>
+        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(43.8 8.2)" fill="currentColor"/>
+        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(8.2 26)" fill="currentColor"/>
+        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(43.8 26)" fill="currentColor"/>
+        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(8.2 43.8)" fill="currentColor"/>
+        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(26 43.8)" fill="currentColor"/>
+        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(43.8 43.8)" fill="currentColor"/>
+      </svg>
+      <span class="brand-lockup">
+        <span class="brand-cn">星连资本</span>
+        <span class="brand-en">LINK-X CAPITAL</span>
+      </span>
+    </a>
+    <div class="nav-actions">
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="en">EN</button>
+        <span class="sep">|</span>
+        <button data-set-lang="zh" class="active">中</button>
+      </span>
+      <button class="menu-toggle" type="button" aria-controls="siteMenu" aria-expanded="false" data-menu-open>
+        <span class="menu-toggle-text" data-i18n="menu.open">Menu</span>
+        <span class="menu-toggle-mark" aria-hidden="true">
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MENU ============ -->
+<div class="menu-overlay" id="siteMenu" aria-hidden="true">
+  <div class="menu-shell">
+    <div class="menu-top">
+      <div class="menu-label"><span data-i18n="menu.label">导航</span><i>/</i><em>Menu</em></div>
+      <button class="menu-close" type="button" aria-label="Close menu" data-menu-close>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div class="menu-grid">
+      <nav class="menu-primary" aria-label="Primary navigation">
+        <a href="insights.html" data-menu-link>
+          <span class="menu-num">01</span>
+          <strong data-i18n="nav.about">关于</strong>
+          <em>About</em>
+        </a>
+        <a href="team.html" data-menu-link>
+          <span class="menu-num">02</span>
+          <strong data-i18n="nav.beliefs">理念</strong>
+          <em>Beliefs</em>
+        </a>
+        <a href="insights.html" data-menu-link>
+          <span class="menu-num">03</span>
+          <strong data-i18n="nav.daily">洞察</strong>
+          <em>Insights</em>
+        </a>
+        <a href="portfolio.html" data-menu-link>
+          <span class="menu-num">04</span>
+          <strong data-i18n="nav.focus">关注领域</strong>
+          <em>Focus Areas</em>
+        </a>
+        <a href="index.html#portfolio" data-menu-link>
+          <span class="menu-num">05</span>
+          <strong data-i18n="nav.portfolio">投资组合</strong>
+          <em>Portfolio</em>
+        </a>
+        <a href="team.html" data-menu-link>
+          <span class="menu-num">06</span>
+          <strong data-i18n="nav.team">团队</strong>
+          <em>Team</em>
+        </a>
+      </nav>
+      <aside class="menu-side" aria-label="Featured links">
+        <div class="menu-panel">
+          <div class="menu-kicker" data-i18n="menu.research.kicker">Insights Feed</div>
+          <p data-i18n="menu.research.text">持续跟踪模型、infra、agent 与前沿计算的真实变化，记录 AI 生态的一线信号。</p>
+          <a href="insights.html" data-menu-link>
+            <span data-i18n="menu.research.link">获取最新动态</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+        <div class="menu-panel">
+          <div class="menu-kicker" data-i18n="menu.contact.kicker">Build With Us</div>
+          <p data-i18n="menu.contact.text">创始人、LP、媒体与研究伙伴，可以从这里找到 LINK-X 团队。</p>
+          <a href="contact.html" data-menu-link>
+            <span data-i18n="menu.contact.link">联系我们</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </aside>
+    </div>
+    <div class="menu-footer">
+      <span data-i18n="menu.footer.meta">LINK-X Capital · 北京清华科技园</span>
+      <a href="mailto:hello@linkx.vc">hello@linkx.vc</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ARTICLE HERO ============ -->
+<section class="article-hero">
+  <div class="container">
+    <div class="article-meta">
+      <span class="article-tag" data-i18n="article.tag.news">新闻</span>
+      <span class="article-tag" data-i18n="article.tag.perspectives">观点</span>
+      <span class="article-date">2025.11.21</span>
+    </div>
+    <h1 data-i18n="title">从模型突破到产业落地：<br>2025 AI全景观察与2026展望</h1>
+  </div>
+</section>
+
+<!-- ============ ARTICLE BODY ============ -->
+<section>
+  <div class="container">
+    <div class="article-body">
+
+      <p data-i18n="p0">2025年11月21日，星连资本年度大会（AGM）在武汉举行。</p>
+
+      <p data-i18n="p1">百余年前，武汉以"敢想敢为"的气魄，开启了中国现代工业的探索之路——1890年，中国第一座近代钢铁厂在这片土地应运而生，为本土工业发展播下了最初的火种。1911年，同样是在这片土地上，一群年仅未满30岁的青年在城墙上扣动扳机，点燃了新时代的序章。</p>
+
+      <p data-i18n="p2">如今，"历史性的变革机遇，正再一次呈现在我们面前。"星连资本合伙人王璞在开场致辞中指出。大会选址武汉的深意正在于此：当全球科技竞争进入白热化阶段，中国企业与资本力量迎来了新一轮"敢想敢为"的机遇期。</p>
+
+      <p data-i18n="p3">本次年会围绕全球科技竞争格局、AI技术跃迁、产业落地实践及港股IPO生态等话题展开。清华大学社会科学学院中美关系研究中心特约研究员薛静、星连资本管理合伙人张鸣晨、谷歌中国大客户部销售副总裁邓辉、华泰联合证券总监杨阳以及多位被投企业创始人分享了他们的趋势洞察与实践经验。</p>
+
+      <p data-i18n="p4">学术界、产业界与资本市场等多方声音汇聚成共识：<em>2025年不仅是技术变革的加速年，更是全球科技产业新一轮加速周期的关键起点。</em></p>
+
+      <h2 data-i18n="h2_1">全球竞争</h2>
+
+      <h3 data-i18n="h3_1">中美驱动，AI主导，产业革命制胜的4个关键点</h3>
+
+      <p data-i18n="p5">清华大学社会科学学院中美关系研究中心特约研究员薛静博士指出，当前，全球科技竞争正进入一个由中美主导的时代。一方面，中美是世界上最大的两个制造业国家——2024年中国制造业占全球31.6%，美国占15.9%；另一方面，在尖端科技上，125项前沿技术中，两国合计领先110项。</p>
+
+      <p data-i18n="p6">这一竞争格局成型的背后，是科技、生产力、综合国力的锁定。"现代科技突破不再是仅靠少数科学家就能实现，而需要依赖整个国家体系的支持，资本、人才、资源和国家治理能力缺一不可。"在薛静看来，中美两国AI发展的领先地位正是科技锁定的体现。而正是因为科技锁定，AI和其他高科技技术的蓬勃发展正在大幅提升劳动生产率，从而在生产力层面进一步巩固优势。</p>
+
+      <p data-i18n="p7">薛静认为，科技竞争是未来大国竞争的主旋律，竞争的战场正是下一次产业革命，竞争的方式则呈现为企业竞争，而AI的发展将在其中扮演关键角色。要赢得这场竞争，他进一步指出，重点在于基础科学探索；利用现有的工业制造能力，在多样化的应用场景中不断吸收、迭代、反哺科研；持续巩固工程师红利，为产业发展培养高素质劳动力；找到新时代全球化的通路。</p>
+
+      <h2 data-i18n="h2_2">从突破到应用</h2>
+
+      <h3 data-i18n="h3_2">星连资本在AI领域的前沿洞察与战略布局</h3>
+
+      <p data-i18n="p8">在新的科技竞争格局中，中国正在"应用延伸"走向"源头参与"。在这样的时代背景与结构性机遇下，星连资本在2025年交出了精彩答卷——在所投的30家企业中，超过九成在2025年完成新一轮融资，其中17家已成长为细分领域的准独角兽，有2家已经在推进IPO进程中。</p>
+
+      <p data-i18n="p9">谈及2025年AI领域的进展和对2026年的展望，星连资本创始合伙人张鸣晨分享了来自30位在前沿科研、产业和创业一线专家的深度洞察：</p>
+
+      <h3 data-i18n="h3_3">2025年的四个典型突破</h3>
+
+      <ul>
+        <li data-i18n="li1">以DeepSeek V3和R1为代表，强基座模型和强化学习带来了推理能力提升；</li>
+        <li data-i18n="li2">以Gemini 3、Sora 2、Nano Banana为代表，AI在多模态理解与生成上的能力达到了新的高度；</li>
+        <li data-i18n="li3">以Claude Code为代表的AI Coding开始规模化落地应用；</li>
+        <li data-i18n="li4">Agent开始处理复杂任务。</li>
+      </ul>
+
+      <h3 data-i18n="h3_4">2026年五大发展方向</h3>
+
+      <ul>
+        <li data-i18n="li5">在特定领域，AI Agent有望真正代替部分人类劳动；</li>
+        <li data-i18n="li6">具身智能将取得突破，机器人将展现出超越人类的运动能力；</li>
+        <li data-i18n="li7">Full Attention等大模型底层架构的创新，将进一步助力AI训练与推理能力的发展；</li>
+        <li data-i18n="li8">AI for Science领域，AI将不再只是工具，而是能进行深度研究的AI科学家，推动科学研究的飞跃；</li>
+        <li data-i18n="li9">在线学习等技术突破，让模型具备自进化能力。</li>
+      </ul>
+
+      <p data-i18n="p10">张鸣晨指出，2025年是AI领域飞速发展的关键一年。无论是模型能力的提升、基础设施的快速发展，还是应用探索的深入，亦或是资本端的热情，均表明AI正在从技术突破迈向产业应用的新阶段。</p>
+
+      <p data-i18n="p11">AI作为变革传统行业的价值放大器，正在展现出"Roll Up"的强大影响力——全球范围内，传统行业开始开放大量场景和需求，以期待借助AI技术提升整体效率和利润，快速实现资产价值增长。</p>
+
+      <p data-i18n="p12">这一趋势也与星连资本的理念高度契合。张鸣晨强调："我们对人工智能的投入不仅仅是简单的投资行为，更希望通过构建产学研投的一体化大循环，推动生态中关键要素的充分流动，最终实现价值的整体放大。"正因如此，星连资本联合清华大学建立了「华清普智AI孵化器（T-ONE Innovation Lab）」，进一步推动这一生态系统的建设和发展。</p>
+
+      <p data-i18n="p13">张鸣晨进一步表示，从星连资本所投企业的快速发展来看，优秀的创业者和团队已经展现出了独特的速度与方向感。他认为，AI的未来不是"会不会来"，而是"来得有多快"。创业者必须抢占先机，跑得更早，也必须跑得更稳。在这个充满机遇与挑战的时代，星连资本将继续支持那些有远见、能够应对快速变化的创业团队，引领AI行业的未来发展。</p>
+
+      <h2 data-i18n="h2_3">探索智能上限</h2>
+
+      <h3 data-i18n="h3_5">实现AGI的突破点是基模能力、对齐与推理、AI原生生产力</h3>
+
+      <p data-i18n="p14">在产业与资本层面的判断之外，如何从技术源头理解人工智能的演进路径，同样成为本次大会的重要议题。围绕通用人工智能（AGI）的实现路径，参会人员分享了在创业实践中的系统思考，得到了以下共识。</p>
+
+      <p data-i18n="p15">AGI的拐点尚未到来，行业仍处在技术优先阶段，而非迅速转向产品导向。当前更重要的任务，依然是持续探索模型的智能上限。过去两年，行业在多模态、语音等方向进行了大量尝试，但实践证明，真正决定模型智能上限的，依然是文本及其所承载的常识知识。</p>
+
+      <p data-i18n="p16">基于第一性原理，要实现AGI，模型层的关键在于两点：一是持续提高智能上限，二是有效激活已有能力；应用层则需要思考AI的本质是什么。基于此，接下来的行业发展重点将主要体现在三个方面：</p>
+
+      <h3 data-i18n="h3_6">第一，基座模型能力仍将持续提升。</h3>
+
+      <p data-i18n="p17">要探索智能上限，短期内依然难以绕开scale这一路径，包括更大规模的常识数据（真实数据、合成数据及蒸馏数据）、更大的模型参数规模，以及更多的算力投入。</p>
+
+      <h3 data-i18n="h3_7">第二，在能力激活层面，对齐（align）与推理（reasoning）的重要性进一步凸显。</h3>
+
+      <p data-i18n="p18">即使模型具备了知识，如果无法被有效激活，其能力也难以释放。过去，对齐主要依赖SFT、CoT等方式，而当前强化学习正逐步成为主流路径：通过构造场景和数据，让模型在强化学习中自我优化，以激活智能上限。</p>
+
+      <p data-i18n="p19">但现实挑战在于，评测Benchmark数量有限，而真实世界的应用场景几乎无限。随着大量Agent的出现，对齐的复杂度显著提升——如果说过去模型对齐更像是在考语文、数学等知识点，那么Agent更接近真实工作环境，工种多样、情境复杂，甚至需要一定的"情商"。例如订机票、订酒店，本质上是通过引入Agent数据，与人类行为对齐，从而激活模型能力。</p>
+
+      <h3 data-i18n="h3_8">第三，从应用层的角度，AI的本质并非创造新的能力，而是替代人类的部分工作能力，这也决定了Agent的爆发几乎是必然趋势。</h3>
+
+      <p data-i18n="p20">未来，应用层一方面需要厘清哪些能力、岗位会被替代，同时要做得足够"薄"，能够快速适配基座模型能力的变化。</p>
+
+      <p data-i18n="p21">与此同时，在虚拟世界之外，与Agent爆发相对应的，是具身智能的发展。当前"机器人大脑"已经具备较强智能，下一步的关键在于将大模型能力与机器人行为做好对齐并加以激活。随着硬件技术逐步成熟，具身智能也有望成为AI产业的重要突破方向。</p>
+
+      <h2 data-i18n="h2_4">AI加速落点</h2>
+
+      <h3 data-i18n="h3_9">前沿创新者在一线的思考与实践</h3>
+
+      <p data-i18n="p22">对智能上限与AGI实现路径的探讨为人工智能的未来奠定了基础，而在实践一线，AI模型的能力释放正推动各行业的深刻变革。在本次大会上，星连资本投资的多家企业分享了他们在AI技术加速落地过程中的宝贵经验与前瞻思考，展示了AI如何在医疗、教育、家庭智能和视频创作等多个领域，重塑人们的生产和生活方式。</p>
+
+      <h3 data-i18n="h3_10">紫荆智康：AI打破医疗"不可能三角"</h3>
+
+      <p data-i18n="p23">紫荆智康专注于AI赋能医疗服务，通过智能化技术改善诊疗效率。紫荆智康发起人刘洋指出，"看病难、看病贵，是全球性难题。长期以来，优质、低廉、便捷三者无法兼得的'不可能三角'，正在被AI逐步打破。"</p>
+
+      <p data-i18n="p24">AI在两个维度带来革命性变化：一是加速高水平医疗资源的生产，二是通过智能Agent重塑医疗服务组织方式，实现成本降低与效率提升。刘洋强调，智能体的可进化性是核心，AI可通过自我迭代低成本探索医疗决策边界，并逐步构建未来的AI医疗底层操作系统，为公众提供更优质的医疗服务。</p>
+
+      <h3 data-i18n="h3_11">奇点灵智：多模态AI陪伴重塑低龄教育</h3>
+
+      <p data-i18n="p25">奇点灵智CEO包塔分享了奇点灵智在低龄AI陪伴领域的探索。他指出，低龄儿童需要的并非简单"聊天搭子"，而是能陪孩子过家家的多模态玩伴。通过融合视觉、动作、语言等多模态技术，机器人理解并参与游戏过程，实现"玩中学"的教育理念。</p>
+
+      <p data-i18n="p26">包塔强调，以"软硬倒置"的方式快速迭代，打破硬件创业的传统线性路径，并依托用户共创构建持续反馈闭环，从而优化产品体验，提升陪伴时长与互动深度。特别在英语启蒙方面，通过创造沉浸互动的语言环境激发学习兴趣，提升语言实际运用能力，实现寓教于乐。其推出的多奇AI英语伴学机器人已在京东首发预售，收获了市场的积极反馈。</p>
+
+      <h3 data-i18n="h3_12">吾云创新：以数据为基础，以AI为核心，打造家庭智能终端</h3>
+
+      <p data-i18n="p27">吾云创新专注于家庭数据存储与智能管理，提出了"Everything to NAS"理念。吾云创新CEO郭亚楠表示，"在AI时代，数据分散已成为痛点。存储不应只是数据坟墓，而应是记忆的大脑。"</p>
+
+      <p data-i18n="p28">通过本地部署多模态大模型，吾云创新实现极速工作流、多模态智能搜索和零等待分享，让家庭和创作者的数据使用更加高效、安全。吾云创新的长远目标是打造家庭智能终端，将AI与数据深度融合，使用户能够通过自然语言快速获取信息，实现真正的家庭智能化。</p>
+
+      <h3 data-i18n="h3_13">智映光年：AI全能剧组赋能视频创作</h3>
+
+      <p data-i18n="p29">智映光年团队聚焦视频生产的全流程优化，致力于降低视频创作门槛，让普通用户也能成为百万粉UP主。智映光年CEO王铁嵩指出，"当需求指数级增长而供给侧仍是线性劳动时，产能瓶颈便暴露无遗。"</p>
+
+      <p data-i18n="p30">为解决这一问题，公司提出"四个层级"的视频生产模式：从基础素材处理到叙事艺术、个性化定制，再到内容共鸣，实现千人千面的精准匹配。同时，公司建立了信息块理解技术和垂直领域专家模型（Editing GPT），确保AI剪辑专业、高效。</p>
+
+      <p data-i18n="p31">团队未来目标是通过前端简化交互、后端全能支撑，为创作者提供闭环式生产系统，实现从创意到成品的高效落地。</p>
+
+      <h2 data-i18n="h2_5">Long China，Long AI</h2>
+
+      <h3 data-i18n="h3_14">科技投资新机</h3>
+
+      <p data-i18n="p32">与AI技术突破和一级市场进展共振的，是二级市场正在用真金白银重估中国科技成长性，AI成为港股新一轮估值与流动性的核心锚点。</p>
+
+      <p data-i18n="p33">华泰联合证券总监杨阳分享了对港股IPO市场的洞察。她指出，2024年港股IPO回暖显著，87家企业已登陆，全年融资额有望全球领跑。更具结构性意义的是，"新经济"正在成为港股估值体系的主导力量：TMT与新能源类企业占据近半上市席位，科技增长重新定义了港股的估值锚。</p>
+
+      <p data-i18n="p34">与此同时，"A+H"双地联动趋势愈发清晰。从A股积极谋划赴港，到港股吸纳稀缺科技资产，两地资本正形成新的循环链路。叠加制造业优势推动外资回流，全球资金对中国AI产业链的配置需求正在快速上升。从算力到模型，从落地场景到应用收入，AI全链条的增长逻辑在二级市场得到重新定价。"Long China，Long AI"不再是口号，而是流动性验证的新周期。</p>
+
+      <p data-i18n="p35">她认为，科技企业赴港上市正从"融资工具"走向布局国际业务的"战略抓手"。而要抓住这样的机遇，企业可以提前做好以下三点准备：</p>
+
+      <p data-i18n="p36">其一，前瞻性规划"H+A"路径，利用大湾区政策红利实现跨市场价值最大化；</p>
+
+      <p data-i18n="p37">其二，充分用好18C政策窗口，提前引入具备资质的"领航资深独立投资人"，以专业资本结构通过监管审核；</p>
+
+      <p data-i18n="p38">其三，以稀缺技术、清晰增长路径和可验证的商业化指标，向成熟投资者讲出"确定性的科技故事"，并在发行前锁定高质量基石投资者，提高上市成功率与估值稳固性。</p>
+
+      <p data-i18n="p39">回到星连资本2025年年度大会AGM的现场，我们再次见证勇气与变革的力量。</p>
+
+      <p data-i18n="p40">星连资本将持续发掘与支持那些"敢想敢为"的创业者，在新的加速周期跑出速度与方向，共同推动中国科技产业的新一轮发展和创新，助力中国在全球科技竞争中占据领先地位。</p>
+
+      <p><em data-i18n="p41">我们相信，2025年只是一个新的起点。</em></p>
+
+      <a href="insights.html" class="article-back" data-i18n="article.back">← 返回洞察</a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-left">
+      <div class="brand-lockup">
+        <span class="brand-cn">星连资本</span>
+        <span class="brand-en">LINK-X CAPITAL</span>
+      </div>
+      <p data-i18n="footer.desc">与 AGI 时代的定义者同行。</p>
+    </div>
+    <div class="footer-copy">
+      <span data-i18n="footer.copy">&copy; 2026 北京星连肇基私募基金管理有限责任公司</span>
+      <a href="legal.html" data-i18n="footer.legal">法律声明</a>
+    </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const i18n = {
+    zh: {
+      "nav.about": "关于", "nav.beliefs": "理念", "nav.daily": "洞察", "nav.focus": "关注领域",
+      "nav.portfolio": "投资组合", "nav.team": "团队", "nav.contact": "联系",
+      "menu.open": "Menu",
+      "menu.label": "导航",
+      "menu.research.kicker": "Insights Feed",
+      "menu.research.text": "持续跟踪模型、infra、agent 与前沿计算的真实变化，记录 AI 生态的一线信号。",
+      "menu.research.link": "获取最新动态",
+      "menu.contact.kicker": "Build With Us",
+      "menu.contact.text": "创始人、LP、媒体与研究伙伴，可以从这里找到 LINK-X 团队。",
+      "menu.contact.link": "联系我们",
+      "menu.footer.meta": "LINK-X Capital · 北京清华科技园",
+      "article.tag.news": "新闻",
+      "article.tag.perspectives": "观点",
+      "article.back": "← 返回洞察",
+      "title": "从模型突破到产业落地：2025 AI全景观察与2026展望",
+      "p0": "2025年11月21日，星连资本年度大会（AGM）在武汉举行。",
+      "p1": "百余年前，武汉以\"敢想敢为\"的气魄，开启了中国现代工业的探索之路——1890年，中国第一座近代钢铁厂在这片土地应运而生，为本土工业发展播下了最初的火种。1911年，同样是在这片土地上，一群年仅未满30岁的青年在城墙上扣动扳机，点燃了新时代的序章。",
+      "p2": "如今，\"历史性的变革机遇，正再一次呈现在我们面前。\"星连资本合伙人王璞在开场致辞中指出。大会选址武汉的深意正在于此：当全球科技竞争进入白热化阶段，中国企业与资本力量迎来了新一轮\"敢想敢为\"的机遇期。",
+      "p3": "本次年会围绕全球科技竞争格局、AI技术跃迁、产业落地实践及港股IPO生态等话题展开。清华大学社会科学学院中美关系研究中心特约研究员薛静、星连资本管理合伙人张鸣晨、谷歌中国大客户部销售副总裁邓辉、华泰联合证券总监杨阳以及多位被投企业创始人分享了他们的趋势洞察与实践经验。",
+      "p4": "学术界、产业界与资本市场等多方声音汇聚成共识：<em>2025年不仅是技术变革的加速年，更是全球科技产业新一轮加速周期的关键起点。</em>",
+      "h2_1": "全球竞争",
+      "h3_1": "中美驱动，AI主导，产业革命制胜的4个关键点",
+      "p5": "清华大学社会科学学院中美关系研究中心特约研究员薛静博士指出，当前，全球科技竞争正进入一个由中美主导的时代。一方面，中美是世界上最大的两个制造业国家——2024年中国制造业占全球31.6%，美国占15.9%；另一方面，在尖端科技上，125项前沿技术中，两国合计领先110项。",
+      "p6": "这一竞争格局成型的背后，是科技、生产力、综合国力的锁定。\"现代科技突破不再是仅靠少数科学家就能实现，而需要依赖整个国家体系的支持，资本、人才、资源和国家治理能力缺一不可。\"在薛静看来，中美两国AI发展的领先地位正是科技锁定的体现。而正是因为科技锁定，AI和其他高科技技术的蓬勃发展正在大幅提升劳动生产率，从而在生产力层面进一步巩固优势。",
+      "p7": "薛静认为，科技竞争是未来大国竞争的主旋律，竞争的战场正是下一次产业革命，竞争的方式则呈现为企业竞争，而AI的发展将在其中扮演关键角色。要赢得这场竞争，他进一步指出，重点在于基础科学探索；利用现有的工业制造能力，在多样化的应用场景中不断吸收、迭代、反哺科研；持续巩固工程师红利，为产业发展培养高素质劳动力；找到新时代全球化的通路。",
+      "h2_2": "从突破到应用",
+      "h3_2": "星连资本在AI领域的前沿洞察与战略布局",
+      "p8": "在新的科技竞争格局中，中国正在\"应用延伸\"走向\"源头参与\"。在这样的时代背景与结构性机遇下，星连资本在2025年交出了精彩答卷——在所投的30家企业中，超过九成在2025年完成新一轮融资，其中17家已成长为细分领域的准独角兽，有2家已经在推进IPO进程中。",
+      "p9": "谈及2025年AI领域的进展和对2026年的展望，星连资本创始合伙人张鸣晨分享了来自30位在前沿科研、产业和创业一线专家的深度洞察：",
+      "h3_3": "2025年的四个典型突破",
+      "li1": "以DeepSeek V3和R1为代表，强基座模型和强化学习带来了推理能力提升；",
+      "li2": "以Gemini 3、Sora 2、Nano Banana为代表，AI在多模态理解与生成上的能力达到了新的高度；",
+      "li3": "以Claude Code为代表的AI Coding开始规模化落地应用；",
+      "li4": "Agent开始处理复杂任务。",
+      "h3_4": "2026年五大发展方向",
+      "li5": "在特定领域，AI Agent有望真正代替部分人类劳动；",
+      "li6": "具身智能将取得突破，机器人将展现出超越人类的运动能力；",
+      "li7": "Full Attention等大模型底层架构的创新，将进一步助力AI训练与推理能力的发展；",
+      "li8": "AI for Science领域，AI将不再只是工具，而是能进行深度研究的AI科学家，推动科学研究的飞跃；",
+      "li9": "在线学习等技术突破，让模型具备自进化能力。",
+      "p10": "张鸣晨指出，2025年是AI领域飞速发展的关键一年。无论是模型能力的提升、基础设施的快速发展，还是应用探索的深入，亦或是资本端的热情，均表明AI正在从技术突破迈向产业应用的新阶段。",
+      "p11": "AI作为变革传统行业的价值放大器，正在展现出\"Roll Up\"的强大影响力——全球范围内，传统行业开始开放大量场景和需求，以期待借助AI技术提升整体效率和利润，快速实现资产价值增长。",
+      "p12": "这一趋势也与星连资本的理念高度契合。张鸣晨强调：\"我们对人工智能的投入不仅仅是简单的投资行为，更希望通过构建产学研投的一体化大循环，推动生态中关键要素的充分流动，最终实现价值的整体放大。\"正因如此，星连资本联合清华大学建立了「华清普智AI孵化器（T-ONE Innovation Lab）」，进一步推动这一生态系统的建设和发展。",
+      "p13": "张鸣晨进一步表示，从星连资本所投企业的快速发展来看，优秀的创业者和团队已经展现出了独特的速度与方向感。他认为，AI的未来不是\"会不会来\"，而是\"来得有多快\"。创业者必须抢占先机，跑得更早，也必须跑得更稳。在这个充满机遇与挑战的时代，星连资本将继续支持那些有远见、能够应对快速变化的创业团队，引领AI行业的未来发展。",
+      "h2_3": "探索智能上限",
+      "h3_5": "实现AGI的突破点是基模能力、对齐与推理、AI原生生产力",
+      "p14": "在产业与资本层面的判断之外，如何从技术源头理解人工智能的演进路径，同样成为本次大会的重要议题。围绕通用人工智能（AGI）的实现路径，参会人员分享了在创业实践中的系统思考，得到了以下共识。",
+      "p15": "AGI的拐点尚未到来，行业仍处在技术优先阶段，而非迅速转向产品导向。当前更重要的任务，依然是持续探索模型的智能上限。过去两年，行业在多模态、语音等方向进行了大量尝试，但实践证明，真正决定模型智能上限的，依然是文本及其所承载的常识知识。",
+      "p16": "基于第一性原理，要实现AGI，模型层的关键在于两点：一是持续提高智能上限，二是有效激活已有能力；应用层则需要思考AI的本质是什么。基于此，接下来的行业发展重点将主要体现在三个方面：",
+      "h3_6": "第一，基座模型能力仍将持续提升。",
+      "p17": "要探索智能上限，短期内依然难以绕开scale这一路径，包括更大规模的常识数据（真实数据、合成数据及蒸馏数据）、更大的模型参数规模，以及更多的算力投入。",
+      "h3_7": "第二，在能力激活层面，对齐（align）与推理（reasoning）的重要性进一步凸显。",
+      "p18": "即使模型具备了知识，如果无法被有效激活，其能力也难以释放。过去，对齐主要依赖SFT、CoT等方式，而当前强化学习正逐步成为主流路径：通过构造场景和数据，让模型在强化学习中自我优化，以激活智能上限。",
+      "p19": "但现实挑战在于，评测Benchmark数量有限，而真实世界的应用场景几乎无限。随着大量Agent的出现，对齐的复杂度显著提升——如果说过去模型对齐更像是在考语文、数学等知识点，那么Agent更接近真实工作环境，工种多样、情境复杂，甚至需要一定的\"情商\"。例如订机票、订酒店，本质上是通过引入Agent数据，与人类行为对齐，从而激活模型能力。",
+      "h3_8": "第三，从应用层的角度，AI的本质并非创造新的能力，而是替代人类的部分工作能力，这也决定了Agent的爆发几乎是必然趋势。",
+      "p20": "未来，应用层一方面需要厘清哪些能力、岗位会被替代，同时要做得足够\"薄\"，能够快速适配基座模型能力的变化。",
+      "p21": "与此同时，在虚拟世界之外，与Agent爆发相对应的，是具身智能的发展。当前\"机器人大脑\"已经具备较强智能，下一步的关键在于将大模型能力与机器人行为做好对齐并加以激活。随着硬件技术逐步成熟，具身智能也有望成为AI产业的重要突破方向。",
+      "h2_4": "AI加速落点",
+      "h3_9": "前沿创新者在一线的思考与实践",
+      "p22": "对智能上限与AGI实现路径的探讨为人工智能的未来奠定了基础，而在实践一线，AI模型的能力释放正推动各行业的深刻变革。在本次大会上，星连资本投资的多家企业分享了他们在AI技术加速落地过程中的宝贵经验与前瞻思考，展示了AI如何在医疗、教育、家庭智能和视频创作等多个领域，重塑人们的生产和生活方式。",
+      "h3_10": "紫荆智康：AI打破医疗\"不可能三角\"",
+      "p23": "紫荆智康专注于AI赋能医疗服务，通过智能化技术改善诊疗效率。紫荆智康发起人刘洋指出，\"看病难、看病贵，是全球性难题。长期以来，优质、低廉、便捷三者无法兼得的'不可能三角'，正在被AI逐步打破。\"",
+      "p24": "AI在两个维度带来革命性变化：一是加速高水平医疗资源的生产，二是通过智能Agent重塑医疗服务组织方式，实现成本降低与效率提升。刘洋强调，智能体的可进化性是核心，AI可通过自我迭代低成本探索医疗决策边界，并逐步构建未来的AI医疗底层操作系统，为公众提供更优质的医疗服务。",
+      "h3_11": "奇点灵智：多模态AI陪伴重塑低龄教育",
+      "p25": "奇点灵智CEO包塔分享了奇点灵智在低龄AI陪伴领域的探索。他指出，低龄儿童需要的并非简单\"聊天搭子\"，而是能陪孩子过家家的多模态玩伴。通过融合视觉、动作、语言等多模态技术，机器人理解并参与游戏过程，实现\"玩中学\"的教育理念。",
+      "p26": "包塔强调，以\"软硬倒置\"的方式快速迭代，打破硬件创业的传统线性路径，并依托用户共创构建持续反馈闭环，从而优化产品体验，提升陪伴时长与互动深度。特别在英语启蒙方面，通过创造沉浸互动的语言环境激发学习兴趣，提升语言实际运用能力，实现寓教于乐。其推出的多奇AI英语伴学机器人已在京东首发预售，收获了市场的积极反馈。",
+      "h3_12": "吾云创新：以数据为基础，以AI为核心，打造家庭智能终端",
+      "p27": "吾云创新专注于家庭数据存储与智能管理，提出了\"Everything to NAS\"理念。吾云创新CEO郭亚楠表示，\"在AI时代，数据分散已成为痛点。存储不应只是数据坟墓，而应是记忆的大脑。\"",
+      "p28": "通过本地部署多模态大模型，吾云创新实现极速工作流、多模态智能搜索和零等待分享，让家庭和创作者的数据使用更加高效、安全。吾云创新的长远目标是打造家庭智能终端，将AI与数据深度融合，使用户能够通过自然语言快速获取信息，实现真正的家庭智能化。",
+      "h3_13": "智映光年：AI全能剧组赋能视频创作",
+      "p29": "智映光年团队聚焦视频生产的全流程优化，致力于降低视频创作门槛，让普通用户也能成为百万粉UP主。智映光年CEO王铁嵩指出，\"当需求指数级增长而供给侧仍是线性劳动时，产能瓶颈便暴露无遗。\"",
+      "p30": "为解决这一问题，公司提出\"四个层级\"的视频生产模式：从基础素材处理到叙事艺术、个性化定制，再到内容共鸣，实现千人千面的精准匹配。同时，公司建立了信息块理解技术和垂直领域专家模型（Editing GPT），确保AI剪辑专业、高效。",
+      "p31": "团队未来目标是通过前端简化交互、后端全能支撑，为创作者提供闭环式生产系统，实现从创意到成品的高效落地。",
+      "h2_5": "Long China，Long AI",
+      "h3_14": "科技投资新机",
+      "p32": "与AI技术突破和一级市场进展共振的，是二级市场正在用真金白银重估中国科技成长性，AI成为港股新一轮估值与流动性的核心锚点。",
+      "p33": "华泰联合证券总监杨阳分享了对港股IPO市场的洞察。她指出，2024年港股IPO回暖显著，87家企业已登陆，全年融资额有望全球领跑。更具结构性意义的是，\"新经济\"正在成为港股估值体系的主导力量：TMT与新能源类企业占据近半上市席位，科技增长重新定义了港股的估值锚。",
+      "p34": "与此同时，\"A+H\"双地联动趋势愈发清晰。从A股积极谋划赴港，到港股吸纳稀缺科技资产，两地资本正形成新的循环链路。叠加制造业优势推动外资回流，全球资金对中国AI产业链的配置需求正在快速上升。从算力到模型，从落地场景到应用收入，AI全链条的增长逻辑在二级市场得到重新定价。\"Long China，Long AI\"不再是口号，而是流动性验证的新周期。",
+      "p35": "她认为，科技企业赴港上市正从\"融资工具\"走向布局国际业务的\"战略抓手\"。而要抓住这样的机遇，企业可以提前做好以下三点准备：",
+      "p36": "其一，前瞻性规划\"H+A\"路径，利用大湾区政策红利实现跨市场价值最大化；",
+      "p37": "其二，充分用好18C政策窗口，提前引入具备资质的\"领航资深独立投资人\"，以专业资本结构通过监管审核；",
+      "p38": "其三，以稀缺技术、清晰增长路径和可验证的商业化指标，向成熟投资者讲出\"确定性的科技故事\"，并在发行前锁定高质量基石投资者，提高上市成功率与估值稳固性。",
+      "p39": "回到星连资本2025年年度大会AGM的现场，我们再次见证勇气与变革的力量。",
+      "p40": "星连资本将持续发掘与支持那些\"敢想敢为\"的创业者，在新的加速周期跑出速度与方向，共同推动中国科技产业的新一轮发展和创新，助力中国在全球科技竞争中占据领先地位。",
+      "p41": "我们相信，2025年只是一个新的起点。",
+      "footer.desc": "与 AGI 时代的定义者同行。",
+      "footer.copy": "© 2026 北京星连肇基私募基金管理有限责任公司",
+      "footer.legal": "法律声明"
+    },
+    en: {
+      "nav.about": "About", "nav.beliefs": "Beliefs", "nav.daily": "Insights", "nav.focus": "Focus",
+      "nav.portfolio": "Portfolio", "nav.team": "Team", "nav.contact": "Contact",
+      "menu.open": "Menu",
+      "menu.label": "Navigation",
+      "menu.research.kicker": "Insights Feed",
+      "menu.research.text": "Tracking real changes in models, infra, agents, and frontier computing — first-hand signals from the AI ecosystem.",
+      "menu.research.link": "Latest Updates",
+      "menu.contact.kicker": "Build With Us",
+      "menu.contact.text": "Founders, LPs, media and research partners — reach the LINK-X team here.",
+      "menu.contact.link": "Contact Us",
+      "menu.footer.meta": "LINK-X Capital · Beijing Tsinghua Science Park",
+      "article.tag.news": "News",
+      "article.tag.perspectives": "Perspectives",
+      "article.back": "← Back to Insights",
+      "title": "From Model Breakthroughs to Industry Deployment: 2025 AI Panorama & 2026 Outlook",
+      "p0": "On November 21, 2025, LINK-X Capital held its Annual General Meeting (AGM) in Wuhan.",
+      "p1": "Over a century ago, Wuhan embraced the spirit of \"daring to think and act,\" launching China's journey into modern industry — in 1890, the nation's first modern steelworks rose on this land, planting the initial seeds for domestic industrial development. In 1911, on this same land, a group of young people under 30 fired their rifles on the city walls, igniting the prelude to a new era.",
+      "p2": "Today, \"historic opportunities for transformative change are once again before us,\" noted LINK-X Capital partner Wang Pu in his opening remarks. The choice of Wuhan carries deep significance: as global technology competition enters a white-hot phase, Chinese enterprises and capital are entering a new window of opportunity to \"dare to think and act.\"",
+      "p3": "The AGM covered global technology competition, AI technological leaps, industry deployment practices, and the Hong Kong IPO ecosystem. Speakers included Dr. Xue Jing, Special Researcher at the China-US Relations Research Center of Tsinghua University; Zhang Mingchen, Managing Partner of LINK-X Capital; Deng Hui, VP of Google China; Yang Yang, Director of Huatai United Securities; and founders from multiple portfolio companies.",
+      "p4": "Voices from academia, industry, and capital markets converged on a consensus: <em>2025 is not only an acceleration year for technological change, but a critical starting point for a new cycle in the global technology industry.</em>",
+      "h2_1": "Global Competition",
+      "h3_1": "US-China Driven, AI-Led: 4 Keys to Winning the Industrial Revolution",
+      "p5": "Dr. Xue Jing pointed out that global technology competition is entering a China-US dominated era. China and the US are the world's two largest manufacturing nations — in 2024, China accounted for 31.6% and the US for 15.9% of global manufacturing. Among 125 frontier technologies, the two countries together lead in 110.",
+      "p6": "Behind this competitive landscape is the lock-in of technology, productivity, and comprehensive national power. \"Modern technological breakthroughs can no longer be achieved by a handful of scientists alone — they require the support of the entire national system, where capital, talent, resources, and governance capacity are all indispensable.\" The leading positions of China and the US in AI development are precisely the embodiment of this technological lock-in.",
+      "p7": "Xue Jing believes that technology competition is the main theme of future great-power rivalry. The battlefield is the next industrial revolution, and AI will play a key role. To win, he emphasized four priorities: fundamental scientific exploration; leveraging existing industrial manufacturing capabilities across diverse application scenarios; consolidating the engineer dividend; and finding new pathways for globalization.",
+      "h2_2": "From Breakthrough to Application",
+      "h3_2": "LINK-X Capital's Frontier Insights and Strategic Positioning in AI",
+      "p8": "In the new technology competition landscape, China is moving from \"application extension\" to \"source participation.\" Against this backdrop, LINK-X Capital delivered an outstanding 2025 — among its 30 portfolio companies, over 90% completed new funding rounds, 17 have grown into quasi-unicorns in their respective segments, and 2 are advancing toward IPO.",
+      "p9": "Discussing AI developments in 2025 and the outlook for 2026, LINK-X Capital founding partner Zhang Mingchen shared deep insights from 30 experts at the frontier of research, industry, and entrepreneurship:",
+      "h3_3": "Four Breakthroughs of 2025",
+      "li1": "Strong foundation models and reinforcement learning brought reasoning capability improvements, represented by DeepSeek V3 and R1;",
+      "li2": "AI achieved new heights in multimodal understanding and generation, represented by Gemini 3, Sora 2, and Nano Banana;",
+      "li3": "AI Coding began scaling into production applications, represented by Claude Code;",
+      "li4": "Agents began handling complex tasks.",
+      "h3_4": "Five Directions for 2026",
+      "li5": "AI Agents are expected to truly replace certain types of human labor in specific domains;",
+      "li6": "Embodied intelligence will achieve breakthroughs, with robots demonstrating superhuman motor capabilities;",
+      "li7": "Fundamental architecture innovations like Full Attention will further advance AI training and inference capabilities;",
+      "li8": "In AI for Science, AI will evolve from a tool to an AI scientist capable of conducting deep research;",
+      "li9": "Online learning and other breakthroughs will give models self-evolution capabilities.",
+      "p10": "Zhang Mingchen noted that 2025 has been a pivotal year of rapid AI development. Whether in model capability improvements, infrastructure growth, application exploration, or capital enthusiasm, all signs indicate AI is transitioning from technological breakthrough to industry application.",
+      "p11": "As a value amplifier transforming traditional industries, AI is demonstrating the powerful impact of \"Roll Up\" — globally, traditional industries are opening up vast scenarios and demands, expecting to leverage AI technology to improve overall efficiency and profits, rapidly achieving asset value growth.",
+      "p12": "This trend aligns closely with LINK-X Capital's philosophy. Zhang emphasized: \"Our investment in AI is not merely an investment activity — we aim to build an integrated loop of industry, academia, research, and investment, driving the full flow of key elements in the ecosystem, ultimately achieving overall value amplification.\" To this end, LINK-X Capital co-established the T-ONE Innovation Lab with Tsinghua University.",
+      "p13": "Zhang further stated that from the rapid development of portfolio companies, outstanding entrepreneurs and teams have demonstrated unique speed and direction. The future of AI is not about \"whether it will arrive,\" but \"how fast.\" Entrepreneurs must seize the initiative — run earlier and run steadier.",
+      "h2_3": "Exploring the Intelligence Ceiling",
+      "h3_5": "AGI Breakthroughs: Foundation Model Capability, Alignment & Reasoning, AI-Native Productivity",
+      "p14": "Beyond industry and capital-level assessments, understanding AI's evolution from a technical standpoint was equally important at the AGM. Participants shared systematic thinking on the path to AGI, reaching the following consensus.",
+      "p15": "The AGI inflection point has not yet arrived. The industry remains in a technology-first phase, rather than rapidly pivoting to product orientation. The more important task now is to continue exploring the intelligence ceiling of models. Over the past two years, the industry has experimented extensively with multimodality and voice, but practice has proven that what truly determines the intelligence ceiling remains text and the commonsense knowledge it carries.",
+      "p16": "From first principles, achieving AGI requires two keys at the model layer: continuously raising the intelligence ceiling and effectively activating existing capabilities. At the application layer, the question is what AI's essence truly is.",
+      "h3_6": "First, foundation model capabilities will continue to improve.",
+      "p17": "To explore the intelligence ceiling, it remains difficult to bypass the scaling path in the short term — including larger-scale commonsense data (real, synthetic, and distilled), larger model parameter sizes, and greater compute investment.",
+      "h3_7": "Second, alignment and reasoning become increasingly important for capability activation.",
+      "p18": "Even if a model possesses knowledge, its capabilities cannot be released without effective activation. Previously, alignment relied mainly on SFT and CoT, but reinforcement learning is gradually becoming the mainstream approach: constructing scenarios and data to let models self-optimize through RL, activating the intelligence ceiling.",
+      "p19": "The real challenge is that benchmark evaluations are limited, while real-world application scenarios are virtually infinite. With the emergence of numerous Agents, alignment complexity has increased significantly. If past model alignment was like testing language and math knowledge, Agents are closer to real work environments — diverse roles, complex situations, and even a degree of \"emotional intelligence.\"",
+      "h3_8": "Third, from the application layer perspective, AI's essence is not creating new capabilities but replacing certain human work capabilities — making the Agent explosion almost inevitable.",
+      "p20": "Going forward, the application layer needs to clarify which capabilities and positions will be replaced, while being thin enough to quickly adapt to changes in foundation model capabilities.",
+      "p21": "Meanwhile, beyond the virtual world, corresponding to the Agent explosion is the development of embodied intelligence. Current \"robot brains\" already possess strong intelligence — the next key step is aligning large model capabilities with robot behavior. As hardware technology matures, embodied intelligence is poised to become a major breakthrough direction for the AI industry.",
+      "h2_4": "AI Accelerating Deployment",
+      "h3_9": "Frontier Innovators' Thinking and Practice",
+      "p22": "While discussions on intelligence ceilings and AGI pathways laid the foundation for AI's future, at the practical frontline, AI model capabilities are driving profound transformation across industries. Portfolio companies shared their valuable experiences and forward-looking insights on accelerating AI deployment.",
+      "h3_10": "Zijing Zhikang: AI Breaks the Healthcare \"Impossible Triangle\"",
+      "p23": "Zijing Zhikang focuses on AI-empowered healthcare services. Founder Liu Yang noted: \"Difficulty and cost of medical care are global challenges. The 'impossible triangle' of quality, affordability, and accessibility is gradually being broken by AI.\"",
+      "p24": "AI brings revolutionary changes in two dimensions: accelerating the production of high-quality medical resources, and reshaping healthcare service organization through intelligent Agents. Liu emphasized that the evolvability of intelligent agents is core — AI can explore medical decision boundaries at low cost through self-iteration, gradually building a future AI healthcare operating system.",
+      "h3_11": "Qidian Lingzhi: Multimodal AI Companionship Reshaping Early Childhood Education",
+      "p25": "Qidian Lingzhi CEO Bao Ta shared the company's exploration in early childhood AI companionship. Young children don't need simple chat partners — they need multimodal playmates who can join them in pretend play, integrating vision, movement, and language for a \"learn through play\" education philosophy.",
+      "p26": "Bao emphasized a \"software-first\" rapid iteration approach, breaking the traditional linear path of hardware startups, and building continuous feedback loops through user co-creation. The Duoqi AI English learning robot has launched for pre-sale on JD.com with positive market reception.",
+      "h3_12": "Wuyun Innovation: Data-Driven, AI-Core Home Intelligent Terminals",
+      "p27": "Wuyun Innovation focuses on home data storage and intelligent management, proposing the \"Everything to NAS\" concept. CEO Guo Yanan stated: \"In the AI era, data fragmentation has become a pain point. Storage should not be a data graveyard, but the brain of memory.\"",
+      "p28": "By locally deploying multimodal large models, Wuyun Innovation achieves lightning-fast workflows, multimodal intelligent search, and zero-wait sharing. The long-term goal is to build a home intelligent terminal, deeply integrating AI with data for true home intelligence.",
+      "h3_13": "Zhiying Guangnian: AI-Powered Full Production Crew for Video Creation",
+      "p29": "Zhiying Guangnian focuses on end-to-end video production optimization, lowering creation barriers so ordinary users can become top content creators. CEO Wang Tiesong noted: \"When demand grows exponentially while supply remains linear, capacity bottlenecks become fully exposed.\"",
+      "p30": "The company proposes a \"four-level\" video production model: from basic material processing to narrative art, personalized customization, and content resonance, achieving personalized matching. The company has built information block understanding technology and domain expert models (Editing GPT).",
+      "p31": "The team's future goal is to provide creators with a closed-loop production system through simplified front-end interaction and comprehensive back-end support.",
+      "h2_5": "Long China, Long AI",
+      "h3_14": "New Opportunities in Technology Investment",
+      "p32": "Resonating with AI technology breakthroughs and primary market progress, the secondary market is re-evaluating China's technology growth with real capital. AI has become the core anchor for Hong Kong stocks' new round of valuation and liquidity.",
+      "p33": "Huatai United Securities Director Yang Yang shared insights on the Hong Kong IPO market. She noted that 2024 saw significant recovery in Hong Kong IPOs, with 87 companies listing. \"New economy\" companies are becoming the dominant force in Hong Kong's valuation system, with TMT and new energy companies occupying nearly half of listed seats.",
+      "p34": "The \"A+H\" dual-listing trend is becoming increasingly clear. From A-share companies planning Hong Kong listings to the Hong Kong market absorbing scarce technology assets, capital from both markets is forming new circulation pathways. \"Long China, Long AI\" is no longer a slogan but a new cycle validated by liquidity.",
+      "p35": "She believes technology companies listing in Hong Kong are moving from a \"financing tool\" to a \"strategic lever\" for international business. To seize these opportunities, companies should prepare in three ways:",
+      "p36": "First, proactively plan \"H+A\" pathways, leveraging Greater Bay Area policy advantages for cross-market value maximization;",
+      "p37": "Second, fully utilize the 18C policy window by early introduction of qualified \"leading senior independent investors\" to pass regulatory review with professional capital structures;",
+      "p38": "Third, present a \"technology story of certainty\" to mature investors with scarce technology, clear growth paths, and verifiable commercialization metrics, while locking in high-quality cornerstone investors before issuance.",
+      "p39": "Returning to the scene of LINK-X Capital's 2025 AGM, we once again witnessed the power of courage and transformation.",
+      "p40": "LINK-X Capital will continue to discover and support entrepreneurs who \"dare to think and act,\" running with speed and direction in the new acceleration cycle, jointly driving a new round of development and innovation in China's technology industry.",
+      "p41": "We believe that 2025 is only a new beginning.",
+      "footer.desc": "Partnering with the founders defining the AGI era.",
+      "footer.copy": "© 2026 LINK-X Capital",
+      "footer.legal": "Legal"
+    }
+  };
+
+  function applyLang(lang) {
+    const dict = i18n[lang];
+    document.documentElement.setAttribute("data-lang", lang);
+    document.documentElement.setAttribute("lang", lang === "zh" ? "zh-CN" : "en");
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      if (!dict[key]) return;
+      const val = dict[key];
+      if (val.indexOf("<em>") !== -1) el.innerHTML = val;
+      else el.textContent = val;
+    });
+    document.querySelectorAll("[data-set-lang]").forEach(btn => {
+      btn.classList.toggle("active", btn.getAttribute("data-set-lang") === lang);
+    });
+    try { localStorage.setItem("linkx.lang", lang); } catch(e){}
+  }
+
+  document.querySelectorAll("[data-set-lang]").forEach(btn => {
+    btn.addEventListener("click", () => applyLang(btn.getAttribute("data-set-lang")));
+  });
+
+  (function initLang() {
+    let lang = "zh";
+    try {
+      const saved = localStorage.getItem("linkx.lang");
+      if (saved === "en" || saved === "zh") lang = saved;
+      else if ((navigator.language || "").toLowerCase().startsWith("en")) lang = "en";
+    } catch(e) {}
+    applyLang(lang);
+  })();
+
+  const bar = document.getElementById("progressBar");
+  document.addEventListener("click", (e) => {
+    if (!menuOverlay || !menuOverlay.classList.contains("is-open")) return;
+    if (e.target.closest("[data-menu-open]") || e.target.closest("[data-menu-close]")) return;
+    if (!menuOverlay.contains(e.target)) setMenuOpen(false);
+  });
+  window.addEventListener("scroll", () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + "%";
+  }, { passive: true });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add("in"); io.unobserve(entry.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+  /* ---------- Menu ---------- */
+  const menuOverlay = document.getElementById("siteMenu");
+  const menuOpeners = document.querySelectorAll("[data-menu-open]");
+  const menuClosers = document.querySelectorAll("[data-menu-close]");
+  const menuLinks = document.querySelectorAll("[data-menu-link]");
+  let lastMenuTrigger = null;
+
+  function setMenuOpen(open) {
+    if (!menuOverlay) return;
+    menuOverlay.classList.toggle("is-open", open);
+    menuOverlay.setAttribute("aria-hidden", open ? "false" : "true");
+    document.body.classList.toggle("menu-open", open);
+    menuOpeners.forEach(btn => btn.setAttribute("aria-expanded", open ? "true" : "false"));
+
+    if (open) {
+      lastMenuTrigger = document.activeElement;
+      const closeButton = menuOverlay.querySelector("[data-menu-close]");
+      if (closeButton) closeButton.focus();
+    } else if (lastMenuTrigger && typeof lastMenuTrigger.focus === "function") {
+      lastMenuTrigger.focus();
+    }
+  }
+
+  menuOpeners.forEach(btn => btn.addEventListener("click", () => setMenuOpen(true)));
+  menuClosers.forEach(btn => btn.addEventListener("click", () => setMenuOpen(false)));
+  menuLinks.forEach(a => a.addEventListener("click", () => setMenuOpen(false)));
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setMenuOpen(false);
+  });
+</script>
+</body>
+</html>
