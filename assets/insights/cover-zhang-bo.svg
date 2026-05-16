@@ -1,52 +1,57 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
-  <title id="title">AGI Next models cover</title>
-  <desc id="desc">Abstract model topology, reasoning layers and frontier summit signal paths.</desc>
+  <title id="title">Reasoning entanglement cover</title>
+  <desc id="desc">Two wireframe reasoning structures connected by a violet intelligence field.</desc>
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#FAF8F4"/>
-      <stop offset="0.56" stop-color="#EDE3D7"/>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FCF8EE"/>
+      <stop offset="0.56" stop-color="#EEE4D7"/>
       <stop offset="1" stop-color="#D9CABD"/>
     </linearGradient>
-    <radialGradient id="core" cx="50%" cy="46%" r="56%">
-      <stop offset="0" stop-color="#660874" stop-opacity="0.22"/>
-      <stop offset="0.55" stop-color="#B07CC0" stop-opacity="0.08"/>
+    <radialGradient id="centerGlow" cx="50%" cy="51%" r="42%">
+      <stop offset="0" stop-color="#660874" stop-opacity="0.5"/>
+      <stop offset="0.38" stop-color="#8B3A9A" stop-opacity="0.2"/>
       <stop offset="1" stop-color="#660874" stop-opacity="0"/>
     </radialGradient>
-    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-      <path d="M60 0H0V60" fill="none" stroke="#1C1917" stroke-opacity="0.075" stroke-width="1"/>
+    <pattern id="paperDots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="0.8" fill="#1C1917" fill-opacity="0.04"/>
     </pattern>
+    <filter id="blur"><feGaussianBlur stdDeviation="18"/></filter>
     <filter id="grain">
-      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="63"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="63"/>
       <feColorMatrix type="saturate" values="0"/>
-      <feComponentTransfer><feFuncA type="table" tableValues="0 0.045"/></feComponentTransfer>
+      <feComponentTransfer><feFuncA type="table" tableValues="0 0.05"/></feComponentTransfer>
     </filter>
   </defs>
-  <rect width="1600" height="1000" fill="url(#bg)"/>
-  <rect width="1600" height="1000" fill="url(#grid)"/>
-  <rect width="1600" height="1000" fill="url(#core)"/>
-  <g transform="translate(300 170)" fill="none" stroke-linecap="round">
-    <path d="M100 506C194 334 302 238 486 210C666 183 782 96 922 0" stroke="#1C1917" stroke-opacity="0.18" stroke-width="1.2"/>
-    <path d="M0 364C160 298 220 118 406 118C556 118 648 274 800 252C910 236 1002 160 1130 106" stroke="#660874" stroke-opacity="0.62" stroke-width="2.2"/>
-    <path d="M72 608C228 482 394 444 530 486C704 540 852 496 1016 330" stroke="#8B3A9A" stroke-opacity="0.42" stroke-width="1.6"/>
+  <rect width="1600" height="1000" fill="url(#paper)"/>
+  <rect width="1600" height="1000" fill="url(#paperDots)"/>
+  <rect width="1600" height="1000" fill="url(#centerGlow)"/>
+  <g fill="none" stroke="#1C1917" stroke-opacity="0.28" stroke-width="2">
+    <g transform="translate(344 252)">
+      <path d="M216 0L416 122V360L216 488L16 360V122Z"/>
+      <path d="M216 0V488M16 122L416 360M416 122L16 360"/>
+      <path d="M216 0L16 360M216 0L416 360M216 488L16 122M216 488L416 122"/>
+      <path d="M16 122L216 244L416 122M16 360L216 244L416 360"/>
+    </g>
+    <g transform="translate(840 252)">
+      <path d="M216 0L416 122V360L216 488L16 360V122Z"/>
+      <path d="M216 0V488M16 122L416 360M416 122L16 360"/>
+      <path d="M216 0L16 360M216 0L416 360M216 488L16 122M216 488L416 122"/>
+      <path d="M16 122L216 244L416 122M16 360L216 244L416 360"/>
+    </g>
   </g>
-  <g fill="#FAF8F4" stroke="#660874" stroke-width="2.4">
-    <circle cx="378" cy="536" r="10"/>
-    <circle cx="530" cy="398" r="10"/>
-    <circle cx="708" cy="288" r="10"/>
-    <circle cx="876" cy="422" r="10"/>
-    <circle cx="1056" cy="354" r="10"/>
-    <circle cx="1220" cy="232" r="10"/>
+  <g filter="url(#blur)">
+    <path d="M694 360C758 318 842 318 906 360C974 406 986 584 900 636C824 682 742 646 702 574C662 502 632 402 694 360Z" fill="#660874" opacity="0.58"/>
+    <path d="M728 438C794 360 886 398 906 486C924 568 844 634 766 594C690 554 674 500 728 438Z" fill="#B07CC0" opacity="0.42"/>
   </g>
-  <g stroke="#660874" stroke-opacity="0.26" fill="none">
-    <circle cx="800" cy="500" r="320"/>
-    <circle cx="800" cy="500" r="236"/>
-    <circle cx="800" cy="500" r="152"/>
-    <path d="M480 500H1120M800 180V820M574 274L1026 726M1026 274L574 726"/>
+  <g fill="none" stroke="#660874" stroke-linecap="round">
+    <path d="M560 496C672 422 720 422 800 500C878 576 926 578 1040 496" stroke-opacity="0.62" stroke-width="2.6"/>
+    <path d="M556 420C680 372 734 392 800 500C864 604 922 626 1044 580" stroke-opacity="0.34" stroke-width="1.5"/>
   </g>
-  <g font-family="IBM Plex Mono, ui-monospace, monospace" letter-spacing="0.16em">
-    <text x="118" y="118" fill="#660874" font-size="20">MODELS</text>
-    <text x="118" y="154" fill="#1C1917" fill-opacity="0.42" font-size="13">REFERENCE / REASONING / AGENTS</text>
-    <text x="1068" y="844" fill="#1C1917" fill-opacity="0.28" font-size="12">AGI NEXT FIELD NOTES</text>
+  <g fill="#FAF8F4" stroke="#660874" stroke-width="2">
+    <circle cx="800" cy="500" r="8"/>
+    <circle cx="680" cy="432" r="6"/>
+    <circle cx="920" cy="568" r="6"/>
   </g>
-  <rect width="1600" height="1000" filter="url(#grain)" opacity="0.75"/>
+  <rect x="48" y="48" width="1504" height="904" fill="none" stroke="#1C1917" stroke-opacity="0.16"/>
+  <rect width="1600" height="1000" filter="url(#grain)" opacity="0.86"/>
 </svg>

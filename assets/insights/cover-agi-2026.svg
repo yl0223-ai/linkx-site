@@ -1,51 +1,47 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
-  <title id="title">AGI 2026 strategy cover</title>
-  <desc id="desc">A layered frontier map showing pre-AGI technology paths and investment signals.</desc>
+  <title id="title">Latent space topology cover</title>
+  <desc id="desc">An elegant abstract technical drawing of folded latent space and a violet frontier field.</desc>
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#FAF8F4"/>
-      <stop offset="0.5" stop-color="#F0E7DC"/>
-      <stop offset="1" stop-color="#D8CABE"/>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FCF8EE"/>
+      <stop offset="0.58" stop-color="#EFE6DA"/>
+      <stop offset="1" stop-color="#D7C8BA"/>
     </linearGradient>
-    <radialGradient id="glow" cx="68%" cy="58%" r="60%">
-      <stop offset="0" stop-color="#660874" stop-opacity="0.28"/>
+    <radialGradient id="violet" cx="62%" cy="48%" r="58%">
+      <stop offset="0" stop-color="#660874" stop-opacity="0.36"/>
       <stop offset="0.5" stop-color="#B07CC0" stop-opacity="0.12"/>
       <stop offset="1" stop-color="#660874" stop-opacity="0"/>
     </radialGradient>
-    <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
-      <path d="M80 0H0V80" fill="none" stroke="#1C1917" stroke-opacity="0.07" stroke-width="1"/>
+    <pattern id="mesh" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#1C1917" stroke-opacity="0.04"/>
     </pattern>
+    <filter id="soft"><feGaussianBlur stdDeviation="18"/></filter>
     <filter id="grain">
-      <feTurbulence type="fractalNoise" baseFrequency="0.86" numOctaves="3" seed="91"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.82" numOctaves="3" seed="18"/>
       <feColorMatrix type="saturate" values="0"/>
-      <feComponentTransfer><feFuncA type="table" tableValues="0 0.045"/></feComponentTransfer>
+      <feComponentTransfer><feFuncA type="table" tableValues="0 0.05"/></feComponentTransfer>
     </filter>
   </defs>
-  <rect width="1600" height="1000" fill="url(#bg)"/>
-  <rect width="1600" height="1000" fill="url(#grid)"/>
-  <rect width="1600" height="1000" fill="url(#glow)"/>
+  <rect width="1600" height="1000" fill="url(#paper)"/>
+  <rect width="1600" height="1000" fill="url(#mesh)"/>
+  <rect width="1600" height="1000" fill="url(#violet)"/>
+  <g transform="translate(168 116)" fill="none" stroke="#1C1917" stroke-opacity="0.28">
+    <path d="M0 0C176 40 310 138 430 294C554 456 704 536 900 498C1052 468 1168 380 1288 282" stroke-width="1.4"/>
+    <path d="M0 0C86 184 186 348 338 476C512 622 728 682 928 616C1102 558 1226 432 1374 300" stroke-width="1.2"/>
+    <path d="M0 0C230 8 408 86 564 220C720 354 858 414 1058 364C1188 332 1300 286 1412 240" stroke-width="1"/>
+  </g>
+  <g transform="translate(168 116)" fill="none" stroke="#1C1917" stroke-opacity="0.16">
+    <path d="M38 18L370 318M92 42L426 366M148 74L490 420M206 112L552 466M266 158L618 500M326 214L686 526M390 274L760 532"/>
+    <path d="M58 148L444 40M122 220L548 78M196 300L668 128M282 386L798 190M386 462L952 260M508 522L1120 344"/>
+  </g>
+  <g filter="url(#soft)">
+    <path d="M604 342C690 224 842 214 930 332C1018 450 966 662 808 706C662 746 538 620 548 486C552 430 570 386 604 342Z" fill="#660874" opacity="0.48"/>
+    <ellipse cx="842" cy="488" rx="164" ry="88" fill="#B07CC0" opacity="0.34"/>
+  </g>
   <g fill="none" stroke-linecap="round">
-    <path d="M150 744C298 568 468 502 644 548C850 602 996 536 1128 342C1216 212 1326 150 1472 118" stroke="#660874" stroke-width="2.4"/>
-    <path d="M170 620C346 522 452 358 640 390C838 424 972 430 1124 276C1210 190 1316 144 1468 116" stroke="#8B3A9A" stroke-opacity="0.52" stroke-width="1.6"/>
-    <path d="M154 842C340 696 466 682 644 708C860 740 1016 642 1188 454C1280 352 1372 300 1480 270" stroke="#1C1917" stroke-opacity="0.22" stroke-width="1.2"/>
+    <path d="M240 746C390 644 536 604 692 640C870 682 1030 612 1196 432C1302 318 1392 260 1508 232" stroke="#660874" stroke-opacity="0.52" stroke-width="2.2"/>
+    <path d="M252 640C430 548 552 410 728 436C910 464 1036 448 1208 300C1308 214 1400 178 1506 164" stroke="#8B3A9A" stroke-opacity="0.3" stroke-width="1.5"/>
   </g>
-  <g transform="translate(328 226)" fill="none" stroke="#660874" stroke-opacity="0.28">
-    <path d="M0 408C150 258 300 188 450 198C600 208 750 110 900 0"/>
-    <path d="M0 488C150 338 300 268 450 278C600 288 750 190 900 80"/>
-    <path d="M0 568C150 418 300 348 450 358C600 368 750 270 900 160"/>
-  </g>
-  <g fill="#FAF8F4" stroke="#660874" stroke-width="2">
-    <circle cx="334" cy="596" r="9"/>
-    <circle cx="552" cy="512" r="9"/>
-    <circle cx="742" cy="560" r="9"/>
-    <circle cx="966" cy="518" r="9"/>
-    <circle cx="1164" cy="394" r="9"/>
-    <circle cx="1364" cy="176" r="9"/>
-  </g>
-  <g font-family="IBM Plex Mono, ui-monospace, monospace" letter-spacing="0.16em">
-    <text x="118" y="118" fill="#660874" font-size="20">AGI 2026</text>
-    <text x="118" y="154" fill="#1C1917" fill-opacity="0.42" font-size="13">BEFORE AGI / BUILD THE PATHS</text>
-    <text x="1006" y="844" fill="#1C1917" fill-opacity="0.28" font-size="12">SEVEN DIRECTIONS / ONE FIELD</text>
-  </g>
-  <rect width="1600" height="1000" filter="url(#grain)" opacity="0.76"/>
+  <rect x="48" y="48" width="1504" height="904" fill="none" stroke="#1C1917" stroke-opacity="0.16"/>
+  <rect width="1600" height="1000" filter="url(#grain)" opacity="0.88"/>
 </svg>
