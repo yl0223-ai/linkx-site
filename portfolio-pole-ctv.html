@@ -158,40 +158,15 @@
         <span></span>
       </button>
     </div>
-    <div class="menu-grid">
-      <nav class="menu-primary" aria-label="Primary navigation">
-        <a href="index.html#about-fund" data-menu-link>
-          <span class="menu-num">01</span>
-          <strong data-i18n="nav.about">关于</strong>
-          <em>About</em>
-        </a>
-        <a href="index.html#beliefs" data-menu-link>
-          <span class="menu-num">02</span>
-          <strong data-i18n="nav.beliefs">理念</strong>
-          <em>Beliefs</em>
-        </a>
-        <a href="insights.html" data-menu-link>
-          <span class="menu-num">03</span>
-          <strong data-i18n="nav.daily">洞察</strong>
-          <em>Insights</em>
-        </a>
-        <a href="index.html#focus" data-menu-link>
-          <span class="menu-num">04</span>
-          <strong data-i18n="nav.focus">关注领域</strong>
-          <em>Focus Areas</em>
-        </a>
-        <a href="index.html#portfolio" data-menu-link>
-          <span class="menu-num">05</span>
-          <strong data-i18n="nav.portfolio">投资组合</strong>
-          <em>Portfolio</em>
-        </a>
-        <a href="team.html" data-menu-link>
-          <span class="menu-num">06</span>
-          <strong data-i18n="nav.team">团队</strong>
-          <em>Team</em>
-        </a>
-      </nav>
-      <aside class="menu-side" aria-label="Featured links">
+    <nav class="menu-grid">
+      <div class="menu-primary">
+        <a href="index.html" data-menu-link><span class="menu-num">01</span><strong data-i18n="menu.home">首页</strong><em>Home</em></a>
+        <a href="insights.html" data-menu-link><span class="menu-num">02</span><strong data-i18n="menu.research">洞察</strong><em>Insights</em></a>
+        <a href="index.html#focus" data-menu-link><span class="menu-num">03</span><strong data-i18n="menu.focus">关注领域</strong><em>Focus</em></a>
+        <a href="index.html#portfolio" data-menu-link><span class="menu-num">04</span><strong data-i18n="menu.portfolio">投资组合</strong><em>Portfolio</em></a>
+        <a href="team.html" data-menu-link><span class="menu-num">05</span><strong data-i18n="menu.team">团队</strong><em>Team</em></a>
+      </div>
+      <div class="menu-side">
         <div class="menu-panel">
           <div class="menu-kicker" data-i18n="menu.research.kicker">Insights Feed</div>
           <p data-i18n="menu.research.text">持续跟踪模型、infra、agent 与前沿计算的真实变化，记录 AI 生态的一线信号。</p>
@@ -208,11 +183,11 @@
             <span aria-hidden="true">→</span>
           </a>
         </div>
-      </aside>
-    </div>
+      </div>
+    </nav>
     <div class="menu-footer">
-      <span data-i18n="menu.footer.meta">LINK-X Capital · 北京清华科技园</span>
-      <a href="mailto:hello@linkx.vc">hello@linkx.vc</a>
+      <a href="index.html">星连资本 LINK-X Capital</a>
+      <span data-i18n="menu.footer.meta">© 2026 · 保留所有权利</span>
     </div>
   </div>
 </div>
@@ -312,13 +287,10 @@
 <script>
   const i18n = {
     zh: {
-      "nav.about": "关于", "nav.beliefs": "理念", "nav.daily": "洞察", "nav.focus": "关注领域",
-      "nav.portfolio": "投资组合", "nav.team": "团队", "nav.contact": "联系",
-      "menu.open": "Menu", "menu.label": "导航", "menu.research.kicker": "Insights Feed",
-      "menu.research.text": "持续跟踪模型、infra、agent 与前沿计算的真实变化，记录 AI 生态的一线信号。",
-      "menu.research.link": "获取最新动态", "menu.contact.kicker": "Build With Us",
-      "menu.contact.text": "创始人、LP、媒体与研究伙伴，可以从这里找到 LINK-X 团队。",
-      "menu.contact.link": "联系我们", "menu.footer.meta": "LINK-X Capital · 北京清华科技园",
+      "menu.open": "Menu", "menu.label": "导航", "menu.home": "首页", "menu.research": "洞察", "menu.focus": "关注领域", "menu.portfolio": "投资组合", "menu.team": "团队", "menu.contact": "联系我们", "menu.footer.meta": "© 2026 · 保留所有权利", "menu.research.kicker": "Insights Feed", "menu.research.text": "持续跟踪模型、infra、agent 与前沿计算的真实变化，记录 AI 生态的一线信号。", "menu.research.link": "获取最新动态", "menu.contact.kicker": "Build With Us", "menu.contact.text": "创始人、LP、媒体与研究伙伴，可以从这里找到 LINK-X 团队。",
+      "menu.open": "Menu", "menu.label": "导航",
+      "menu.research.link": "获取最新动态",
+      "menu.contact.link": "联系我们",
       "tag": "观点",
       "article.tag.portfolio": "投资组合",
       "article.tag.perspective": "观点",
@@ -351,13 +323,10 @@
       "footer.legal": "法律声明"
     },
     en: {
-      "nav.about": "About", "nav.beliefs": "Beliefs", "nav.daily": "Insights", "nav.focus": "Focus",
-      "nav.portfolio": "Portfolio", "nav.team": "Team", "nav.contact": "Contact",
-      "menu.open": "Menu", "menu.label": "Navigation", "menu.research.kicker": "Insights Feed",
-      "menu.research.text": "Tracking real changes in models, infra, agents, and frontier computing — first-hand signals from the AI ecosystem.",
-      "menu.research.link": "Latest Updates", "menu.contact.kicker": "Build With Us",
-      "menu.contact.text": "Founders, LPs, media and research partners — reach the LINK-X team here.",
-      "menu.contact.link": "Contact Us", "menu.footer.meta": "LINK-X Capital · Beijing Tsinghua Science Park",
+      "menu.open": "Menu", "menu.label": "Navigation", "menu.home": "Home", "menu.research": "Insights", "menu.focus": "Focus", "menu.portfolio": "Portfolio", "menu.team": "Team", "menu.contact": "Contact", "menu.footer.meta": "© 2026 · 保留所有权利", "menu.research.kicker": "Insights Feed", "menu.research.text": "持续跟踪模型、infra、agent 与前沿计算的真实变化，记录 AI 生态的一线信号。", "menu.research.link": "获取最新动态", "menu.contact.kicker": "Build With Us", "menu.contact.text": "创始人、LP、媒体与研究伙伴，可以从这里找到 LINK-X 团队。",
+      "menu.open": "Menu", "menu.label": "Navigation",
+      "menu.research.link": "Latest Updates",
+      "menu.contact.link": "Contact Us",
       "tag": "Perspectives",
       "article.tag.portfolio": "Portfolio",
       "article.tag.perspective": "Perspectives",

@@ -735,26 +735,16 @@
       overflow: hidden;
     }
     .cover-a {
-      background:
-        radial-gradient(ellipse 80% 60% at 30% 40%, rgba(155,123,94,0.12) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 50% at 80% 70%, rgba(102,8,116,0.06) 0%, transparent 50%),
-        linear-gradient(170deg, #F2EBE0 0%, #E3D8C8 100%);
+      background: #F2EBE0 url("assets/insights/cover-pole-ctv.svg") center / cover no-repeat;
     }
     .cover-b {
-      background:
-        radial-gradient(ellipse 60% 70% at 50% 40%, var(--purple-pale) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 40% at 80% 70%, rgba(155,123,94,0.1) 0%, transparent 50%),
-        linear-gradient(160deg, #F2EBE0 0%, #E3D8C8 100%);
+      background: #F2EBE0 url("assets/insights/cover-zhang-bo.svg") center / cover no-repeat;
     }
     .cover-c {
-      background:
-        radial-gradient(ellipse 60% 70% at 70% 50%, rgba(200,162,210,0.12) 0%, transparent 60%),
-        linear-gradient(180deg, #E8DFD2 0%, #DDD5CA 100%);
+      background: #151012 url("assets/insights/cover-zhipu.svg") center / cover no-repeat;
     }
     .cover-d {
-      background:
-        radial-gradient(ellipse 50% 60% at 40% 60%, rgba(155,123,94,0.1) 0%, transparent 50%),
-        linear-gradient(200deg, #FAF8F4 0%, #E8DFD2 100%);
+      background: #F2EBE0 url("assets/insights/cover-agi-2026.svg") center / cover no-repeat;
     }
     .feature-cover::after {
       content: attr(data-date);
@@ -1667,47 +1657,39 @@
       <a href="insights.html" class="more" data-i18n="daily.more">All Issues →</a>
     </div>
     <div class="feed">
-      <a class="feature-post reveal" href="insights.html">
-        <div class="feature-cover cover-b" data-date="04.28"></div>
+      <a class="feature-post reveal" href="portfolio-pole-ctv.html">
+        <div class="feature-cover cover-a" data-date="03.18"></div>
         <div class="post-meta">
-          <span>Perspective</span>
+          <span>Portfolio</span>
           <span class="sep">·</span>
-          <span class="author">Models</span>
+          <span class="author">Application</span>
         </div>
-        <h3 class="feature-title" data-i18n="daily.f.title">长上下文模型的稀疏化：为什么下一个百万 token 不再只靠堆显存。</h3>
-        <p class="feature-excerpt" data-i18n="daily.f.excerpt">我们跟踪了过去六个月里 11 篇核心论文，观察线性注意力、混合状态空间与检索式缓存这三条技术路径如何重塑长上下文的成本曲线——以及它对 infra 与应用层意味着什么。</p>
+        <h3 class="feature-title" data-i18n="daily.f.title">珀乐互动 CTO 徐京徽：AI泛娱乐如何演进？</h3>
+        <p class="feature-excerpt" data-i18n="daily.f.excerpt">从内容生产到互动体验，AI 正在重构泛娱乐产业的创作链路、资产形态与商业生态。</p>
       </a>
       <div class="feed-list reveal">
-        <a class="feed-item" href="insights.html">
-          <div class="feed-thumb cover-a"></div>
-          <div class="feed-info">
-            <div class="post-meta"><span>Research</span><span class="sep">·</span><span class="author">Infra</span></div>
-            <h4 class="feed-title" data-i18n="daily.l1.title">推理集群调度：KV-Cache 复用与多租户的新帕累托前沿</h4>
-            <div class="feed-date">04.27 · Issue #111</div>
-          </div>
-        </a>
-        <a class="feed-item" href="insights.html">
-          <div class="feed-thumb cover-c"></div>
-          <div class="feed-info">
-            <div class="post-meta"><span>Spotlight</span><span class="sep">·</span><span class="author">Agent</span></div>
-            <h4 class="feed-title" data-i18n="daily.l2.title">Agent 工作流的可观测性：trace 正在成为新的 DAU</h4>
-            <div class="feed-date">04.26 · Issue #110</div>
-          </div>
-        </a>
-        <a class="feed-item" href="insights.html">
-          <div class="feed-thumb cover-d"></div>
-          <div class="feed-info">
-            <div class="post-meta"><span>News</span><span class="sep">·</span><span class="author">Frontier</span></div>
-            <h4 class="feed-title" data-i18n="daily.l3.title">光电融合与存算一体：下一代 AI 芯片的三条技术路径</h4>
-            <div class="feed-date">04.25 · Issue #109</div>
-          </div>
-        </a>
-        <a class="feed-item" href="insights.html">
-          <div class="feed-thumb cover-a"></div>
+        <a class="feed-item" href="insights-zhang-bo.html">
+          <div class="feed-thumb cover-b"></div>
           <div class="feed-info">
             <div class="post-meta"><span>Perspective</span><span class="sep">·</span><span class="author">Models</span></div>
-            <h4 class="feed-title" data-i18n="daily.l4.title">从 RLHF 到 RLVR：偏好建模的下一次范式转移</h4>
-            <div class="feed-date">04.24 · Issue #108</div>
+            <h4 class="feed-title" data-i18n="daily.l1.title">AGI Next 全明星峰会落幕｜张钹院士的压轴发言，为我们留下了什么？</h4>
+            <div class="feed-date">01.12 · Insight</div>
+          </div>
+        </a>
+        <a class="feed-item" href="news-zhipu.html">
+          <div class="feed-thumb cover-c"></div>
+          <div class="feed-info">
+            <div class="post-meta"><span>News</span><span class="sep">·</span><span class="author">Frontier</span></div>
+            <h4 class="feed-title" data-i18n="daily.l2.title">智谱港股上市，星连资本见证成长。</h4>
+            <div class="feed-date">01.08 · News</div>
+          </div>
+        </a>
+        <a class="feed-item" href="insights-agi-2026.html">
+          <div class="feed-thumb cover-d"></div>
+          <div class="feed-info">
+            <div class="post-meta"><span>Perspective</span><span class="sep">·</span><span class="author">Models</span></div>
+            <h4 class="feed-title" data-i18n="daily.l3.title">2026年在等到AGI之前，我们先做什么。</h4>
+            <div class="feed-date">01.04 · Insight</div>
           </div>
         </a>
       </div>
@@ -1868,12 +1850,11 @@
       "beliefs.b3": "我们相信，<em>多要素大循环会推动顶尖人才与市场高效融合</em>。这是 AI 产业化的关键，也是星连创造价值的核心路径。",
       "beliefs.b4": "我们相信，<em>在加速演进的时代，长期主义是穿越周期的关键</em>。我们选择陪伴创业者，在不确定性中锚定方向，共同完成跃迁。",
       "daily.h": "洞察是我们与生态对话的方式。", "daily.more": "全部洞察 →",
-      "daily.f.title": "长上下文模型的稀疏化：为什么下一个百万 token 不再只靠堆显存。",
-      "daily.f.excerpt": "我们跟踪了过去六个月里 11 篇核心论文，观察线性注意力、混合状态空间与检索式缓存这三条技术路径如何重塑长上下文的成本曲线——以及它对 infra 与应用层意味着什么。",
-      "daily.l1.title": "推理集群调度：KV-Cache 复用与多租户的新帕累托前沿",
-      "daily.l2.title": "Agent 工作流的可观测性：trace 正在成为新的 DAU",
-      "daily.l3.title": "光电融合与存算一体：下一代 AI 芯片的三条技术路径",
-      "daily.l4.title": "从 RLHF 到 RLVR：偏好建模的下一次范式转移",
+      "daily.f.title": "珀乐互动 CTO 徐京徽：AI泛娱乐如何演进？",
+      "daily.f.excerpt": "从内容生产到互动体验，AI 正在重构泛娱乐产业的创作链路、资产形态与商业生态。",
+      "daily.l1.title": "AGI Next 全明星峰会落幕｜张钹院士的压轴发言，为我们留下了什么？",
+      "daily.l2.title": "智谱港股上市，星连资本见证成长。",
+      "daily.l3.title": "2026年在等到AGI之前，我们先做什么。",
       "focus.h": "我们在四个方向上深度下注。",
       "focus.f1.zh": "基座模型与数据", "focus.f1.p": "从基座模型、多模态模型到高质量数据资产，我们关注智能能力代际提升背后的底层变量。",
       "focus.f2.zh": "AI 基础设施", "focus.f2.p": "AI 算力、推理系统与智能体基础设施，是 AI 能力走向大规模应用的关键底座。",
@@ -1941,12 +1922,11 @@
       "beliefs.b3": "We believe <em>a multi-factor loop will bring top talent into more efficient contact with markets</em>. This is the key to AI industrialization and LINK-X's core path to value creation.",
       "beliefs.b4": "We believe <em>in an era of accelerating change, long-termism is the key to crossing cycles</em>. We choose to accompany founders, anchoring direction amid uncertainty and completing the leap together.",
       "daily.h": "Insights are how we stay in conversation with the ecosystem.", "daily.more": "All Issues →",
-      "daily.f.title": "Sparsifying long-context models: why the next million tokens won't come from more VRAM.",
-      "daily.f.excerpt": "We tracked 11 core papers over the last six months, mapping how linear attention, hybrid state spaces and retrieval-augmented caching reshape the cost curve of long context — and what it means for infra and applications.",
-      "daily.l1.title": "Inference cluster scheduling: the new Pareto of KV-cache reuse and multi-tenancy",
-      "daily.l2.title": "Observability for agent workflows: traces are becoming the new DAU",
-      "daily.l3.title": "Photonics and in-memory compute: three paths for next-gen AI silicon",
-      "daily.l4.title": "From RLHF to RLVR: the next paradigm shift in preference modeling",
+      "daily.f.title": "Pole Interactive CTO Xu Jinghui: How Will AI-Powered Entertainment Evolve?",
+      "daily.f.excerpt": "From content production to interactive experiences, AI is reshaping creative pipelines, asset forms and business ecosystems in entertainment.",
+      "daily.l1.title": "What Can We Learn from Professor Zhang Bo's Closing Remarks at the AGI Next Summit?",
+      "daily.l2.title": "Zhipu Lists on HKEX — LINK-X Capital Witnesses the Journey.",
+      "daily.l3.title": "Before AGI Arrives in 2026, What Should We Build First?",
       "focus.h": "Four areas where we invest deeply.",
       "focus.f1.zh": "基座模型与数据", "focus.f1.p": "From foundation models, multimodal models and high-quality data assets, we track the variables behind generational leaps in intelligence.",
       "focus.f2.zh": "AI 基础设施", "focus.f2.p": "AI compute, inference systems and agent infrastructure form the critical foundation for AI at scale.",

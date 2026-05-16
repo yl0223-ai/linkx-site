@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Frontier company milestone cover</title>
+  <desc id="desc">Abstract growth columns, listing signal and foundation model trajectory.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#151012"/>
+      <stop offset="0.5" stop-color="#21161E"/>
+      <stop offset="1" stop-color="#2A162F"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="74%" cy="30%" r="58%">
+      <stop offset="0" stop-color="#E8D5EE" stop-opacity="0.22"/>
+      <stop offset="0.54" stop-color="#8B3A9A" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#660874" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="72" height="72" patternUnits="userSpaceOnUse">
+      <path d="M72 0H0V72" fill="none" stroke="#FAF8F4" stroke-opacity="0.07" stroke-width="1"/>
+    </pattern>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.78" numOctaves="3" seed="25"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="table" tableValues="0 0.055"/></feComponentTransfer>
+    </filter>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <rect width="1600" height="1000" fill="url(#grid)"/>
+  <rect width="1600" height="1000" fill="url(#glow)"/>
+  <g transform="translate(180 210)">
+    <rect x="0" y="348" width="96" height="282" fill="#FAF8F4" fill-opacity="0.16"/>
+    <rect x="150" y="268" width="96" height="362" fill="#FAF8F4" fill-opacity="0.2"/>
+    <rect x="300" y="172" width="96" height="458" fill="#E8D5EE" fill-opacity="0.28"/>
+    <rect x="450" y="72" width="96" height="558" fill="#FAF8F4" fill-opacity="0.2"/>
+    <rect x="600" y="0" width="96" height="630" fill="#E8D5EE" fill-opacity="0.32"/>
+    <path d="M48 342C178 268 278 236 348 172C446 82 544 42 648 0C788 -58 942 -30 1138 -108" fill="none" stroke="#E8D5EE" stroke-width="2.4"/>
+    <path d="M48 342C188 318 318 268 450 188C620 84 808 74 1140 -42" fill="none" stroke="#8B3A9A" stroke-opacity="0.86" stroke-width="1.6"/>
+  </g>
+  <g fill="#151012" stroke="#E8D5EE" stroke-width="2">
+    <circle cx="228" cy="552" r="8"/>
+    <circle cx="480" cy="382" r="8"/>
+    <circle cx="780" cy="210" r="8"/>
+    <circle cx="1114" cy="180" r="8"/>
+  </g>
+  <g transform="translate(1070 218)" fill="none" stroke="#E8D5EE" stroke-opacity="0.3">
+    <ellipse cx="150" cy="150" rx="206" ry="104" transform="rotate(-20 150 150)"/>
+    <ellipse cx="150" cy="150" rx="134" ry="68" transform="rotate(-20 150 150)"/>
+    <ellipse cx="150" cy="150" rx="60" ry="30" transform="rotate(-20 150 150)"/>
+  </g>
+  <g font-family="IBM Plex Mono, ui-monospace, monospace" letter-spacing="0.16em">
+    <text x="118" y="118" fill="#E8D5EE" font-size="20">FRONTIER</text>
+    <text x="118" y="154" fill="#FAF8F4" fill-opacity="0.44" font-size="13">FOUNDATION MODEL / LISTING / LONG TERM</text>
+    <text x="1070" y="844" fill="#FAF8F4" fill-opacity="0.28" font-size="12">EARLY CONVICTION SIGNAL</text>
+  </g>
+  <rect width="1600" height="1000" filter="url(#grain)" opacity="0.88"/>
+</svg>
