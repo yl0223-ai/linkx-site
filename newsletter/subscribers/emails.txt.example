@@ -1,0 +1,6 @@
+# 订阅人邮箱列表
+# 每行一个邮箱，空行和 # 开头的行会被忽略
+
+# 示例：
+# subscriber1@example.com
+# subscriber2@company.com

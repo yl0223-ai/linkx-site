@@ -1,0 +1,4 @@
+interface:
+  display_name: "LINK-X Site Director"
+  short_description: "Reduce LINK-X site iteration loops."
+  default_prompt: "按星连网页协作习惯优化当前页面：先判断信息层级和视觉问题，再做一次成组修改并完成基础检查。"

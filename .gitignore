@@ -4,3 +4,4 @@
 *.docx
 *.doc
 screenshot*.png
+newsletter/config.py
