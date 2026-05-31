@@ -1221,6 +1221,285 @@ html[data-lang="en"] .contact-belief-list .body {
   }
 }
 
+
+/* v141: prevent English contact page overflow. */
+@media (min-width: 901px) {
+  html[data-lang="en"] .contact-entry-card p .line {
+    display: inline !important;
+    white-space: normal !important;
+  }
+
+  html[data-lang="en"] .contact-entry-card p {
+    max-width: 28em !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+  }
+
+  html[data-lang="en"] .contact-beliefs-head h2 {
+    max-width: 31em !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+  }
+
+  html[data-lang="en"] .contact-beliefs-head h2 .line {
+    display: inline !important;
+    white-space: normal !important;
+  }
+
+  html[data-lang="en"] .contact-belief-list .body {
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1180px) {
+  html[data-lang="zh"] .contact-beliefs-head h2 .line {
+    display: block !important;
+  }
+
+  html[data-lang="en"] .contact-beliefs-head h2 .line {
+    display: inline !important;
+    white-space: normal !important;
+  }
+}
+
+@media (max-width: 1180px) {
+  html[data-lang="en"] .contact-belief-grid {
+    grid-template-columns: minmax(240px, 0.68fr) minmax(0, 1.32fr);
+    gap: clamp(34px, 5vw, 64px);
+  }
+}
+
+@media (max-width: 980px) {
+  html[data-lang="en"] .contact-belief-grid {
+    grid-template-columns: 1fr;
+  }
+
+  html[data-lang="en"] .contact-entry-card p {
+    max-width: 42em !important;
+  }
+}
+
+
+/* v142: English belief headline line breaks + aligned belief body. */
+.contact-beliefs {
+  width: 100%;
+}
+
+.contact-beliefs-head {
+  display: grid !important;
+  grid-template-columns: 44px minmax(0, 1fr) !important;
+  column-gap: 22px !important;
+  align-items: start !important;
+}
+
+.contact-beliefs-head .nl-label {
+  grid-column: 1 / -1;
+}
+
+.contact-beliefs-head h2 {
+  grid-column: 2 !important;
+  margin-top: 14px !important;
+  padding-left: 0 !important;
+  border-left: 0 !important;
+  max-width: none !important;
+}
+
+html[data-lang="zh"] .contact-beliefs-head h2 .line {
+  display: inline !important;
+  white-space: nowrap !important;
+}
+
+html[data-lang="en"] .contact-beliefs-head h2 {
+  max-width: 34em !important;
+}
+
+html[data-lang="en"] .contact-beliefs-head h2 .line {
+  display: block !important;
+  white-space: normal !important;
+}
+
+.contact-belief-list .belief {
+  grid-template-columns: 44px minmax(0, 1fr) !important;
+  gap: 22px !important;
+}
+
+.contact-belief-list .body {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  text-align: left !important;
+}
+
+html[data-lang="en"] .contact-belief-list .body {
+  max-width: none !important;
+}
+
+@media (max-width: 900px) {
+  .contact-beliefs-head {
+    grid-template-columns: 34px minmax(0, 1fr) !important;
+    column-gap: 16px !important;
+  }
+
+  html[data-lang="zh"] .contact-beliefs-head h2 .line,
+  html[data-lang="en"] .contact-beliefs-head h2 .line {
+    display: inline !important;
+    white-space: normal !important;
+  }
+
+  .contact-belief-list .belief {
+    grid-template-columns: 34px minmax(0, 1fr) !important;
+    gap: 16px !important;
+  }
+}
+
+
+/* v143: contact belief layout — smaller headline, clean body alignment. */
+.contact-beliefs {
+  width: 100%;
+  max-width: 100%;
+}
+
+.contact-beliefs-head,
+.contact-belief-list {
+  width: 100%;
+  max-width: 100%;
+}
+
+.contact-beliefs-head {
+  display: block !important;
+  margin-bottom: clamp(20px, 2.6vw, 30px) !important;
+}
+
+.contact-beliefs-head .nl-label {
+  display: block;
+  margin-bottom: 14px;
+}
+
+.contact-beliefs-head h2 {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  max-width: 100% !important;
+  font-family: var(--font-sans) !important;
+  font-size: clamp(18px, 1.38vw, 22px) !important;
+  font-weight: 400 !important;
+  line-height: 1.48 !important;
+  letter-spacing: 0 !important;
+  color: var(--text-soft) !important;
+}
+
+html[data-lang="zh"] .contact-beliefs-head h2 .line,
+html[data-lang="en"] .contact-beliefs-head h2 .line {
+  display: inline !important;
+  white-space: normal !important;
+}
+
+html[data-lang="en"] .contact-beliefs-head h2 .line:first-child::after,
+html[data-lang="zh"] .contact-beliefs-head h2 .line:first-child::after {
+  content: "\A";
+  white-space: pre;
+}
+
+@media (min-width: 1181px) {
+  html[data-lang="en"] .contact-beliefs-head h2 {
+    font-size: clamp(17px, 1.18vw, 20px) !important;
+    line-height: 1.45 !important;
+  }
+
+  html[data-lang="en"] .contact-beliefs-head h2 .line:first-child::after {
+    content: " ";
+    white-space: normal;
+  }
+}
+
+.contact-belief-list {
+  border-top: 1px solid var(--border);
+}
+
+.contact-belief-list .belief {
+  display: grid !important;
+  grid-template-columns: 44px minmax(0, 1fr) !important;
+  gap: 22px !important;
+  align-items: start !important;
+  padding: clamp(20px, 2.3vw, 28px) 0 !important;
+  border-top: 0 !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+
+.contact-belief-list .num {
+  justify-self: start !important;
+  padding-top: 0.18em;
+}
+
+.contact-belief-list .body {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  font-family: var(--font-sans) !important;
+  font-size: clamp(14.5px, 0.98vw, 16px) !important;
+  line-height: 1.78 !important;
+  letter-spacing: 0 !important;
+  color: var(--text-soft) !important;
+  text-align: justify !important;
+  text-align-last: left !important;
+  hyphens: auto;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.contact-belief-list .body strong {
+  font-weight: 600 !important;
+  color: var(--purple) !important;
+}
+
+html[data-lang="en"] .contact-belief-list .body {
+  font-size: clamp(14px, 0.92vw, 15.5px) !important;
+  line-height: 1.76 !important;
+}
+
+@media (max-width: 900px) {
+  .contact-belief-list .belief {
+    grid-template-columns: 34px minmax(0, 1fr) !important;
+    gap: 16px !important;
+  }
+
+  .contact-beliefs-head h2 {
+    font-size: 18px !important;
+  }
+
+  .contact-belief-list .body {
+    text-align: left !important;
+  }
+}
+
+
+/* v144: keep Chinese belief headline on one desktop line. */
+@media (min-width: 901px) {
+  html[data-lang="zh"] .contact-beliefs-head h2 {
+    font-size: clamp(16px, 1.08vw, 19px) !important;
+    line-height: 1.55 !important;
+    max-width: none !important;
+    white-space: nowrap !important;
+  }
+
+  html[data-lang="zh"] .contact-beliefs-head h2 .line {
+    display: inline !important;
+    white-space: nowrap !important;
+  }
+
+  html[data-lang="zh"] .contact-beliefs-head h2 .line:first-child::after {
+    content: "" !important;
+    white-space: normal !important;
+  }
+}
+
+@media (max-width: 900px) {
+  html[data-lang="zh"] .contact-beliefs-head h2 {
+    white-space: normal !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1376,7 +1655,7 @@ html[data-lang="en"] .contact-belief-list .body {
       
       
       
-      "beliefs.b4": "<strong>Great companies are not defined by cycles</strong>. In an era of accelerating technological change, we stand alongside founders, anchor direction amid uncertainty, and help complete the leap from early breakthroughs to long-term value.","beliefs.b3": "A <strong>multi-factor circulation</strong> of talent, industry, research, policy, and capital will accelerate the integration of top talent and real markets. This is critical to AI commercialization and central to how LinkX creates value.","beliefs.b2": "Real opportunities emerge where <strong>technical breakthroughs meet market demand</strong>. We work close to the front line, identifying the real signals that drive industrial evolution amid the noise.","beliefs.b1": "<strong>AI is not just a tool</strong>, but a new foundational factor of production. Like electricity, it will permeate industries and reshape cost structures, organizations and growth paths.","contact.beliefs.h": "<span class=\"line\">As intelligence becomes infrastructure,</span><span class=\"line\">industry boundaries and modes of value creation are being reshaped.</span>","contact.beliefs.kicker": "Our Beliefs","contact.entry.desc": "<span class=\"line\">Founders, LPs, researchers, and industry partners</span><span class=\"line\">can reach the LinkX team here.</span>","contact.entry.title": "Stay in touch with LinkX Capital","contact.entry.label": "Contact","menu.open": "Menu", "menu.label": "Navigation", 
+      "beliefs.b4": "<strong>Great companies are not defined by cycles</strong>. In an era of accelerating technological change, we partner with founders to navigate uncertainty, sharpen direction, and turn early breakthroughs into enduring value.","beliefs.b3": "<strong>Great founders should not have to build alone.</strong> LinkX connects founders, early customers, technology partners, and long-term capital through enduring trust, turning isolated points of light into a constellation.","beliefs.b2": "Real opportunities emerge where <strong>technical breakthroughs meet market demand</strong>. We work close to the front line, identifying the real signals that drive industrial evolution amid the noise.","beliefs.b1": "<strong>AI is not just a tool</strong>, but a new foundational factor of production. Like electricity, it will permeate industries and reshape cost structures, organizations and growth paths.","contact.beliefs.h": "<span class=\"line\">As intelligence becomes infrastructure,</span><span class=\"line\">industry boundaries and modes of value creation are being reshaped.</span>","contact.beliefs.kicker": "Our Beliefs","contact.entry.desc": "<span class=\"line\">Founders, LPs, researchers, and industry partners&nbsp;</span><span class=\"line\">can reach the LinkX team here.</span>","contact.entry.title": "Stay in touch with LinkX Capital","contact.entry.label": "Contact","menu.open": "Menu", "menu.label": "Navigation", 
       
       
       
