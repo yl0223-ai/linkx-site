@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-lang="zh">
+
+<html data-lang="zh" lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>2026年在等到AGI之前，我们先做什么 · LINK-X Capital</title>
-  <meta name="description" content="AGI拐点未至，技术演进的主线是什么？创业者该如何把握阶段性机会？星连资本关于AI产业七个方向的深度思考。" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>2026年在等到AGI之前，我们先做什么 · LinkX</title>
+<meta content="AGI拐点未至，技术演进的主线是什么？创业者该如何把握阶段性机会？星连资本关于AI产业七个方向的深度思考。" name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&amp;display=swap" media="print" onload="this.media='all'" rel="stylesheet"/>
+<style>
     :root {
       --bg: #FAF8F4;
       --bg-warm: #F2EBE0;
@@ -73,10 +74,7 @@
       display: inline-flex; align-items: center; gap: 13px;
       color: var(--text); text-decoration: none; white-space: nowrap;
     }
-    .brand-mark {
-      width: 42px; height: 42px;
-      color: var(--purple); flex: 0 0 auto;
-    }
+    .brand-mark { width: 50px; height: 34px; object-fit: contain; display: block; flex: 0 0 auto; }
     .brand-lockup { display: grid; gap: 1px; line-height: 1; }
     .brand-cn {
       font-family: var(--font-sans); font-size: 20px;
@@ -146,7 +144,7 @@
       transform: translateX(0); transition-delay: 0s;
     }
     .menu-overlay::before {
-      content: "LINK-X"; position: absolute;
+      content: "LinkX"; position: absolute;
       right: -0.08em; bottom: -0.28em;
       font-family: var(--font-serif);
       font-size: clamp(130px, 24vw, 360px); line-height: 1;
@@ -406,7 +404,7 @@
     /* ---------- Responsive ---------- */
     @media (max-width: 720px) {
       .brand-logo { gap: 9px; }
-      .brand-mark { width: 30px; height: 30px; }
+      .brand-mark { width: 36px; height: 24px; }
       .brand-cn { font-size: 17px; letter-spacing: 0.02em; }
       .brand-en { display: none; }
       .article-hero h1 { font-size: clamp(28px, 7vw, 38px); }
@@ -414,180 +412,810 @@
       .article-body p { font-size: 16px; }
       .footer-inner { flex-direction: column; align-items: flex-start; }
     }
-  </style>
+  
+/* Unified LinkX menu: half-screen drawer, single watermark, revised footer. */
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;500;600&display=swap");
+
+:root {
+  --font-serif: "Instrument Serif", "Noto Serif SC", Georgia, serif;
+  --font-sans: "Instrument Sans", "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+.brand-logo .brand-mark {
+  width: 50px !important;
+  height: 34px !important;
+  object-fit: contain !important;
+  display: block !important;
+  flex: 0 0 auto !important;
+}
+.brand-logo .brand-lockup {
+  display: grid !important;
+  gap: 1px !important;
+  line-height: 1 !important;
+}
+.brand-logo .brand-cn {
+  font-family: var(--font-sans) !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.03em !important;
+}
+.brand-logo .brand-en {
+  display: block !important;
+  font-family: var(--font-sans) !important;
+  font-size: 11.5px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.045em !important;
+  text-transform: uppercase !important;
+}
+
+.menu-overlay {
+  width: min(720px, 50vw) !important;
+  background:
+    radial-gradient(circle at 78% 26%, rgba(176, 124, 192, 0.14), transparent 30%),
+    radial-gradient(circle at 10% 80%, rgba(102, 8, 116, 0.18), transparent 34%),
+    linear-gradient(135deg, #171218 0%, #241827 48%, #171218 100%) !important;
+}
+.menu-overlay::before {
+  content: none !important;
+}
+.menu-shell {
+  position: relative !important;
+  overflow: hidden !important;
+}
+.menu-shell::after {
+  content: none !important;
+}
+
+@media (min-width: 861px) {
+  .menu-shell::before {
+    content: "LinkX" !important;
+    position: absolute;
+    right: clamp(-54px, -2.6vw, -20px);
+    bottom: clamp(54px, 8vh, 96px);
+    font-family: var(--font-serif);
+    font-size: clamp(130px, 17vw, 270px);
+    line-height: 0.8;
+    color: rgba(250, 248, 244, 0.038);
+    letter-spacing: -0.08em;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .menu-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: clamp(20px, 2.8vh, 32px) !important;
+    align-items: stretch !important;
+    padding: clamp(24px, 3.6vh, 40px) 0 clamp(18px, 2.6vh, 28px) !important;
+    min-height: 0 !important;
+    position: relative !important;
+    z-index: 1 !important;
+  }
+
+  .menu-primary {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+    border-top: 1px solid rgba(250, 248, 244, 0.18) !important;
+    border-bottom: 0 !important;
+  }
+
+  .menu-primary a {
+    display: grid !important;
+    grid-template-columns: clamp(44px, 5vw, 64px) minmax(0, 1fr) minmax(86px, auto) !important;
+    grid-template-rows: 1fr !important;
+    align-items: center !important;
+    min-height: clamp(76px, 9.4vh, 104px) !important;
+    padding: 0 !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid rgba(250, 248, 244, 0.18) !important;
+    gap: clamp(14px, 2vw, 24px) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    text-decoration: none !important;
+  }
+
+  .menu-primary .menu-num {
+    margin-bottom: 0 !important;
+    align-self: center !important;
+    justify-self: start !important;
+    font-family: var(--font-mono);
+    font-size: clamp(10px, 0.78vw, 12px) !important;
+    letter-spacing: 0.1em !important;
+    color: rgba(232, 213, 238, 0.54) !important;
+  }
+
+  .menu-primary strong {
+    align-self: center !important;
+    justify-self: start !important;
+    font-family: var(--font-serif);
+    font-size: clamp(34px, 4.3vw, 58px) !important;
+    font-weight: 400 !important;
+    line-height: 0.98 !important;
+    letter-spacing: -0.035em !important;
+    color: rgba(250, 248, 244, 0.92);
+    transform: none !important;
+    transition: transform 300ms cubic-bezier(.18,.84,.22,1), color 220ms ease, opacity 220ms ease !important;
+  }
+
+  .menu-primary em {
+    align-self: center !important;
+    justify-self: end !important;
+    min-width: 0 !important;
+    text-align: right !important;
+    font-family: var(--font-mono);
+    font-size: clamp(9px, 0.75vw, 11px) !important;
+    font-style: normal !important;
+    letter-spacing: 0.2em !important;
+    text-transform: uppercase !important;
+    color: rgba(250, 248, 244, 0.38) !important;
+  }
+
+  .menu-primary a::before {
+    content: "" !important;
+    position: absolute !important;
+    left: clamp(16px, 2vw, 28px) !important;
+    top: 50% !important;
+    bottom: auto !important;
+    width: 5px !important;
+    height: 5px !important;
+    border-radius: 999px !important;
+    background: rgba(176, 124, 192, 0.76) !important;
+    box-shadow: 0 0 18px rgba(176, 124, 192, 0.45) !important;
+    opacity: 0 !important;
+    transform: translate(-10px, -50%) scale(0.68) !important;
+    transition: opacity 220ms ease, transform 260ms cubic-bezier(.18,.84,.22,1) !important;
+  }
+
+  .menu-primary a::after {
+    content: "" !important;
+    position: absolute !important;
+    left: clamp(28px, 2.8vw, 42px) !important;
+    top: 50% !important;
+    bottom: auto !important;
+    width: 0 !important;
+    height: 1px !important;
+    transform: translateY(-50%) !important;
+    background: linear-gradient(90deg, rgba(176,124,192,0.42), transparent) !important;
+    transition: width 320ms cubic-bezier(.18,.84,.22,1) !important;
+  }
+
+  .menu-primary a:hover::before,
+  .menu-primary a:focus-visible::before {
+    opacity: 1 !important;
+    transform: translate(0, -50%) scale(1) !important;
+  }
+
+  .menu-primary a:hover::after,
+  .menu-primary a:focus-visible::after {
+    width: clamp(54px, 6vw, 96px) !important;
+  }
+
+  .menu-primary a:hover strong,
+  .menu-primary a:focus-visible strong {
+    transform: translateX(clamp(8px, 0.9vw, 14px)) !important;
+    color: #fff !important;
+  }
+
+  .menu-primary a:hover .menu-num,
+  .menu-primary a:focus-visible .menu-num {
+    color: rgba(232, 213, 238, 0.82) !important;
+  }
+
+  .menu-side {
+    display: block !important;
+    max-width: none !important;
+    justify-self: stretch !important;
+    align-self: auto !important;
+    position: relative !important;
+    z-index: 1 !important;
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.45s ease 0.24s, transform 0.45s ease 0.24s;
+  }
+
+  .menu-overlay.is-open .menu-side {
+    opacity: 1;
+    transform: none;
+  }
+
+  .menu-panel.menu-build-card {
+    min-height: 0 !important;
+    border-radius: 0 !important;
+    border: 0 !important;
+    border-top: 1px solid rgba(250, 248, 244, 0.14) !important;
+    background: transparent !important;
+    padding: clamp(16px, 2vw, 22px) 0 0 !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    gap: clamp(18px, 3vw, 40px) !important;
+    align-items: end !important;
+    overflow: visible !important;
+  }
+
+  .menu-orbit-visual {
+    display: none !important;
+  }
+
+  .menu-build-copy {
+    position: relative;
+    z-index: 1;
+    max-width: 38em;
+  }
+
+  .menu-build-card .menu-kicker {
+    margin-bottom: 10px !important;
+    font-size: clamp(10px, 0.8vw, 12px) !important;
+    letter-spacing: 0.18em !important;
+  }
+
+  .menu-build-card p {
+    margin-bottom: 0 !important;
+    max-width: 42em !important;
+    font-size: clamp(13px, 0.88vw, 15px) !important;
+    line-height: 1.68 !important;
+    color: rgba(250, 248, 244, 0.72) !important;
+  }
+
+  .menu-contact-cta {
+    position: relative;
+    z-index: 1;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    min-width: clamp(132px, 10vw, 174px) !important;
+    padding: 12px 0 11px !important;
+    border-bottom: 1px solid rgba(250, 248, 244, 0.52) !important;
+    color: #fff !important;
+    font-family: var(--font-mono) !important;
+    font-size: clamp(10.5px, 0.72vw, 12px) !important;
+    letter-spacing: 0.14em !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+  }
+
+  .menu-contact-cta span:last-child {
+    font-size: 18px;
+    transition: transform 180ms ease;
+  }
+
+  .menu-contact-cta:hover span:last-child,
+  .menu-contact-cta:focus-visible span:last-child {
+    transform: translateX(5px);
+  }
+
+  .menu-footer {
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+    align-items: center !important;
+    position: relative !important;
+    z-index: 1 !important;
+    margin-top: clamp(10px, 1.6vh, 18px) !important;
+  }
+
+  .menu-home-link {
+    display: inline-flex;
+    justify-self: start;
+    color: rgba(250, 248, 244, 0.46);
+    text-decoration: none;
+    transition: color 180ms ease, transform 180ms ease;
+  }
+
+  .menu-home-link:hover,
+  .menu-home-link:focus-visible {
+    color: rgba(250, 248, 244, 0.86);
+    transform: translateY(-1px);
+    outline: none;
+  }
+
+  .menu-footer-brand {
+    display: none;
+  }
+
+  .menu-footer-social {
+    display: none;
+    align-items: center;
+    justify-content: flex-end;
+    gap: clamp(16px, 2vw, 28px);
+    margin-left: auto;
+  }
+
+  .menu-footer-social a {
+    color: rgba(250, 248, 244, 0.46);
+    text-decoration: none;
+    transition: color 180ms ease, transform 180ms ease;
+  }
+
+  .menu-footer-social a:hover,
+  .menu-footer-social a:focus-visible {
+    color: rgba(250, 248, 244, 0.86);
+    transform: translateY(-1px);
+    outline: none;
+  }
+
+  html[data-lang="en"] .menu-home-link {
+    display: none;
+  }
+
+  html[data-lang="en"] .menu-footer-brand {
+    display: inline-flex;
+    justify-self: start;
+    letter-spacing: 0.18em;
+  }
+
+  html[data-lang="en"] .menu-footer-social {
+    display: inline-flex;
+  }
+
+  html[data-lang="zh"] .menu-build-card p[data-i18n="menu.contact.text"] {
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    line-break: strict !important;
+  }
+
+  html[data-lang="zh"] .menu-build-card p[data-i18n="menu.contact.text"] .phrase {
+    display: inline-block;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 860px) {
+  .menu-overlay {
+    width: 100vw !important;
+  }
+
+  .menu-primary {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .menu-panel.menu-build-card {
+    min-height: 220px;
+  }
+
+  .menu-build-card p {
+    font-size: 14.5px !important;
+  }
+
+  .menu-footer-brand,
+  .menu-footer-social {
+    display: none;
+  }
+
+  html[data-lang="en"] .menu-home-link {
+    display: none;
+  }
+
+  html[data-lang="en"] .menu-footer-brand,
+  html[data-lang="en"] .menu-footer-social {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 720px) {
+  .menu-footer {
+    align-items: flex-start !important;
+    flex-direction: column !important;
+  }
+
+  .menu-footer-social {
+    margin-left: 0;
+    justify-content: flex-start;
+  }
+
+  .brand-logo .brand-en {
+    display: none !important;
+  }
+}
+
+/* Unified site footer: homepage-like gradient and three-part bottom row. */
+footer {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(176,124,192,0.22), transparent 34%),
+    radial-gradient(circle at 86% 72%, rgba(102,8,116,0.28), transparent 36%),
+    linear-gradient(135deg, #171218 0%, #241827 46%, #171218 100%) !important;
+  color: rgba(250,248,244,0.68) !important;
+  padding: clamp(48px, 7vw, 76px) 0 clamp(28px, 4vw, 40px) !important;
+}
+footer::before {
+  content: "";
+  position: absolute;
+  inset: auto -10% -35% auto;
+  width: min(720px, 58vw);
+  aspect-ratio: 1.8;
+  border: 1px solid rgba(176,124,192,0.08);
+  border-radius: 50%;
+  transform: rotate(-8deg);
+  pointer-events: none;
+}
+footer .footer-inner {
+  display: grid !important;
+  grid-template-columns: 1fr auto 1fr !important;
+  align-items: end !important;
+  gap: 24px !important;
+  position: relative;
+  z-index: 1;
+}
+footer .footer-left,
+footer .footer-bottom {
+  display: contents !important;
+}
+footer .footer-brand,
+footer .footer-left .brand-lockup,
+footer .footer-left p {
+  display: none !important;
+}
+footer .footer-copyright {
+  grid-column: 1;
+  justify-self: start;
+  color: rgba(250,248,244,0.48);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+footer .footer-slogan {
+  grid-column: 2;
+  justify-self: center;
+  color: rgba(250,248,244,0.82);
+  font-family: var(--font-serif);
+  font-size: clamp(18px, 2.2vw, 30px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+footer .footer-legal {
+  grid-column: 3;
+  justify-self: end;
+  color: rgba(250,248,244,0.54);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+footer .footer-legal:hover {
+  color: rgba(250,248,244,0.9);
+}
+
+@media (max-width: 860px) {
+  footer .footer-inner {
+    grid-template-columns: 1fr !important;
+    align-items: start !important;
+  }
+  footer .footer-copyright,
+  footer .footer-slogan,
+  footer .footer-legal {
+    grid-column: 1;
+    justify-self: start;
+    white-space: normal;
+  }
+}
+
+
+/* v118: footer slogan restrained + Build With Us module fixed for half-screen drawer. */
+footer .footer-copyright,
+footer .footer-legal {
+  font-size: 11px !important;
+}
+
+footer .footer-slogan {
+  font-size: clamp(12.5px, 1.05vw, 14px) !important;
+  font-family: var(--font-sans) !important;
+  letter-spacing: 0.02em !important;
+  line-height: 1.35 !important;
+  color: rgba(250,248,244,0.76) !important;
+}
+
+/* In the half-screen menu, the Build With Us block should be a clean bottom module, not a squeezed two-column card. */
+@media (min-width: 861px) {
+  .menu-panel.menu-build-card {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    align-items: start !important;
+    padding: clamp(16px, 2vw, 22px) 0 0 !important;
+  }
+
+  .menu-build-copy {
+    max-width: 100% !important;
+  }
+
+  .menu-build-card p {
+    max-width: 100% !important;
+    font-size: clamp(13px, 0.9vw, 15px) !important;
+    line-height: 1.68 !important;
+  }
+
+  .menu-contact-cta {
+    justify-self: start !important;
+    min-width: min(220px, 52%) !important;
+    margin-top: 2px !important;
+  }
+
+  .menu-orbit-visual {
+    display: none !important;
+  }
+}
+
+@media (max-width: 860px) {
+  .menu-panel.menu-build-card {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    min-height: 0 !important;
+  }
+
+  .menu-contact-cta {
+    justify-self: start !important;
+  }
+}
+
+@media (max-width: 720px) {
+  footer .footer-slogan {
+    font-size: 13px !important;
+  }
+}
+
+
+/* v123: English menu social preface. */
+.menu-footer-social-label {
+  display: none;
+  color: rgba(250, 248, 244, 0.38);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+html[data-lang="en"] .menu-footer-social-label {
+  display: inline-flex;
+}
+
+.menu-footer-social {
+  align-items: center;
+}
+
+
+
+/* v133: article subpage format alignment. */
+:root {
+  --font-sans: "Instrument Sans", "Inter", system-ui, -apple-system, sans-serif;
+}
+
+.article-hero {
+  padding: clamp(80px, 12vw, 150px) 0 0 !important;
+}
+
+.article-meta {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  margin-bottom: 24px !important;
+}
+
+.article-tag {
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  letter-spacing: 0.12em !important;
+  color: var(--purple) !important;
+  padding: 4px 12px !important;
+  border: 1px solid var(--purple-soft) !important;
+  background: transparent !important;
+}
+
+.article-date {
+  font-family: var(--font-mono) !important;
+  font-size: 11px !important;
+  letter-spacing: 0.08em !important;
+  color: var(--text-light) !important;
+}
+
+.article-hero h1 {
+  max-width: 900px;
+  font-family: var(--font-serif) !important;
+  font-size: clamp(32px, 4.5vw, 52px) !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.2 !important;
+  text-wrap: balance;
+}
+
+.article-body {
+  max-width: 700px !important;
+  padding: clamp(48px, 6vw, 80px) 0 clamp(80px, 10vw, 140px) !important;
+}
+
+.article-body p {
+  font-size: 17px !important;
+  line-height: 1.9 !important;
+  color: var(--text-soft) !important;
+  margin-bottom: 24px !important;
+  text-align: justify !important;
+  hyphens: auto !important;
+  text-wrap: pretty;
+}
+
+.article-body h2 {
+  font-family: var(--font-serif) !important;
+  font-size: 28px !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.01em !important;
+  margin-top: 56px !important;
+  margin-bottom: 20px !important;
+  line-height: 1.3 !important;
+  text-wrap: balance;
+}
+
+.article-body h3 {
+  font-family: var(--font-sans) !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  margin-top: 40px !important;
+  margin-bottom: 16px !important;
+  line-height: 1.4 !important;
+  color: var(--text) !important;
+}
+
+.article-back {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  font-family: var(--font-mono) !important;
+  font-size: 11px !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  color: var(--text-light) !important;
+  text-decoration: none !important;
+  margin-top: 48px !important;
+  padding-top: 32px !important;
+  border-top: 1px solid var(--border) !important;
+  transition: color 0.2s ease !important;
+}
+
+.article-back:hover {
+  color: var(--purple) !important;
+}
+
+html[data-lang="en"] .article-body p {
+  text-align: left !important;
+}
+
+@media (max-width: 720px) {
+  .article-hero h1 { font-size: clamp(28px, 7vw, 38px) !important; }
+  .article-body h2 { font-size: 24px !important; }
+  .article-body p { font-size: 16px !important; }
+}
+
+</style>
 </head>
 <body>
-
 <div class="progress-bar" id="progressBar"></div>
-
 <!-- ============ HEADER ============ -->
 <header class="site-header">
-  <div class="nav">
-    <a href="index.html" class="brand-logo" aria-label="星连资本 LINK-X Capital">
-      <svg class="brand-mark" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(8.2 8.2)" fill="currentColor"/>
-        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(26 8.2)" fill="currentColor"/>
-        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(43.8 8.2)" fill="currentColor"/>
-        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(8.2 26)" fill="currentColor"/>
-        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(43.8 26)" fill="currentColor"/>
-        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(8.2 43.8)" fill="currentColor"/>
-        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(26 43.8)" fill="currentColor"/>
-        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(43.8 43.8)" fill="currentColor"/>
-      </svg>
-      <span class="brand-lockup">
-        <span class="brand-cn">星连资本</span>
-        <span class="brand-en">LINK-X CAPITAL</span>
-      </span>
-    </a>
-    <div class="nav-actions">
-      <span class="lang-toggle" role="group" aria-label="Language">
-        <button data-set-lang="en">EN</button>
-        <span class="sep">|</span>
-        <button data-set-lang="zh" class="active">中</button>
-      </span>
-      <button class="menu-toggle" type="button" aria-controls="siteMenu" aria-expanded="false" data-menu-open>
-        <span class="menu-toggle-text" data-i18n="menu.open">Menu</span>
-        <span class="menu-toggle-mark" aria-hidden="true">
-          <span></span>
-          <span></span>
-        </span>
-      </button>
-    </div>
-  </div>
-</header>
-
-<!-- ============ MENU ============ -->
-<div class="menu-overlay" id="siteMenu" aria-hidden="true">
-  <div class="menu-shell">
-    <div class="menu-top">
-      <div class="menu-label"><span>导航</span><i>/</i><em>Menu</em></div>
-      <button class="menu-close" type="button" aria-label="Close menu" data-menu-close>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-    <nav class="menu-grid">
-      <div class="menu-primary">
-        <a href="index.html" data-menu-link><span class="menu-num">01</span><strong data-i18n="menu.home">首页</strong><em>Home</em></a>
-        <a href="insights.html" data-menu-link><span class="menu-num">02</span><strong data-i18n="menu.research">洞察</strong><em>Insights</em></a>
-        <a href="index.html#focus" data-menu-link><span class="menu-num">03</span><strong data-i18n="menu.focus">关注领域</strong><em>Focus</em></a>
-        <a href="index.html#portfolio" data-menu-link><span class="menu-num">04</span><strong data-i18n="menu.portfolio">投资组合</strong><em>Portfolio</em></a>
-        <a href="team.html" data-menu-link><span class="menu-num">05</span><strong data-i18n="menu.team">团队</strong><em>Team</em></a>
-      </div>
-      <div class="menu-side">
-        <div class="menu-panel">
-          <div class="menu-kicker" data-i18n="menu.research.kicker">Insights Feed</div>
-          <p data-i18n="menu.research.text">持续跟踪模型、infra、agent 与前沿计算的真实变化，记录 AI 生态的一线信号。</p>
-          <a href="insights.html" data-menu-link>
-            <span data-i18n="menu.research.link">获取最新动态</span>
-            <span aria-hidden="true">→</span>
-          </a>
-        </div>
-        <div class="menu-panel">
-          <div class="menu-kicker" data-i18n="menu.contact.kicker">Build With Us</div>
-          <p data-i18n="menu.contact.text">创始人、LP、媒体与研究伙伴，可以从这里找到 LINK-X 团队。</p>
-          <a href="contact.html" data-menu-link>
-            <span data-i18n="menu.contact.link">联系我们</span>
-            <span aria-hidden="true">→</span>
-          </a>
-        </div>
-      </div>
-    </nav>
-    <div class="menu-footer">
-      <a href="index.html">星连资本 LINK-X Capital</a>
-      <span data-i18n="menu.footer.meta">© 2026 · 保留所有权利</span>
-    </div>
-  </div>
+<div class="nav">
+<a aria-label="星连资本 LinkX" class="brand-logo" href="index.html">
+<img alt="" aria-hidden="true" class="brand-mark" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgxIiBoZWlnaHQ9IjE1MyIgdmlld0JveD0iMCAwIDE4MSAxNTMiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik03My44ODc1IDU2LjEzNjFINTEuNzE5OVY1Ni4wNzRINDYuNzg3NkM0MS4zNTEgNTYuMDc0IDM2Ljk0MzggNTEuNjY2NyAzNi45NDM4IDQ2LjIzMDFWMjYuNzcwNEMzNi45NDM4IDIyLjY4NzggMzMuNjM0OCAxOS4zNzg5IDI5LjU1MjIgMTkuMzc4OUg3LjM5MTUxQzMuMzA4OTEgMTkuMzc4OSAwIDIyLjY4NzggMCAyNi43NzA0VjQ4LjkzODFDMCA1My4wMjA3IDMuMzA4OTEgNTYuMzI5NiA3LjM5MTUxIDU2LjMyOTZIMjkuMjc1OUMzMy42Njk0IDU3LjMxNzQgMzYuOTUwNyA2MS4yNDExIDM2Ljk1MDcgNjUuOTMxNlY3MC44NjM5Vjg1Ljc2NDRWOTAuNzM4MUMzNi45NTA3IDk2LjIyMyAzMi41MDE5IDEwMC42NzIgMjcuMDE3IDEwMC42NzJINy4zOTE1MUMzLjMwODkxIDEwMC42NzIgMCAxMDMuOTgxIDAgMTA4LjA2M1YxMzAuMjMxQzAgMTM0LjMxNCAzLjMwODkxIDEzNy42MjIgNy4zOTE1MSAxMzcuNjIySDI5LjU1OTFDMzMuNjQxOCAxMzcuNjIyIDM2Ljk1MDcgMTM0LjMxNCAzNi45NTA3IDEzMC4yMzFWMTEwLjYwNUMzNi45NTA3IDEwNS4xMiA0MS4zOTk0IDEwMC42NzkgNDYuODc3NCAxMDAuNjc5SDUxLjg1MTFWMTAwLjQ5Mkg3My44OTQ0Qzc3Ljk3NyAxMDAuNDkyIDgxLjI4NTkgOTcuMTgzMiA4MS4yODU5IDkzLjEwMDZWNjMuNTQ4NEM4MS4yODU5IDU5LjQ2NTggNzcuOTc3IDU2LjE1NjkgNzMuODk0NCA1Ni4xNTY5TDczLjg4NzUgNTYuMTM2MVoiIGZpbGw9InVybCgjcGFpbnQwX2xpbmVhcl8yNjBfNCkiLz4KPHBhdGggZD0iTTE0My4yODQgNjUuOTI0N0MxNDMuMjg0IDYxLjIzNDIgMTQ2LjU2NiA1Ny4zMTc0IDE1MC45NTkgNTYuMzIyN0gxNzIuODQ0QzE3Ni45MjYgNTYuMzIyNyAxODAuMjM1IDUzLjAxMzcgMTgwLjIzNSA0OC45MzExVjI2Ljc3MDRDMTgwLjIzNSAyMi42ODc4IDE3Ni45MjYgMTkuMzc4OSAxNzIuODQ0IDE5LjM3ODlIMTUwLjY3NkMxNDYuNTkzIDE5LjM3ODkgMTQzLjI4NCAyMi42ODc4IDE0My4yODQgMjYuNzcwNFY0Ni4yMzAxQzE0My4yODQgNTEuNjY2NyAxMzguODc3IDU2LjA3NCAxMzMuNDQxIDU2LjA3NEgxMjguNTA4VjU2LjEzNjFIMTA2LjM0MUMxMDIuMjU4IDU2LjEzNjEgOTguOTQ5MiA1OS40NDUxIDk4Ljk0OTIgNjMuNTI3N1Y5My4wNzk5Qzk4Ljk0OTIgOTcuMTYyNSAxMDIuMjU4IDEwMC40NzEgMTA2LjM0MSAxMDAuNDcxSDEyOC4zODRWMTAwLjY1OEgxMzMuMzU4QzEzOC44NDMgMTAwLjY1OCAxNDMuMjg0IDEwNS4xMDcgMTQzLjI4NCAxMTAuNTg1VjEzMC4yMUMxNDMuMjg0IDEzNC4yOTMgMTQ2LjU5MyAxMzcuNjAyIDE1MC42NzYgMTM3LjYwMkgxNzIuODQ0QzE3Ni45MjYgMTM3LjYwMiAxODAuMjM1IDEzNC4yOTMgMTgwLjIzNSAxMzAuMjFWMTA4LjA0M0MxODAuMjM1IDEwMy45NiAxNzYuOTI2IDEwMC42NTEgMTcyLjg0NCAxMDAuNjUxSDE1My4yMThDMTQ3LjczMyAxMDAuNjUxIDE0My4yODQgOTYuMjAyMyAxNDMuMjg0IDkwLjcxNzRWNjUuOTEwOVY2NS45MjQ3WiIgZmlsbD0idXJsKCNwYWludDFfbGluZWFyXzI2MF80KSIvPgo8ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDBfbGluZWFyXzI2MF80IiB4MT0iMTkuNTgzIiB5MT0iMjMuMDI3OCIgeDI9Ijg2LjA1MjIiIHkyPSI5Ni41OTM4IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiM2MzQwOUMiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNkY0QUE4Ii8+CjwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQxX2xpbmVhcl8yNjBfNCIgeDE9IjExOC41MzIiIHkxPSIyMy4wMjcxIiB4Mj0iMTg0Ljk4OSIgeTI9Ijk2LjU5MTgiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzYzNDA5QyIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM2RjRBQTgiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8L3N2Zz4="/>
+<span class="brand-lockup"><span class="brand-cn">星连资本</span><span class="brand-en">LINKX CAPITAL</span></span>
+</a>
+<div class="nav-actions">
+<span aria-label="Language" class="lang-toggle" role="group"><button data-set-lang="en">EN</button><span class="sep">|</span><button class="active" data-set-lang="zh">中</button></span>
+<button aria-controls="siteMenu" aria-expanded="false" class="menu-toggle" data-menu-open="" type="button"><span class="menu-toggle-text" data-i18n="menu.open">Menu</span><span aria-hidden="true" class="menu-toggle-mark"><span></span><span></span></span></button>
 </div>
-
+</div>
+</header>
+<!-- ============ MENU ============ -->
+<div aria-hidden="true" class="menu-overlay" id="siteMenu">
+<div class="menu-shell">
+<div class="menu-top">
+<div class="menu-label"><span data-i18n="menu.label">导航</span><i>/</i><em>Menu</em></div>
+<button aria-label="Close menu" class="menu-close" data-menu-close="" type="button">
+<span></span>
+<span></span>
+</button>
+</div>
+<div class="menu-grid">
+<nav aria-label="Primary navigation" class="menu-primary">
+<a data-menu-link="" href="index.html#about-fund"><span class="menu-num">01</span><strong data-i18n="menu.nav.about">关于我们</strong><em>About Us</em></a>
+<a data-menu-link="" href="index.html#focus"><span class="menu-num">02</span><strong data-i18n="menu.nav.portfolio">投资组合</strong><em>Portfolio</em></a>
+<a data-menu-link="" href="insights.html"><span class="menu-num">03</span><strong data-i18n="menu.nav.insights">洞察</strong><em>Insights</em></a>
+<a data-menu-link="" href="team.html"><span class="menu-num">04</span><strong data-i18n="menu.nav.team">团队</strong><em>Team</em></a>
+</nav>
+<aside aria-label="Featured links" class="menu-side">
+<div class="menu-panel menu-build-card">
+<div aria-hidden="true" class="menu-orbit-visual">
+<svg preserveaspectratio="xMidYMid meet" viewbox="-120 -80 240 160">
+<ellipse class="menu-orbit o1" cx="0" cy="0" rx="82" ry="26" transform="rotate(-12)"></ellipse>
+<ellipse class="menu-orbit o2" cx="0" cy="0" rx="96" ry="31" transform="rotate(18)"></ellipse>
+<ellipse class="menu-orbit o3" cx="0" cy="0" rx="58" ry="20" transform="rotate(56)"></ellipse>
+<path class="menu-link-line" d="M-62,-10 C-34,-29 -8,-24 0,0 C18,20 43,16 65,4"></path>
+<circle class="menu-node n1" cx="-62" cy="-10" r="3"></circle>
+<circle class="menu-node n2" cx="0" cy="0" r="4.2"></circle>
+<circle class="menu-node n3" cx="65" cy="4" r="2.8"></circle>
+<circle class="menu-node n4" cx="28" cy="-30" r="2.3"></circle>
+</svg>
+</div>
+<div class="menu-build-copy">
+<div class="menu-kicker" data-i18n="menu.contact.kicker">Build With Us</div>
+<p data-i18n="menu.contact.text"><span class="phrase">如果你正在寻找、定义，</span><span class="phrase">或亲手建造一个尚未被市场命名的未来，</span><span class="phrase">我们希望更早与你相遇。</span></p>
+</div>
+<a class="menu-contact-cta" data-menu-link="" href="contact.html">
+<span data-i18n="menu.contact.link">联系我们</span>
+<span aria-hidden="true">→</span>
+</a>
+</div>
+</aside>
+</div>
+<div class="menu-footer">
+<a class="menu-home-link" data-i18n="menu.footer.home" data-menu-link="" href="index.html">回到首页</a>
+<span class="menu-footer-brand" data-i18n="menu.footer.meta">LinkX · 北京清华科技园</span>
+<div aria-label="Social accounts" class="menu-footer-social">
+<span class="menu-footer-social-label">You can also find us on</span><a aria-label="LinkX Capital on X" href="https://x.com/LinkXCapital" rel="noreferrer" target="_blank">X</a>
+<a aria-label="LinkX Capital on LinkedIn" href="https://www.linkedin.com/company/link-x-%E6%98%9F%E8%BF%9E%E8%B5%84%E6%9C%AC/?viewAsMember=true" rel="noreferrer" target="_blank">LinkedIn</a>
+</div>
+</div>
+</div>
+</div>
 <!-- ============ ARTICLE HERO ============ -->
 <section class="article-hero">
-  <div class="container">
-    <div class="article-meta">
-      <span class="article-tag">观点</span>
-      <span class="article-date">2026.01.04</span>
-    </div>
-    <h1 data-i18n="title">2026年在等到AGI之前，<br>我们先做什么。</h1>
-  </div>
+<div class="container">
+<div class="article-meta">
+<span class="article-tag">观点</span>
+<span class="article-date">2026.01.04</span>
+</div>
+<h1 data-i18n="title">2026年在等到AGI之前，<br/>我们先做什么。</h1>
+</div>
 </section>
-
 <!-- ============ ARTICLE BODY ============ -->
 <section>
-  <div class="container">
-    <div class="article-body">
-
-      <p data-i18n="p1">2026年开年即起风，AI行业IPO热潮席卷资本市场，壁仞科技、智谱AI、MiniMax密集推进上市进程，也因此有媒体判断2026年是"IPO大年"。这也从侧面印证了 AI 行业国产大模型正式从"技术探索期"迈入"<strong>产业深耕期</strong>"。</p>
-
-      <p data-i18n="p2">然而，产业化进程的加快，并不意味着技术路径已然收敛。在AGI尚未出现明确拐点的当下，<strong>技术演进的主线是什么？创业者该如何把握阶段性机会？</strong>这是AI领域从业者与投资者共同关注的核心命题。</p>
-
-      <p data-i18n="p3">在当前技术能力仍处于线性增长的阶段，一方面，持续探索模型的智能上限仍是最重要的任务；另一方面，如何将模型已经具备的能力在真实、复杂场景中有效激活与释放，也成为无法回避的现实挑战。这两点，构成了当前行业关注的核心问题。</p>
-
-      <p data-i18n="p4">在这样的背景下，理解"拐点未至时该做什么"，成为判断下一阶段技术与产业趋势的关键前提。</p>
-
-      <h2 data-i18n="h2_1">七个方向</h2>
-
-      <h3 data-i18n="h3_1">01 拐点未至：探索智能上界仍是重点，Scaling仍是最高效的方法</h3>
-
-      <p data-i18n="p5">预训练使得大模型已经掌握世界常识知识，并且具备简单推理能力。更多数据、更大参数和更饱和的计算仍然是scaling基座模型最高效的办法。过去两年，行业在多模态、端到端语音等方向进行了大量尝试，但实践证明，真正决定模型智能上限的，依然是文本。当前模型的知识量和基本的推理能力都依靠"大量读书"，也就是承载人类常识知识的文本数据。从第一性原理的角度，要探索智能上限，第一个核心要素就是更大规模的数据，尤其是<strong>常识知识数据</strong>（真实数据、合成数据及蒸馏数据）。同时，尽管在模型层和infra（基础设施）层，大家都在探索更高效的方式，但在可预见的时间内，scale仍然是<strong>提升模型能力最有效的路径</strong>——除了更大规模的数据，更大的模型参数规模，以及更多的算力投入仍然必要。</p>
-
-      <h3 data-i18n="h3_2">02 现有模型能力释放的关键：激活对齐与增强推理能力</h3>
-
-      <p data-i18n="p6">激活对齐和增强推理能力，尤其是激活更全面的长尾能力是保证模型效果的另一关键。即使模型具备了常识知识，如果无法被有效激活，其能力也难以释放。过去，对齐主要依赖SFT、CoT等方式，而当前<strong>强化学习</strong>正逐步成为主流路径：<strong>通过构造场景和数据，让模型在强化学习中自我优化，以激活智能上界</strong>。但现实挑战在于，通用benchmark的出现一方面可以评测模型的通用效果，但也可能使得很多模型过拟合。同时，评测benchmark数量有限，而真实世界的应用场景几乎无限。随着大量Agent的出现，对齐的复杂度显著提升——如果说过去模型对齐更像是在考语文、数学等知识点，那么Agent更接近真实工作环境，工种多样、情境复杂，甚至需要一定的"情商"。例如订机票、订酒店，本质上是通过引入Agent数据，与人类行为对齐，从而激活模型能力。因此，下一个阶段要取得的突破是让模型更快、更好地对齐长尾的真实场景。<strong>Mid-training和Post-training</strong>将使得更多场景的快速对齐和强推理能力成为可能。</p>
-
-      <h3 data-i18n="h3_3">03 Agent演进：跨环境泛化与迁移仍是难题，简单解法是构造环境数据+强化学习</h3>
-
-      <p data-i18n="p7">Agent是模型能力扩展的一个里程碑，也是体现AI模型进入人类真实（虚拟/物理）世界的关键。没有Agent能力，大模型将停留在（理论学习）阶段，难以将知识积累转化为真实生产力。接下来的一年里，将会继续涌现大量Agent——这个判断已经不再新鲜。但要推进Agent大规模应用落地，核心首先在于理解AI的本质不是创造全新的能力，而是系统性替代人类的部分工作或能力。这也是决定Agent必然爆发的关键因素。其次，尽管早期的Agent主要通过模型应用实现，但当前模型已经可以将Agent数据直接集成到训练过程，从而增强模型的通用性。然而，难题在于不同Agent环境之间的泛化与迁移。因此，应用层最简单的路径正如前文所言——<strong>不断引入更多不同Agent环境的数据，并针对不同环境进行强化学习</strong>。</p>
-
-      <h3 data-i18n="h3_4">04 模型能力突破的重点：记忆、在线学习与自我评估</h3>
-
-      <p data-i18n="p8">应用层：围绕不同工种构建应用，并保持足够"薄"以适应模型能力演进。</p>
-
-      <p data-i18n="p9">关于应用层，有两个主要判断：一是在大模型发展越来越端到端的情况下，模型研发和模型应用不可避免地需要被结合起来。应用层必须做得足够"薄"，能够快速适配基座模型的能力变化，迅速上线、迭代和验证价值；二是，构建模型应用应该以帮助人、创造新的价值为出发点。如果做一个AI软件没人用，也就无法创造价值，那么它注定缺乏生命力。</p>
-
-      <p data-i18n="p10">具体而言，AI软件究竟应该做什么？回到第一性原理，AI不需要创建新的应用，其本质是<strong>模拟人或代替人或帮助人实现人类某些必须要做到的事（某些工种）</strong>。从这个角度，未来的应用主要分为两类：将过去的软件AI化，原来需要人参与的部分改为AI；创造对齐人类某个公众的AI软件，替代人类工作。</p>
-
-      <h3 data-i18n="h3_5">05 具身智能：在更多真实场景解锁模型能力，需解决数据规模和硬件技术问题</h3>
-
-      <p data-i18n="p11">虚拟世界之外，与Agent爆发相对应的，是具身智能的发展。当前机器人大脑已经具备较强智能，下一步的关键在于<strong>将大模型能力与机器人行为做好对齐并加以激活</strong>。随着硬件技术逐步成熟，具身智能有望在更多真实场景中释放模型能力。但同时，和Agent面临的难以泛化的问题一样，通过少样本激活通用具身能力基本不可能实现。这就需要突破大规模数据获取的问题。</p>
-
-      <h3 data-i18n="h3_6">06 多模态：长期重要方向，高效路径是文本、多模态理解、多模态生成并行探索</h3>
-
-      <p data-i18n="p12">尽管多模态尚未在探索AGI的智能上限方面有实质帮助，但其无疑是一个重要方向。当前有效的路径仍然是文本、多模态理解、多模态生成并行发展，并适度探索三者的结合，寻找新的能力涌现。当然，三者结合的探索不仅需要技术探索上的勇气，也需要长期、持续的资本投入。</p>
-
-      <h3 data-i18n="h3_7">07 领域模型：理性看待阶段性机会</h3>
-
-      <p data-i18n="p13">在AGI终局下，领域模型很可能会被基座模型覆盖，领域的数据、流程、Agent数据都会逐渐进入主模型。但在AGI尚未实现的阶段，只要有持续投入的决心，在拥有领域数据并与基座模型保持紧密耦合的情况下，仍有机会在特定竞争窗口中建立领先优势。</p>
-
-      <a href="insights.html" class="article-back" data-i18n="back">← 返回洞察</a>
-
-    </div>
-  </div>
+<div class="container">
+<div class="article-body">
+<p data-i18n="p1">2026年开年即起风，AI行业IPO热潮席卷资本市场，壁仞科技、智谱AI、MiniMax密集推进上市进程，也因此有媒体判断2026年是"IPO大年"。这也从侧面印证了 AI 行业国产大模型正式从"技术探索期"迈入"<strong>产业深耕期</strong>"。</p>
+<p data-i18n="p2">然而，产业化进程的加快，并不意味着技术路径已然收敛。在AGI尚未出现明确拐点的当下，<strong>技术演进的主线是什么？创业者该如何把握阶段性机会？</strong>这是AI领域从业者与投资者共同关注的核心命题。</p>
+<p data-i18n="p3">在当前技术能力仍处于线性增长的阶段，一方面，持续探索模型的智能上限仍是最重要的任务；另一方面，如何将模型已经具备的能力在真实、复杂场景中有效激活与释放，也成为无法回避的现实挑战。这两点，构成了当前行业关注的核心问题。</p>
+<p data-i18n="p4">在这样的背景下，理解"拐点未至时该做什么"，成为判断下一阶段技术与产业趋势的关键前提。</p>
+<h2 data-i18n="h2_1">七个方向</h2>
+<h3 data-i18n="h3_1">01 拐点未至：探索智能上界仍是重点，Scaling仍是最高效的方法</h3>
+<p data-i18n="p5">预训练使得大模型已经掌握世界常识知识，并且具备简单推理能力。更多数据、更大参数和更饱和的计算仍然是scaling基座模型最高效的办法。过去两年，行业在多模态、端到端语音等方向进行了大量尝试，但实践证明，真正决定模型智能上限的，依然是文本。当前模型的知识量和基本的推理能力都依靠"大量读书"，也就是承载人类常识知识的文本数据。从第一性原理的角度，要探索智能上限，第一个核心要素就是更大规模的数据，尤其是<strong>常识知识数据</strong>（真实数据、合成数据及蒸馏数据）。同时，尽管在模型层和infra（基础设施）层，大家都在探索更高效的方式，但在可预见的时间内，scale仍然是<strong>提升模型能力最有效的路径</strong>——除了更大规模的数据，更大的模型参数规模，以及更多的算力投入仍然必要。</p>
+<h3 data-i18n="h3_2">02 现有模型能力释放的关键：激活对齐与增强推理能力</h3>
+<p data-i18n="p6">激活对齐和增强推理能力，尤其是激活更全面的长尾能力是保证模型效果的另一关键。即使模型具备了常识知识，如果无法被有效激活，其能力也难以释放。过去，对齐主要依赖SFT、CoT等方式，而当前<strong>强化学习</strong>正逐步成为主流路径：<strong>通过构造场景和数据，让模型在强化学习中自我优化，以激活智能上界</strong>。但现实挑战在于，通用benchmark的出现一方面可以评测模型的通用效果，但也可能使得很多模型过拟合。同时，评测benchmark数量有限，而真实世界的应用场景几乎无限。随着大量Agent的出现，对齐的复杂度显著提升——如果说过去模型对齐更像是在考语文、数学等知识点，那么Agent更接近真实工作环境，工种多样、情境复杂，甚至需要一定的"情商"。例如订机票、订酒店，本质上是通过引入Agent数据，与人类行为对齐，从而激活模型能力。因此，下一个阶段要取得的突破是让模型更快、更好地对齐长尾的真实场景。<strong>Mid-training和Post-training</strong>将使得更多场景的快速对齐和强推理能力成为可能。</p>
+<h3 data-i18n="h3_3">03 Agent演进：跨环境泛化与迁移仍是难题，简单解法是构造环境数据+强化学习</h3>
+<p data-i18n="p7">Agent是模型能力扩展的一个里程碑，也是体现AI模型进入人类真实（虚拟/物理）世界的关键。没有Agent能力，大模型将停留在（理论学习）阶段，难以将知识积累转化为真实生产力。接下来的一年里，将会继续涌现大量Agent——这个判断已经不再新鲜。但要推进Agent大规模应用落地，核心首先在于理解AI的本质不是创造全新的能力，而是系统性替代人类的部分工作或能力。这也是决定Agent必然爆发的关键因素。其次，尽管早期的Agent主要通过模型应用实现，但当前模型已经可以将Agent数据直接集成到训练过程，从而增强模型的通用性。然而，难题在于不同Agent环境之间的泛化与迁移。因此，应用层最简单的路径正如前文所言——<strong>不断引入更多不同Agent环境的数据，并针对不同环境进行强化学习</strong>。</p>
+<h3 data-i18n="h3_4">04 模型能力突破的重点：记忆、在线学习与自我评估</h3>
+<p data-i18n="p8">应用层：围绕不同工种构建应用，并保持足够"薄"以适应模型能力演进。</p>
+<p data-i18n="p9">关于应用层，有两个主要判断：一是在大模型发展越来越端到端的情况下，模型研发和模型应用不可避免地需要被结合起来。应用层必须做得足够"薄"，能够快速适配基座模型的能力变化，迅速上线、迭代和验证价值；二是，构建模型应用应该以帮助人、创造新的价值为出发点。如果做一个AI软件没人用，也就无法创造价值，那么它注定缺乏生命力。</p>
+<p data-i18n="p10">具体而言，AI软件究竟应该做什么？回到第一性原理，AI不需要创建新的应用，其本质是<strong>模拟人或代替人或帮助人实现人类某些必须要做到的事（某些工种）</strong>。从这个角度，未来的应用主要分为两类：将过去的软件AI化，原来需要人参与的部分改为AI；创造对齐人类某个公众的AI软件，替代人类工作。</p>
+<h3 data-i18n="h3_5">05 具身智能：在更多真实场景解锁模型能力，需解决数据规模和硬件技术问题</h3>
+<p data-i18n="p11">虚拟世界之外，与Agent爆发相对应的，是具身智能的发展。当前机器人大脑已经具备较强智能，下一步的关键在于<strong>将大模型能力与机器人行为做好对齐并加以激活</strong>。随着硬件技术逐步成熟，具身智能有望在更多真实场景中释放模型能力。但同时，和Agent面临的难以泛化的问题一样，通过少样本激活通用具身能力基本不可能实现。这就需要突破大规模数据获取的问题。</p>
+<h3 data-i18n="h3_6">06 多模态：长期重要方向，高效路径是文本、多模态理解、多模态生成并行探索</h3>
+<p data-i18n="p12">尽管多模态尚未在探索AGI的智能上限方面有实质帮助，但其无疑是一个重要方向。当前有效的路径仍然是文本、多模态理解、多模态生成并行发展，并适度探索三者的结合，寻找新的能力涌现。当然，三者结合的探索不仅需要技术探索上的勇气，也需要长期、持续的资本投入。</p>
+<h3 data-i18n="h3_7">07 领域模型：理性看待阶段性机会</h3>
+<p data-i18n="p13">在AGI终局下，领域模型很可能会被基座模型覆盖，领域的数据、流程、Agent数据都会逐渐进入主模型。但在AGI尚未实现的阶段，只要有持续投入的决心，在拥有领域数据并与基座模型保持紧密耦合的情况下，仍有机会在特定竞争窗口中建立领先优势。</p>
+<a class="article-back" data-i18n="back" href="insights.html">← 返回洞察</a>
+</div>
+</div>
 </section>
-
 <!-- ============ FOOTER ============ -->
-<footer>
-  <div class="container">
-    <div class="footer-inner">
-      <div class="footer-left">
-      <div class="brand-lockup">
-        <span class="brand-cn">星连资本</span>
-        <span class="brand-en">LINK-X CAPITAL</span>
-      </div>
-      <p>与 AGI 时代的定义者同行。</p>
-    </div>
-    <div class="footer-copy">
-      <span>&copy; 2026 北京星连肇基私募基金管理有限责任公司</span>
-      <a href="legal.html">法律声明</a>
-    </div>
-    </div>
-  </div>
-</footer>
-
+<footer><div class="container"><div class="footer-inner"><span class="footer-copyright" data-i18n="footer.copyright">@2026 北京星连肇基私募基金管理有限责任公司</span><span class="footer-slogan" data-i18n="footer.slogan">与 AGI 时代的定义者同行</span><a class="footer-legal" data-i18n="footer.legal" href="legal.html">法律声明</a></div></div></footer>
 <script>
   /* ---------- i18n ---------- */
   const i18n = {
     zh: {
-      "menu.open": "Menu", "menu.label": "导航", "menu.home": "首页", "menu.research": "洞察", "menu.focus": "关注领域", "menu.portfolio": "投资组合", "menu.team": "团队", "menu.contact": "联系我们", "menu.footer.meta": "© 2026 · 保留所有权利", "menu.research.kicker": "Insights Feed", "menu.research.text": "持续跟踪模型、infra、agent 与前沿计算的真实变化，记录 AI 生态的一线信号。", "menu.research.link": "获取最新动态", "menu.contact.kicker": "Build With Us", "menu.contact.text": "创始人、LP、媒体与研究伙伴，可以从这里找到 LINK-X 团队。",
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      "footer.legal": "法律声明","footer.slogan": "与 AGI 时代的定义者同行","footer.copyright": "@2026 北京星连肇基私募基金管理有限责任公司","menu.footer.home": "回到首页","menu.contact.link": "联系我们","menu.nav.team": "团队","menu.nav.insights": "洞察","menu.nav.portfolio": "投资组合","menu.nav.about": "关于我们","menu.open": "Menu", "menu.label": "导航", "menu.home": "首页", "menu.research": "洞察", "menu.focus": "关注领域", "menu.portfolio": "投资组合", "menu.team": "团队", "menu.contact": "联系我们", "menu.footer.meta": "LinkX · 北京清华科技园", "menu.research.kicker": "Insights Feed", "menu.research.text": "持续追踪 AI 生态一线信号，捕捉通用智能时代最值得关注的技术、产品与创始人动态。", "menu.research.link": "获取最新动态", "menu.contact.kicker": "Build With Us", "menu.contact.text": "<span class=\"phrase\">如果你正在寻找、定义，</span><span class=\"phrase\">或亲手建造一个尚未被市场命名的未来，</span><span class=\"phrase\">我们希望更早与你相遇。</span>",
       "title": "2026年在等到AGI之前，我们先做什么。",
       "kicker": "AGI Next 全明星峰会落幕｜",
       "p1": "2026年开年即起风，AI行业IPO热潮席卷资本市场，壁仞科技、智谱AI、MiniMax密集推进上市进程，也因此有媒体判断2026年是\"IPO大年\"。这也从侧面印证了 AI 行业国产大模型正式从\"技术探索期\"迈入\"<strong>产业深耕期</strong>\"。",
@@ -614,7 +1242,16 @@
       "back": "← 返回洞察"
     },
     en: {
-      "menu.open": "Menu", "menu.label": "Navigation", "menu.home": "Home", "menu.research": "Insights", "menu.focus": "Focus", "menu.portfolio": "Portfolio", "menu.team": "Team", "menu.contact": "Contact", "menu.footer.meta": "© 2026 · 保留所有权利", "menu.research.kicker": "Insights Feed", "menu.research.text": "持续跟踪模型、infra、agent 与前沿计算的真实变化，记录 AI 生态的一线信号。", "menu.research.link": "获取最新动态", "menu.contact.kicker": "Build With Us", "menu.contact.text": "创始人、LP、媒体与研究伙伴，可以从这里找到 LINK-X 团队。",
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      "footer.legal": "Legal","footer.slogan": "Partnering with founders defining the AGI era","footer.copyright": "@2026 LinkX Capital. All rights reserved.","menu.footer.home": "Back Home","menu.contact.link": "Contact Us","menu.nav.team": "Team","menu.nav.insights": "Insights","menu.nav.portfolio": "Portfolio","menu.nav.about": "About Us","menu.open": "Menu", "menu.label": "Navigation", "menu.home": "Home", "menu.research": "Insights", "menu.focus": "Focus", "menu.portfolio": "Portfolio", "menu.team": "Team", "menu.contact": "Contact", "menu.footer.meta": "LINKX CAPITAL", "menu.research.kicker": "Insights Feed", "menu.research.text": "持续追踪 AI 生态一线信号，捕捉通用智能时代最值得关注的技术、产品与创始人动态。", "menu.research.link": "获取最新动态", "menu.contact.kicker": "Build With Us", "menu.contact.text": "If you are seeking, defining, or building a future the market has not yet named, we hope to meet you earlier.",
       "title": "What Do We Do in 2026 Before AGI Arrives?",
       "kicker": "AGI Next Summit Recap｜",
       "p1": "The 2026 new year opened with a surge — an AI IPO wave swept through the capital markets as Birentech, Zhipu AI, and MiniMax all accelerated their listing processes, leading media to dub 2026 an 'IPO mega-year.' This also confirms that China's domestic LLMs have officially transitioned from a 'technology exploration phase' to an '<strong>industry deep-cultivation phase</strong>'.",
@@ -649,7 +1286,9 @@
     document.querySelectorAll("[data-i18n]").forEach(el => {
       const key = el.getAttribute("data-i18n");
       if (!dict[key]) return;
-      el.innerHTML = dict[key];
+      const val = dict[key];
+      if (/<[a-z][\s\S]*>/i.test(val)) el.innerHTML = val;
+      else el.textContent = val;
     });
     document.querySelectorAll("[data-set-lang]").forEach(btn => {
       btn.classList.toggle("active", btn.getAttribute("data-set-lang") === lang);
@@ -711,6 +1350,47 @@
     if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f[f.length-1].focus(); }
     else if (!e.shiftKey && document.activeElement === f[f.length-1]) { e.preventDefault(); f[0].focus(); }
   });
+</script>
+
+<script>
+(() => {
+  "use strict";
+
+  function getMenuOverlay() {
+    return document.getElementById("siteMenu") || document.getElementById("menu-overlay") || document.querySelector(".menu-overlay");
+  }
+
+  function isMenuOpen(menu) {
+    return !!menu && menu.classList.contains("is-open");
+  }
+
+  function closeMenu(menu) {
+    if (!menu) return;
+    menu.classList.remove("is-open");
+    menu.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("menu-open");
+    document.querySelectorAll("[data-menu-open]").forEach(btn => {
+      btn.setAttribute("aria-expanded", "false");
+    });
+  }
+
+  function shouldIgnore(target, menu) {
+    return !menu || menu.contains(target) || !!target.closest("[data-menu-open], [data-menu-close]");
+  }
+
+  function interceptOutsideMenu(event) {
+    const menu = getMenuOverlay();
+    if (!isMenuOpen(menu) || shouldIgnore(event.target, menu)) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+    closeMenu(menu);
+  }
+
+  document.addEventListener("pointerdown", interceptOutsideMenu, true);
+  document.addEventListener("click", interceptOutsideMenu, true);
+})();
 </script>
 
 </body>

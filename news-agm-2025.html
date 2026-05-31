@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-lang="zh">
+
+<html data-lang="zh" lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>从模型突破到产业落地：2025 AI全景观察与2026展望 · LINK-X Capital</title>
-  <meta name="description" content="敢想敢为 以后「星」程，星连资本2025年度大会观点分享。" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>从模型突破到产业落地：2025 AI全景观察与2026展望 · LinkX</title>
+<meta content="敢想敢为 以后「星」程，星连资本2025年度大会观点分享。" name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&amp;display=swap" media="print" onload="this.media='all'" rel="stylesheet"/>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;500;600&display=swap");
+
     :root {
       --bg: #FAF8F4;
       --bg-warm: #F2EBE0;
@@ -26,7 +29,7 @@
       --purple-pale: #E8D5EE;
       --purple-wash: #F3EAF6;
       --font-serif: "Instrument Serif", "Noto Serif SC", Georgia, serif;
-      --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+      --font-sans: "Instrument Sans", "Inter", system-ui, -apple-system, sans-serif;
       --font-mono: "IBM Plex Mono", ui-monospace, monospace;
       --max: 1180px;
       --px: clamp(24px, 6vw, 80px);
@@ -73,10 +76,7 @@
       display: inline-flex; align-items: center; gap: 13px;
       color: var(--text); text-decoration: none; white-space: nowrap;
     }
-    .brand-mark {
-      width: 42px; height: 42px;
-      color: var(--purple); flex: 0 0 auto;
-    }
+    .brand-mark { width: 50px; height: 34px; object-fit: contain; display: block; flex: 0 0 auto; }
     .brand-lockup { display: grid; gap: 1px; line-height: 1; }
     .brand-cn {
       font-family: var(--font-sans); font-size: 20px;
@@ -146,7 +146,7 @@
       transform: translateX(0); transition-delay: 0s;
     }
     .menu-overlay::before {
-      content: "LINK-X"; position: absolute;
+      content: "LinkX"; position: absolute;
       right: -0.08em; bottom: -0.28em;
       font-family: var(--font-serif);
       font-size: clamp(130px, 24vw, 360px); line-height: 1;
@@ -419,7 +419,7 @@
     /* ---------- Responsive ---------- */
     @media (max-width: 720px) {
       .brand-logo { gap: 9px; }
-      .brand-mark { width: 30px; height: 30px; }
+      .brand-mark { width: 36px; height: 24px; }
       .brand-cn { font-size: 17px; letter-spacing: 0.02em; }
       .brand-en { display: none; }
       .article-hero h1 { font-size: clamp(28px, 7vw, 38px); }
@@ -427,275 +427,745 @@
       .article-body p { font-size: 16px; }
       .footer-inner { flex-direction: column; align-items: flex-start; }
     }
-  </style>
+  
+
+/* Unified LinkX menu: half-screen drawer, single watermark, revised footer. */
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;500;600&display=swap");
+
+:root {
+  --font-serif: "Instrument Serif", "Noto Serif SC", Georgia, serif;
+  --font-sans: "Instrument Sans", "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+.brand-logo .brand-mark {
+  width: 50px !important;
+  height: 34px !important;
+  object-fit: contain !important;
+  display: block !important;
+  flex: 0 0 auto !important;
+}
+.brand-logo .brand-lockup {
+  display: grid !important;
+  gap: 1px !important;
+  line-height: 1 !important;
+}
+.brand-logo .brand-cn {
+  font-family: var(--font-sans) !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.03em !important;
+}
+.brand-logo .brand-en {
+  display: block !important;
+  font-family: var(--font-sans) !important;
+  font-size: 11.5px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.045em !important;
+  text-transform: uppercase !important;
+}
+
+.menu-overlay {
+  width: min(720px, 50vw) !important;
+  background:
+    radial-gradient(circle at 78% 26%, rgba(176, 124, 192, 0.14), transparent 30%),
+    radial-gradient(circle at 10% 80%, rgba(102, 8, 116, 0.18), transparent 34%),
+    linear-gradient(135deg, #171218 0%, #241827 48%, #171218 100%) !important;
+}
+.menu-overlay::before {
+  content: none !important;
+}
+.menu-shell {
+  position: relative !important;
+  overflow: hidden !important;
+}
+.menu-shell::after {
+  content: none !important;
+}
+
+@media (min-width: 861px) {
+  .menu-shell::before {
+    content: "LinkX" !important;
+    position: absolute;
+    right: clamp(-54px, -2.6vw, -20px);
+    bottom: clamp(54px, 8vh, 96px);
+    font-family: var(--font-serif);
+    font-size: clamp(130px, 17vw, 270px);
+    line-height: 0.8;
+    color: rgba(250, 248, 244, 0.038);
+    letter-spacing: -0.08em;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .menu-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: clamp(20px, 2.8vh, 32px) !important;
+    align-items: stretch !important;
+    padding: clamp(24px, 3.6vh, 40px) 0 clamp(18px, 2.6vh, 28px) !important;
+    min-height: 0 !important;
+    position: relative !important;
+    z-index: 1 !important;
+  }
+
+  .menu-primary {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+    border-top: 1px solid rgba(250, 248, 244, 0.18) !important;
+    border-bottom: 0 !important;
+  }
+
+  .menu-primary a {
+    display: grid !important;
+    grid-template-columns: clamp(44px, 5vw, 64px) minmax(0, 1fr) minmax(86px, auto) !important;
+    grid-template-rows: 1fr !important;
+    align-items: center !important;
+    min-height: clamp(76px, 9.4vh, 104px) !important;
+    padding: 0 !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid rgba(250, 248, 244, 0.18) !important;
+    gap: clamp(14px, 2vw, 24px) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    text-decoration: none !important;
+  }
+
+  .menu-primary .menu-num {
+    margin-bottom: 0 !important;
+    align-self: center !important;
+    justify-self: start !important;
+    font-family: var(--font-mono);
+    font-size: clamp(10px, 0.78vw, 12px) !important;
+    letter-spacing: 0.1em !important;
+    color: rgba(232, 213, 238, 0.54) !important;
+  }
+
+  .menu-primary strong {
+    align-self: center !important;
+    justify-self: start !important;
+    font-family: var(--font-serif);
+    font-size: clamp(34px, 4.3vw, 58px) !important;
+    font-weight: 400 !important;
+    line-height: 0.98 !important;
+    letter-spacing: -0.035em !important;
+    color: rgba(250, 248, 244, 0.92);
+    transform: none !important;
+    transition: transform 300ms cubic-bezier(.18,.84,.22,1), color 220ms ease, opacity 220ms ease !important;
+  }
+
+  .menu-primary em {
+    align-self: center !important;
+    justify-self: end !important;
+    min-width: 0 !important;
+    text-align: right !important;
+    font-family: var(--font-mono);
+    font-size: clamp(9px, 0.75vw, 11px) !important;
+    font-style: normal !important;
+    letter-spacing: 0.2em !important;
+    text-transform: uppercase !important;
+    color: rgba(250, 248, 244, 0.38) !important;
+  }
+
+  .menu-primary a::before {
+    content: "" !important;
+    position: absolute !important;
+    left: clamp(16px, 2vw, 28px) !important;
+    top: 50% !important;
+    bottom: auto !important;
+    width: 5px !important;
+    height: 5px !important;
+    border-radius: 999px !important;
+    background: rgba(176, 124, 192, 0.76) !important;
+    box-shadow: 0 0 18px rgba(176, 124, 192, 0.45) !important;
+    opacity: 0 !important;
+    transform: translate(-10px, -50%) scale(0.68) !important;
+    transition: opacity 220ms ease, transform 260ms cubic-bezier(.18,.84,.22,1) !important;
+  }
+
+  .menu-primary a::after {
+    content: "" !important;
+    position: absolute !important;
+    left: clamp(28px, 2.8vw, 42px) !important;
+    top: 50% !important;
+    bottom: auto !important;
+    width: 0 !important;
+    height: 1px !important;
+    transform: translateY(-50%) !important;
+    background: linear-gradient(90deg, rgba(176,124,192,0.42), transparent) !important;
+    transition: width 320ms cubic-bezier(.18,.84,.22,1) !important;
+  }
+
+  .menu-primary a:hover::before,
+  .menu-primary a:focus-visible::before {
+    opacity: 1 !important;
+    transform: translate(0, -50%) scale(1) !important;
+  }
+
+  .menu-primary a:hover::after,
+  .menu-primary a:focus-visible::after {
+    width: clamp(54px, 6vw, 96px) !important;
+  }
+
+  .menu-primary a:hover strong,
+  .menu-primary a:focus-visible strong {
+    transform: translateX(clamp(8px, 0.9vw, 14px)) !important;
+    color: #fff !important;
+  }
+
+  .menu-primary a:hover .menu-num,
+  .menu-primary a:focus-visible .menu-num {
+    color: rgba(232, 213, 238, 0.82) !important;
+  }
+
+  .menu-side {
+    display: block !important;
+    max-width: none !important;
+    justify-self: stretch !important;
+    align-self: auto !important;
+    position: relative !important;
+    z-index: 1 !important;
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.45s ease 0.24s, transform 0.45s ease 0.24s;
+  }
+
+  .menu-overlay.is-open .menu-side {
+    opacity: 1;
+    transform: none;
+  }
+
+  .menu-panel.menu-build-card {
+    min-height: 0 !important;
+    border-radius: 0 !important;
+    border: 0 !important;
+    border-top: 1px solid rgba(250, 248, 244, 0.14) !important;
+    background: transparent !important;
+    padding: clamp(16px, 2vw, 22px) 0 0 !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    gap: clamp(18px, 3vw, 40px) !important;
+    align-items: end !important;
+    overflow: visible !important;
+  }
+
+  .menu-orbit-visual {
+    display: none !important;
+  }
+
+  .menu-build-copy {
+    position: relative;
+    z-index: 1;
+    max-width: 38em;
+  }
+
+  .menu-build-card .menu-kicker {
+    margin-bottom: 10px !important;
+    font-size: clamp(10px, 0.8vw, 12px) !important;
+    letter-spacing: 0.18em !important;
+  }
+
+  .menu-build-card p {
+    margin-bottom: 0 !important;
+    max-width: 42em !important;
+    font-size: clamp(13px, 0.88vw, 15px) !important;
+    line-height: 1.68 !important;
+    color: rgba(250, 248, 244, 0.72) !important;
+  }
+
+  .menu-contact-cta {
+    position: relative;
+    z-index: 1;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    min-width: clamp(132px, 10vw, 174px) !important;
+    padding: 12px 0 11px !important;
+    border-bottom: 1px solid rgba(250, 248, 244, 0.52) !important;
+    color: #fff !important;
+    font-family: var(--font-mono) !important;
+    font-size: clamp(10.5px, 0.72vw, 12px) !important;
+    letter-spacing: 0.14em !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+  }
+
+  .menu-contact-cta span:last-child {
+    font-size: 18px;
+    transition: transform 180ms ease;
+  }
+
+  .menu-contact-cta:hover span:last-child,
+  .menu-contact-cta:focus-visible span:last-child {
+    transform: translateX(5px);
+  }
+
+  .menu-footer {
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+    align-items: center !important;
+    position: relative !important;
+    z-index: 1 !important;
+    margin-top: clamp(10px, 1.6vh, 18px) !important;
+  }
+
+  .menu-home-link {
+    display: inline-flex;
+    justify-self: start;
+    color: rgba(250, 248, 244, 0.46);
+    text-decoration: none;
+    transition: color 180ms ease, transform 180ms ease;
+  }
+
+  .menu-home-link:hover,
+  .menu-home-link:focus-visible {
+    color: rgba(250, 248, 244, 0.86);
+    transform: translateY(-1px);
+    outline: none;
+  }
+
+  .menu-footer-brand {
+    display: none;
+  }
+
+  .menu-footer-social {
+    display: none;
+    align-items: center;
+    justify-content: flex-end;
+    gap: clamp(16px, 2vw, 28px);
+    margin-left: auto;
+  }
+
+  .menu-footer-social a {
+    color: rgba(250, 248, 244, 0.46);
+    text-decoration: none;
+    transition: color 180ms ease, transform 180ms ease;
+  }
+
+  .menu-footer-social a:hover,
+  .menu-footer-social a:focus-visible {
+    color: rgba(250, 248, 244, 0.86);
+    transform: translateY(-1px);
+    outline: none;
+  }
+
+  html[data-lang="en"] .menu-home-link {
+    display: none;
+  }
+
+  html[data-lang="en"] .menu-footer-brand {
+    display: inline-flex;
+    justify-self: start;
+    letter-spacing: 0.18em;
+  }
+
+  html[data-lang="en"] .menu-footer-social {
+    display: inline-flex;
+  }
+
+  html[data-lang="zh"] .menu-build-card p[data-i18n="menu.contact.text"] {
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    line-break: strict !important;
+  }
+
+  html[data-lang="zh"] .menu-build-card p[data-i18n="menu.contact.text"] .phrase {
+    display: inline-block;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 860px) {
+  .menu-overlay {
+    width: 100vw !important;
+  }
+
+  .menu-primary {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .menu-panel.menu-build-card {
+    min-height: 220px;
+  }
+
+  .menu-build-card p {
+    font-size: 14.5px !important;
+  }
+
+  .menu-footer-brand,
+  .menu-footer-social {
+    display: none;
+  }
+
+  html[data-lang="en"] .menu-home-link {
+    display: none;
+  }
+
+  html[data-lang="en"] .menu-footer-brand,
+  html[data-lang="en"] .menu-footer-social {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 720px) {
+  .menu-footer {
+    align-items: flex-start !important;
+    flex-direction: column !important;
+  }
+
+  .menu-footer-social {
+    margin-left: 0;
+    justify-content: flex-start;
+  }
+
+  .brand-logo .brand-en {
+    display: none !important;
+  }
+}
+
+/* Unified site footer: homepage-like gradient and three-part bottom row. */
+footer {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(176,124,192,0.22), transparent 34%),
+    radial-gradient(circle at 86% 72%, rgba(102,8,116,0.28), transparent 36%),
+    linear-gradient(135deg, #171218 0%, #241827 46%, #171218 100%) !important;
+  color: rgba(250,248,244,0.68) !important;
+  padding: clamp(48px, 7vw, 76px) 0 clamp(28px, 4vw, 40px) !important;
+}
+footer::before {
+  content: "";
+  position: absolute;
+  inset: auto -10% -35% auto;
+  width: min(720px, 58vw);
+  aspect-ratio: 1.8;
+  border: 1px solid rgba(176,124,192,0.08);
+  border-radius: 50%;
+  transform: rotate(-8deg);
+  pointer-events: none;
+}
+footer .footer-inner {
+  display: grid !important;
+  grid-template-columns: 1fr auto 1fr !important;
+  align-items: end !important;
+  gap: 24px !important;
+  position: relative;
+  z-index: 1;
+}
+footer .footer-left,
+footer .footer-bottom {
+  display: contents !important;
+}
+footer .footer-brand,
+footer .footer-left .brand-lockup,
+footer .footer-left p {
+  display: none !important;
+}
+footer .footer-copyright {
+  grid-column: 1;
+  justify-self: start;
+  color: rgba(250,248,244,0.48);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+footer .footer-slogan {
+  grid-column: 2;
+  justify-self: center;
+  color: rgba(250,248,244,0.82);
+  font-family: var(--font-serif);
+  font-size: clamp(18px, 2.2vw, 30px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+footer .footer-legal {
+  grid-column: 3;
+  justify-self: end;
+  color: rgba(250,248,244,0.54);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+footer .footer-legal:hover {
+  color: rgba(250,248,244,0.9);
+}
+
+@media (max-width: 860px) {
+  footer .footer-inner {
+    grid-template-columns: 1fr !important;
+    align-items: start !important;
+  }
+  footer .footer-copyright,
+  footer .footer-slogan,
+  footer .footer-legal {
+    grid-column: 1;
+    justify-self: start;
+    white-space: normal;
+  }
+}
+
+
+/* v118: footer slogan restrained + Build With Us module fixed for half-screen drawer. */
+footer .footer-copyright,
+footer .footer-legal {
+  font-size: 11px !important;
+}
+
+footer .footer-slogan {
+  font-size: clamp(12.5px, 1.05vw, 14px) !important;
+  font-family: var(--font-sans) !important;
+  letter-spacing: 0.02em !important;
+  line-height: 1.35 !important;
+  color: rgba(250,248,244,0.76) !important;
+}
+
+/* In the half-screen menu, the Build With Us block should be a clean bottom module, not a squeezed two-column card. */
+@media (min-width: 861px) {
+  .menu-panel.menu-build-card {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    align-items: start !important;
+    padding: clamp(16px, 2vw, 22px) 0 0 !important;
+  }
+
+  .menu-build-copy {
+    max-width: 100% !important;
+  }
+
+  .menu-build-card p {
+    max-width: 100% !important;
+    font-size: clamp(13px, 0.9vw, 15px) !important;
+    line-height: 1.68 !important;
+  }
+
+  .menu-contact-cta {
+    justify-self: start !important;
+    min-width: min(220px, 52%) !important;
+    margin-top: 2px !important;
+  }
+
+  .menu-orbit-visual {
+    display: none !important;
+  }
+}
+
+@media (max-width: 860px) {
+  .menu-panel.menu-build-card {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    min-height: 0 !important;
+  }
+
+  .menu-contact-cta {
+    justify-self: start !important;
+  }
+}
+
+@media (max-width: 720px) {
+  footer .footer-slogan {
+    font-size: 13px !important;
+  }
+}
+
+
+/* v123: English menu social preface. */
+.menu-footer-social-label {
+  display: none;
+  color: rgba(250, 248, 244, 0.38);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+html[data-lang="en"] .menu-footer-social-label {
+  display: inline-flex;
+}
+
+.menu-footer-social {
+  align-items: center;
+}
+
+</style>
 </head>
 <body>
-
 <div class="progress-bar" id="progressBar"></div>
-
 <!-- ============ HEADER ============ -->
 <header class="site-header">
-  <div class="nav">
-    <a href="index.html" class="brand-logo" aria-label="星连资本 LINK-X Capital">
-      <svg class="brand-mark" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(8.2 8.2)" fill="currentColor"/>
-        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(26 8.2)" fill="currentColor"/>
-        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(43.8 8.2)" fill="currentColor"/>
-        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(8.2 26)" fill="currentColor"/>
-        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(43.8 26)" fill="currentColor"/>
-        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(8.2 43.8)" fill="currentColor"/>
-        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(26 43.8)" fill="currentColor"/>
-        <path d="M0,-8.2 C1.5,-3.2 3.2,-1.5 8.2,0 C3.2,1.5 1.5,3.2 0,8.2 C-1.5,3.2 -3.2,1.5 -8.2,0 C-3.2,-1.5 -1.5,-3.2 0,-8.2Z" transform="translate(43.8 43.8)" fill="currentColor"/>
-      </svg>
-      <span class="brand-lockup">
-        <span class="brand-cn">星连资本</span>
-        <span class="brand-en">LINK-X CAPITAL</span>
-      </span>
-    </a>
-    <div class="nav-actions">
-      <span class="lang-toggle" role="group" aria-label="Language">
-        <button data-set-lang="en">EN</button>
-        <span class="sep">|</span>
-        <button data-set-lang="zh" class="active">中</button>
-      </span>
-      <button class="menu-toggle" type="button" aria-controls="siteMenu" aria-expanded="false" data-menu-open>
-        <span class="menu-toggle-text" data-i18n="menu.open">Menu</span>
-        <span class="menu-toggle-mark" aria-hidden="true">
-          <span></span>
-          <span></span>
-        </span>
-      </button>
-    </div>
-  </div>
-</header>
-
-<!-- ============ MENU ============ -->
-<div class="menu-overlay" id="siteMenu" aria-hidden="true">
-  <div class="menu-shell">
-    <div class="menu-top">
-      <div class="menu-label"><span data-i18n="menu.label">导航</span><i>/</i><em>Menu</em></div>
-      <button class="menu-close" type="button" aria-label="Close menu" data-menu-close>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-    <nav class="menu-grid">
-      <div class="menu-primary">
-        <a href="index.html" data-menu-link><span class="menu-num">01</span><strong data-i18n="menu.home">首页</strong><em>Home</em></a>
-        <a href="insights.html" data-menu-link><span class="menu-num">02</span><strong data-i18n="menu.research">洞察</strong><em>Insights</em></a>
-        <a href="index.html#focus" data-menu-link><span class="menu-num">03</span><strong data-i18n="menu.focus">关注领域</strong><em>Focus</em></a>
-        <a href="index.html#portfolio" data-menu-link><span class="menu-num">04</span><strong data-i18n="menu.portfolio">投资组合</strong><em>Portfolio</em></a>
-        <a href="team.html" data-menu-link><span class="menu-num">05</span><strong data-i18n="menu.team">团队</strong><em>Team</em></a>
-      </div>
-      <div class="menu-side">
-        <div class="menu-panel">
-          <div class="menu-kicker" data-i18n="menu.research.kicker">Insights Feed</div>
-          <p data-i18n="menu.research.text">持续跟踪模型、infra、agent 与前沿计算的真实变化，记录 AI 生态的一线信号。</p>
-          <a href="insights.html" data-menu-link>
-            <span data-i18n="menu.research.link">获取最新动态</span>
-            <span aria-hidden="true">→</span>
-          </a>
-        </div>
-        <div class="menu-panel">
-          <div class="menu-kicker" data-i18n="menu.contact.kicker">Build With Us</div>
-          <p data-i18n="menu.contact.text">创始人、LP、媒体与研究伙伴，可以从这里找到 LINK-X 团队。</p>
-          <a href="contact.html" data-menu-link>
-            <span data-i18n="menu.contact.link">联系我们</span>
-            <span aria-hidden="true">→</span>
-          </a>
-        </div>
-      </div>
-    </nav>
-    <div class="menu-footer">
-      <a href="index.html">星连资本 LINK-X Capital</a>
-      <span data-i18n="menu.footer.meta">© 2026 · 保留所有权利</span>
-    </div>
-  </div>
+<div class="nav">
+<a aria-label="星连资本 LinkX" class="brand-logo" href="index.html">
+<img alt="" aria-hidden="true" class="brand-mark" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgxIiBoZWlnaHQ9IjE1MyIgdmlld0JveD0iMCAwIDE4MSAxNTMiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik03My44ODc1IDU2LjEzNjFINTEuNzE5OVY1Ni4wNzRINDYuNzg3NkM0MS4zNTEgNTYuMDc0IDM2Ljk0MzggNTEuNjY2NyAzNi45NDM4IDQ2LjIzMDFWMjYuNzcwNEMzNi45NDM4IDIyLjY4NzggMzMuNjM0OCAxOS4zNzg5IDI5LjU1MjIgMTkuMzc4OUg3LjM5MTUxQzMuMzA4OTEgMTkuMzc4OSAwIDIyLjY4NzggMCAyNi43NzA0VjQ4LjkzODFDMCA1My4wMjA3IDMuMzA4OTEgNTYuMzI5NiA3LjM5MTUxIDU2LjMyOTZIMjkuMjc1OUMzMy42Njk0IDU3LjMxNzQgMzYuOTUwNyA2MS4yNDExIDM2Ljk1MDcgNjUuOTMxNlY3MC44NjM5Vjg1Ljc2NDRWOTAuNzM4MUMzNi45NTA3IDk2LjIyMyAzMi41MDE5IDEwMC42NzIgMjcuMDE3IDEwMC42NzJINy4zOTE1MUMzLjMwODkxIDEwMC42NzIgMCAxMDMuOTgxIDAgMTA4LjA2M1YxMzAuMjMxQzAgMTM0LjMxNCAzLjMwODkxIDEzNy42MjIgNy4zOTE1MSAxMzcuNjIySDI5LjU1OTFDMzMuNjQxOCAxMzcuNjIyIDM2Ljk1MDcgMTM0LjMxNCAzNi45NTA3IDEzMC4yMzFWMTEwLjYwNUMzNi45NTA3IDEwNS4xMiA0MS4zOTk0IDEwMC42NzkgNDYuODc3NCAxMDAuNjc5SDUxLjg1MTFWMTAwLjQ5Mkg3My44OTQ0Qzc3Ljk3NyAxMDAuNDkyIDgxLjI4NTkgOTcuMTgzMiA4MS4yODU5IDkzLjEwMDZWNjMuNTQ4NEM4MS4yODU5IDU5LjQ2NTggNzcuOTc3IDU2LjE1NjkgNzMuODk0NCA1Ni4xNTY5TDczLjg4NzUgNTYuMTM2MVoiIGZpbGw9InVybCgjcGFpbnQwX2xpbmVhcl8yNjBfNCkiLz4KPHBhdGggZD0iTTE0My4yODQgNjUuOTI0N0MxNDMuMjg0IDYxLjIzNDIgMTQ2LjU2NiA1Ny4zMTc0IDE1MC45NTkgNTYuMzIyN0gxNzIuODQ0QzE3Ni45MjYgNTYuMzIyNyAxODAuMjM1IDUzLjAxMzcgMTgwLjIzNSA0OC45MzExVjI2Ljc3MDRDMTgwLjIzNSAyMi42ODc4IDE3Ni45MjYgMTkuMzc4OSAxNzIuODQ0IDE5LjM3ODlIMTUwLjY3NkMxNDYuNTkzIDE5LjM3ODkgMTQzLjI4NCAyMi42ODc4IDE0My4yODQgMjYuNzcwNFY0Ni4yMzAxQzE0My4yODQgNTEuNjY2NyAxMzguODc3IDU2LjA3NCAxMzMuNDQxIDU2LjA3NEgxMjguNTA4VjU2LjEzNjFIMTA2LjM0MUMxMDIuMjU4IDU2LjEzNjEgOTguOTQ5MiA1OS40NDUxIDk4Ljk0OTIgNjMuNTI3N1Y5My4wNzk5Qzk4Ljk0OTIgOTcuMTYyNSAxMDIuMjU4IDEwMC40NzEgMTA2LjM0MSAxMDAuNDcxSDEyOC4zODRWMTAwLjY1OEgxMzMuMzU4QzEzOC44NDMgMTAwLjY1OCAxNDMuMjg0IDEwNS4xMDcgMTQzLjI4NCAxMTAuNTg1VjEzMC4yMUMxNDMuMjg0IDEzNC4yOTMgMTQ2LjU5MyAxMzcuNjAyIDE1MC42NzYgMTM3LjYwMkgxNzIuODQ0QzE3Ni45MjYgMTM3LjYwMiAxODAuMjM1IDEzNC4yOTMgMTgwLjIzNSAxMzAuMjFWMTA4LjA0M0MxODAuMjM1IDEwMy45NiAxNzYuOTI2IDEwMC42NTEgMTcyLjg0NCAxMDAuNjUxSDE1My4yMThDMTQ3LjczMyAxMDAuNjUxIDE0My4yODQgOTYuMjAyMyAxNDMuMjg0IDkwLjcxNzRWNjUuOTEwOVY2NS45MjQ3WiIgZmlsbD0idXJsKCNwYWludDFfbGluZWFyXzI2MF80KSIvPgo8ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDBfbGluZWFyXzI2MF80IiB4MT0iMTkuNTgzIiB5MT0iMjMuMDI3OCIgeDI9Ijg2LjA1MjIiIHkyPSI5Ni41OTM4IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiM2MzQwOUMiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNkY0QUE4Ii8+CjwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQxX2xpbmVhcl8yNjBfNCIgeDE9IjExOC41MzIiIHkxPSIyMy4wMjcxIiB4Mj0iMTg0Ljk4OSIgeTI9Ijk2LjU5MTgiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzYzNDA5QyIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM2RjRBQTgiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8L3N2Zz4="/>
+<span class="brand-lockup">
+<span class="brand-cn">星连资本</span>
+<span class="brand-en">LINKX CAPITAL</span>
+</span>
+</a>
+<div class="nav-actions">
+<span aria-label="Language" class="lang-toggle" role="group">
+<button data-set-lang="en">EN</button>
+<span class="sep">|</span>
+<button class="active" data-set-lang="zh">中</button>
+</span>
+<button aria-controls="siteMenu" aria-expanded="false" class="menu-toggle" data-menu-open="" type="button">
+<span class="menu-toggle-text" data-i18n="menu.open">Menu</span>
+<span aria-hidden="true" class="menu-toggle-mark">
+<span></span>
+<span></span>
+</span>
+</button>
 </div>
+</div>
+</header>
+<!-- ============ MENU ============ -->
+<div aria-hidden="true" class="menu-overlay" id="siteMenu">
 
+<div class="menu-shell">
+<div class="menu-top">
+<div class="menu-label"><span data-i18n="menu.label">导航</span><i>/</i><em>Menu</em></div>
+<button aria-label="Close menu" class="menu-close" data-menu-close="" type="button"><span></span><span></span></button>
+</div>
+<div class="menu-grid">
+<nav aria-label="Primary navigation" class="menu-primary">
+<a data-menu-link="" href="index.html#about-fund"><span class="menu-num">01</span><strong data-i18n="menu.nav.about">关于我们</strong><em>About Us</em></a>
+<a data-menu-link="" href="index.html#focus"><span class="menu-num">02</span><strong data-i18n="menu.nav.portfolio">投资组合</strong><em>Portfolio</em></a>
+<a data-menu-link="" href="insights.html"><span class="menu-num">03</span><strong data-i18n="menu.nav.insights">洞察</strong><em>Insights</em></a>
+<a data-menu-link="" href="team.html"><span class="menu-num">04</span><strong data-i18n="menu.nav.team">团队</strong><em>Team</em></a>
+</nav>
+<aside aria-label="Featured links" class="menu-side">
+<div class="menu-panel menu-build-card">
+<div class="menu-build-copy">
+<div class="menu-kicker" data-i18n="menu.contact.kicker">Build With Us</div>
+<p data-i18n="menu.contact.text"><span class="phrase">如果你正在寻找、定义，</span><span class="phrase">或亲手建造一个尚未被市场命名的未来，</span><span class="phrase">我们希望更早与你相遇。</span></p>
+</div>
+<a class="menu-contact-cta" data-menu-link="" href="contact.html"><span data-i18n="menu.contact.link">联系我们</span><span aria-hidden="true">→</span></a>
+</div>
+</aside>
+</div>
+<div class="menu-footer">
+<a class="menu-home-link" data-i18n="menu.footer.home" data-menu-link="" href="index.html">回到首页</a>
+<span class="menu-footer-brand" data-i18n="menu.footer.meta">LINKX CAPITAL</span>
+<div aria-label="Social accounts" class="menu-footer-social"><span class="menu-footer-social-label">You can also find us on</span><a aria-label="LinkX Capital on X" href="https://x.com/LinkXCapital" rel="noreferrer" target="_blank">X</a><a aria-label="LinkX Capital on LinkedIn" href="https://www.linkedin.com/company/link-x-%E6%98%9F%E8%BF%9E%E8%B5%84%E6%9C%AC/?viewAsMember=true" rel="noreferrer" target="_blank">LinkedIn</a></div>
+</div>
+</div>
+</div>
 <!-- ============ ARTICLE HERO ============ -->
 <section class="article-hero">
-  <div class="container">
-    <div class="article-meta">
-      <span class="article-tag" data-i18n="article.tag.news">新闻</span>
-      <span class="article-tag" data-i18n="article.tag.perspectives">观点</span>
-      <span class="article-date">2025.11.21</span>
-    </div>
-    <h1 data-i18n="title">从模型突破到产业落地：<br>2025 AI全景观察与2026展望</h1>
-  </div>
+<div class="container">
+<div class="article-meta">
+<span class="article-tag" data-i18n="article.tag.news">新闻</span>
+<span class="article-tag" data-i18n="article.tag.perspectives">观点</span>
+<span class="article-date">2025.11.21</span>
+</div>
+<h1 data-i18n="title">从模型突破到产业落地：<br/>2025 AI全景观察与2026展望</h1>
+</div>
 </section>
-
 <!-- ============ ARTICLE BODY ============ -->
 <section>
-  <div class="container">
-    <div class="article-body">
-
-      <p data-i18n="p0">2025年11月21日，星连资本年度大会（AGM）在武汉举行。</p>
-
-      <p data-i18n="p1">百余年前，武汉以"敢想敢为"的气魄，开启了中国现代工业的探索之路——1890年，中国第一座近代钢铁厂在这片土地应运而生，为本土工业发展播下了最初的火种。1911年，同样是在这片土地上，一群年仅未满30岁的青年在城墙上扣动扳机，点燃了新时代的序章。</p>
-
-      <p data-i18n="p2">如今，"历史性的变革机遇，正再一次呈现在我们面前。"星连资本合伙人王璞在开场致辞中指出。大会选址武汉的深意正在于此：当全球科技竞争进入白热化阶段，中国企业与资本力量迎来了新一轮"敢想敢为"的机遇期。</p>
-
-      <p data-i18n="p3">本次年会围绕全球科技竞争格局、AI技术跃迁、产业落地实践及港股IPO生态等话题展开。清华大学社会科学学院中美关系研究中心特约研究员薛静、星连资本管理合伙人张鸣晨、谷歌中国大客户部销售副总裁邓辉、华泰联合证券总监杨阳以及多位被投企业创始人分享了他们的趋势洞察与实践经验。</p>
-
-      <p data-i18n="p4">学术界、产业界与资本市场等多方声音汇聚成共识：<em>2025年不仅是技术变革的加速年，更是全球科技产业新一轮加速周期的关键起点。</em></p>
-
-      <h2 data-i18n="h2_1">全球竞争</h2>
-
-      <h3 data-i18n="h3_1">中美驱动，AI主导，产业革命制胜的4个关键点</h3>
-
-      <p data-i18n="p5">清华大学社会科学学院中美关系研究中心特约研究员薛静博士指出，当前，全球科技竞争正进入一个由中美主导的时代。一方面，中美是世界上最大的两个制造业国家——2024年中国制造业占全球31.6%，美国占15.9%；另一方面，在尖端科技上，125项前沿技术中，两国合计领先110项。</p>
-
-      <p data-i18n="p6">这一竞争格局成型的背后，是科技、生产力、综合国力的锁定。"现代科技突破不再是仅靠少数科学家就能实现，而需要依赖整个国家体系的支持，资本、人才、资源和国家治理能力缺一不可。"在薛静看来，中美两国AI发展的领先地位正是科技锁定的体现。而正是因为科技锁定，AI和其他高科技技术的蓬勃发展正在大幅提升劳动生产率，从而在生产力层面进一步巩固优势。</p>
-
-      <p data-i18n="p7">薛静认为，科技竞争是未来大国竞争的主旋律，竞争的战场正是下一次产业革命，竞争的方式则呈现为企业竞争，而AI的发展将在其中扮演关键角色。要赢得这场竞争，他进一步指出，重点在于基础科学探索；利用现有的工业制造能力，在多样化的应用场景中不断吸收、迭代、反哺科研；持续巩固工程师红利，为产业发展培养高素质劳动力；找到新时代全球化的通路。</p>
-
-      <h2 data-i18n="h2_2">从突破到应用</h2>
-
-      <h3 data-i18n="h3_2">星连资本在AI领域的前沿洞察与战略布局</h3>
-
-      <p data-i18n="p8">在新的科技竞争格局中，中国正在"应用延伸"走向"源头参与"。在这样的时代背景与结构性机遇下，星连资本在2025年交出了精彩答卷——在所投的30家企业中，超过九成在2025年完成新一轮融资，其中17家已成长为细分领域的准独角兽，有2家已经在推进IPO进程中。</p>
-
-      <p data-i18n="p9">谈及2025年AI领域的进展和对2026年的展望，星连资本创始合伙人张鸣晨分享了来自30位在前沿科研、产业和创业一线专家的深度洞察：</p>
-
-      <h3 data-i18n="h3_3">2025年的四个典型突破</h3>
-
-      <ul>
-        <li data-i18n="li1">以DeepSeek V3和R1为代表，强基座模型和强化学习带来了推理能力提升；</li>
-        <li data-i18n="li2">以Gemini 3、Sora 2、Nano Banana为代表，AI在多模态理解与生成上的能力达到了新的高度；</li>
-        <li data-i18n="li3">以Claude Code为代表的AI Coding开始规模化落地应用；</li>
-        <li data-i18n="li4">Agent开始处理复杂任务。</li>
-      </ul>
-
-      <h3 data-i18n="h3_4">2026年五大发展方向</h3>
-
-      <ul>
-        <li data-i18n="li5">在特定领域，AI Agent有望真正代替部分人类劳动；</li>
-        <li data-i18n="li6">具身智能将取得突破，机器人将展现出超越人类的运动能力；</li>
-        <li data-i18n="li7">Full Attention等大模型底层架构的创新，将进一步助力AI训练与推理能力的发展；</li>
-        <li data-i18n="li8">AI for Science领域，AI将不再只是工具，而是能进行深度研究的AI科学家，推动科学研究的飞跃；</li>
-        <li data-i18n="li9">在线学习等技术突破，让模型具备自进化能力。</li>
-      </ul>
-
-      <p data-i18n="p10">张鸣晨指出，2025年是AI领域飞速发展的关键一年。无论是模型能力的提升、基础设施的快速发展，还是应用探索的深入，亦或是资本端的热情，均表明AI正在从技术突破迈向产业应用的新阶段。</p>
-
-      <p data-i18n="p11">AI作为变革传统行业的价值放大器，正在展现出"Roll Up"的强大影响力——全球范围内，传统行业开始开放大量场景和需求，以期待借助AI技术提升整体效率和利润，快速实现资产价值增长。</p>
-
-      <p data-i18n="p12">这一趋势也与星连资本的理念高度契合。张鸣晨强调："我们对人工智能的投入不仅仅是简单的投资行为，更希望通过构建产学研投的一体化大循环，推动生态中关键要素的充分流动，最终实现价值的整体放大。"正因如此，星连资本联合清华大学建立了「华清普智AI孵化器（T-ONE Innovation Lab）」，进一步推动这一生态系统的建设和发展。</p>
-
-      <p data-i18n="p13">张鸣晨进一步表示，从星连资本所投企业的快速发展来看，优秀的创业者和团队已经展现出了独特的速度与方向感。他认为，AI的未来不是"会不会来"，而是"来得有多快"。创业者必须抢占先机，跑得更早，也必须跑得更稳。在这个充满机遇与挑战的时代，星连资本将继续支持那些有远见、能够应对快速变化的创业团队，引领AI行业的未来发展。</p>
-
-      <h2 data-i18n="h2_3">探索智能上限</h2>
-
-      <h3 data-i18n="h3_5">实现AGI的突破点是基模能力、对齐与推理、AI原生生产力</h3>
-
-      <p data-i18n="p14">在产业与资本层面的判断之外，如何从技术源头理解人工智能的演进路径，同样成为本次大会的重要议题。围绕通用人工智能（AGI）的实现路径，参会人员分享了在创业实践中的系统思考，得到了以下共识。</p>
-
-      <p data-i18n="p15">AGI的拐点尚未到来，行业仍处在技术优先阶段，而非迅速转向产品导向。当前更重要的任务，依然是持续探索模型的智能上限。过去两年，行业在多模态、语音等方向进行了大量尝试，但实践证明，真正决定模型智能上限的，依然是文本及其所承载的常识知识。</p>
-
-      <p data-i18n="p16">基于第一性原理，要实现AGI，模型层的关键在于两点：一是持续提高智能上限，二是有效激活已有能力；应用层则需要思考AI的本质是什么。基于此，接下来的行业发展重点将主要体现在三个方面：</p>
-
-      <h3 data-i18n="h3_6">第一，基座模型能力仍将持续提升。</h3>
-
-      <p data-i18n="p17">要探索智能上限，短期内依然难以绕开scale这一路径，包括更大规模的常识数据（真实数据、合成数据及蒸馏数据）、更大的模型参数规模，以及更多的算力投入。</p>
-
-      <h3 data-i18n="h3_7">第二，在能力激活层面，对齐（align）与推理（reasoning）的重要性进一步凸显。</h3>
-
-      <p data-i18n="p18">即使模型具备了知识，如果无法被有效激活，其能力也难以释放。过去，对齐主要依赖SFT、CoT等方式，而当前强化学习正逐步成为主流路径：通过构造场景和数据，让模型在强化学习中自我优化，以激活智能上限。</p>
-
-      <p data-i18n="p19">但现实挑战在于，评测Benchmark数量有限，而真实世界的应用场景几乎无限。随着大量Agent的出现，对齐的复杂度显著提升——如果说过去模型对齐更像是在考语文、数学等知识点，那么Agent更接近真实工作环境，工种多样、情境复杂，甚至需要一定的"情商"。例如订机票、订酒店，本质上是通过引入Agent数据，与人类行为对齐，从而激活模型能力。</p>
-
-      <h3 data-i18n="h3_8">第三，从应用层的角度，AI的本质并非创造新的能力，而是替代人类的部分工作能力，这也决定了Agent的爆发几乎是必然趋势。</h3>
-
-      <p data-i18n="p20">未来，应用层一方面需要厘清哪些能力、岗位会被替代，同时要做得足够"薄"，能够快速适配基座模型能力的变化。</p>
-
-      <p data-i18n="p21">与此同时，在虚拟世界之外，与Agent爆发相对应的，是具身智能的发展。当前"机器人大脑"已经具备较强智能，下一步的关键在于将大模型能力与机器人行为做好对齐并加以激活。随着硬件技术逐步成熟，具身智能也有望成为AI产业的重要突破方向。</p>
-
-      <h2 data-i18n="h2_4">AI加速落点</h2>
-
-      <h3 data-i18n="h3_9">前沿创新者在一线的思考与实践</h3>
-
-      <p data-i18n="p22">对智能上限与AGI实现路径的探讨为人工智能的未来奠定了基础，而在实践一线，AI模型的能力释放正推动各行业的深刻变革。在本次大会上，星连资本投资的多家企业分享了他们在AI技术加速落地过程中的宝贵经验与前瞻思考，展示了AI如何在医疗、教育、家庭智能和视频创作等多个领域，重塑人们的生产和生活方式。</p>
-
-      <h3 data-i18n="h3_10">紫荆智康：AI打破医疗"不可能三角"</h3>
-
-      <p data-i18n="p23">紫荆智康专注于AI赋能医疗服务，通过智能化技术改善诊疗效率。紫荆智康发起人刘洋指出，"看病难、看病贵，是全球性难题。长期以来，优质、低廉、便捷三者无法兼得的'不可能三角'，正在被AI逐步打破。"</p>
-
-      <p data-i18n="p24">AI在两个维度带来革命性变化：一是加速高水平医疗资源的生产，二是通过智能Agent重塑医疗服务组织方式，实现成本降低与效率提升。刘洋强调，智能体的可进化性是核心，AI可通过自我迭代低成本探索医疗决策边界，并逐步构建未来的AI医疗底层操作系统，为公众提供更优质的医疗服务。</p>
-
-      <h3 data-i18n="h3_11">奇点灵智：多模态AI陪伴重塑低龄教育</h3>
-
-      <p data-i18n="p25">奇点灵智CEO包塔分享了奇点灵智在低龄AI陪伴领域的探索。他指出，低龄儿童需要的并非简单"聊天搭子"，而是能陪孩子过家家的多模态玩伴。通过融合视觉、动作、语言等多模态技术，机器人理解并参与游戏过程，实现"玩中学"的教育理念。</p>
-
-      <p data-i18n="p26">包塔强调，以"软硬倒置"的方式快速迭代，打破硬件创业的传统线性路径，并依托用户共创构建持续反馈闭环，从而优化产品体验，提升陪伴时长与互动深度。特别在英语启蒙方面，通过创造沉浸互动的语言环境激发学习兴趣，提升语言实际运用能力，实现寓教于乐。其推出的多奇AI英语伴学机器人已在京东首发预售，收获了市场的积极反馈。</p>
-
-      <h3 data-i18n="h3_12">吾云创新：以数据为基础，以AI为核心，打造家庭智能终端</h3>
-
-      <p data-i18n="p27">吾云创新专注于家庭数据存储与智能管理，提出了"Everything to NAS"理念。吾云创新CEO郭亚楠表示，"在AI时代，数据分散已成为痛点。存储不应只是数据坟墓，而应是记忆的大脑。"</p>
-
-      <p data-i18n="p28">通过本地部署多模态大模型，吾云创新实现极速工作流、多模态智能搜索和零等待分享，让家庭和创作者的数据使用更加高效、安全。吾云创新的长远目标是打造家庭智能终端，将AI与数据深度融合，使用户能够通过自然语言快速获取信息，实现真正的家庭智能化。</p>
-
-      <h3 data-i18n="h3_13">智映光年：AI全能剧组赋能视频创作</h3>
-
-      <p data-i18n="p29">智映光年团队聚焦视频生产的全流程优化，致力于降低视频创作门槛，让普通用户也能成为百万粉UP主。智映光年CEO王铁嵩指出，"当需求指数级增长而供给侧仍是线性劳动时，产能瓶颈便暴露无遗。"</p>
-
-      <p data-i18n="p30">为解决这一问题，公司提出"四个层级"的视频生产模式：从基础素材处理到叙事艺术、个性化定制，再到内容共鸣，实现千人千面的精准匹配。同时，公司建立了信息块理解技术和垂直领域专家模型（Editing GPT），确保AI剪辑专业、高效。</p>
-
-      <p data-i18n="p31">团队未来目标是通过前端简化交互、后端全能支撑，为创作者提供闭环式生产系统，实现从创意到成品的高效落地。</p>
-
-      <h2 data-i18n="h2_5">Long China，Long AI</h2>
-
-      <h3 data-i18n="h3_14">科技投资新机</h3>
-
-      <p data-i18n="p32">与AI技术突破和一级市场进展共振的，是二级市场正在用真金白银重估中国科技成长性，AI成为港股新一轮估值与流动性的核心锚点。</p>
-
-      <p data-i18n="p33">华泰联合证券总监杨阳分享了对港股IPO市场的洞察。她指出，2024年港股IPO回暖显著，87家企业已登陆，全年融资额有望全球领跑。更具结构性意义的是，"新经济"正在成为港股估值体系的主导力量：TMT与新能源类企业占据近半上市席位，科技增长重新定义了港股的估值锚。</p>
-
-      <p data-i18n="p34">与此同时，"A+H"双地联动趋势愈发清晰。从A股积极谋划赴港，到港股吸纳稀缺科技资产，两地资本正形成新的循环链路。叠加制造业优势推动外资回流，全球资金对中国AI产业链的配置需求正在快速上升。从算力到模型，从落地场景到应用收入，AI全链条的增长逻辑在二级市场得到重新定价。"Long China，Long AI"不再是口号，而是流动性验证的新周期。</p>
-
-      <p data-i18n="p35">她认为，科技企业赴港上市正从"融资工具"走向布局国际业务的"战略抓手"。而要抓住这样的机遇，企业可以提前做好以下三点准备：</p>
-
-      <p data-i18n="p36">其一，前瞻性规划"H+A"路径，利用大湾区政策红利实现跨市场价值最大化；</p>
-
-      <p data-i18n="p37">其二，充分用好18C政策窗口，提前引入具备资质的"领航资深独立投资人"，以专业资本结构通过监管审核；</p>
-
-      <p data-i18n="p38">其三，以稀缺技术、清晰增长路径和可验证的商业化指标，向成熟投资者讲出"确定性的科技故事"，并在发行前锁定高质量基石投资者，提高上市成功率与估值稳固性。</p>
-
-      <p data-i18n="p39">回到星连资本2025年年度大会AGM的现场，我们再次见证勇气与变革的力量。</p>
-
-      <p data-i18n="p40">星连资本将持续发掘与支持那些"敢想敢为"的创业者，在新的加速周期跑出速度与方向，共同推动中国科技产业的新一轮发展和创新，助力中国在全球科技竞争中占据领先地位。</p>
-
-      <p><em data-i18n="p41">我们相信，2025年只是一个新的起点。</em></p>
-
-      <a href="insights.html" class="article-back" data-i18n="article.back">← 返回洞察</a>
-
-    </div>
-  </div>
+<div class="container">
+<div class="article-body">
+<p data-i18n="p0">2025年11月21日，星连资本年度大会（AGM）在武汉举行。</p>
+<p data-i18n="p1">百余年前，武汉以"敢想敢为"的气魄，开启了中国现代工业的探索之路——1890年，中国第一座近代钢铁厂在这片土地应运而生，为本土工业发展播下了最初的火种。1911年，同样是在这片土地上，一群年仅未满30岁的青年在城墙上扣动扳机，点燃了新时代的序章。</p>
+<p data-i18n="p2">如今，"历史性的变革机遇，正再一次呈现在我们面前。"星连资本合伙人王璞在开场致辞中指出。大会选址武汉的深意正在于此：当全球科技竞争进入白热化阶段，中国企业与资本力量迎来了新一轮"敢想敢为"的机遇期。</p>
+<p data-i18n="p3">本次年会围绕全球科技竞争格局、AI技术跃迁、产业落地实践及港股IPO生态等话题展开。清华大学社会科学学院中美关系研究中心特约研究员薛静、星连资本管理合伙人张鸣晨、谷歌中国大客户部销售副总裁邓辉、华泰联合证券总监杨阳以及多位被投企业创始人分享了他们的趋势洞察与实践经验。</p>
+<p data-i18n="p4">学术界、产业界与资本市场等多方声音汇聚成共识：<em>2025年不仅是技术变革的加速年，更是全球科技产业新一轮加速周期的关键起点。</em></p>
+<h2 data-i18n="h2_1">全球竞争</h2>
+<h3 data-i18n="h3_1">中美驱动，AI主导，产业革命制胜的4个关键点</h3>
+<p data-i18n="p5">清华大学社会科学学院中美关系研究中心特约研究员薛静博士指出，当前，全球科技竞争正进入一个由中美主导的时代。一方面，中美是世界上最大的两个制造业国家——2024年中国制造业占全球31.6%，美国占15.9%；另一方面，在尖端科技上，125项前沿技术中，两国合计领先110项。</p>
+<p data-i18n="p6">这一竞争格局成型的背后，是科技、生产力、综合国力的锁定。"现代科技突破不再是仅靠少数科学家就能实现，而需要依赖整个国家体系的支持，资本、人才、资源和国家治理能力缺一不可。"在薛静看来，中美两国AI发展的领先地位正是科技锁定的体现。而正是因为科技锁定，AI和其他高科技技术的蓬勃发展正在大幅提升劳动生产率，从而在生产力层面进一步巩固优势。</p>
+<p data-i18n="p7">薛静认为，科技竞争是未来大国竞争的主旋律，竞争的战场正是下一次产业革命，竞争的方式则呈现为企业竞争，而AI的发展将在其中扮演关键角色。要赢得这场竞争，他进一步指出，重点在于基础科学探索；利用现有的工业制造能力，在多样化的应用场景中不断吸收、迭代、反哺科研；持续巩固工程师红利，为产业发展培养高素质劳动力；找到新时代全球化的通路。</p>
+<h2 data-i18n="h2_2">从突破到应用</h2>
+<h3 data-i18n="h3_2">星连资本在AI领域的前沿洞察与战略布局</h3>
+<p data-i18n="p8">在新的科技竞争格局中，中国正在"应用延伸"走向"源头参与"。在这样的时代背景与结构性机遇下，星连资本在2025年交出了精彩答卷——在所投的30家企业中，超过九成在2025年完成新一轮融资，其中17家已成长为细分领域的准独角兽，有2家已经在推进IPO进程中。</p>
+<p data-i18n="p9">谈及2025年AI领域的进展和对2026年的展望，星连资本创始合伙人张鸣晨分享了来自30位在前沿科研、产业和创业一线专家的深度洞察：</p>
+<h3 data-i18n="h3_3">2025年的四个典型突破</h3>
+<ul>
+<li data-i18n="li1">以DeepSeek V3和R1为代表，强基座模型和强化学习带来了推理能力提升；</li>
+<li data-i18n="li2">以Gemini 3、Sora 2、Nano Banana为代表，AI在多模态理解与生成上的能力达到了新的高度；</li>
+<li data-i18n="li3">以Claude Code为代表的AI Coding开始规模化落地应用；</li>
+<li data-i18n="li4">Agent开始处理复杂任务。</li>
+</ul>
+<h3 data-i18n="h3_4">2026年五大发展方向</h3>
+<ul>
+<li data-i18n="li5">在特定领域，AI Agent有望真正代替部分人类劳动；</li>
+<li data-i18n="li6">具身智能将取得突破，机器人将展现出超越人类的运动能力；</li>
+<li data-i18n="li7">Full Attention等大模型底层架构的创新，将进一步助力AI训练与推理能力的发展；</li>
+<li data-i18n="li8">AI for Science领域，AI将不再只是工具，而是能进行深度研究的AI科学家，推动科学研究的飞跃；</li>
+<li data-i18n="li9">在线学习等技术突破，让模型具备自进化能力。</li>
+</ul>
+<p data-i18n="p10">张鸣晨指出，2025年是AI领域飞速发展的关键一年。无论是模型能力的提升、基础设施的快速发展，还是应用探索的深入，亦或是资本端的热情，均表明AI正在从技术突破迈向产业应用的新阶段。</p>
+<p data-i18n="p11">AI作为变革传统行业的价值放大器，正在展现出"Roll Up"的强大影响力——全球范围内，传统行业开始开放大量场景和需求，以期待借助AI技术提升整体效率和利润，快速实现资产价值增长。</p>
+<p data-i18n="p12">这一趋势也与星连资本的理念高度契合。张鸣晨强调："我们对人工智能的投入不仅仅是简单的投资行为，更希望通过构建产学研投的一体化大循环，推动生态中关键要素的充分流动，最终实现价值的整体放大。"正因如此，星连资本联合清华大学建立了「华清普智AI孵化器（T-ONE Innovation Lab）」，进一步推动这一生态系统的建设和发展。</p>
+<p data-i18n="p13">张鸣晨进一步表示，从星连资本所投企业的快速发展来看，优秀的创业者和团队已经展现出了独特的速度与方向感。他认为，AI的未来不是"会不会来"，而是"来得有多快"。创业者必须抢占先机，跑得更早，也必须跑得更稳。在这个充满机遇与挑战的时代，星连资本将继续支持那些有远见、能够应对快速变化的创业团队，引领AI行业的未来发展。</p>
+<h2 data-i18n="h2_3">探索智能上限</h2>
+<h3 data-i18n="h3_5">实现AGI的突破点是基模能力、对齐与推理、AI原生生产力</h3>
+<p data-i18n="p14">在产业与资本层面的判断之外，如何从技术源头理解人工智能的演进路径，同样成为本次大会的重要议题。围绕通用人工智能（AGI）的实现路径，参会人员分享了在创业实践中的系统思考，得到了以下共识。</p>
+<p data-i18n="p15">AGI的拐点尚未到来，行业仍处在技术优先阶段，而非迅速转向产品导向。当前更重要的任务，依然是持续探索模型的智能上限。过去两年，行业在多模态、语音等方向进行了大量尝试，但实践证明，真正决定模型智能上限的，依然是文本及其所承载的常识知识。</p>
+<p data-i18n="p16">基于第一性原理，要实现AGI，模型层的关键在于两点：一是持续提高智能上限，二是有效激活已有能力；应用层则需要思考AI的本质是什么。基于此，接下来的行业发展重点将主要体现在三个方面：</p>
+<h3 data-i18n="h3_6">第一，基座模型能力仍将持续提升。</h3>
+<p data-i18n="p17">要探索智能上限，短期内依然难以绕开scale这一路径，包括更大规模的常识数据（真实数据、合成数据及蒸馏数据）、更大的模型参数规模，以及更多的算力投入。</p>
+<h3 data-i18n="h3_7">第二，在能力激活层面，对齐（align）与推理（reasoning）的重要性进一步凸显。</h3>
+<p data-i18n="p18">即使模型具备了知识，如果无法被有效激活，其能力也难以释放。过去，对齐主要依赖SFT、CoT等方式，而当前强化学习正逐步成为主流路径：通过构造场景和数据，让模型在强化学习中自我优化，以激活智能上限。</p>
+<p data-i18n="p19">但现实挑战在于，评测Benchmark数量有限，而真实世界的应用场景几乎无限。随着大量Agent的出现，对齐的复杂度显著提升——如果说过去模型对齐更像是在考语文、数学等知识点，那么Agent更接近真实工作环境，工种多样、情境复杂，甚至需要一定的"情商"。例如订机票、订酒店，本质上是通过引入Agent数据，与人类行为对齐，从而激活模型能力。</p>
+<h3 data-i18n="h3_8">第三，从应用层的角度，AI的本质并非创造新的能力，而是替代人类的部分工作能力，这也决定了Agent的爆发几乎是必然趋势。</h3>
+<p data-i18n="p20">未来，应用层一方面需要厘清哪些能力、岗位会被替代，同时要做得足够"薄"，能够快速适配基座模型能力的变化。</p>
+<p data-i18n="p21">与此同时，在虚拟世界之外，与Agent爆发相对应的，是具身智能的发展。当前"机器人大脑"已经具备较强智能，下一步的关键在于将大模型能力与机器人行为做好对齐并加以激活。随着硬件技术逐步成熟，具身智能也有望成为AI产业的重要突破方向。</p>
+<h2 data-i18n="h2_4">AI加速落点</h2>
+<h3 data-i18n="h3_9">前沿创新者在一线的思考与实践</h3>
+<p data-i18n="p22">对智能上限与AGI实现路径的探讨为人工智能的未来奠定了基础，而在实践一线，AI模型的能力释放正推动各行业的深刻变革。在本次大会上，星连资本投资的多家企业分享了他们在AI技术加速落地过程中的宝贵经验与前瞻思考，展示了AI如何在医疗、教育、家庭智能和视频创作等多个领域，重塑人们的生产和生活方式。</p>
+<h3 data-i18n="h3_10">紫荆智康：AI打破医疗"不可能三角"</h3>
+<p data-i18n="p23">紫荆智康专注于AI赋能医疗服务，通过智能化技术改善诊疗效率。紫荆智康发起人刘洋指出，"看病难、看病贵，是全球性难题。长期以来，优质、低廉、便捷三者无法兼得的'不可能三角'，正在被AI逐步打破。"</p>
+<p data-i18n="p24">AI在两个维度带来革命性变化：一是加速高水平医疗资源的生产，二是通过智能Agent重塑医疗服务组织方式，实现成本降低与效率提升。刘洋强调，智能体的可进化性是核心，AI可通过自我迭代低成本探索医疗决策边界，并逐步构建未来的AI医疗底层操作系统，为公众提供更优质的医疗服务。</p>
+<h3 data-i18n="h3_11">奇点灵智：多模态AI陪伴重塑低龄教育</h3>
+<p data-i18n="p25">奇点灵智CEO包塔分享了奇点灵智在低龄AI陪伴领域的探索。他指出，低龄儿童需要的并非简单"聊天搭子"，而是能陪孩子过家家的多模态玩伴。通过融合视觉、动作、语言等多模态技术，机器人理解并参与游戏过程，实现"玩中学"的教育理念。</p>
+<p data-i18n="p26">包塔强调，以"软硬倒置"的方式快速迭代，打破硬件创业的传统线性路径，并依托用户共创构建持续反馈闭环，从而优化产品体验，提升陪伴时长与互动深度。特别在英语启蒙方面，通过创造沉浸互动的语言环境激发学习兴趣，提升语言实际运用能力，实现寓教于乐。其推出的多奇AI英语伴学机器人已在京东首发预售，收获了市场的积极反馈。</p>
+<h3 data-i18n="h3_12">吾云创新：以数据为基础，以AI为核心，打造家庭智能终端</h3>
+<p data-i18n="p27">吾云创新专注于家庭数据存储与智能管理，提出了"Everything to NAS"理念。吾云创新CEO郭亚楠表示，"在AI时代，数据分散已成为痛点。存储不应只是数据坟墓，而应是记忆的大脑。"</p>
+<p data-i18n="p28">通过本地部署多模态大模型，吾云创新实现极速工作流、多模态智能搜索和零等待分享，让家庭和创作者的数据使用更加高效、安全。吾云创新的长远目标是打造家庭智能终端，将AI与数据深度融合，使用户能够通过自然语言快速获取信息，实现真正的家庭智能化。</p>
+<h3 data-i18n="h3_13">智映光年：AI全能剧组赋能视频创作</h3>
+<p data-i18n="p29">智映光年团队聚焦视频生产的全流程优化，致力于降低视频创作门槛，让普通用户也能成为百万粉UP主。智映光年CEO王铁嵩指出，"当需求指数级增长而供给侧仍是线性劳动时，产能瓶颈便暴露无遗。"</p>
+<p data-i18n="p30">为解决这一问题，公司提出"四个层级"的视频生产模式：从基础素材处理到叙事艺术、个性化定制，再到内容共鸣，实现千人千面的精准匹配。同时，公司建立了信息块理解技术和垂直领域专家模型（Editing GPT），确保AI剪辑专业、高效。</p>
+<p data-i18n="p31">团队未来目标是通过前端简化交互、后端全能支撑，为创作者提供闭环式生产系统，实现从创意到成品的高效落地。</p>
+<h2 data-i18n="h2_5">Long China，Long AI</h2>
+<h3 data-i18n="h3_14">科技投资新机</h3>
+<p data-i18n="p32">与AI技术突破和一级市场进展共振的，是二级市场正在用真金白银重估中国科技成长性，AI成为港股新一轮估值与流动性的核心锚点。</p>
+<p data-i18n="p33">华泰联合证券总监杨阳分享了对港股IPO市场的洞察。她指出，2024年港股IPO回暖显著，87家企业已登陆，全年融资额有望全球领跑。更具结构性意义的是，"新经济"正在成为港股估值体系的主导力量：TMT与新能源类企业占据近半上市席位，科技增长重新定义了港股的估值锚。</p>
+<p data-i18n="p34">与此同时，"A+H"双地联动趋势愈发清晰。从A股积极谋划赴港，到港股吸纳稀缺科技资产，两地资本正形成新的循环链路。叠加制造业优势推动外资回流，全球资金对中国AI产业链的配置需求正在快速上升。从算力到模型，从落地场景到应用收入，AI全链条的增长逻辑在二级市场得到重新定价。"Long China，Long AI"不再是口号，而是流动性验证的新周期。</p>
+<p data-i18n="p35">她认为，科技企业赴港上市正从"融资工具"走向布局国际业务的"战略抓手"。而要抓住这样的机遇，企业可以提前做好以下三点准备：</p>
+<p data-i18n="p36">其一，前瞻性规划"H+A"路径，利用大湾区政策红利实现跨市场价值最大化；</p>
+<p data-i18n="p37">其二，充分用好18C政策窗口，提前引入具备资质的"领航资深独立投资人"，以专业资本结构通过监管审核；</p>
+<p data-i18n="p38">其三，以稀缺技术、清晰增长路径和可验证的商业化指标，向成熟投资者讲出"确定性的科技故事"，并在发行前锁定高质量基石投资者，提高上市成功率与估值稳固性。</p>
+<p data-i18n="p39">回到星连资本2025年年度大会AGM的现场，我们再次见证勇气与变革的力量。</p>
+<p data-i18n="p40">星连资本将持续发掘与支持那些"敢想敢为"的创业者，在新的加速周期跑出速度与方向，共同推动中国科技产业的新一轮发展和创新，助力中国在全球科技竞争中占据领先地位。</p>
+<p><em data-i18n="p41">我们相信，2025年只是一个新的起点。</em></p>
+<a class="article-back" data-i18n="article.back" href="insights.html">← 返回洞察</a>
+</div>
+</div>
 </section>
-
 <!-- ============ FOOTER ============ -->
-<footer>
-  <div class="container">
-    <div class="footer-inner">
-      <div class="footer-left">
-      <div class="brand-lockup">
-        <span class="brand-cn">星连资本</span>
-        <span class="brand-en">LINK-X CAPITAL</span>
-      </div>
-      <p data-i18n="footer.desc">与 AGI 时代的定义者同行。</p>
-    </div>
-    <div class="footer-copy">
-      <span data-i18n="footer.copy">&copy; 2026 北京星连肇基私募基金管理有限责任公司</span>
-      <a href="legal.html" data-i18n="footer.legal">法律声明</a>
-    </div>
-    </div>
-  </div>
-</footer>
-
+<footer><div class="container"><div class="footer-inner"><span class="footer-copyright" data-i18n="footer.copyright">@2026 北京星连肇基私募基金管理有限责任公司</span><span class="footer-slogan" data-i18n="footer.slogan">与 AGI 时代的定义者同行</span><a class="footer-legal" data-i18n="footer.legal" href="legal.html">法律声明</a></div></div></footer>
 <script>
   const i18n = {
     zh: {
-      "menu.open": "Menu", "menu.label": "导航", "menu.home": "首页", "menu.research": "洞察", "menu.focus": "关注领域", "menu.portfolio": "投资组合", "menu.team": "团队", "menu.contact": "联系我们", "menu.footer.meta": "© 2026 · 保留所有权利", "menu.research.kicker": "Insights Feed", "menu.research.text": "持续跟踪模型、infra、agent 与前沿计算的真实变化，记录 AI 生态的一线信号。", "menu.research.link": "获取最新动态", "menu.contact.kicker": "Build With Us", "menu.contact.text": "创始人、LP、媒体与研究伙伴，可以从这里找到 LINK-X 团队。",
+      "menu.open": "Menu", "menu.label": "导航", 
+      
+      
+      
+      
+      
+      
+      
+      "footer.slogan": "与 AGI 时代的定义者同行","footer.copyright": "@2026 北京星连肇基私募基金管理有限责任公司","menu.footer.home": "回到首页","menu.contact.link": "联系我们","menu.nav.team": "团队","menu.nav.insights": "洞察","menu.nav.portfolio": "投资组合","menu.nav.about": "关于我们","menu.home": "首页", "menu.research": "洞察", "menu.focus": "关注领域", "menu.portfolio": "投资组合", "menu.team": "团队", "menu.contact": "联系我们", "menu.footer.meta": "LinkX · 北京清华科技园", "menu.research.kicker": "Insights Feed", "menu.research.text": "持续追踪 AI 生态一线信号，捕捉通用智能时代最值得关注的技术、产品与创始人动态。", "menu.research.link": "获取最新动态", "menu.contact.kicker": "Build With Us", "menu.contact.text": "<span class=\"phrase\">如果你正在寻找、定义，</span><span class=\"phrase\">或亲手建造一个尚未被市场命名的未来，</span><span class=\"phrase\">我们希望更早与你相遇。</span>",
       "article.tag.news": "新闻",
       "article.tag.perspectives": "观点",
       "article.back": "← 返回洞察",
@@ -775,15 +1245,23 @@
       "footer.legal": "法律声明"
     },
     en: {
-      "menu.open": "Menu", "menu.label": "Navigation", "menu.home": "Home", "menu.research": "Insights", "menu.focus": "Focus", "menu.portfolio": "Portfolio", "menu.team": "Team", "menu.contact": "Contact", "menu.footer.meta": "© 2026 · 保留所有权利", "menu.research.kicker": "Insights Feed", "menu.research.text": "持续跟踪模型、infra、agent 与前沿计算的真实变化，记录 AI 生态的一线信号。", "menu.research.link": "获取最新动态", "menu.contact.kicker": "Build With Us", "menu.contact.text": "创始人、LP、媒体与研究伙伴，可以从这里找到 LINK-X 团队。",
+      "menu.open": "Menu", "menu.label": "Navigation", 
+      
+      
+      
+      
+      
+      
+      
+      "footer.slogan": "Partnering with founders defining the AGI era","footer.copyright": "@2026 LinkX Capital. All rights reserved.","menu.footer.home": "Back Home","menu.contact.link": "Contact Us","menu.nav.team": "Team","menu.nav.insights": "Insights","menu.nav.portfolio": "Portfolio","menu.nav.about": "About Us","menu.home": "Home", "menu.research": "Insights", "menu.focus": "Focus", "menu.portfolio": "Portfolio", "menu.team": "Team", "menu.contact": "Contact", "menu.footer.meta": "LINKX CAPITAL", "menu.research.kicker": "Insights Feed", "menu.research.text": "持续追踪 AI 生态一线信号，捕捉通用智能时代最值得关注的技术、产品与创始人动态。", "menu.research.link": "获取最新动态", "menu.contact.kicker": "Build With Us", "menu.contact.text": "If you are seeking, defining, or building a future the market has not yet named, we hope to meet you earlier.",
       "article.tag.news": "News",
       "article.tag.perspectives": "Perspectives",
       "article.back": "← Back to Insights",
       "title": "From Model Breakthroughs to Industry Deployment: 2025 AI Panorama & 2026 Outlook",
-      "p0": "On November 21, 2025, LINK-X Capital held its Annual General Meeting (AGM) in Wuhan.",
+      "p0": "On November 21, 2025, LinkX held its Annual General Meeting (AGM) in Wuhan.",
       "p1": "Over a century ago, Wuhan embraced the spirit of \"daring to think and act,\" launching China's journey into modern industry — in 1890, the nation's first modern steelworks rose on this land, planting the initial seeds for domestic industrial development. In 1911, on this same land, a group of young people under 30 fired their rifles on the city walls, igniting the prelude to a new era.",
-      "p2": "Today, \"historic opportunities for transformative change are once again before us,\" noted LINK-X Capital partner Wang Pu in his opening remarks. The choice of Wuhan carries deep significance: as global technology competition enters a white-hot phase, Chinese enterprises and capital are entering a new window of opportunity to \"dare to think and act.\"",
-      "p3": "The AGM covered global technology competition, AI technological leaps, industry deployment practices, and the Hong Kong IPO ecosystem. Speakers included Dr. Xue Jing, Special Researcher at the China-US Relations Research Center of Tsinghua University; Zhang Mingchen, Managing Partner of LINK-X Capital; Deng Hui, VP of Google China; Yang Yang, Director of Huatai United Securities; and founders from multiple portfolio companies.",
+      "p2": "Today, \"historic opportunities for transformative change are once again before us,\" noted LinkX partner Wang Pu in his opening remarks. The choice of Wuhan carries deep significance: as global technology competition enters a white-hot phase, Chinese enterprises and capital are entering a new window of opportunity to \"dare to think and act.\"",
+      "p3": "The AGM covered global technology competition, AI technological leaps, industry deployment practices, and the Hong Kong IPO ecosystem. Speakers included Dr. Xue Jing, Special Researcher at the China-US Relations Research Center of Tsinghua University; Zhang Mingchen, Managing Partner of LinkX; Deng Hui, VP of Google China; Yang Yang, Director of Huatai United Securities; and founders from multiple portfolio companies.",
       "p4": "Voices from academia, industry, and capital markets converged on a consensus: <em>2025 is not only an acceleration year for technological change, but a critical starting point for a new cycle in the global technology industry.</em>",
       "h2_1": "Global Competition",
       "h3_1": "US-China Driven, AI-Led: 4 Keys to Winning the Industrial Revolution",
@@ -791,9 +1269,9 @@
       "p6": "Behind this competitive landscape is the lock-in of technology, productivity, and comprehensive national power. \"Modern technological breakthroughs can no longer be achieved by a handful of scientists alone — they require the support of the entire national system, where capital, talent, resources, and governance capacity are all indispensable.\" The leading positions of China and the US in AI development are precisely the embodiment of this technological lock-in.",
       "p7": "Xue Jing believes that technology competition is the main theme of future great-power rivalry. The battlefield is the next industrial revolution, and AI will play a key role. To win, he emphasized four priorities: fundamental scientific exploration; leveraging existing industrial manufacturing capabilities across diverse application scenarios; consolidating the engineer dividend; and finding new pathways for globalization.",
       "h2_2": "From Breakthrough to Application",
-      "h3_2": "LINK-X Capital's Frontier Insights and Strategic Positioning in AI",
-      "p8": "In the new technology competition landscape, China is moving from \"application extension\" to \"source participation.\" Against this backdrop, LINK-X Capital delivered an outstanding 2025 — among its 30 portfolio companies, over 90% completed new funding rounds, 17 have grown into quasi-unicorns in their respective segments, and 2 are advancing toward IPO.",
-      "p9": "Discussing AI developments in 2025 and the outlook for 2026, LINK-X Capital founding partner Zhang Mingchen shared deep insights from 30 experts at the frontier of research, industry, and entrepreneurship:",
+      "h3_2": "LinkX's Frontier Insights and Strategic Positioning in AI",
+      "p8": "In the new technology competition landscape, China is moving from \"application extension\" to \"source participation.\" Against this backdrop, LinkX delivered an outstanding 2025 — among its 30 portfolio companies, over 90% completed new funding rounds, 17 have grown into quasi-unicorns in their respective segments, and 2 are advancing toward IPO.",
+      "p9": "Discussing AI developments in 2025 and the outlook for 2026, LinkX founding partner Zhang Mingchen shared deep insights from 30 experts at the frontier of research, industry, and entrepreneurship:",
       "h3_3": "Four Breakthroughs of 2025",
       "li1": "Strong foundation models and reinforcement learning brought reasoning capability improvements, represented by DeepSeek V3 and R1;",
       "li2": "AI achieved new heights in multimodal understanding and generation, represented by Gemini 3, Sora 2, and Nano Banana;",
@@ -807,7 +1285,7 @@
       "li9": "Online learning and other breakthroughs will give models self-evolution capabilities.",
       "p10": "Zhang Mingchen noted that 2025 has been a pivotal year of rapid AI development. Whether in model capability improvements, infrastructure growth, application exploration, or capital enthusiasm, all signs indicate AI is transitioning from technological breakthrough to industry application.",
       "p11": "As a value amplifier transforming traditional industries, AI is demonstrating the powerful impact of \"Roll Up\" — globally, traditional industries are opening up vast scenarios and demands, expecting to leverage AI technology to improve overall efficiency and profits, rapidly achieving asset value growth.",
-      "p12": "This trend aligns closely with LINK-X Capital's philosophy. Zhang emphasized: \"Our investment in AI is not merely an investment activity — we aim to build an integrated loop of industry, academia, research, and investment, driving the full flow of key elements in the ecosystem, ultimately achieving overall value amplification.\" To this end, LINK-X Capital co-established the T-ONE Innovation Lab with Tsinghua University.",
+      "p12": "This trend aligns closely with LinkX's philosophy. Zhang emphasized: \"Our investment in AI is not merely an investment activity — we aim to build an integrated loop of industry, academia, research, and investment, driving the full flow of key elements in the ecosystem, ultimately achieving overall value amplification.\" To this end, LinkX co-established the T-ONE Innovation Lab with Tsinghua University.",
       "p13": "Zhang further stated that from the rapid development of portfolio companies, outstanding entrepreneurs and teams have demonstrated unique speed and direction. The future of AI is not about \"whether it will arrive,\" but \"how fast.\" Entrepreneurs must seize the initiative — run earlier and run steadier.",
       "h2_3": "Exploring the Intelligence Ceiling",
       "h3_5": "AGI Breakthroughs: Foundation Model Capability, Alignment & Reasoning, AI-Native Productivity",
@@ -847,11 +1325,11 @@
       "p36": "First, proactively plan \"H+A\" pathways, leveraging Greater Bay Area policy advantages for cross-market value maximization;",
       "p37": "Second, fully utilize the 18C policy window by early introduction of qualified \"leading senior independent investors\" to pass regulatory review with professional capital structures;",
       "p38": "Third, present a \"technology story of certainty\" to mature investors with scarce technology, clear growth paths, and verifiable commercialization metrics, while locking in high-quality cornerstone investors before issuance.",
-      "p39": "Returning to the scene of LINK-X Capital's 2025 AGM, we once again witnessed the power of courage and transformation.",
-      "p40": "LINK-X Capital will continue to discover and support entrepreneurs who \"dare to think and act,\" running with speed and direction in the new acceleration cycle, jointly driving a new round of development and innovation in China's technology industry.",
+      "p39": "Returning to the scene of LinkX's 2025 AGM, we once again witnessed the power of courage and transformation.",
+      "p40": "LinkX will continue to discover and support entrepreneurs who \"dare to think and act,\" running with speed and direction in the new acceleration cycle, jointly driving a new round of development and innovation in China's technology industry.",
       "p41": "We believe that 2025 is only a new beginning.",
       "footer.desc": "Partnering with the founders defining the AGI era.",
-      "footer.copy": "© 2026 LINK-X Capital",
+      "footer.copy": "© 2026 LinkX",
       "footer.legal": "Legal"
     }
   };
@@ -936,5 +1414,47 @@
     if (e.key === "Escape") setMenuOpen(false);
   });
 </script>
+
+<script>
+(() => {
+  "use strict";
+
+  function getMenuOverlay() {
+    return document.getElementById("siteMenu") || document.getElementById("menu-overlay") || document.querySelector(".menu-overlay");
+  }
+
+  function isMenuOpen(menu) {
+    return !!menu && menu.classList.contains("is-open");
+  }
+
+  function closeMenu(menu) {
+    if (!menu) return;
+    menu.classList.remove("is-open");
+    menu.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("menu-open");
+    document.querySelectorAll("[data-menu-open]").forEach(btn => {
+      btn.setAttribute("aria-expanded", "false");
+    });
+  }
+
+  function shouldIgnore(target, menu) {
+    return !menu || menu.contains(target) || !!target.closest("[data-menu-open], [data-menu-close]");
+  }
+
+  function interceptOutsideMenu(event) {
+    const menu = getMenuOverlay();
+    if (!isMenuOpen(menu) || shouldIgnore(event.target, menu)) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+    closeMenu(menu);
+  }
+
+  document.addEventListener("pointerdown", interceptOutsideMenu, true);
+  document.addEventListener("click", interceptOutsideMenu, true);
+})();
+</script>
+
 </body>
 </html>
