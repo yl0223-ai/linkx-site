@@ -704,21 +704,6 @@
     margin-top: clamp(10px, 1.6vh, 18px) !important;
   }
 
-  .menu-home-link {
-    display: inline-flex;
-    justify-self: start;
-    color: rgba(250, 248, 244, 0.46);
-    text-decoration: none;
-    transition: color 180ms ease, transform 180ms ease;
-  }
-
-  .menu-home-link:hover,
-  .menu-home-link:focus-visible {
-    color: rgba(250, 248, 244, 0.86);
-    transform: translateY(-1px);
-    outline: none;
-  }
-
   .menu-footer-brand {
     display: none;
   }
@@ -742,10 +727,6 @@
     color: rgba(250, 248, 244, 0.86);
     transform: translateY(-1px);
     outline: none;
-  }
-
-  html[data-lang="en"] .menu-home-link {
-    display: none;
   }
 
   html[data-lang="en"] .menu-footer-brand {
@@ -790,10 +771,6 @@
 
   .menu-footer-brand,
   .menu-footer-social {
-    display: none;
-  }
-
-  html[data-lang="en"] .menu-home-link {
     display: none;
   }
 
@@ -991,7 +968,1849 @@ html[data-lang="en"] .menu-footer-social-label {
   align-items: center;
 }
 
+
+/* v147: insights summary page as a content hub. */
+.page-hero {
+  display: none !important;
+}
+
+.content-hub-hero {
+  padding: clamp(54px, 7vw, 96px) 0 clamp(34px, 5vw, 62px);
+  background:
+    radial-gradient(circle at 84% 8%, rgba(176, 124, 192, 0.14), transparent 30%),
+    linear-gradient(180deg, var(--bg) 0%, rgba(242,235,224,0.48) 100%);
+}
+
+.content-hub-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.68fr);
+  gap: clamp(34px, 7vw, 92px);
+  align-items: end;
+  margin-bottom: clamp(34px, 5vw, 58px);
+}
+
+.hub-kicker {
+  display: inline-flex;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--purple);
+}
+
+.content-hub-heading h1 {
+  margin-top: 18px;
+  font-family: var(--font-serif);
+  font-size: clamp(42px, 6vw, 78px);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+}
+
+.content-hub-heading h1 em {
+  font-style: italic;
+  color: var(--purple);
+}
+
+.content-hub-heading .sub {
+  color: var(--text-muted);
+  font-size: clamp(15px, 1.15vw, 17px);
+  line-height: 1.78;
+  max-width: 42em;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) repeat(3, minmax(0, 0.72fr));
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.feature-card {
+  min-height: 260px;
+  padding: clamp(22px, 2.6vw, 32px);
+  border-right: 1px solid var(--border);
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: rgba(250,248,244,0.24);
+  transition: background 220ms ease, transform 220ms ease;
+}
+
+.feature-card:last-child {
+  border-right: 0;
+}
+
+.feature-card:hover,
+.feature-card:focus-visible {
+  background: rgba(243, 234, 246, 0.72);
+  outline: none;
+}
+
+.feature-card-large {
+  min-height: 340px;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(176, 124, 192, 0.16), transparent 34%),
+    rgba(250,248,244,0.42);
+}
+
+.feature-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--purple);
+}
+
+.feature-meta span {
+  padding: 3px 9px;
+  border: 1px solid rgba(102, 8, 116, 0.18);
+  background: rgba(250,248,244,0.38);
+}
+
+.feature-card h2,
+.feature-card h3 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.018em;
+  color: var(--text);
+}
+
+.feature-card h2 {
+  margin-top: auto;
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1.16;
+  max-width: 12em;
+}
+
+.feature-card h3 {
+  margin-top: auto;
+  font-size: clamp(20px, 1.85vw, 27px);
+  line-height: 1.24;
+}
+
+.feature-card p {
+  margin-top: 18px;
+  color: var(--text-muted);
+  font-size: 14.5px;
+  line-height: 1.68;
+  max-width: 38em;
+}
+
+.feature-link {
+  margin-top: 22px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--purple);
+}
+
+.content-hub-main {
+  padding: clamp(42px, 6vw, 72px) 0 clamp(86px, 10vw, 136px);
+}
+
+.content-hub-layout {
+  display: grid;
+  grid-template-columns: minmax(180px, 220px) minmax(0, 1fr);
+  gap: clamp(42px, 7vw, 96px);
+  align-items: start;
+}
+
+.hub-sidebar {
+  position: sticky;
+  top: 108px;
+  align-self: start;
+  display: grid;
+  gap: 34px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
+.hub-filter-title {
+  margin-bottom: 14px;
+  color: var(--text-light);
+  text-transform: uppercase;
+}
+
+.hub-filter-group {
+  display: grid;
+  gap: 9px;
+}
+
+.hub-filter-group a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 160ms ease, transform 160ms ease;
+}
+
+.hub-filter-group a:hover,
+.hub-filter-group a:focus-visible {
+  color: var(--purple);
+  transform: translateX(3px);
+  outline: none;
+}
+
+.hub-list-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.hub-subscribe {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--purple);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.hub-latest .insight-list {
+  border-top: 0 !important;
+}
+
+.hub-latest .insight-item {
+  grid-template-columns: 86px minmax(0, 1fr);
+  padding: 30px 0;
+}
+
+.month-divider {
+  display: none !important;
+}
+
+@media (max-width: 1060px) {
+  .featured-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .feature-card-large {
+    grid-column: 1 / -1;
+  }
+
+  .feature-card:nth-child(2) {
+    border-left: 0;
+  }
+
+  .feature-card:nth-child(2n) {
+    border-right: 1px solid var(--border);
+  }
+
+  .feature-card:nth-child(3),
+  .feature-card:nth-child(4) {
+    border-top: 1px solid var(--border);
+  }
+}
+
+@media (max-width: 860px) {
+  .content-hub-heading {
+    grid-template-columns: 1fr;
+  }
+
+  .content-hub-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .hub-sidebar {
+    position: relative;
+    top: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+  }
+}
+
+@media (max-width: 640px) {
+  .featured-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-card,
+  .feature-card:nth-child(2n) {
+    border-right: 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .feature-card:first-child {
+    border-top: 0;
+  }
+
+  .hub-sidebar {
+    grid-template-columns: 1fr;
+  }
+
+  .hub-list-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .hub-latest .insight-item {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+
+/* v148: featured area as horizontal card carousel. */
+.featured-grid {
+  display: none !important;
+}
+
+.featured-carousel-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+.featured-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.featured-control {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(102, 8, 116, 0.22);
+  background: rgba(250, 248, 244, 0.68);
+  color: var(--purple);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 180ms ease, color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.featured-control:hover,
+.featured-control:focus-visible {
+  background: var(--purple);
+  color: var(--bg);
+  border-color: var(--purple);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.featured-carousel {
+  display: grid !important;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(280px, 36%);
+  gap: 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  scrollbar-width: none;
+}
+
+.featured-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.featured-carousel .feature-card {
+  scroll-snap-align: start;
+  min-height: 320px;
+  border-right: 1px solid var(--border);
+  border-top: 0 !important;
+}
+
+.featured-carousel .feature-card-large {
+  grid-column: auto !important;
+  min-height: 320px;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(176, 124, 192, 0.16), transparent 34%),
+    rgba(250,248,244,0.42);
+}
+
+.featured-carousel .feature-card h2 {
+  font-size: clamp(25px, 2.55vw, 38px);
+  max-width: 12em;
+}
+
+.featured-carousel .feature-card h3 {
+  font-size: clamp(19px, 1.75vw, 25px);
+}
+
+.featured-carousel .feature-card p {
+  max-width: 34em;
+}
+
+@media (min-width: 1280px) {
+  .featured-carousel {
+    grid-auto-columns: minmax(320px, 34%);
+  }
+
+  .featured-carousel .feature-card-large {
+    grid-auto-columns: minmax(380px, 40%);
+  }
+}
+
+@media (max-width: 1060px) {
+  .featured-carousel {
+    grid-auto-columns: minmax(300px, 58%);
+  }
+
+  .featured-carousel .feature-card:nth-child(2n),
+  .featured-carousel .feature-card:nth-child(3),
+  .featured-carousel .feature-card:nth-child(4) {
+    border-top: 0 !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .featured-carousel {
+    grid-auto-columns: minmax(260px, 88%);
+  }
+
+  .featured-carousel .feature-card,
+  .featured-carousel .feature-card:nth-child(2n) {
+    border-right: 1px solid var(--border);
+  }
+}
+
+
+/* v149: filtered insight hub + three-card featured carousel. */
+.featured-carousel {
+  grid-auto-columns: minmax(320px, 42%) !important;
+}
+
+.featured-carousel .feature-card[hidden],
+.hub-latest .insight-item[hidden] {
+  display: none !important;
+}
+
+.hub-filter-group a,
+.hub-filter {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: var(--text-muted);
+  text-decoration: none;
+  font: inherit;
+  letter-spacing: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: color 160ms ease, transform 160ms ease;
+}
+
+.hub-filter:hover,
+.hub-filter:focus-visible,
+.hub-filter.is-active {
+  color: var(--purple);
+  transform: translateX(3px);
+  outline: none;
+}
+
+.hub-filter.is-active::before {
+  content: "• ";
+}
+
+.hub-empty {
+  display: none;
+  padding: 34px 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-light);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
+.hub-empty.is-visible {
+  display: block;
+}
+
+@media (min-width: 1180px) {
+  .featured-carousel {
+    grid-auto-columns: minmax(330px, 38%) !important;
+  }
+}
+
+@media (max-width: 860px) {
+  .featured-carousel {
+    grid-auto-columns: minmax(300px, 72%) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .featured-carousel {
+    grid-auto-columns: minmax(260px, 88%) !important;
+  }
+}
+
+
+/* v150: a16z-inspired featured image showcase — one large, two small. */
+.featured-carousel,
+.featured-grid {
+  display: none !important;
+}
+
+.featured-carousel-bar {
+  margin-bottom: 16px !important;
+}
+
+.featured-showcase {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.42fr) minmax(280px, 0.86fr);
+  grid-template-rows: repeat(2, minmax(220px, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  min-height: clamp(520px, 54vw, 680px);
+}
+
+.feature-image-card {
+  position: relative;
+  min-height: 260px;
+  color: #fff;
+  text-decoration: none;
+  overflow: hidden;
+  isolation: isolate;
+  border-right: 1px solid rgba(250, 248, 244, 0.20);
+  border-bottom: 1px solid rgba(250, 248, 244, 0.20);
+  background-image:
+    linear-gradient(to top, rgba(20, 12, 28, 0.74) 0%, rgba(20, 12, 28, 0.28) 48%, rgba(250, 248, 244, 0.06) 100%),
+    var(--bg);
+  background-size: cover;
+  background-position: center;
+}
+
+.feature-image-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: var(--bg);
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.02);
+  transition: transform 700ms cubic-bezier(.18,.84,.22,1), filter 700ms ease;
+}
+
+.feature-image-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(to top, rgba(22, 12, 30, 0.78) 0%, rgba(22, 12, 30, 0.36) 46%, rgba(250, 248, 244, 0.06) 100%),
+    radial-gradient(circle at 18% 78%, rgba(102, 8, 116, 0.34), transparent 36%);
+  pointer-events: none;
+}
+
+.feature-image-card:hover::before,
+.feature-image-card:focus-visible::before {
+  transform: scale(1.075);
+  filter: saturate(1.06) contrast(1.02);
+}
+
+.feature-image-card:focus-visible {
+  outline: 1px solid rgba(250,248,244,0.75);
+  outline-offset: -6px;
+}
+
+.feature-image-card-large {
+  grid-row: 1 / span 2;
+  min-height: 520px;
+}
+
+.feature-image-card-large::after {
+  background:
+    linear-gradient(to top, rgba(22, 12, 30, 0.82) 0%, rgba(22, 12, 30, 0.34) 44%, rgba(250, 248, 244, 0.04) 100%),
+    radial-gradient(circle at 20% 78%, rgba(102, 8, 116, 0.36), transparent 38%);
+}
+
+.feature-image-overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: clamp(22px, 3vw, 36px);
+  display: grid;
+  gap: 14px;
+}
+
+.feature-image-card-large .feature-image-overlay {
+  padding: clamp(28px, 4vw, 48px);
+  gap: 16px;
+}
+
+.feature-image-card .feature-meta span {
+  color: rgba(255, 255, 255, 0.84);
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(28, 18, 38, 0.28);
+  backdrop-filter: blur(8px);
+}
+
+.feature-image-card h2,
+.feature-image-card h3 {
+  color: rgba(255,255,255,0.94);
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  text-shadow: 0 10px 32px rgba(0,0,0,0.22);
+}
+
+.feature-image-card h2 {
+  text-wrap: balance;
+  max-width: 12em;
+  font-size: clamp(34px, 4vw, 58px);
+  line-height: 1.05;
+}
+
+.feature-image-card h3 {
+  text-wrap: balance;
+  max-width: 13em;
+  font-size: clamp(23px, 2.15vw, 34px);
+  line-height: 1.12;
+}
+
+.feature-image-card p {
+  max-width: 40em;
+  color: rgba(255,255,255,0.74);
+  font-size: clamp(14px, 1vw, 16px);
+  line-height: 1.72;
+}
+
+.feature-image-card .feature-link {
+  color: rgba(255,255,255,0.88);
+}
+
+.feature-image-card[hidden] {
+  display: none !important;
+}
+
+.featured-showcase.is-filtered {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-rows: none;
+  min-height: 360px;
+}
+
+.featured-showcase.is-filtered .feature-image-card,
+.featured-showcase.is-filtered .feature-image-card-large {
+  grid-row: auto;
+  min-height: 360px;
+}
+
+@media (max-width: 960px) {
+  .featured-showcase {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    min-height: 0;
+  }
+
+  .feature-image-card,
+  .feature-image-card-large {
+    grid-row: auto;
+    min-height: 360px;
+    border-right: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .feature-image-card,
+  .feature-image-card-large {
+    min-height: 320px;
+  }
+
+  .feature-image-card h2 {
+    font-size: clamp(30px, 8vw, 42px);
+  }
+
+  .feature-image-card h3 {
+    font-size: clamp(24px, 7vw, 34px);
+  }
+}
+
+
+/* v151: insights split hero with right-side featured carousel. */
+.content-hub-hero{padding:clamp(54px,7vw,92px) 0 clamp(42px,5vw,66px)!important}
+.insights-hero-split{display:grid;grid-template-columns:minmax(280px,.78fr) minmax(420px,1.22fr);gap:clamp(36px,6vw,88px);align-items:center}
+.insights-hero-copy h1{margin-top:18px;font-family:var(--font-serif);font-size:clamp(44px,5.8vw,78px);font-weight:400;line-height:1.03;letter-spacing:-.035em}
+.insights-hero-copy h1 em{font-style:italic;color:var(--purple)}
+.insights-hero-copy .sub{margin-top:clamp(22px,3vw,34px);color:var(--text-muted);font-size:clamp(15px,1.1vw,17px);line-height:1.82;max-width:39em}
+.featured-rail{min-width:0;align-self:stretch;display:flex;flex-direction:column;justify-content:center}
+.featured-rail .featured-carousel-bar{margin-bottom:14px!important}
+.featured-showcase{display:grid!important;grid-auto-flow:column;grid-auto-columns:minmax(420px,100%);grid-template-columns:none!important;grid-template-rows:none!important;gap:0;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;border:1px solid var(--border);min-height:0!important;aspect-ratio:16/10;background:rgba(250,248,244,.42)}
+.featured-showcase::-webkit-scrollbar{display:none}
+.feature-image-card,.feature-image-card-large{grid-row:auto!important;min-height:0!important;height:100%;scroll-snap-align:start;border-right:1px solid rgba(250,248,244,.24);border-bottom:0!important}
+.feature-image-card h2,.feature-image-card h3{max-width:12.8em!important}
+.feature-image-card h2{font-size:clamp(30px,3.3vw,48px)!important;line-height:1.08!important}
+.feature-image-card h3{font-size:clamp(25px,2.8vw,42px)!important;line-height:1.1!important}
+.feature-image-overlay{padding:clamp(24px,3vw,38px)!important;gap:13px!important}
+.feature-image-card p{max-width:38em;font-size:clamp(13px,.95vw,15px)}
+.featured-control{width:34px;height:34px}
+@media(max-width:1080px){.insights-hero-split{grid-template-columns:1fr;gap:34px}.featured-showcase{grid-auto-columns:minmax(320px,88%);aspect-ratio:16/10}.feature-image-card h2,.feature-image-card h3{font-size:clamp(28px,5vw,44px)!important}}
+@media(max-width:640px){.featured-showcase{grid-auto-columns:minmax(260px,88%);aspect-ratio:4/3}.insights-hero-copy .sub br{display:none}.feature-image-overlay{padding:22px!important}}
+
+
+/* v152: insights layout refinement, carousel timing, and typography scale. */
+.insights-hero-split {
+  grid-template-columns: minmax(300px, 0.72fr) minmax(460px, 1.28fr) !important;
+  gap: clamp(42px, 6.5vw, 96px) !important;
+}
+
+.insights-hero-copy h1 {
+  font-size: clamp(42px, 5.2vw, 70px) !important;
+  line-height: 1.04 !important;
+}
+
+.insights-hero-copy .sub {
+  max-width: 42em !important;
+  font-size: clamp(14.5px, 1.02vw, 16.5px) !important;
+  line-height: 1.82 !important;
+}
+
+.insights-hero-copy .sub .line {
+  display: block;
+}
+
+html[data-lang="en"] .insights-hero-copy .sub .line {
+  display: inline;
+}
+
+html[data-lang="en"] .insights-hero-copy .sub .line:first-child::after {
+  content: " ";
+}
+
+.featured-rail .featured-carousel-bar {
+  margin-bottom: 12px !important;
+}
+
+.featured-showcase {
+  grid-auto-columns: 100% !important;
+  aspect-ratio: 16 / 9.6 !important;
+  max-height: 520px;
+}
+
+.feature-image-card,
+.feature-image-card-large {
+  width: 100% !important;
+}
+
+.feature-image-overlay {
+  padding: clamp(24px, 2.8vw, 34px) !important;
+}
+
+.feature-image-card h2 {
+  font-size: clamp(28px, 3vw, 44px) !important;
+  line-height: 1.08 !important;
+  max-width: 13em !important;
+}
+
+.feature-image-card h3 {
+  font-size: clamp(25px, 2.55vw, 38px) !important;
+  line-height: 1.12 !important;
+  max-width: 13.2em !important;
+}
+
+.feature-image-card p {
+  font-size: clamp(13px, 0.9vw, 14.5px) !important;
+  line-height: 1.66 !important;
+}
+
+.feature-meta {
+  font-size: 9.5px !important;
+}
+
+.content-hub-layout {
+  grid-template-columns: minmax(170px, 210px) minmax(0, 1fr) !important;
+  gap: clamp(40px, 6vw, 86px) !important;
+}
+
+.hub-sidebar {
+  font-size: 10.5px !important;
+  gap: 30px !important;
+}
+
+.hub-filter-title {
+  margin-bottom: 12px !important;
+}
+
+.hub-list-head {
+  padding-bottom: 16px !important;
+}
+
+.hub-latest .insight-item {
+  grid-template-columns: 78px minmax(0, 1fr) !important;
+  padding: 28px 0 !important;
+}
+
+.insight-date .day {
+  font-size: 24px !important;
+}
+
+.insight-body h3 {
+  font-size: clamp(20px, 1.65vw, 25px) !important;
+  line-height: 1.32 !important;
+}
+
+.insight-meta {
+  margin-bottom: 9px !important;
+}
+
+.insight-tag,
+.insight-track {
+  font-size: 9.5px !important;
+}
+
+@media (max-width: 1080px) {
+  .insights-hero-split {
+    grid-template-columns: 1fr !important;
+  }
+
+  .featured-showcase {
+    grid-auto-columns: 100% !important;
+    aspect-ratio: 16 / 10 !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .insights-hero-copy .sub .line {
+    display: inline;
+  }
+
+  .featured-showcase {
+    aspect-ratio: 4 / 3 !important;
+  }
+
+  .feature-image-card h2,
+  .feature-image-card h3 {
+    font-size: clamp(24px, 6.5vw, 34px) !important;
+  }
+}
+
+
+/* v153: natural two-line intro + clearer featured title sizing. */
+.insights-hero-copy .sub {
+  max-width: 37em !important;
+  font-size: clamp(15px, 1.05vw, 16.5px) !important;
+  line-height: 1.82 !important;
+}
+
+.insights-hero-copy .sub .line {
+  display: inline !important;
+}
+
+html[data-lang="en"] .insights-hero-copy .sub {
+  max-width: 40em !important;
+}
+
+.featured-showcase {
+  grid-auto-columns: 100% !important;
+}
+
+.feature-image-card h2,
+.feature-image-card h3 {
+  max-width: 14.5em !important;
+}
+
+.feature-image-card h2 {
+  font-size: clamp(25px, 2.45vw, 36px) !important;
+  line-height: 1.14 !important;
+  letter-spacing: -0.018em !important;
+}
+
+.feature-image-card h3 {
+  font-size: clamp(23px, 2.18vw, 32px) !important;
+  line-height: 1.16 !important;
+  letter-spacing: -0.016em !important;
+}
+
+html[data-lang="en"] .feature-image-card h2,
+html[data-lang="en"] .feature-image-card h3 {
+  font-size: clamp(22px, 1.9vw, 29px) !important;
+  line-height: 1.18 !important;
+  max-width: 15.5em !important;
+}
+
+.feature-image-card p {
+  font-size: clamp(12.5px, 0.85vw, 14px) !important;
+  line-height: 1.62 !important;
+  max-width: 38em !important;
+}
+
+@media (max-width: 640px) {
+  .insights-hero-copy .sub {
+    max-width: 100% !important;
+  }
+
+  .feature-image-card h2,
+  .feature-image-card h3 {
+    font-size: clamp(22px, 6vw, 30px) !important;
+  }
+}
+
+
+/* v154: exact intro line break + stable carousel timing. */
+html[data-lang="zh"] .insights-hero-copy .sub .line {
+  display: block !important;
+  white-space: nowrap !important;
+}
+
+html[data-lang="en"] .insights-hero-copy .sub .line {
+  display: inline !important;
+  white-space: normal !important;
+}
+
+@media (max-width: 720px) {
+  html[data-lang="zh"] .insights-hero-copy .sub .line {
+    display: inline !important;
+    white-space: normal !important;
+  }
+}
+
+
+
+
+/* v159: transform-based featured slide carousel. */
+.featured-showcase {
+  display: block !important;
+  position: relative !important;
+  overflow: hidden !important;
+  width: 100% !important;
+  aspect-ratio: 16 / 9.6 !important;
+  border: 1px solid var(--border);
+  background: #171218 !important;
+  transform: translateZ(0);
+  contain: paint;
+}
+
+.featured-track {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  width: 100% !important;
+  height: 100% !important;
+  transform: translate3d(0,0,0);
+  transition: transform 680ms cubic-bezier(.18,.84,.22,1);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.featured-showcase .feature-image-card,
+.featured-showcase .feature-image-card-large {
+  position: relative !important;
+  inset: auto !important;
+  display: block !important;
+  flex: 0 0 100% !important;
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  border: 0 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: translate3d(0,0,0) !important;
+  transition: none !important;
+  backface-visibility: hidden;
+}
+
+.featured-showcase .feature-image-card::before {
+  transform: translate3d(0,0,0) scale(1.035) !important;
+  transition: transform 900ms cubic-bezier(.18,.84,.22,1), filter 700ms ease !important;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.featured-showcase .feature-image-card.is-active::before {
+  transform: translate3d(0,0,0) scale(1.015) !important;
+}
+
+.featured-showcase .feature-image-card.is-active:hover::before,
+.featured-showcase .feature-image-card.is-active:focus-visible::before {
+  transform: translate3d(0,0,0) scale(1.06) !important;
+}
+
+.featured-controls {
+  display: inline-flex !important;
+}
+
+@media (max-width: 640px) {
+  .featured-showcase {
+    aspect-ratio: 4 / 3 !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .featured-track {
+    transition: none !important;
+  }
+}
+
+
+
+/* v128: restore visible Build With Us card + full social matrix in menu drawer. */
+.menu-panel.menu-build-card {
+  border-radius: 28px !important;
+  border: 1px solid rgba(250, 248, 244, 0.16) !important;
+  background:
+    radial-gradient(circle at 18% 16%, rgba(176, 124, 192, 0.22), transparent 36%),
+    radial-gradient(circle at 92% 88%, rgba(250, 248, 244, 0.09), transparent 30%),
+    linear-gradient(180deg, rgba(250, 248, 244, 0.085), rgba(250, 248, 244, 0.038)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(250, 248, 244, 0.10),
+    0 18px 52px rgba(0, 0, 0, 0.10) !important;
+  padding: clamp(22px, 2.7vw, 34px) !important;
+  overflow: hidden !important;
+}
+@media (min-width: 861px) {
+  .menu-panel.menu-build-card {
+    min-height: clamp(176px, 20vh, 236px) !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    align-content: end !important;
+  }
+  .menu-contact-cta { min-width: min(240px, 58%) !important; }
+}
+@media (max-width: 860px) {
+  .menu-panel.menu-build-card {
+    min-height: 210px !important;
+    padding: 24px !important;
+  }
+}
+
+.menu-footer { gap: clamp(18px, 2.4vw, 32px) !important; align-items: center !important; }
+.menu-social-matrix {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 0 !important;
+  margin-left: auto !important;
+}
+.menu-social-matrix .menu-footer-social-label { display: none !important; }
+.menu-social-links {
+  display: inline-flex !important;
+  align-items: center !important;
+  flex-wrap: nowrap !important;
+  gap: 8px !important;
+}
+.menu-social-item { position: relative !important; display: inline-flex !important; }
+.menu-social-icon {
+  width: 28px !important;
+  height: 28px !important;
+  display: inline-grid !important;
+  place-items: center !important;
+  padding: 0 !important;
+  border: 1px solid rgba(250, 248, 244, 0.18) !important;
+  border-radius: 50% !important;
+  border-bottom-color: rgba(250, 248, 244, 0.18) !important;
+  background: rgba(250, 248, 244, 0.045) !important;
+  color: rgba(250, 248, 244, 0.84) !important;
+  text-decoration: none !important;
+  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease, color 0.18s ease !important;
+}
+.menu-social-icon:hover,
+.menu-social-icon:focus-visible {
+  transform: translateY(-2px) !important;
+  border-color: rgba(250, 248, 244, 0.48) !important;
+  background: rgba(250, 248, 244, 0.12) !important;
+  color: #fff !important;
+  outline: none !important;
+}
+.menu-social-icon svg,
+.menu-social-icon img {
+  width: 14px !important;
+  height: 14px !important;
+  display: block !important;
+  fill: currentColor !important;
+  object-fit: contain !important;
+}
+.menu-social-icon img.icon-xhs { width: 15px !important; height: 15px !important; }
+.menu-social-icon img.icon-douyin { width: 14px !important; height: 14px !important; }
+.menu-qr-popover {
+  position: absolute !important;
+  right: 50% !important;
+  top: auto !important;
+  bottom: calc(100% + 14px) !important;
+  width: 168px !important;
+  padding: 12px !important;
+  border-radius: 8px !important;
+  background: rgba(250, 248, 244, 0.98) !important;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.32) !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: translate(50%, 8px) !important;
+  pointer-events: none !important;
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease !important;
+  z-index: 20 !important;
+}
+.menu-qr-popover::after {
+  content: "" !important;
+  position: absolute !important;
+  right: 50% !important;
+  top: auto !important;
+  bottom: -7px !important;
+  width: 14px !important;
+  height: 14px !important;
+  background: rgba(250, 248, 244, 0.98) !important;
+  transform: translateX(50%) rotate(45deg) !important;
+}
+.menu-qr-popover img {
+  width: 100% !important;
+  aspect-ratio: 1 !important;
+  object-fit: cover !important;
+  border-radius: 4px !important;
+}
+.menu-qr-popover span {
+  display: block !important;
+  margin-top: 9px !important;
+  color: var(--text) !important;
+  font-size: 12px !important;
+  line-height: 1.4 !important;
+  text-align: center !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+.menu-social-item:hover .menu-qr-popover,
+.menu-social-item:focus-within .menu-qr-popover {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translate(50%, 0) !important;
+  pointer-events: auto !important;
+}
+.qr-fallback {
+  display: none;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 4px;
+  place-items: center;
+  color: rgba(102, 8, 116, 0.62);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  background:
+    linear-gradient(90deg, rgba(102, 8, 116, 0.11) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(102, 8, 116, 0.11) 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, rgba(176, 124, 192, 0.12), transparent 58%),
+    rgba(250, 248, 244, 0.96);
+  background-size: 12px 12px, 12px 12px, 100% 100%, 100% 100%;
+  border: 1px solid rgba(102, 8, 116, 0.10);
+}
+.qr-popover.qr-missing .qr-fallback { display: grid; }
+.qr-popover.qr-missing span::after {
+  content: " · 二维码图片待补充";
+  color: rgba(120, 113, 108, 0.72);
+}
+@media (max-width: 860px) {
+  .menu-footer {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    align-items: start !important;
+  }
+  .menu-social-matrix {
+    margin-left: 0 !important;
+    justify-content: flex-start !important;
+  }
+  .menu-social-links { flex-wrap: wrap !important; }
+  .menu-social-icon { width: 30px !important; height: 30px !important; }
+}
+
+
+
+/* v127: align LinkX menu watermark with index.html original bottom-right posture. */
+.menu-overlay::before {
+  content: "LinkX" !important;
+  position: absolute !important;
+  right: -0.08em !important;
+  bottom: -0.28em !important;
+  font-family: var(--font-serif) !important;
+  font-size: clamp(130px, 24vw, 360px) !important;
+  line-height: 1 !important;
+  color: rgba(250, 248, 244, 0.045) !important;
+  pointer-events: none !important;
+  letter-spacing: 0 !important;
+  transform: none !important;
+  z-index: 0 !important;
+}
+.menu-shell::before {
+  content: none !important;
+}
+
+
+
+/* Patch: remove default browser blue focus ring on menu links, keep LinkX-style focus affordance. */
+.menu-overlay a:focus,
+.menu-overlay button:focus {
+  outline: none !important;
+}
+.menu-primary a:focus-visible {
+  outline: 1px solid rgba(232, 213, 238, 0.42) !important;
+  outline-offset: -1px !important;
+  background: rgba(250, 248, 244, 0.035) !important;
+}
+.menu-primary a:focus:not(:focus-visible),
+.menu-contact-cta:focus:not(:focus-visible),
+.menu-social-icon:focus:not(:focus-visible),
+.menu-close:focus:not(:focus-visible) {
+  outline: none !important;
+  box-shadow: none !important;
+}
+.menu-contact-cta:focus-visible,
+.menu-social-icon:focus-visible,
+.menu-close:focus-visible {
+  outline: 1px solid rgba(232, 213, 238, 0.48) !important;
+  outline-offset: 4px !important;
+  box-shadow: none !important;
+}
+
+
+
+/* v131: Chinese menu shows full legal copyright; English keeps LINKX CAPITAL. */
+.menu-footer .menu-footer-brand {
+  display: inline-flex !important;
+  justify-self: start !important;
+  align-items: center !important;
+  color: rgba(250, 248, 244, 0.42) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+}
+@media (max-width: 860px) {
+  .menu-footer .menu-footer-brand {
+    display: inline-flex !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+  }
+}
+
+
+
+/* v132: force visible menu footer copyright in both languages. */
+.menu-footer {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  column-gap: clamp(18px, 2.4vw, 32px) !important;
+}
+.menu-footer .menu-footer-brand {
+  display: inline-flex !important;
+  justify-self: start !important;
+  align-items: center !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  color: rgba(250, 248, 244, 0.42) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: none !important;
+  white-space: normal !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+.menu-footer .menu-footer-brand .zh-only,
+.menu-footer .menu-footer-brand .en-only {
+  display: inline !important;
+}
+html[data-lang="zh"] .menu-footer .menu-footer-brand .en-only { display: none !important; }
+html[data-lang="en"] .menu-footer .menu-footer-brand .zh-only { display: none !important; }
+html[data-lang="en"] .menu-footer .menu-footer-brand .en-only {
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+}
+@media (max-width: 860px) {
+  .menu-footer { grid-template-columns: 1fr !important; row-gap: 14px !important; }
+  .menu-footer .menu-footer-brand { order: 1 !important; }
+  .menu-footer .menu-social-matrix { order: 2 !important; margin-left: 0 !important; justify-content: flex-start !important; }
+}
+
+
+
+/* v200: robust visible menu footer copyright via generated left grid item.
+   This avoids earlier display:none rules and i18n/localStorage overwrites. */
+.menu-footer {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  column-gap: clamp(18px, 2.4vw, 32px) !important;
+}
+.menu-footer::before {
+  content: "© 2026 北京星连肇基私募基金管理有限责任公司" !important;
+  grid-column: 1 !important;
+  justify-self: start !important;
+  display: block !important;
+  color: rgba(250, 248, 244, 0.46) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: none !important;
+  white-space: normal !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 3 !important;
+  pointer-events: none !important;
+}
+html[data-lang="en"] .menu-footer::before {
+  content: "LINKX CAPITAL" !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+}
+.menu-footer .menu-footer-brand {
+  display: none !important;
+}
+.menu-footer .menu-social-matrix {
+  grid-column: 2 !important;
+  justify-self: end !important;
+  z-index: 3 !important;
+}
+@media (max-width: 860px) {
+  .menu-footer {
+    grid-template-columns: 1fr !important;
+    row-gap: 14px !important;
+  }
+  .menu-footer::before {
+    grid-column: 1 !important;
+    max-width: 100% !important;
+  }
+  .menu-footer .menu-social-matrix {
+    grid-column: 1 !important;
+    justify-self: start !important;
+    margin-left: 0 !important;
+  }
+}
+
+
+
+/* v300: final robust visible copyright node, no pseudo-element dependency. */
+.menu-footer::before { content: none !important; display: none !important; }
+.menu-footer {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  column-gap: clamp(18px, 2.4vw, 32px) !important;
+}
+.menu-footer .menu-copyright-fixed {
+  grid-column: 1 !important;
+  justify-self: start !important;
+  display: inline-block !important;
+  color: rgba(250, 248, 244, 0.50) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: none !important;
+  white-space: normal !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  z-index: 10 !important;
+  pointer-events: none !important;
+}
+.menu-footer .menu-copyright-fixed .menu-copyright-zh,
+.menu-footer .menu-copyright-fixed .menu-copyright-en { display: inline !important; }
+html[data-lang="zh"] .menu-footer .menu-copyright-fixed .menu-copyright-en { display: none !important; }
+html[data-lang="en"] .menu-footer .menu-copyright-fixed .menu-copyright-zh { display: none !important; }
+html[data-lang="en"] .menu-footer .menu-copyright-fixed {
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+}
+.menu-footer .menu-social-matrix {
+  grid-column: 2 !important;
+  justify-self: end !important;
+}
+@media (max-width: 860px) {
+  .menu-footer { grid-template-columns: 1fr !important; row-gap: 14px !important; }
+  .menu-footer .menu-copyright-fixed,
+  .menu-footer .menu-social-matrix { grid-column: 1 !important; justify-self: start !important; }
+}
+
+
+
+/* v999: force visible menu copyright at the actual drawer bottom-left. */
+.menu-overlay .menu-shell {
+  position: relative !important;
+  padding-bottom: 72px !important;
+}
+.menu-overlay .menu-footer {
+  position: static !important;
+  display: block !important;
+  padding-top: 24px !important;
+  min-height: 48px !important;
+}
+.menu-overlay .menu-copyright-fixed {
+  position: absolute !important;
+  left: clamp(22px, 3vw, 40px) !important;
+  bottom: 28px !important;
+  display: block !important;
+  width: calc(100% - clamp(22px, 3vw, 40px) * 2 - 220px) !important;
+  min-width: 260px !important;
+  max-width: 420px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: rgba(250, 248, 244, 0.58) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: none !important;
+  white-space: normal !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 999 !important;
+  pointer-events: none !important;
+  background: transparent !important;
+}
+.menu-overlay .menu-copyright-fixed .menu-copyright-zh,
+.menu-overlay .menu-copyright-fixed .menu-copyright-en {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+html[data-lang="zh"] .menu-overlay .menu-copyright-fixed .menu-copyright-zh { display: inline !important; }
+html[data-lang="zh"] .menu-overlay .menu-copyright-fixed .menu-copyright-en { display: none !important; }
+html[data-lang="en"] .menu-overlay .menu-copyright-fixed .menu-copyright-zh { display: none !important; }
+html[data-lang="en"] .menu-overlay .menu-copyright-fixed .menu-copyright-en {
+  display: inline !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+}
+.menu-overlay .menu-social-matrix {
+  position: absolute !important;
+  right: clamp(22px, 3vw, 40px) !important;
+  bottom: 24px !important;
+  z-index: 999 !important;
+}
+@media (max-width: 860px) {
+  .menu-overlay .menu-shell { padding-bottom: 124px !important; }
+  .menu-overlay .menu-copyright-fixed {
+    left: clamp(22px, 3vw, 40px) !important;
+    right: clamp(22px, 3vw, 40px) !important;
+    bottom: 74px !important;
+    width: auto !important;
+    max-width: none !important;
+  }
+  .menu-overlay .menu-social-matrix {
+    left: clamp(22px, 3vw, 40px) !important;
+    right: auto !important;
+    bottom: 24px !important;
+  }
+}
+
+
+
+/* final: menu bottom-left brand by language */
+.menu-overlay .menu-copyright-fixed {
+  color: rgba(250, 248, 244, 0.58) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: none !important;
+}
+html[data-lang="zh"] .menu-overlay .menu-copyright-fixed .menu-copyright-zh { display: inline !important; }
+html[data-lang="zh"] .menu-overlay .menu-copyright-fixed .menu-copyright-en { display: none !important; }
+html[data-lang="en"] .menu-overlay .menu-copyright-fixed .menu-copyright-zh { display: none !important; }
+html[data-lang="en"] .menu-overlay .menu-copyright-fixed .menu-copyright-en {
+  display: inline !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+}
+
+
+
+/* v1001: robust footer copyright: single i18n text node, no child-span dependency. */
+.menu-overlay .menu-copyright-fixed {
+  display: block !important;
+  color: rgba(250, 248, 244, 0.58) !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+html[data-lang="zh"] .menu-overlay .menu-copyright-fixed {
+  letter-spacing: 0.04em !important;
+  text-transform: none !important;
+}
+html[data-lang="en"] .menu-overlay .menu-copyright-fixed {
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+}
+
+
+
+/* FINAL FIX: real menu footer copyright, no generated pseudo-text. */
+.menu-footer::before {
+  content: none !important;
+  display: none !important;
+}
+.menu-footer .menu-copyright-fixed {
+  grid-column: 1 !important;
+  justify-self: start !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: rgba(250, 248, 244, 0.46) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: none !important;
+  white-space: normal !important;
+  pointer-events: none !important;
+}
+html[data-lang="en"] .menu-footer .menu-copyright-fixed {
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+}
+.menu-footer .menu-social-matrix {
+  grid-column: 2 !important;
+}
+
+
+/* v1002: pin menu copyright to the true bottom-left of the drawer. */
+.menu-overlay .menu-shell {
+  position: relative !important;
+  min-height: 100dvh !important;
+  padding-bottom: 86px !important;
+}
+.menu-overlay .menu-footer {
+  position: static !important;
+}
+.menu-overlay .menu-footer::before {
+  content: none !important;
+  display: none !important;
+}
+.menu-overlay .menu-copyright-fixed {
+  position: absolute !important;
+  left: clamp(22px, 3vw, 40px) !important;
+  bottom: 26px !important;
+  right: auto !important;
+  top: auto !important;
+  transform: none !important;
+  display: block !important;
+  width: auto !important;
+  max-width: calc(100% - clamp(22px, 3vw, 40px) * 2) !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: left !important;
+  color: rgba(250, 248, 244, 0.58) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: none !important;
+  white-space: nowrap !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 1001 !important;
+  pointer-events: none !important;
+}
+html[data-lang="en"] .menu-overlay .menu-copyright-fixed {
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+}
+.menu-overlay .menu-social-matrix {
+  position: absolute !important;
+  right: clamp(22px, 3vw, 40px) !important;
+  bottom: 24px !important;
+  z-index: 1000 !important;
+}
+@media (max-width: 860px) {
+  .menu-overlay .menu-shell { padding-bottom: 128px !important; }
+  .menu-overlay .menu-copyright-fixed {
+    left: clamp(22px, 3vw, 40px) !important;
+    bottom: 78px !important;
+    max-width: calc(100% - clamp(22px, 3vw, 40px) * 2) !important;
+    white-space: normal !important;
+  }
+  .menu-overlay .menu-social-matrix {
+    left: clamp(22px, 3vw, 40px) !important;
+    right: auto !important;
+    bottom: 24px !important;
+  }
+}
+
+
+
+/* v1003 final: remove footer home/back link and pin copyright at menu drawer bottom-left. */
+.menu-overlay .menu-footer > a,
+.menu-overlay .menu-footer .menu-footer-home,
+.menu-overlay .menu-footer .footer-home,
+.menu-overlay .menu-footer .back-home,
+.menu-overlay .menu-footer [data-i18n="menu.footer.home"],
+.menu-overlay .menu-footer [data-i18n="footer.home"] {
+  display: none !important;
+}
+.menu-overlay .menu-footer::before,
+.menu-overlay .menu-footer::after {
+  content: none !important;
+  display: none !important;
+}
+.menu-overlay .menu-shell {
+  position: relative !important;
+  min-height: 100dvh !important;
+  padding-bottom: 86px !important;
+}
+.menu-overlay .menu-footer {
+  position: static !important;
+}
+.menu-overlay .menu-copyright-fixed {
+  position: absolute !important;
+  left: clamp(22px, 3vw, 40px) !important;
+  bottom: 26px !important;
+  right: auto !important;
+  top: auto !important;
+  display: block !important;
+  width: auto !important;
+  max-width: calc(100% - clamp(22px, 3vw, 40px) * 2) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: left !important;
+  color: rgba(250, 248, 244, 0.58) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: none !important;
+  white-space: nowrap !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: none !important;
+  z-index: 1001 !important;
+}
+html[data-lang="en"] .menu-overlay .menu-copyright-fixed {
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+}
+
+
+
+/* v1004: align bottom copyright with the left edge of menu number column (01/02/03). */
+.menu-overlay .menu-copyright-fixed {
+  left: clamp(22px, 3vw, 40px) !important;
+  inset-inline-start: clamp(22px, 3vw, 40px) !important;
+}
+@media (max-width: 860px) {
+  .menu-overlay .menu-copyright-fixed {
+    left: clamp(22px, 3vw, 40px) !important;
+    inset-inline-start: clamp(22px, 3vw, 40px) !important;
+  }
+}
+
+
+
+/* v1005: align footer brand text with the left border of the Build With Us card.
+   Footer is positioned as a full-width row inside the same menu content column as the card. */
+.menu-overlay .menu-shell {
+  position: relative !important;
+  padding-bottom: 92px !important;
+}
+.menu-overlay .menu-footer {
+  position: absolute !important;
+  left: clamp(22px, 3vw, 40px) !important;
+  right: clamp(22px, 3vw, 40px) !important;
+  bottom: 24px !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  column-gap: clamp(18px, 2.4vw, 32px) !important;
+  width: auto !important;
+  min-height: 42px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-top: 0 !important;
+  z-index: 1000 !important;
+}
+.menu-overlay .menu-copyright-fixed {
+  position: static !important;
+  grid-column: 1 !important;
+  justify-self: start !important;
+  align-self: center !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  top: auto !important;
+  width: auto !important;
+  max-width: min(100%, 460px) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: left !important;
+  color: rgba(250, 248, 244, 0.58) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: none !important;
+  white-space: normal !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: none !important;
+  z-index: 1001 !important;
+}
+html[data-lang="en"] .menu-overlay .menu-copyright-fixed {
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+}
+.menu-overlay .menu-social-matrix {
+  position: static !important;
+  grid-column: 2 !important;
+  justify-self: end !important;
+  align-self: center !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  margin: 0 !important;
+  z-index: 1001 !important;
+}
+@media (max-width: 860px) {
+  .menu-overlay .menu-shell { padding-bottom: 132px !important; }
+  .menu-overlay .menu-footer {
+    grid-template-columns: 1fr !important;
+    row-gap: 14px !important;
+    bottom: 22px !important;
+  }
+  .menu-overlay .menu-copyright-fixed,
+  .menu-overlay .menu-social-matrix {
+    grid-column: 1 !important;
+    justify-self: start !important;
+  }
+}
+
+
+
+/* v168: featured Chinese titles keep phrase integrity. */
+html[data-lang="zh"] .feature-image-card h2,
+html[data-lang="zh"] .feature-image-card h3 {
+  text-wrap: normal !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+  line-break: strict !important;
+  max-width: 18em !important;
+}
+
+html[data-lang="zh"] .feature-title-phrase {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  html[data-lang="zh"] .feature-image-card h2,
+  html[data-lang="zh"] .feature-image-card h3 {
+    max-width: 100% !important;
+    font-size: clamp(21px, 5.6vw, 29px) !important;
+  }
+}
+
+
+
+/* Fix v2: prevent browser blue focus rectangle after menu navigation clicks. */
+.menu-overlay a:focus,
+.menu-overlay a:focus-visible,
+.menu-overlay a:active,
+.menu-primary a:focus,
+.menu-primary a:focus-visible,
+.menu-primary a:active,
+.menu-home-link:focus,
+.menu-home-link:focus-visible,
+.menu-home-link:active,
+.menu-contact-cta:focus,
+.menu-contact-cta:focus-visible,
+.menu-contact-cta:active,
+.menu-toggle:focus,
+.menu-toggle:focus-visible,
+.menu-toggle:active,
+.brand-logo:focus,
+.brand-logo:focus-visible,
+.brand-logo:active {
+  outline: 0 !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+.menu-overlay a,
+.menu-primary a,
+.menu-home-link,
+.menu-contact-cta,
+.menu-toggle,
+.brand-logo {
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+
+/* Fix v3: remove the brief blue focus/tap flash on menu navigation. */
+#siteMenu a,
+#siteMenu button,
+.menu-overlay a,
+.menu-overlay button,
+.menu-primary a,
+.menu-home-link,
+.menu-contact-cta,
+.menu-toggle,
+.menu-close,
+.brand-logo {
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+  tap-highlight-color: rgba(0,0,0,0) !important;
+}
+#siteMenu a:focus,
+#siteMenu a:focus-visible,
+#siteMenu a:active,
+#siteMenu button:focus,
+#siteMenu button:focus-visible,
+#siteMenu button:active,
+.menu-overlay a:focus,
+.menu-overlay a:focus-visible,
+.menu-overlay a:active,
+.menu-overlay button:focus,
+.menu-overlay button:focus-visible,
+.menu-overlay button:active,
+.menu-primary a:focus,
+.menu-primary a:focus-visible,
+.menu-primary a:active,
+.menu-home-link:focus,
+.menu-home-link:focus-visible,
+.menu-home-link:active,
+.menu-contact-cta:focus,
+.menu-contact-cta:focus-visible,
+.menu-contact-cta:active,
+.menu-toggle:focus,
+.menu-toggle:focus-visible,
+.menu-toggle:active,
+.menu-close:focus,
+.menu-close:focus-visible,
+.menu-close:active,
+.brand-logo:focus,
+.brand-logo:focus-visible,
+.brand-logo:active {
+  outline: 0 !important;
+  outline-color: transparent !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+#siteMenu *::selection { background: transparent; }
+
 </style>
+<script>
+/* Fix v3.2: immediately clear focus on page load to prevent blue outline from previous page navigation */
+(function() {
+  if (document.activeElement && document.activeElement !== document.body) {
+    document.activeElement.blur();
+  }
+  window.addEventListener('DOMContentLoaded', function() {
+    if (document.activeElement && document.activeElement !== document.body) {
+      document.activeElement.blur();
+    }
+  });
+})();
+</script>
 </head>
 <body>
 <div class="progress-bar" id="progressBar"></div>
@@ -1023,7 +2842,6 @@ html[data-lang="en"] .menu-footer-social-label {
 </header>
 <!-- ============ MENU ============ -->
 <div aria-hidden="true" class="menu-overlay" id="siteMenu">
-
 <div class="menu-shell">
 <div class="menu-top">
 <div class="menu-label"><span data-i18n="menu.label">导航</span><i>/</i><em>Menu</em></div>
@@ -1031,10 +2849,10 @@ html[data-lang="en"] .menu-footer-social-label {
 </div>
 <div class="menu-grid">
 <nav aria-label="Primary navigation" class="menu-primary">
-<a data-menu-link="" href="index.html#about-fund"><span class="menu-num">01</span><strong data-i18n="menu.nav.about">关于我们</strong><em>About Us</em></a>
+<a data-menu-link="" href="index.html#slogan"><span class="menu-num">01</span><strong data-i18n="menu.home">首页</strong><em>Home</em></a>
 <a data-menu-link="" href="index.html#focus"><span class="menu-num">02</span><strong data-i18n="menu.nav.portfolio">投资组合</strong><em>Portfolio</em></a>
-<a data-menu-link="" href="insights.html"><span class="menu-num">03</span><strong data-i18n="menu.nav.insights">洞察</strong><em>Insights</em></a>
-<a data-menu-link="" href="team.html"><span class="menu-num">04</span><strong data-i18n="menu.nav.team">团队</strong><em>Team</em></a>
+<a data-menu-link="" href="team.html"><span class="menu-num">03</span><strong data-i18n="menu.nav.team">团队</strong><em>Team</em></a>
+<a data-menu-link="" href="insights.html"><span class="menu-num">04</span><strong data-i18n="menu.nav.insights">洞察</strong><em>Insights</em></a>
 </nav>
 <aside aria-label="Featured links" class="menu-side">
 <div class="menu-panel menu-build-card">
@@ -1047,25 +2865,100 @@ html[data-lang="en"] .menu-footer-social-label {
 </aside>
 </div>
 <div class="menu-footer">
-<a class="menu-home-link" data-i18n="menu.footer.home" data-menu-link="" href="index.html">回到首页</a>
-<span class="menu-footer-brand" data-i18n="menu.footer.meta">LINKX CAPITAL</span>
-<div aria-label="Social accounts" class="menu-footer-social"><span class="menu-footer-social-label">You can also find us on</span><a aria-label="LinkX Capital on X" href="https://x.com/LinkXCapital" rel="noreferrer" target="_blank">X</a><a aria-label="LinkX Capital on LinkedIn" href="https://www.linkedin.com/company/link-x-%E6%98%9F%E8%BF%9E%E8%B5%84%E6%9C%AC/?viewAsMember=true" rel="noreferrer" target="_blank">LinkedIn</a></div>
+<span class="menu-copyright-fixed" aria-label="版权信息" data-i18n="menu.footer.meta">© 2026 北京星连肇基私募基金管理有限责任公司</span>
+<div aria-label="社媒账号" class="menu-footer-social menu-social-matrix">
+<div class="menu-social-links">
+<div class="social-item menu-social-item">
+<button aria-label="基金微信公众号二维码" class="social-icon menu-social-icon" type="button">
+<img alt="" aria-hidden="true" src="https://cdn.simpleicons.org/wechat/FFFFFF"/>
+</button>
+<div class="qr-popover menu-qr-popover" role="tooltip">
+<img alt="基金微信公众号二维码" onerror="this.closest('.qr-popover').classList.add('qr-missing'); this.style.display='none';" onload="this.closest('.qr-popover').classList.remove('qr-missing'); this.style.display='block';" src="assets/wechat-linkx-capital.jpg"/><div aria-hidden="true" class="qr-fallback">QR</div>
+<span data-i18n="footer.wechatFund">基金微信公众号</span>
+</div>
+</div>
+<div class="social-item menu-social-item">
+<button aria-label="孵化器微信公众号二维码" class="social-icon menu-social-icon" type="button">
+<img alt="" aria-hidden="true" src="https://cdn.simpleicons.org/wechat/FFFFFF"/>
+</button>
+<div class="qr-popover menu-qr-popover" role="tooltip">
+<img alt="孵化器微信公众号二维码" onerror="this.closest('.qr-popover').classList.add('qr-missing'); this.style.display='none';" onload="this.closest('.qr-popover').classList.remove('qr-missing'); this.style.display='block';" src="assets/wechat-qingzhi-incubator.jpg"/><div aria-hidden="true" class="qr-fallback">QR</div>
+<span data-i18n="footer.wechatIncubator">孵化器微信公众号</span>
+</div>
+</div>
+<a aria-label="小红书账号" class="social-icon menu-social-icon" href="https://xhslink.com/m/UjLFumWxau" rel="noopener" target="_blank">
+<img alt="" aria-hidden="true" class="icon-xhs" src="https://cdn.simpleicons.org/xiaohongshu/FFFFFF"/>
+</a>
+<a aria-label="抖音账号" class="social-icon menu-social-icon" href="https://www.douyin.com/user/MS4wLjABAAAAHYtbwIVUi113kSYUweZGc-tFiJGG1WPk8Jgldgk9Fhw?previous_page=app_code_link" rel="noopener" target="_blank">
+<img alt="" aria-hidden="true" class="icon-douyin" src="https://cdn.simpleicons.org/tiktok/FFFFFF"/>
+</a>
+<a aria-label="LinkX Capital on X" class="social-icon menu-social-icon" href="https://x.com/LinkXCapital" rel="noreferrer" target="_blank">
+<svg aria-hidden="true" focusable="false" viewbox="0 0 24 24"><path d="M13.93 10.36 21.38 2h-1.77l-6.47 7.25L7.98 2H2.03l7.82 11.02L2.03 22h1.77l6.83-7.65L16.09 22h5.95l-8.11-11.64Zm-2.42 2.71-.79-1.09L4.42 3.29h2.71l5.08 7.01.79 1.09 6.61 9.12H16.9l-5.39-7.44Z" fill="currentColor"></path></svg>
+</a>
+<a aria-label="LinkX Capital on LinkedIn" class="social-icon menu-social-icon" href="https://www.linkedin.com/company/link-x-%E6%98%9F%E8%BF%9E%E8%B5%84%E6%9C%AC/?viewAsMember=true" rel="noreferrer" target="_blank">
+<svg aria-hidden="true" focusable="false" viewbox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.36 8.12h4.25V23H.36V8.12ZM7.5 8.12h4.07v2.03h.06c.57-1.08 1.96-2.22 4.03-2.22 4.31 0 5.1 2.84 5.1 6.53V23h-4.24v-7.56c0-1.8-.03-4.12-2.51-4.12-2.52 0-2.9 1.97-2.9 4V23H7.5V8.12Z" fill="currentColor"></path></svg>
+</a>
+</div>
+</div>
 </div>
 </div>
 </div>
 <!-- ============ HERO ============ -->
-<section class="page-hero">
-<div class="container reveal">
+<section class="content-hub-hero">
+<div class="container reveal"><div class="insights-hero-split reveal">
+<div class="insights-hero-copy">
+<span class="hub-kicker" data-i18n="hub.kicker">News &amp; Content</span>
 <h1 data-i18n="hero.title">最新<em>动态</em></h1>
-<p class="sub" data-i18n="hero.sub">聚焦星连资本、被投企业与 AI 产业生态的最新进展，<br/>持续捕捉技术演进与产业变化中的真实信号。</p>
+<p class="sub" data-i18n="hero.sub"><span class="line">聚焦星连资本、被投企业与 AI 产业生态的最新进展，</span></p>
 </div>
+<div aria-label="Featured carousel" class="featured-rail">
+<div class="featured-carousel-bar">
+<span class="hub-kicker" data-i18n="hub.featured">Featured</span>
+<div aria-label="Featured carousel controls" class="featured-controls">
+<button aria-label="Previous featured item" class="featured-control" data-feature-prev="" type="button">←</button>
+<button aria-label="Next featured item" class="featured-control" data-feature-next="" type="button">→</button>
+</div>
+</div>
+<div aria-label="Featured insights" class="featured-showcase" tabindex="0"><div class="featured-track"><a class="feature-image-card is-active" data-filter="all perspective models" data-slide="0" href="insights-agi-2026.html" style="--bg:url('assets/agi-2026.png')"><div class="feature-image-overlay"><div class="feature-meta"><span data-i18n="tag.perspective">观点</span><span>Models</span></div><h3 data-i18n="list.agi2026.title"><span class="feature-title-phrase">2026年在等到AGI之前，</span><span class="feature-title-phrase">我们先做什么。</span></h3><p data-i18n="feature.agi.desc">在 AGI 拐点尚未出现时，理解下一阶段技术与产业趋势的七个关键方向。</p></div></a><a class="feature-image-card" data-filter="all news perspective panorama" data-slide="1" href="news-agm-2025.html" style="--bg:url('assets/AGM.png')"><div class="feature-image-overlay"><div class="feature-meta"><span data-i18n="tag.news">新闻</span><span>Panorama</span></div><h3 data-i18n="list.agm2025.title"><span class="feature-title-phrase">从模型突破到产业落地：</span><span class="feature-title-phrase">2025 AI全景观察与2026展望</span></h3></div></a><a class="feature-image-card" data-filter="all portfolio news frontier" data-slide="2" href="news-zhipu.html" style="--bg:url('assets/智谱上市.png')"><div class="feature-image-overlay"><div class="feature-meta"><span data-i18n="tag.portfolio">投资组合</span><span>Frontier</span></div><h3 data-i18n="list.zhipu.title"><span class="feature-title-phrase">智谱港股上市，</span><span class="feature-title-phrase">星连资本见证成长。</span></h3></div></a></div></div>
+</div>
+</div></div>
 </section>
 <!-- ============ INSIGHT LIST ============ -->
-<section>
+<section class="content-hub-main">
 <div class="container">
-<div class="insight-list reveal">
-<div class="month-divider" data-i18n="month.mar2026">2026 年 3 月 · March</div>
-<a class="insight-item" href="portfolio-pole-ctv.html">
+<div class="content-hub-layout reveal">
+<aside aria-label="Content filters" class="hub-sidebar">
+<div class="hub-filter-group">
+<div class="hub-filter-title" data-i18n="hub.topics">Topics</div>
+<button aria-pressed="true" class="hub-filter is-active" data-hub-filter="all" data-i18n="hub.topic.all" type="button">All</button>
+<button aria-pressed="false" class="hub-filter" data-hub-filter="models" data-i18n="hub.topic.models" type="button">Models</button>
+<button aria-pressed="false" class="hub-filter" data-hub-filter="application" data-i18n="hub.topic.application" type="button">Applications</button>
+<button aria-pressed="false" class="hub-filter" data-hub-filter="portfolio" data-i18n="hub.topic.portfolio" type="button">Portfolio</button>
+<button aria-pressed="false" class="hub-filter" data-hub-filter="panorama" data-i18n="hub.topic.panorama" type="button">Panorama</button>
+</div>
+<div class="hub-filter-group">
+<div class="hub-filter-title" data-i18n="hub.type">Content Type</div>
+<button aria-pressed="false" class="hub-filter" data-hub-filter="perspective" data-i18n="tag.perspective" type="button">观点</button>
+<button aria-pressed="false" class="hub-filter" data-hub-filter="news" data-i18n="tag.news" type="button">新闻</button>
+</div>
+</aside>
+<div class="hub-latest" id="latest">
+<div class="hub-list-head">
+<span class="hub-kicker" data-i18n="hub.latest">The Latest</span>
+<a class="hub-subscribe" data-i18n="hub.connect" href="contact.html">Connect with us →</a>
+</div>
+<div class="insight-list">
+<a class="insight-item" data-filter="all portfolio perspective application" href="portfolio-yuanmu.html">
+<div class="insight-date"><span class="day">26</span>May</div>
+<div class="insight-body">
+<div class="insight-meta">
+<span class="insight-tag" data-i18n="tag.portfolio">投资组合</span>
+<span class="insight-tag" data-i18n="tag.perspective">观点</span>
+<span class="insight-track">Application</span>
+</div>
+<h3 data-i18n="list.yuanmu.title">圆木智能：AI 智能体如何重塑机加工生产管理？</h3>
+</div>
+</a><a class="insight-item" data-filter="all portfolio perspective application" href="portfolio-pole-ctv.html">
 <div class="insight-date"><span class="day">18</span>Mar</div>
 <div class="insight-body">
 <div class="insight-meta">
@@ -1076,8 +2969,7 @@ html[data-lang="en"] .menu-footer-social-label {
 <h3 data-i18n="list.pole.title">珀乐互动 CTO 徐京徽：AI泛娱乐如何演进？</h3>
 </div>
 </a>
-<div class="month-divider" data-i18n="month.jan2026">2026 年 1 月 · January</div>
-<a class="insight-item" href="insights-zhang-bo.html">
+<a class="insight-item" data-filter="all perspective models" href="insights-zhang-bo.html">
 <div class="insight-date"><span class="day">12</span>Jan</div>
 <div class="insight-body">
 <div class="insight-meta">
@@ -1087,7 +2979,7 @@ html[data-lang="en"] .menu-footer-social-label {
 <h3 data-i18n="list.zhangbo.title">AGI Next 全明星峰会落幕｜张钹院士的压轴发言，为我们留下了什么？</h3>
 </div>
 </a>
-<a class="insight-item" href="news-zhipu.html">
+<a class="insight-item" data-filter="all portfolio news frontier" href="news-zhipu.html">
 <div class="insight-date"><span class="day">08</span>Jan</div>
 <div class="insight-body">
 <div class="insight-meta">
@@ -1095,21 +2987,20 @@ html[data-lang="en"] .menu-footer-social-label {
 <span class="insight-tag" data-i18n="tag.news">新闻</span>
 <span class="insight-track">Frontier</span>
 </div>
-<h3 data-i18n="list.zhipu.title">智谱港股上市，星连资本见证成长。</h3>
+<h3 data-i18n="list.zhipu.title"><span class="feature-title-phrase">智谱港股上市，</span><span class="feature-title-phrase">星连资本见证成长。</span></h3>
 </div>
 </a>
-<a class="insight-item" href="insights-agi-2026.html">
+<a class="insight-item" data-filter="all perspective models" href="insights-agi-2026.html">
 <div class="insight-date"><span class="day">04</span>Jan</div>
 <div class="insight-body">
 <div class="insight-meta">
 <span class="insight-tag" data-i18n="tag.perspective">观点</span>
 <span class="insight-track">Models</span>
 </div>
-<h3 data-i18n="list.agi2026.title">2026年在等到AGI之前，我们先做什么。</h3>
+<h3 data-i18n="list.agi2026.title"><span class="feature-title-phrase">2026年在等到AGI之前，</span><span class="feature-title-phrase">我们先做什么。</span></h3>
 </div>
 </a>
-<div class="month-divider" data-i18n="month.nov2025">2025 年 11 月 · November</div>
-<a class="insight-item" href="news-agm-2025.html">
+<a class="insight-item" data-filter="all news perspective panorama" href="news-agm-2025.html">
 <div class="insight-date"><span class="day">21</span>Nov</div>
 <div class="insight-body">
 <div class="insight-meta">
@@ -1117,9 +3008,11 @@ html[data-lang="en"] .menu-footer-social-label {
 <span class="insight-tag" data-i18n="tag.perspective">观点</span>
 <span class="insight-track">Panorama</span>
 </div>
-<h3 data-i18n="list.agm2025.title">从模型突破到产业落地：2025 AI全景观察与2026展望</h3>
+<h3 data-i18n="list.agm2025.title"><span class="feature-title-phrase">从模型突破到产业落地：</span><span class="feature-title-phrase">2025 AI全景观察与2026展望</span></h3>
 </div>
 </a>
+</div>
+<div class="hub-empty" data-i18n="hub.empty">暂无对应内容。</div></div>
 </div>
 </div>
 </section>
@@ -1128,7 +3021,6 @@ html[data-lang="en"] .menu-footer-social-label {
 <script>
   const i18n = {
     zh: {
-      "menu.open": "Menu", "menu.label": "导航", 
       
       
       
@@ -1136,18 +3028,34 @@ html[data-lang="en"] .menu-footer-social-label {
       
       
       
-      "footer.slogan": "与 AGI 时代的定义者同行","footer.copyright": "@2026 北京星连肇基私募基金管理有限责任公司","menu.footer.home": "回到首页","menu.contact.link": "联系我们","menu.nav.team": "团队","menu.nav.insights": "洞察","menu.nav.portfolio": "投资组合","menu.nav.about": "关于我们","menu.home": "首页", "menu.research": "洞察", "menu.focus": "关注领域", "menu.portfolio": "投资组合", "menu.team": "团队", "menu.contact": "联系我们", "menu.footer.meta": "LinkX · 北京清华科技园", "menu.research.kicker": "Insights Feed", "menu.research.text": "持续追踪 AI 生态一线信号，捕捉通用智能时代最值得关注的技术、产品与创始人动态。", "menu.research.link": "获取最新动态", "menu.contact.kicker": "Build With Us", "menu.contact.text": "<span class=\"phrase\">如果你正在寻找、定义，</span><span class=\"phrase\">或亲手建造一个尚未被市场命名的未来，</span><span class=\"phrase\">我们希望更早与你相遇。</span>",
+      
+      
+      
+      
+      
+      
+      
+      "hub.empty": "暂无对应内容。","hub.featured": "Featured","feature.agi.desc": "在 AGI 拐点尚未出现时，理解下一阶段技术与产业趋势的七个关键方向。","hub.topic.panorama": "全景观察","hub.topic.portfolio": "投资组合","hub.topic.application": "应用","hub.topic.models": "模型","hub.topic.all": "全部","hub.type": "Content Type","hub.topics": "Topics","hub.connect": "与我们连接 →","hub.read": "阅读全文 →","hub.latest": "The Latest","hub.kicker": "News & Content","menu.open": "Menu", "menu.label": "导航", 
+      
+      
+      
+      
+      
+      
+      
+      "footer.wechatFund": "基金微信公众号", "footer.wechatIncubator": "孵化器微信公众号", "footer.slogan": "与 AGI 时代的定义者同行","footer.copyright": "@2026 北京星连肇基私募基金管理有限责任公司","menu.contact.link": "联系我们","menu.nav.team": "团队","menu.nav.insights": "洞察","menu.nav.portfolio": "投资组合","menu.nav.about": "关于我们","menu.home": "首页", "menu.research": "洞察", "menu.focus": "关注领域", "menu.portfolio": "投资组合", "menu.team": "团队", "menu.contact": "联系我们", "menu.footer.meta": "© 2026 北京星连肇基私募基金管理有限责任公司", "menu.research.kicker": "Insights Feed", "menu.research.text": "持续追踪 AI 生态一线信号，捕捉通用智能时代最值得关注的技术、产品与创始人动态。", "menu.research.link": "获取最新动态", "menu.contact.kicker": "Build With Us", "menu.contact.text": "<span class=\"phrase\">如果你正在寻找、定义，</span><span class=\"phrase\">或亲手建造一个尚未被市场命名的未来，</span><span class=\"phrase\">我们希望更早与你相遇。</span>",
       "hero.title": "最新<em>动态</em>",
-      "hero.sub": "聚焦星连资本、被投企业与 AI 产业生态的最新进展，<br>持续捕捉技术演进与产业变化中的真实信号。",
+      "hero.sub": "<span class=\"line\">聚焦星连资本、被投企业与 AI 产业生态的最新进展，</span><span class=\"line\">持续捕捉技术演进与产业变化中的真实信号。</span>",
       "tag.portfolio": "投资组合", "tag.perspective": "观点", "tag.research": "研究", "tag.spotlight": "聚焦", "tag.news": "新闻",
       "month.mar2026": "2026 年 3 月 · March",
       "month.jan2026": "2026 年 1 月 · January",
       "month.nov2025": "2025 年 11 月 · November",
+      "list.yuanmu.title": "圆木智能：AI 智能体如何重塑机加工生产管理？",
       "list.pole.title": "珀乐互动 CTO 徐京徽：AI泛娱乐如何演进？",
       "list.zhangbo.title": "AGI Next 全明星峰会落幕｜张钹院士的压轴发言，为我们留下了什么？",
-      "list.zhipu.title": "智谱港股上市，星连资本见证成长。",
-      "list.agi2026.title": "2026年在等到AGI之前，我们先做什么。",
-      "list.agm2025.title": "从模型突破到产业落地：2025 AI全景观察与2026展望",
+      "list.zhipu.title": "<span class=\"feature-title-phrase\">智谱港股上市，</span><span class=\"feature-title-phrase\">星连资本见证成长。</span>",
+      "list.agi2026.title": "<span class=\"feature-title-phrase\">2026年在等到AGI之前，</span><span class=\"feature-title-phrase\">我们先做什么。</span>",
+      "list.agm2025.title": "<span class=\"feature-title-phrase\">从模型突破到产业落地：</span><span class=\"feature-title-phrase\">2025 AI全景观察与2026展望</span>",
       "i1.title": "长上下文模型的稀疏化：为什么下一个百万 token 不再只靠堆显存。",
       "i1.desc": "我们跟踪了过去六个月里 11 篇核心论文，观察线性注意力、混合状态空间与检索式缓存这三条技术路径如何重塑长上下文的成本曲线——以及它对 infra 与应用层意味着什么。",
       "i2.title": "推理集群调度：KV-Cache 复用与多租户的新帕累托前沿。",
@@ -1162,7 +3070,6 @@ html[data-lang="en"] .menu-footer-social-label {
       "footer.legal": "法律声明"
     },
     en: {
-      "menu.open": "Menu", "menu.label": "Navigation", 
       
       
       
@@ -1170,13 +3077,29 @@ html[data-lang="en"] .menu-footer-social-label {
       
       
       
-      "footer.slogan": "Partnering with founders defining the AGI era","footer.copyright": "@2026 LinkX Capital. All rights reserved.","menu.footer.home": "Back Home","menu.contact.link": "Contact Us","menu.nav.team": "Team","menu.nav.insights": "Insights","menu.nav.portfolio": "Portfolio","menu.nav.about": "About Us","menu.home": "Home", "menu.research": "Insights", "menu.focus": "Focus", "menu.portfolio": "Portfolio", "menu.team": "Team", "menu.contact": "Contact", "menu.footer.meta": "LINKX CAPITAL", "menu.research.kicker": "Insights Feed", "menu.research.text": "持续追踪 AI 生态一线信号，捕捉通用智能时代最值得关注的技术、产品与创始人动态。", "menu.research.link": "获取最新动态", "menu.contact.kicker": "Build With Us", "menu.contact.text": "If you are seeking, defining, or building a future the market has not yet named, we hope to meet you earlier.",
+      
+      
+      
+      
+      
+      
+      
+      "hub.empty": "No matching content yet.","hub.featured": "Featured","feature.agi.desc": "Seven key directions for understanding the next phase of technology and industry before the AGI inflection point arrives.","hub.topic.panorama": "Panorama","hub.topic.portfolio": "Portfolio","hub.topic.application": "Applications","hub.topic.models": "Models","hub.topic.all": "All","hub.type": "Content Type","hub.topics": "Topics","hub.connect": "Connect with us →","hub.read": "Read More →","hub.latest": "The Latest","hub.kicker": "News & Content","menu.open": "Menu", "menu.label": "Navigation", 
+      
+      
+      
+      
+      
+      
+      
+      "footer.wechatFund": "WeChat · Fund", "footer.wechatIncubator": "WeChat · Incubator", "footer.slogan": "Partnering with founders defining the AGI era","footer.copyright": "@2026 LinkX Capital. All rights reserved.","menu.contact.link": "Contact Us","menu.nav.team": "Team","menu.nav.insights": "Insights","menu.nav.portfolio": "Portfolio","menu.nav.about": "About Us","menu.home": "Home", "menu.research": "Insights", "menu.focus": "Focus", "menu.portfolio": "Portfolio", "menu.team": "Team", "menu.contact": "Contact", "menu.footer.meta": "LINKX CAPITAL", "menu.research.kicker": "Insights Feed", "menu.research.text": "持续追踪 AI 生态一线信号，捕捉通用智能时代最值得关注的技术、产品与创始人动态。", "menu.research.link": "获取最新动态", "menu.contact.kicker": "Build With Us", "menu.contact.text": "If you are seeking, defining, or building a future the market has not yet named, we hope to meet you earlier.",
       "hero.title": "Latest <em>Updates</em>",
-      "hero.sub": "Tracking the latest from LinkX, portfolio companies and the AI ecosystem — real signals on tech progress and industry shifts.",
+      "hero.sub": "Tracking the latest from LinkX, portfolio companies and the AI ecosystem — real signals on technology progress and industry shifts.",
       "tag.portfolio": "Portfolio", "tag.perspective": "Perspective", "tag.research": "Research", "tag.spotlight": "Spotlight", "tag.news": "News",
       "month.mar2026": "March 2026",
       "month.jan2026": "January 2026",
       "month.nov2025": "November 2025",
+      "list.yuanmu.title": "Yuanmu Intelligence: How AI Agents Reshape Machining Production Management?",
       "list.pole.title": "Pole Interactive CTO Jinghui Xu: how is AI-powered entertainment evolving?",
       "list.zhangbo.title": "AGI Next All-Star Summit: what Professor Zhang Bo's closing remarks left with us.",
       "list.zhipu.title": "Zhipu lists on HKEX; LinkX witnesses the journey.",
@@ -1211,6 +3134,12 @@ html[data-lang="en"] .menu-footer-social-label {
     document.querySelectorAll("[data-set-lang]").forEach(btn => {
       btn.classList.toggle("active", btn.getAttribute("data-set-lang") === lang);
     });
+    const menuCopyright = document.querySelector(".menu-copyright-fixed");
+    if (menuCopyright) {
+      menuCopyright.textContent = lang === "zh"
+        ? "© 2026 北京星连肇基私募基金管理有限责任公司"
+        : "LINKX CAPITAL";
+    }
     try { localStorage.setItem("linkx.lang", lang); } catch(e){}
   }
 
@@ -1302,7 +3231,6 @@ html[data-lang="en"] .menu-footer-social-label {
     }
   });
 </script>
-
 <script>
 (() => {
   "use strict";
@@ -1343,6 +3271,220 @@ html[data-lang="en"] .menu-footer-social-label {
   document.addEventListener("click", interceptOutsideMenu, true);
 })();
 </script>
+<script>
+(() => {
+  const filters = Array.from(document.querySelectorAll("[data-hub-filter]"));
+  if (!filters.length) return;
+  const latest = Array.from(document.querySelectorAll(".hub-latest .insight-item"));
+  const empty = document.querySelector(".hub-empty");
+  const carousel = document.querySelector(".featured-showcase");
+
+  function matches(item, filter) {
+    const values = (item.getAttribute("data-filter") || "all").split(/\s+/);
+    return filter === "all" || values.includes(filter);
+  }
+
+  function applyFilter(filter) {
+    let visibleLatest = 0;
+
+    latest.forEach(item => {
+      const show = matches(item, filter);
+      item.hidden = !show;
+      if (show) visibleLatest += 1;
+    });
+
+    if (empty) empty.classList.toggle("is-visible", visibleLatest === 0);
+
+    filters.forEach(btn => {
+      const active = btn.getAttribute("data-hub-filter") === filter;
+      btn.classList.toggle("is-active", active);
+      btn.setAttribute("aria-pressed", active ? "true" : "false");
+    });
+
+    if (carousel) carousel.scrollTo({ left: 0, behavior: "smooth" });
+  }
+
+  filters.forEach(btn => {
+    btn.addEventListener("click", () => {
+      applyFilter(btn.getAttribute("data-hub-filter") || "all");
+    });
+  });
+
+  applyFilter("all");
+})();
+</script>
+<script>
+(() => {
+  const carousel = document.querySelector(".featured-showcase");
+  if (!carousel) return;
+
+  const track = carousel.querySelector(".featured-track");
+  const cards = Array.from(carousel.querySelectorAll(".feature-image-card"));
+  const prev = document.querySelector("[data-feature-prev]");
+  const next = document.querySelector("[data-feature-next]");
+  if (!track || !cards.length) return;
+
+  const interval = 4200;
+  let current = 0;
+  let timer = null;
+
+  function setActive(index) {
+    current = ((index % cards.length) + cards.length) % cards.length;
+    track.style.transform = `translate3d(${-current * 100}%, 0, 0)`;
+
+    cards.forEach((card, i) => {
+      const active = i === current;
+      card.classList.toggle("is-active", active);
+      card.setAttribute("aria-hidden", active ? "false" : "true");
+      card.tabIndex = active ? 0 : -1;
+    });
+  }
+
+  function stop() {
+    if (timer) window.clearTimeout(timer);
+    timer = null;
+  }
+
+  function schedule() {
+    stop();
+    timer = window.setTimeout(() => {
+      setActive(current + 1);
+      schedule();
+    }, interval);
+  }
+
+  function manual(direction) {
+    stop();
+    setActive(current + direction);
+    schedule();
+  }
+
+  if (prev) prev.addEventListener("click", () => manual(-1));
+  if (next) next.addEventListener("click", () => manual(1));
+
+  carousel.setAttribute("tabindex", "0");
+  carousel.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      manual(-1);
+    }
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      manual(1);
+    }
+  });
+
+  carousel.addEventListener("mouseenter", stop);
+  carousel.addEventListener("mouseleave", schedule);
+  carousel.addEventListener("focusin", stop);
+  carousel.addEventListener("focusout", schedule);
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) stop();
+    else schedule();
+  });
+
+  setActive(0);
+  schedule();
+})();
+</script>
+
+<script>
+(function () {
+  const ZH_MENU_COPYRIGHT = "© 2026 北京星连肇基私募基金管理有限责任公司";
+  const EN_MENU_COPYRIGHT = "LINKX CAPITAL";
+  function syncMenuCopyright() {
+    const lang = document.documentElement.getAttribute("data-lang") === "en" ? "en" : "zh";
+    document.querySelectorAll(".menu-copyright-fixed").forEach(function (el) {
+      el.textContent = lang === "en" ? EN_MENU_COPYRIGHT : ZH_MENU_COPYRIGHT;
+    });
+  }
+  syncMenuCopyright();
+  document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+    btn.addEventListener("click", function () { setTimeout(syncMenuCopyright, 0); });
+  });
+  new MutationObserver(syncMenuCopyright).observe(document.documentElement, { attributes: true, attributeFilter: ["data-lang"] });
+})();
+
+
+  // Fix v2: avoid leaving focus on the clicked menu link or restoring focus to the menu button after navigation.
+  (function removeMenuNavigationFocusRing() {
+    const blurActive = () => {
+      const active = document.activeElement;
+      if (active && typeof active.blur === "function") active.blur();
+    };
+
+    document.querySelectorAll("[data-menu-link], .menu-home-link, .menu-primary a").forEach(link => {
+      link.addEventListener("pointerdown", () => {
+        if (typeof link.blur === "function") link.blur();
+      }, { passive: true });
+
+      link.addEventListener("mousedown", () => {
+        if (typeof link.blur === "function") link.blur();
+      });
+
+      link.addEventListener("click", () => {
+        if (typeof lastMenuTrigger !== "undefined") lastMenuTrigger = null;
+        if (typeof link.blur === "function") link.blur();
+        window.setTimeout(blurActive, 0);
+      }, true);
+    });
+
+    window.addEventListener("pageshow", blurActive);
+  })();
+</script>
+
+
+<script>
+/* Fix v3: prevent the blue focus flash before navigation starts. */
+(function removeMenuPressFocusFlash() {
+  function clearFocus() {
+    var active = document.activeElement;
+    if (active && typeof active.blur === "function") active.blur();
+  }
+
+  function isMenuNavTarget(el) {
+    return !!(el && el.closest && el.closest('#siteMenu a, #siteMenu button, .menu-toggle, .brand-logo'));
+  }
+
+  ['pointerdown', 'mousedown'].forEach(function(type) {
+    document.addEventListener(type, function(e) {
+      var target = e.target && e.target.closest ? e.target.closest('#siteMenu a, #siteMenu button, .menu-toggle, .brand-logo') : null;
+      if (!target) return;
+      // Prevent mouse/pointer press from assigning focus, which is what creates the one-frame blue ring.
+      if (target.matches('a, button, .menu-toggle, .brand-logo')) e.preventDefault();
+      clearFocus();
+      if (typeof target.blur === 'function') target.blur();
+    }, true);
+  });
+
+  document.addEventListener('click', function(e) {
+    var target = e.target && e.target.closest ? e.target.closest('#siteMenu a[href], .brand-logo[href]') : null;
+    if (!target) return;
+    clearFocus();
+    if (typeof target.blur === 'function') target.blur();
+
+    var href = target.getAttribute('href');
+    if (!href || href.charAt(0) === '#') return;
+
+    // Because pointerdown is prevented to suppress focus, navigate explicitly for full browser consistency.
+    e.preventDefault();
+    e.stopPropagation();
+    document.body.classList.remove('menu-open');
+    var menu = document.getElementById('siteMenu');
+    if (menu) {
+      menu.classList.remove('is-open');
+      menu.setAttribute('aria-hidden', 'true');
+    }
+    window.setTimeout(function(){ window.location.href = href; }, 0);
+  }, true);
+
+  window.addEventListener('pageshow', clearFocus);
+  window.addEventListener('blur', clearFocus);
+})();
+</script>
 
 </body>
 </html>
+
+<!-- patch: footer home link removed; only primary menu Home remains. -->

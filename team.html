@@ -187,9 +187,10 @@
       cursor: pointer;
       background: var(--bg);
       outline: none;
+      text-decoration: none;
     }
     .member-photo {
-      aspect-ratio: 4 / 5;
+      aspect-ratio: 3.55 / 5;
       overflow: hidden;
     }
     .member-photo img {
@@ -201,23 +202,24 @@
       filter: saturate(0.96) contrast(1.02);
       transition: filter 0.4s ease, transform 0.5s ease;
     }
-    .member-photo img.portrait-mingchen { object-position: 50% 58%; }
-    .member-photo img.portrait-wangpu { object-position: center center; }
-    .member-photo img.portrait-wangchen { object-position: 50% 42%; }
-    .member-photo img.portrait-wenjue { object-position: 50% 28%; }
+    .member-photo img.portrait-mingchen { object-position: 50% 54%; }
+    .member-photo img.portrait-wangpu { object-position: 50% 48%; }
+    .member-photo img.portrait-wangchen { object-position: 50% 38%; }
+    .member-photo img.portrait-wenjue { object-position: 50% 24%; }
     .team-member:hover .member-photo img {
       filter: saturate(1.02) contrast(1.03);
-      transform: scale(1.035);
+      transform: scale(1.085);
     }
     .member-info {
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
-      padding: 54px 20px 20px;
-      background: linear-gradient(to top, rgba(28,25,23,0.7) 0%, rgba(28,25,23,0) 100%);
+      padding: 20px 20px 20px;
+      background: linear-gradient(to top, rgba(28,25,23,0.72) 0%, rgba(28,25,23,0) 100%);
       color: #fff;
       z-index: 3;
+      transition: padding 0.28s ease;
     }
     .team-member h3 {
       font-family: var(--font-serif);
@@ -226,6 +228,8 @@
       letter-spacing: -0.01em;
       color: #fff;
       line-height: 1.3;
+      transform: translateY(0);
+      transition: transform 0.28s ease;
     }
     .member-title {
       display: block;
@@ -235,35 +239,54 @@
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: rgba(255,255,255,0.65);
+      transform: translateY(0);
+      transition: transform 0.28s ease 0.04s, opacity 0.28s ease 0.04s;
+      opacity: 1;
     }
-    .member-bio {
+    .member-cta {
       position: absolute;
       left: 0;
       right: 0;
       bottom: 0;
-      z-index: 2;
-      margin: 0;
-      padding: 72px 20px 88px;
-      color: rgba(250,248,244,0.82);
-      font-size: 12.5px;
-      line-height: 1.62;
-      max-width: none;
-      background: linear-gradient(to top, rgba(28,25,23,0.86) 0%, rgba(42,22,47,0.54) 62%, rgba(28,25,23,0) 100%);
+      z-index: 4;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 18px 20px;
+      background: linear-gradient(to top, rgba(28,25,23,0.88) 0%, rgba(42,22,47,0.52) 62%, rgba(28,25,23,0) 100%);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
       opacity: 0;
       visibility: hidden;
-      transform: translateY(42px);
+      transform: translateY(12px);
       transition: opacity 0.24s ease, transform 0.24s ease, visibility 0.24s ease;
       pointer-events: none;
     }
-    .member-bio::before {
-      content: none;
-    }
-    .team-member:hover .member-bio,
-    .team-member:focus-within .member-bio,
-    .team-member:focus .member-bio {
+    .team-member:hover .member-cta,
+    .team-member:focus-within .member-cta,
+    .team-member:focus .member-cta {
       opacity: 1;
       visibility: visible;
       transform: translateY(0);
+    }
+    .member-cta_arrow {
+      transition: transform 0.2s ease;
+    }
+    .team-member:hover .member-cta_arrow {
+      transform: translateX(4px);
+    }
+    .team-member:hover .member-info {
+      padding: 20px 20px 56px;
+    }
+    .team-member:hover .member-info h3 {
+      transform: translateY(-10px);
+    }
+    .team-member:hover .member-title {
+      transform: translateY(-10px);
+      opacity: 0.6;
     }
 
     /* ---------- Footer ---------- */
@@ -1049,7 +1072,109 @@ html[data-lang="en"] .team-member > .member-bio {
   }
 }
 
+
+
+/* Fix v2: prevent browser blue focus rectangle after menu navigation clicks. */
+.menu-overlay a:focus,
+.menu-overlay a:focus-visible,
+.menu-overlay a:active,
+.menu-primary a:focus,
+.menu-primary a:focus-visible,
+.menu-primary a:active,
+.menu-home-link:focus,
+.menu-home-link:focus-visible,
+.menu-home-link:active,
+.menu-contact-cta:focus,
+.menu-contact-cta:focus-visible,
+.menu-contact-cta:active,
+.menu-toggle:focus,
+.menu-toggle:focus-visible,
+.menu-toggle:active,
+.brand-logo:focus,
+.brand-logo:focus-visible,
+.brand-logo:active {
+  outline: 0 !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+.menu-overlay a,
+.menu-primary a,
+.menu-home-link,
+.menu-contact-cta,
+.menu-toggle,
+.brand-logo {
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+
+/* Fix v3: remove the brief blue focus/tap flash on menu navigation. */
+#siteMenu a,
+#siteMenu button,
+.menu-overlay a,
+.menu-overlay button,
+.menu-primary a,
+.menu-home-link,
+.menu-contact-cta,
+.menu-toggle,
+.menu-close,
+.brand-logo {
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+  tap-highlight-color: rgba(0,0,0,0) !important;
+}
+#siteMenu a:focus,
+#siteMenu a:focus-visible,
+#siteMenu a:active,
+#siteMenu button:focus,
+#siteMenu button:focus-visible,
+#siteMenu button:active,
+.menu-overlay a:focus,
+.menu-overlay a:focus-visible,
+.menu-overlay a:active,
+.menu-overlay button:focus,
+.menu-overlay button:focus-visible,
+.menu-overlay button:active,
+.menu-primary a:focus,
+.menu-primary a:focus-visible,
+.menu-primary a:active,
+.menu-home-link:focus,
+.menu-home-link:focus-visible,
+.menu-home-link:active,
+.menu-contact-cta:focus,
+.menu-contact-cta:focus-visible,
+.menu-contact-cta:active,
+.menu-toggle:focus,
+.menu-toggle:focus-visible,
+.menu-toggle:active,
+.menu-close:focus,
+.menu-close:focus-visible,
+.menu-close:active,
+.brand-logo:focus,
+.brand-logo:focus-visible,
+.brand-logo:active {
+  outline: 0 !important;
+  outline-color: transparent !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+#siteMenu *::selection { background: transparent; }
+
 </style>
+<script>
+/* Fix v3.2: immediately clear focus on page load to prevent blue outline from previous page navigation */
+(function() {
+  if (document.activeElement && document.activeElement !== document.body) {
+    document.activeElement.blur();
+  }
+  window.addEventListener('DOMContentLoaded', function() {
+    if (document.activeElement && document.activeElement !== document.body) {
+      document.activeElement.blur();
+    }
+  });
+})();
+</script>
 </head>
 <body>
 <div class="progress-bar" id="progressBar"></div>
@@ -1115,7 +1240,7 @@ html[data-lang="en"] .team-member > .member-bio {
 <section class="section-alt team-section">
 <div class="container">
 <div class="team-grid reveal">
-<div class="team-member" data-member="alex" tabindex="0">
+<a class="team-member" data-member="alex" href="team-alex.html" tabindex="0">
 <div class="member-photo">
 <img alt="张鸣晨" class="portrait-mingchen" decoding="async" height="1491" src="assets/team-mingchen-web.png" width="1055"/>
 </div>
@@ -1123,16 +1248,19 @@ html[data-lang="en"] .team-member > .member-bio {
 <h3 data-i18n="team.n1">张鸣晨</h3>
 <span class="member-title" data-i18n="team.t1">主管合伙人 / Managing Partner</span>
 </div>
-<p class="member-bio" data-i18n="team.b1">15年以上 TMT 早期投资与互联网经验，曾任红点中国合伙人，投资智谱 AI、小马智行、辉羲智能等头部科技企业。</p></div>
-<div class="team-member" data-member="elliot" tabindex="0">
+<div class="member-cta">查看主页 <span class="member-cta_arrow">→</span></div>
+</a>
+<a class="team-member" data-member="elliot" href="team-elliot.html" tabindex="0">
 <div class="member-photo">
 <img alt="王璞" class="portrait-wangpu" decoding="async" height="1491" src="assets/team-wangpu-web.png" width="1055"/>
 </div>
 <div class="member-info">
 <h3 data-i18n="team.n2">王璞</h3>
-<span class="member-title" data-i18n="team.t2">合伙人 / Partner</span></div>
-<p class="member-bio" data-i18n="team.b2">10年以上早期投资与互联网产业经验，长期深耕AI、新能源/智能汽车、机器人等前沿科技方向，代表投资项目包括蔚来汽车、文远知行、立讯精密等。</p></div>
-<div class="team-member" data-member="leo" tabindex="0">
+<span class="member-title" data-i18n="team.t2">合伙人 / Partner</span>
+</div>
+<div class="member-cta">查看主页 <span class="member-cta_arrow">→</span></div>
+</a>
+<a class="team-member" data-member="leo" href="team-leo.html" tabindex="0">
 <div class="member-photo">
 <img alt="王晨" class="portrait-wangchen" decoding="async" height="1920" src="assets/王晨.jpg" width="1280"/>
 </div>
@@ -1140,8 +1268,9 @@ html[data-lang="en"] .team-member > .member-bio {
 <h3 data-i18n="team.n3">王晨</h3>
 <span class="member-title" data-i18n="team.t3">合伙人 / Partner</span>
 </div>
-<p class="member-bio" data-i18n="team.b3">拥有早期、成长期、中后期丰富投资经验，兼备企业战略规划与管理能力。曾任茄子科技集团首席战略官，快手投资部总经理，美团战略与投资平台高级总监</p></div>
-<div class="team-member" data-member="wenjue" tabindex="0">
+<div class="member-cta">查看主页 <span class="member-cta_arrow">→</span></div>
+</a>
+<a class="team-member" data-member="wenjue" href="team-wenjue.html" tabindex="0">
 <div class="member-photo">
 <img alt="李文珏" class="portrait-wenjue" decoding="async" height="1921" src="assets/文珏.jpg" width="1280"/>
 </div>
@@ -1149,7 +1278,8 @@ html[data-lang="en"] .team-member > .member-bio {
 <h3 data-i18n="team.n4">李文珏</h3>
 <span class="member-title" data-i18n="team.t4">合伙人 / Partner</span>
 </div>
-<p class="member-bio" data-i18n="team.b4">高级工程师、中国计算机学会大模型论坛学术秘书。曾任智谱AI副总裁、聆心智能COO。长期深耕AI前沿技术成果转化与早期投资，持续陪伴科学家创业，推动前沿科研走向产业落地与规模化增长。 累计投资、孵化初创期项目50余个，代表投资案例包括：智谱 AI、第四范式、趋境科技、模思智能等。</p></div>
+<div class="member-cta">查看主页 <span class="member-cta_arrow">→</span></div>
+</a>
 </div>
 </div>
 </section>
@@ -1322,6 +1452,84 @@ html[data-lang="en"] .team-member > .member-bio {
   document.addEventListener("pointerdown", interceptOutsideMenu, true);
   document.addEventListener("click", interceptOutsideMenu, true);
 })();
+
+
+  // Fix v2: avoid leaving focus on the clicked menu link or restoring focus to the menu button after navigation.
+  (function removeMenuNavigationFocusRing() {
+    const blurActive = () => {
+      const active = document.activeElement;
+      if (active && typeof active.blur === "function") active.blur();
+    };
+
+    document.querySelectorAll("[data-menu-link], .menu-home-link, .menu-primary a").forEach(link => {
+      link.addEventListener("pointerdown", () => {
+        if (typeof link.blur === "function") link.blur();
+      }, { passive: true });
+
+      link.addEventListener("mousedown", () => {
+        if (typeof link.blur === "function") link.blur();
+      });
+
+      link.addEventListener("click", () => {
+        if (typeof lastMenuTrigger !== "undefined") lastMenuTrigger = null;
+        if (typeof link.blur === "function") link.blur();
+        window.setTimeout(blurActive, 0);
+      }, true);
+    });
+
+    window.addEventListener("pageshow", blurActive);
+  })();
 </script>
+
+
+<script>
+/* Fix v3: prevent the blue focus flash before navigation starts. */
+(function removeMenuPressFocusFlash() {
+  function clearFocus() {
+    var active = document.activeElement;
+    if (active && typeof active.blur === "function") active.blur();
+  }
+
+  function isMenuNavTarget(el) {
+    return !!(el && el.closest && el.closest('#siteMenu a, #siteMenu button, .menu-toggle, .brand-logo'));
+  }
+
+  ['pointerdown', 'mousedown'].forEach(function(type) {
+    document.addEventListener(type, function(e) {
+      var target = e.target && e.target.closest ? e.target.closest('#siteMenu a, #siteMenu button, .menu-toggle, .brand-logo') : null;
+      if (!target) return;
+      // Prevent mouse/pointer press from assigning focus, which is what creates the one-frame blue ring.
+      if (target.matches('a, button, .menu-toggle, .brand-logo')) e.preventDefault();
+      clearFocus();
+      if (typeof target.blur === 'function') target.blur();
+    }, true);
+  });
+
+  document.addEventListener('click', function(e) {
+    var target = e.target && e.target.closest ? e.target.closest('#siteMenu a[href], .brand-logo[href]') : null;
+    if (!target) return;
+    clearFocus();
+    if (typeof target.blur === 'function') target.blur();
+
+    var href = target.getAttribute('href');
+    if (!href || href.charAt(0) === '#') return;
+
+    // Because pointerdown is prevented to suppress focus, navigate explicitly for full browser consistency.
+    e.preventDefault();
+    e.stopPropagation();
+    document.body.classList.remove('menu-open');
+    var menu = document.getElementById('siteMenu');
+    if (menu) {
+      menu.classList.remove('is-open');
+      menu.setAttribute('aria-hidden', 'true');
+    }
+    window.setTimeout(function(){ window.location.href = href; }, 0);
+  }, true);
+
+  window.addEventListener('pageshow', clearFocus);
+  window.addEventListener('blur', clearFocus);
+})();
+</script>
+
 </body>
 </html>

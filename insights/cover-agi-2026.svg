@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Latent space topology cover</title>
+  <desc id="desc">An elegant abstract technical drawing of folded latent space and a violet frontier field.</desc>
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FCF8EE"/>
+      <stop offset="0.58" stop-color="#EFE6DA"/>
+      <stop offset="1" stop-color="#D7C8BA"/>
+    </linearGradient>
+    <radialGradient id="violet" cx="62%" cy="48%" r="58%">
+      <stop offset="0" stop-color="#660874" stop-opacity="0.36"/>
+      <stop offset="0.5" stop-color="#B07CC0" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#660874" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="mesh" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#1C1917" stroke-opacity="0.04"/>
+    </pattern>
+    <filter id="soft"><feGaussianBlur stdDeviation="18"/></filter>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.82" numOctaves="3" seed="18"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="table" tableValues="0 0.05"/></feComponentTransfer>
+    </filter>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#paper)"/>
+  <rect width="1600" height="1000" fill="url(#mesh)"/>
+  <rect width="1600" height="1000" fill="url(#violet)"/>
+  <g transform="translate(168 116)" fill="none" stroke="#1C1917" stroke-opacity="0.28">
+    <path d="M0 0C176 40 310 138 430 294C554 456 704 536 900 498C1052 468 1168 380 1288 282" stroke-width="1.4"/>
+    <path d="M0 0C86 184 186 348 338 476C512 622 728 682 928 616C1102 558 1226 432 1374 300" stroke-width="1.2"/>
+    <path d="M0 0C230 8 408 86 564 220C720 354 858 414 1058 364C1188 332 1300 286 1412 240" stroke-width="1"/>
+  </g>
+  <g transform="translate(168 116)" fill="none" stroke="#1C1917" stroke-opacity="0.16">
+    <path d="M38 18L370 318M92 42L426 366M148 74L490 420M206 112L552 466M266 158L618 500M326 214L686 526M390 274L760 532"/>
+    <path d="M58 148L444 40M122 220L548 78M196 300L668 128M282 386L798 190M386 462L952 260M508 522L1120 344"/>
+  </g>
+  <g filter="url(#soft)">
+    <path d="M604 342C690 224 842 214 930 332C1018 450 966 662 808 706C662 746 538 620 548 486C552 430 570 386 604 342Z" fill="#660874" opacity="0.48"/>
+    <ellipse cx="842" cy="488" rx="164" ry="88" fill="#B07CC0" opacity="0.34"/>
+  </g>
+  <g fill="none" stroke-linecap="round">
+    <path d="M240 746C390 644 536 604 692 640C870 682 1030 612 1196 432C1302 318 1392 260 1508 232" stroke="#660874" stroke-opacity="0.52" stroke-width="2.2"/>
+    <path d="M252 640C430 548 552 410 728 436C910 464 1036 448 1208 300C1308 214 1400 178 1506 164" stroke="#8B3A9A" stroke-opacity="0.3" stroke-width="1.5"/>
+  </g>
+  <rect x="48" y="48" width="1504" height="904" fill="none" stroke="#1C1917" stroke-opacity="0.16"/>
+  <rect width="1600" height="1000" filter="url(#grain)" opacity="0.88"/>
+</svg>

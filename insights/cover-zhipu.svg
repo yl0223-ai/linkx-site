@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Sustained growth editorial cover</title>
+  <desc id="desc">A dark elegant technology cover showing sustained high growth through luminous rising fields.</desc>
+  <defs>
+    <linearGradient id="night" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#130E11"/>
+      <stop offset="0.52" stop-color="#21161E"/>
+      <stop offset="1" stop-color="#2A162F"/>
+    </linearGradient>
+    <radialGradient id="lift" cx="76%" cy="26%" r="58%">
+      <stop offset="0" stop-color="#E8D5EE" stop-opacity="0.26"/>
+      <stop offset="0.5" stop-color="#8B3A9A" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#660874" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rise" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#FAF8F4" stop-opacity="0.08"/>
+      <stop offset="0.5" stop-color="#B07CC0" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#E8D5EE" stop-opacity="0.48"/>
+    </linearGradient>
+    <pattern id="grid" width="90" height="90" patternUnits="userSpaceOnUse">
+      <path d="M90 0H0V90" fill="none" stroke="#FAF8F4" stroke-opacity="0.035"/>
+    </pattern>
+    <filter id="paint">
+      <feTurbulence type="fractalNoise" baseFrequency="0.013 0.024" numOctaves="5" seed="71" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="18"/>
+    </filter>
+    <filter id="soft"><feGaussianBlur stdDeviation="28"/></filter>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.76" numOctaves="3" seed="25"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="table" tableValues="0 0.052"/></feComponentTransfer>
+    </filter>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#night)"/>
+  <rect width="1600" height="1000" fill="url(#grid)"/>
+  <rect width="1600" height="1000" fill="url(#lift)"/>
+  <g filter="url(#paint)">
+    <path d="M126 804C326 746 468 664 594 530C734 382 858 250 1038 184C1214 120 1370 82 1518 28V1000H126V804Z" fill="url(#rise)" opacity="0.92"/>
+    <path d="M172 884C416 820 584 710 742 540C924 344 1100 282 1518 170V1000H172V884Z" fill="#E8D5EE" opacity="0.15"/>
+    <path d="M196 626C346 616 472 574 592 490C728 394 842 268 1010 216C1194 160 1348 178 1510 118V358C1320 402 1188 456 1042 548C846 672 694 810 456 828C330 838 240 770 196 626Z" fill="#660874" opacity="0.24"/>
+  </g>
+  <g filter="url(#soft)">
+    <ellipse cx="1090" cy="248" rx="340" ry="160" fill="#E8D5EE" opacity="0.16"/>
+    <ellipse cx="670" cy="670" rx="420" ry="170" fill="#660874" opacity="0.14"/>
+  </g>
+  <path d="M232 676C360 642 474 578 598 456C752 304 900 210 1080 160C1230 118 1358 84 1502 34" fill="none" stroke="#E8D5EE" stroke-opacity="0.72" stroke-width="2.8" stroke-linecap="round"/>
+  <path d="M232 676C404 624 546 532 690 396C856 240 1048 178 1502 34" fill="none" stroke="#8B3A9A" stroke-opacity="0.68" stroke-width="1.5" stroke-linecap="round"/>
+  <rect width="1600" height="1000" filter="url(#grain)" opacity="0.88"/>
+</svg>

@@ -3513,7 +3513,7 @@
 
 
 /* Third-page targeted refinement:
-   keep the previous About layout, remove CTA framing lines, and keep 清智 AI 创新中心 on one line. */
+   keep the previous About layout, remove CTA framing lines, and keep T-ONE 创新中心 on one line. */
 .story-about .fund-metric.is-community strong {
   font-size: clamp(15px, 1.42vw, 21px) !important;
   line-height: 1.16 !important;
@@ -6608,7 +6608,349 @@ html[data-lang="en"] .menu-footer-social-label {
   align-items: center;
 }
 
+
+/* v124: menu watermark posture + social account matrix. */
+@media (min-width: 861px) {
+  .menu-shell::before {
+    right: clamp(-42px, -1.8vw, -12px) !important;
+    bottom: clamp(78px, 11vh, 128px) !important;
+    transform: rotate(-6deg) !important;
+    transform-origin: 50% 50% !important;
+    color: rgba(250, 248, 244, 0.032) !important;
+    letter-spacing: -0.07em !important;
+  }
+}
+
+.menu-footer {
+  gap: clamp(18px, 2.4vw, 32px) !important;
+}
+
+.menu-overlay .menu-copyright-fixed {
+  justify-self: start !important;
+  color: rgba(250, 248, 244, 0.58) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: none !important;
+  white-space: normal !important;
+}
+
+html[data-lang="en"] .menu-overlay .menu-copyright-fixed {
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+}
+
+.menu-overlay .menu-footer-brand {
+  display: none !important;
+}
+
+.menu-social-matrix {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: clamp(12px, 1.6vw, 20px) !important;
+  margin-left: auto !important;
+}
+
+html[data-lang="zh"] .menu-social-matrix,
+html[data-lang="en"] .menu-social-matrix {
+  display: inline-flex !important;
+}
+
+.menu-social-matrix .menu-footer-social-label {
+  display: inline-flex !important;
+  color: rgba(250, 248, 244, 0.42) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+}
+
+.menu-social-links {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-social-icon {
+  width: 34px !important;
+  height: 34px !important;
+  border-color: rgba(250, 248, 244, 0.18) !important;
+  background: rgba(250, 248, 244, 0.045) !important;
+  color: rgba(250, 248, 244, 0.84) !important;
+}
+
+.menu-social-icon:hover,
+.menu-social-icon:focus-visible {
+  transform: translateY(-2px) !important;
+  border-color: rgba(250, 248, 244, 0.48) !important;
+  background: rgba(250, 248, 244, 0.12) !important;
+  color: #fff !important;
+}
+
+.menu-social-icon svg,
+.menu-social-icon img {
+  width: 17px !important;
+  height: 17px !important;
+}
+
+.menu-social-icon img.icon-xhs {
+  width: 18px !important;
+  height: 18px !important;
+}
+
+.menu-social-icon img.icon-douyin {
+  width: 17px !important;
+  height: 17px !important;
+}
+
+.menu-qr-popover {
+  top: auto !important;
+  bottom: calc(100% + 14px) !important;
+  width: 168px !important;
+}
+
+.menu-qr-popover::after {
+  top: auto !important;
+  bottom: -7px !important;
+}
+
+@media (max-width: 860px) {
+  .menu-footer {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    align-items: start !important;
+  }
+
+  .menu-social-matrix {
+    margin-left: 0 !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    gap: 10px !important;
+  }
+
+  .menu-social-links {
+    flex-wrap: wrap;
+    gap: 9px;
+  }
+
+  .menu-social-icon {
+    width: 36px !important;
+    height: 36px !important;
+  }
+}
+
+
+
+/* v125: restore original LinkX menu watermark posture in bottom-right corner. */
+.menu-overlay::before {
+  content: "LinkX" !important;
+  position: absolute !important;
+  right: -0.08em !important;
+  bottom: -0.28em !important;
+  font-family: var(--font-serif) !important;
+  font-size: clamp(130px, 24vw, 360px) !important;
+  line-height: 1 !important;
+  color: rgba(250, 248, 244, 0.045) !important;
+  pointer-events: none !important;
+  letter-spacing: 0 !important;
+  transform: none !important;
+  z-index: 0 !important;
+}
+.menu-shell::before {
+  content: none !important;
+}
+
+
+/* v126: restore visible Build With Us card background across real browser rendering. */
+.menu-panel.menu-build-card {
+  border-radius: 28px !important;
+  border: 1px solid rgba(250, 248, 244, 0.16) !important;
+  background:
+    radial-gradient(circle at 18% 16%, rgba(176, 124, 192, 0.22), transparent 36%),
+    radial-gradient(circle at 92% 88%, rgba(250, 248, 244, 0.09), transparent 30%),
+    linear-gradient(180deg, rgba(250, 248, 244, 0.085), rgba(250, 248, 244, 0.038)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(250, 248, 244, 0.10),
+    0 18px 52px rgba(0, 0, 0, 0.10) !important;
+  padding: clamp(22px, 2.7vw, 34px) !important;
+  overflow: hidden !important;
+}
+
+@media (min-width: 861px) {
+  .menu-panel.menu-build-card {
+    min-height: clamp(176px, 20vh, 236px) !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    align-content: end !important;
+  }
+
+  .menu-contact-cta {
+    min-width: min(240px, 58%) !important;
+  }
+}
+
+@media (max-width: 860px) {
+  .menu-panel.menu-build-card {
+    min-height: 210px !important;
+    padding: 24px !important;
+  }
+}
+
+
+
+/* v127: remove menu social label and reduce menu social icon size. */
+.menu-social-matrix .menu-footer-social-label {
+  display: none !important;
+}
+.menu-social-matrix {
+  gap: 0 !important;
+}
+.menu-social-links {
+  gap: 8px !important;
+}
+.menu-social-icon {
+  width: 28px !important;
+  height: 28px !important;
+}
+.menu-social-icon svg,
+.menu-social-icon img {
+  width: 14px !important;
+  height: 14px !important;
+}
+.menu-social-icon img.icon-xhs {
+  width: 15px !important;
+  height: 15px !important;
+}
+.menu-social-icon img.icon-douyin {
+  width: 14px !important;
+  height: 14px !important;
+}
+@media (max-width: 860px) {
+  .menu-social-icon {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  .menu-social-links {
+    gap: 8px !important;
+  }
+}
+
+
+
+/* Fix v2: prevent browser blue focus rectangle after menu navigation clicks. */
+.menu-overlay a:focus,
+.menu-overlay a:focus-visible,
+.menu-overlay a:active,
+.menu-primary a:focus,
+.menu-primary a:focus-visible,
+.menu-primary a:active,
+.menu-home-link:focus,
+.menu-home-link:focus-visible,
+.menu-home-link:active,
+.menu-contact-cta:focus,
+.menu-contact-cta:focus-visible,
+.menu-contact-cta:active,
+.menu-toggle:focus,
+.menu-toggle:focus-visible,
+.menu-toggle:active,
+.brand-logo:focus,
+.brand-logo:focus-visible,
+.brand-logo:active {
+  outline: 0 !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+.menu-overlay a,
+.menu-primary a,
+.menu-home-link,
+.menu-contact-cta,
+.menu-toggle,
+.brand-logo {
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+
+/* Fix v3: remove the brief blue focus/tap flash on menu navigation. */
+#siteMenu a,
+#siteMenu button,
+.menu-overlay a,
+.menu-overlay button,
+.menu-primary a,
+.menu-home-link,
+.menu-contact-cta,
+.menu-toggle,
+.menu-close,
+.brand-logo {
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+  tap-highlight-color: rgba(0,0,0,0) !important;
+}
+#siteMenu a:focus,
+#siteMenu a:focus-visible,
+#siteMenu a:active,
+#siteMenu button:focus,
+#siteMenu button:focus-visible,
+#siteMenu button:active,
+.menu-overlay a:focus,
+.menu-overlay a:focus-visible,
+.menu-overlay a:active,
+.menu-overlay button:focus,
+.menu-overlay button:focus-visible,
+.menu-overlay button:active,
+.menu-primary a:focus,
+.menu-primary a:focus-visible,
+.menu-primary a:active,
+.menu-home-link:focus,
+.menu-home-link:focus-visible,
+.menu-home-link:active,
+.menu-contact-cta:focus,
+.menu-contact-cta:focus-visible,
+.menu-contact-cta:active,
+.menu-toggle:focus,
+.menu-toggle:focus-visible,
+.menu-toggle:active,
+.menu-close:focus,
+.menu-close:focus-visible,
+.menu-close:active,
+.brand-logo:focus,
+.brand-logo:focus-visible,
+.brand-logo:active {
+  outline: 0 !important;
+  outline-color: transparent !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+#siteMenu *::selection { background: transparent; }
+
+/* Hash navigation can focus these full-screen story sections after a menu click. */
+#opening:focus,
+#slogan:focus,
+#about-fund:focus,
+#focus:focus {
+  outline: none;
+}
+
 </style>
+<script>
+/* Fix v3.2: immediately clear focus on page load to prevent blue outline from previous page navigation */
+(function() {
+  if (document.activeElement && document.activeElement !== document.body) {
+    document.activeElement.blur();
+  }
+  window.addEventListener('DOMContentLoaded', function() {
+    if (document.activeElement && document.activeElement !== document.body) {
+      document.activeElement.blur();
+    }
+  });
+})();
+</script>
 </head>
 <body>
 <div class="progress-bar" id="progressBar"></div>
@@ -6648,10 +6990,9 @@ html[data-lang="en"] .menu-footer-social-label {
 </div>
 <div class="menu-grid">
 <nav aria-label="Primary navigation" class="menu-primary">
-<a data-menu-link="" href="#about-fund"><span class="menu-num">01</span><strong data-i18n="menu.nav.about">关于我们</strong><em>About Us</em></a>
-<a data-menu-link="" href="#focus"><span class="menu-num">02</span><strong data-i18n="menu.nav.portfolio">投资组合</strong><em>Portfolio</em></a>
+<a data-menu-link="" href="#focus"><span class="menu-num">01</span><strong data-i18n="menu.nav.portfolio">投资组合</strong><em>Portfolio</em></a>
+<a data-menu-link="" href="team.html"><span class="menu-num">02</span><strong data-i18n="menu.nav.team">团队</strong><em>Team</em></a>
 <a data-menu-link="" href="insights.html"><span class="menu-num">03</span><strong data-i18n="menu.nav.insights">洞察</strong><em>Insights</em></a>
-<a data-menu-link="" href="team.html"><span class="menu-num">04</span><strong data-i18n="menu.nav.team">团队</strong><em>Team</em></a>
 </nav>
 <aside aria-label="Featured links" class="menu-side">
 <div class="menu-panel menu-build-card">
@@ -6664,9 +7005,42 @@ html[data-lang="en"] .menu-footer-social-label {
 </aside>
 </div>
 <div class="menu-footer">
-<a class="menu-home-link" data-i18n="menu.footer.home" data-menu-link="" href="index.html">回到首页</a>
+<span class="menu-copyright-fixed" aria-label="版权信息" data-i18n="footer.copyright">@2026 北京星连肇基私募基金管理有限责任公司</span>
 <span class="menu-footer-brand" data-i18n="menu.footer.meta">LINKX CAPITAL</span>
-<div aria-label="Social accounts" class="menu-footer-social"><span class="menu-footer-social-label">You can also find us on</span><a aria-label="LinkX Capital on X" href="https://x.com/LinkXCapital" rel="noreferrer" target="_blank">X</a><a aria-label="LinkX Capital on LinkedIn" href="https://www.linkedin.com/company/link-x-%E6%98%9F%E8%BF%9E%E8%B5%84%E6%9C%AC/?viewAsMember=true" rel="noreferrer" target="_blank">LinkedIn</a></div>
+<div aria-label="社媒账号" class="menu-footer-social menu-social-matrix">
+<div class="menu-social-links">
+<div class="social-item menu-social-item">
+<button aria-label="基金微信公众号二维码" class="social-icon menu-social-icon" type="button">
+<img alt="" aria-hidden="true" src="https://cdn.simpleicons.org/wechat/FFFFFF"/>
+</button>
+<div class="qr-popover menu-qr-popover" role="tooltip">
+<img alt="基金微信公众号二维码" onerror="this.closest('.qr-popover').classList.add('qr-missing'); this.style.display='none';" onload="this.closest('.qr-popover').classList.remove('qr-missing'); this.style.display='block';" src="assets/wechat-linkx-capital.jpg"/><div aria-hidden="true" class="qr-fallback">QR</div>
+<span data-i18n="footer.wechatFund">基金微信公众号</span>
+</div>
+</div>
+<div class="social-item menu-social-item">
+<button aria-label="孵化器微信公众号二维码" class="social-icon menu-social-icon" type="button">
+<img alt="" aria-hidden="true" src="https://cdn.simpleicons.org/wechat/FFFFFF"/>
+</button>
+<div class="qr-popover menu-qr-popover" role="tooltip">
+<img alt="孵化器微信公众号二维码" onerror="this.closest('.qr-popover').classList.add('qr-missing'); this.style.display='none';" onload="this.closest('.qr-popover').classList.remove('qr-missing'); this.style.display='block';" src="assets/wechat-qingzhi-incubator.jpg"/><div aria-hidden="true" class="qr-fallback">QR</div>
+<span data-i18n="footer.wechatIncubator">孵化器微信公众号</span>
+</div>
+</div>
+<a aria-label="小红书账号" class="social-icon menu-social-icon" href="https://xhslink.com/m/UjLFumWxau" rel="noopener" target="_blank">
+<img alt="" aria-hidden="true" class="icon-xhs" src="https://cdn.simpleicons.org/xiaohongshu/FFFFFF"/>
+</a>
+<a aria-label="抖音账号" class="social-icon menu-social-icon" href="https://www.douyin.com/user/MS4wLjABAAAAHYtbwIVUi113kSYUweZGc-tFiJGG1WPk8Jgldgk9Fhw?previous_page=app_code_link" rel="noopener" target="_blank">
+<img alt="" aria-hidden="true" class="icon-douyin" src="https://cdn.simpleicons.org/tiktok/FFFFFF"/>
+</a>
+<a aria-label="LinkX Capital on X" class="social-icon menu-social-icon" href="https://x.com/LinkXCapital" rel="noreferrer" target="_blank">
+<svg aria-hidden="true" focusable="false" viewbox="0 0 24 24"><path d="M13.93 10.36 21.38 2h-1.77l-6.47 7.25L7.98 2H2.03l7.82 11.02L2.03 22h1.77l6.83-7.65L16.09 22h5.95l-8.11-11.64Zm-2.42 2.71-.79-1.09L4.42 3.29h2.71l5.08 7.01.79 1.09 6.61 9.12H16.9l-5.39-7.44Z" fill="currentColor"></path></svg>
+</a>
+<a aria-label="LinkX Capital on LinkedIn" class="social-icon menu-social-icon" href="https://www.linkedin.com/company/link-x-%E6%98%9F%E8%BF%9E%E8%B5%84%E6%9C%AC/?viewAsMember=true" rel="noreferrer" target="_blank">
+<svg aria-hidden="true" focusable="false" viewbox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.36 8.12h4.25V23H.36V8.12ZM7.5 8.12h4.07v2.03h.06c.57-1.08 1.96-2.22 4.03-2.22 4.31 0 5.1 2.84 5.1 6.53V23h-4.24v-7.56c0-1.8-.03-4.12-2.51-4.12-2.52 0-2.9 1.97-2.9 4V23H7.5V8.12Z" fill="currentColor"></path></svg>
+</a>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -6746,7 +7120,7 @@ html[data-lang="en"] .menu-footer-social-label {
 </div>
 <div class="fund-copy reveal">
 <p data-i18n="about.p1">星连资本（LinkX Capital）创建于 2021 年，是中国最早聚焦通用智能产业生态、目前最活跃的 AI 风险投资基金之一。我们围绕通用智能时代的关键技术栈与应用场景，投资基座模型、AI 基础设施、多智能体、具身智能、AI 原生应用及智能硬件等方向。</p>
-<p data-i18n="about.p2">我们与清华大学共建清智 AI 创新中心孵化器，打造活跃的全球青年科学家与企业家社区，推动科研、产业、政策与资本的多要素循环，加速源头创新走向真实商业场景。</p>
+<p data-i18n="about.p2">我们与清华大学共建华清普智AI孵化器（T-ONE Innovation Lab），打造活跃的全球青年科学家与企业家社区，推动科研、产业、政策与资本的多要素循环，加速源头创新走向真实商业场景。</p>
 <div aria-label="基金核心信息" class="fund-metrics">
 <div class="fund-metric">
 <strong data-i18n="about.m1.value">70+</strong>
@@ -6757,7 +7131,7 @@ html[data-lang="en"] .menu-footer-social-label {
 <span data-i18n="about.m2">AI 专家与创业者网络</span>
 </div>
 <div class="fund-metric is-community">
-<strong data-i18n="about.m3.value">清智 AI 创新中心</strong>
+<strong data-i18n="about.m3.value">T-ONE 创新中心</strong>
 <span data-i18n="about.m3">实验室阶段即锁定颠覆性创新项目</span>
 </div>
 </div>
@@ -6917,10 +7291,10 @@ html[data-lang="en"] .menu-footer-social-label {
       "about.kicker": "About Us · 关于我们",
       "about.h": "连接创新源头，<br>加速价值创造。",
       "about.p1": "星连资本（LinkX Capital）创建于 2021 年，是中国最早聚焦通用智能产业生态、目前最活跃的 AI 风险投资基金之一。我们围绕通用智能时代的关键技术栈与应用场景，投资基座模型、AI 基础设施、多智能体、具身智能、AI 原生应用及智能硬件等方向。",
-      "about.p2": "我们与清华大学共建清智 AI 创新中心孵化器，打造活跃的全球青年科学家与企业家社区，推动科研、产业、政策与资本的多要素循环，加速源头创新走向真实商业场景。",
+      "about.p2": "我们与清华大学共建华清普智AI孵化器（T-ONE Innovation Lab），打造活跃的全球青年科学家与企业家社区，推动科研、产业、政策与资本的多要素循环，加速源头创新走向真实商业场景。",
       "about.m1.value": "70+", "about.m1": "AGI 领域早期被投企业",
       "about.m2.value": "2000+", "about.m2": "AI 专家与创业者网络",
-      "about.m3.value": "清智 AI 创新中心", "about.m3": "实验室阶段即锁定颠覆性创新项目",
+      "about.m3.value": "T-ONE 创新中心", "about.m3": "实验室阶段即锁定颠覆性创新项目",
       "beliefs.h": "<span>当智能成为基础设施，</span><span>产业边界与价值创造方式</span><span>正在被重塑。</span>",
       "beliefs.b1": "<em>AI 不只是工具，而是新的底层生产要素</em>。它将如电力般渗透，重构各行业的成本结构、组织方式与增长路径。",
       "beliefs.b2": "<em>真正的机会诞生于技术突破与市场需求的交汇点</em>。我们深入一线，在噪声中识别驱动产业演进的真实信号。",
@@ -7134,6 +7508,13 @@ html[data-lang="en"] .menu-footer-social-label {
   const menuClosers = document.querySelectorAll("[data-menu-close]");
   const menuLinks = document.querySelectorAll("[data-menu-link]");
   let lastMenuTrigger = null;
+
+  function isSiteMenuOpen() {
+    return !!menuOverlay && menuOverlay.classList.contains("is-open");
+  }
+
+  window.__linkxMenuIsOpen = isSiteMenuOpen;
+  window.__linkxSuppressNextPageClick = false;
 
   function setMenuOpen(open) {
     if (!menuOverlay) return;
@@ -8844,6 +9225,7 @@ html[data-lang="en"] .menu-footer-social-label {
   }
 
   document.addEventListener("pointerdown", (event) => {
+    if (window.__linkxMenuIsOpen && window.__linkxMenuIsOpen()) return;
     if (!isOpeningClick(event)) return;
     const interactive = event.target.closest("a, button");
     if (interactive && !interactive.closest(".story-tether-trigger")) return;
@@ -8854,6 +9236,14 @@ html[data-lang="en"] .menu-footer-social-label {
   }, true);
 
   document.addEventListener("click", (event) => {
+    if (window.__linkxSuppressNextPageClick) {
+      window.__linkxSuppressNextPageClick = false;
+      event.preventDefault();
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+      return;
+    }
+    if (window.__linkxMenuIsOpen && window.__linkxMenuIsOpen()) return;
     if (!isOpeningClick(event)) return;
     const interactive = event.target.closest("a, button");
     if (interactive && !interactive.closest(".story-tether-trigger")) return;
@@ -8871,6 +9261,7 @@ html[data-lang="en"] .menu-footer-social-label {
   }, true);
 
   slogan.addEventListener("pointerdown", (event) => {
+    if (window.__linkxMenuIsOpen && window.__linkxMenuIsOpen()) return;
     const interactive = event.target.closest("a, button");
     if (interactive && !interactive.closest('a[href="#about-fund"].scroll-cue')) return;
     const bg = slogan.querySelector(".story-slogan-bg-orbits");
@@ -8916,6 +9307,16 @@ html[data-lang="en"] .menu-footer-social-label {
   }
 
   function runSoftHandoff(event) {
+    if (window.__linkxSuppressNextPageClick) {
+      window.__linkxSuppressNextPageClick = false;
+      if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+      }
+      return;
+    }
+    if (menuIsOpen()) return;
     if (isMoving) return;
 
     const interactive = event && event.target.closest("a, button");
@@ -9041,6 +9442,16 @@ html[data-lang="en"] .menu-footer-social-label {
   }
 
   function goToFocus(event, fromCta = false) {
+    if (window.__linkxMenuIsOpen && window.__linkxMenuIsOpen()) return;
+    if (window.__linkxSuppressNextPageClick) {
+      window.__linkxSuppressNextPageClick = false;
+      if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+      }
+      return;
+    }
     if (isMoving) return;
 
     const interactive = event && event.target.closest("a, button, input, textarea, select, [role='button']");
@@ -9115,7 +9526,20 @@ html[data-lang="en"] .menu-footer-social-label {
 
   function interceptOutsideMenu(event) {
     const menu = getMenuOverlay();
+
+    if (event.type === "click" && window.__linkxSuppressNextPageClick) {
+      window.__linkxSuppressNextPageClick = false;
+      event.preventDefault();
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+      return;
+    }
+
     if (!isMenuOpen(menu) || shouldIgnore(event.target, menu)) return;
+
+    if (event.type === "pointerdown") {
+      window.__linkxSuppressNextPageClick = true;
+    }
 
     event.preventDefault();
     event.stopPropagation();
@@ -9125,6 +9549,84 @@ html[data-lang="en"] .menu-footer-social-label {
 
   document.addEventListener("pointerdown", interceptOutsideMenu, true);
   document.addEventListener("click", interceptOutsideMenu, true);
+})();
+
+
+  // Fix v2: avoid leaving focus on the clicked menu link or restoring focus to the menu button after navigation.
+  (function removeMenuNavigationFocusRing() {
+    const blurActive = () => {
+      const active = document.activeElement;
+      if (active && typeof active.blur === "function") active.blur();
+    };
+
+    document.querySelectorAll("[data-menu-link], .menu-home-link, .menu-primary a").forEach(link => {
+      link.addEventListener("pointerdown", () => {
+        if (typeof link.blur === "function") link.blur();
+      }, { passive: true });
+
+      link.addEventListener("mousedown", () => {
+        if (typeof link.blur === "function") link.blur();
+      });
+
+      link.addEventListener("click", () => {
+        if (typeof lastMenuTrigger !== "undefined") lastMenuTrigger = null;
+        if (typeof link.blur === "function") link.blur();
+        window.setTimeout(blurActive, 0);
+      }, true);
+    });
+
+    window.addEventListener("pageshow", blurActive);
+  })();
+</script>
+
+
+
+<script>
+/* Fix v3: prevent the blue focus flash before navigation starts. */
+(function removeMenuPressFocusFlash() {
+  function clearFocus() {
+    var active = document.activeElement;
+    if (active && typeof active.blur === "function") active.blur();
+  }
+
+  function isMenuNavTarget(el) {
+    return !!(el && el.closest && el.closest('#siteMenu a, #siteMenu button, .menu-toggle, .brand-logo'));
+  }
+
+  ['pointerdown', 'mousedown'].forEach(function(type) {
+    document.addEventListener(type, function(e) {
+      var target = e.target && e.target.closest ? e.target.closest('#siteMenu a, #siteMenu button, .menu-toggle, .brand-logo') : null;
+      if (!target) return;
+      // Prevent mouse/pointer press from assigning focus, which is what creates the one-frame blue ring.
+      if (target.matches('a, button, .menu-toggle, .brand-logo')) e.preventDefault();
+      clearFocus();
+      if (typeof target.blur === 'function') target.blur();
+    }, true);
+  });
+
+  document.addEventListener('click', function(e) {
+    var target = e.target && e.target.closest ? e.target.closest('#siteMenu a[href], .brand-logo[href]') : null;
+    if (!target) return;
+    clearFocus();
+    if (typeof target.blur === 'function') target.blur();
+
+    var href = target.getAttribute('href');
+    if (!href || href.charAt(0) === '#') return;
+
+    // Because pointerdown is prevented to suppress focus, navigate explicitly for full browser consistency.
+    e.preventDefault();
+    e.stopPropagation();
+    document.body.classList.remove('menu-open');
+    var menu = document.getElementById('siteMenu');
+    if (menu) {
+      menu.classList.remove('is-open');
+      menu.setAttribute('aria-hidden', 'true');
+    }
+    window.setTimeout(function(){ window.location.href = href; }, 0);
+  }, true);
+
+  window.addEventListener('pageshow', clearFocus);
+  window.addEventListener('blur', clearFocus);
 })();
 </script>
 

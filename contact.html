@@ -1500,7 +1500,845 @@ html[data-lang="en"] .contact-belief-list .body {
   }
 }
 
+
+
+/* Menu overlay synchronized from legal page. */
+/* v128: restore visible Build With Us card + full social matrix in menu drawer. */
+.menu-panel.menu-build-card {
+  border-radius: 28px !important;
+  border: 1px solid rgba(250, 248, 244, 0.16) !important;
+  background:
+    radial-gradient(circle at 18% 16%, rgba(176, 124, 192, 0.22), transparent 36%),
+    radial-gradient(circle at 92% 88%, rgba(250, 248, 244, 0.09), transparent 30%),
+    linear-gradient(180deg, rgba(250, 248, 244, 0.085), rgba(250, 248, 244, 0.038)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(250, 248, 244, 0.10),
+    0 18px 52px rgba(0, 0, 0, 0.10) !important;
+  padding: clamp(22px, 2.7vw, 34px) !important;
+  overflow: hidden !important;
+}
+@media (min-width: 861px) {
+  .menu-panel.menu-build-card {
+    min-height: clamp(176px, 20vh, 236px) !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    align-content: end !important;
+  }
+  .menu-contact-cta { min-width: min(240px, 58%) !important; }
+}
+@media (max-width: 860px) {
+  .menu-panel.menu-build-card {
+    min-height: 210px !important;
+    padding: 24px !important;
+  }
+}
+
+.menu-footer { gap: clamp(18px, 2.4vw, 32px) !important; align-items: center !important; }
+.menu-social-matrix {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 0 !important;
+  margin-left: auto !important;
+}
+.menu-social-matrix .menu-footer-social-label { display: none !important; }
+.menu-social-links {
+  display: inline-flex !important;
+  align-items: center !important;
+  flex-wrap: nowrap !important;
+  gap: 8px !important;
+}
+.menu-social-item { position: relative !important; display: inline-flex !important; }
+.menu-social-icon {
+  width: 28px !important;
+  height: 28px !important;
+  display: inline-grid !important;
+  place-items: center !important;
+  padding: 0 !important;
+  border: 1px solid rgba(250, 248, 244, 0.18) !important;
+  border-radius: 50% !important;
+  border-bottom-color: rgba(250, 248, 244, 0.18) !important;
+  background: rgba(250, 248, 244, 0.045) !important;
+  color: rgba(250, 248, 244, 0.84) !important;
+  text-decoration: none !important;
+  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease, color 0.18s ease !important;
+}
+.menu-social-icon:hover,
+.menu-social-icon:focus-visible {
+  transform: translateY(-2px) !important;
+  border-color: rgba(250, 248, 244, 0.48) !important;
+  background: rgba(250, 248, 244, 0.12) !important;
+  color: #fff !important;
+  outline: none !important;
+}
+.menu-social-icon svg,
+.menu-social-icon img {
+  width: 14px !important;
+  height: 14px !important;
+  display: block !important;
+  fill: currentColor !important;
+  object-fit: contain !important;
+}
+.menu-social-icon img.icon-xhs { width: 15px !important; height: 15px !important; }
+.menu-social-icon img.icon-douyin { width: 14px !important; height: 14px !important; }
+.menu-qr-popover {
+  position: absolute !important;
+  right: 50% !important;
+  top: auto !important;
+  bottom: calc(100% + 14px) !important;
+  width: 168px !important;
+  padding: 12px !important;
+  border-radius: 8px !important;
+  background: rgba(250, 248, 244, 0.98) !important;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.32) !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: translate(50%, 8px) !important;
+  pointer-events: none !important;
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease !important;
+  z-index: 20 !important;
+}
+.menu-qr-popover::after {
+  content: "" !important;
+  position: absolute !important;
+  right: 50% !important;
+  top: auto !important;
+  bottom: -7px !important;
+  width: 14px !important;
+  height: 14px !important;
+  background: rgba(250, 248, 244, 0.98) !important;
+  transform: translateX(50%) rotate(45deg) !important;
+}
+.menu-qr-popover img {
+  width: 100% !important;
+  aspect-ratio: 1 !important;
+  object-fit: cover !important;
+  border-radius: 4px !important;
+}
+.menu-qr-popover span {
+  display: block !important;
+  margin-top: 9px !important;
+  color: var(--text) !important;
+  font-size: 12px !important;
+  line-height: 1.4 !important;
+  text-align: center !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+.menu-social-item:hover .menu-qr-popover,
+.menu-social-item:focus-within .menu-qr-popover {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translate(50%, 0) !important;
+  pointer-events: auto !important;
+}
+.qr-fallback {
+  display: none;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 4px;
+  place-items: center;
+  color: rgba(102, 8, 116, 0.62);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  background:
+    linear-gradient(90deg, rgba(102, 8, 116, 0.11) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(102, 8, 116, 0.11) 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, rgba(176, 124, 192, 0.12), transparent 58%),
+    rgba(250, 248, 244, 0.96);
+  background-size: 12px 12px, 12px 12px, 100% 100%, 100% 100%;
+  border: 1px solid rgba(102, 8, 116, 0.10);
+}
+.qr-popover.qr-missing .qr-fallback { display: grid; }
+.qr-popover.qr-missing span::after {
+  content: " · 二维码图片待补充";
+  color: rgba(120, 113, 108, 0.72);
+}
+@media (max-width: 860px) {
+  .menu-footer {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    align-items: start !important;
+  }
+  .menu-social-matrix {
+    margin-left: 0 !important;
+    justify-content: flex-start !important;
+  }
+  .menu-social-links { flex-wrap: wrap !important; }
+  .menu-social-icon { width: 30px !important; height: 30px !important; }
+}
+
+
+
+/* v127: align LinkX menu watermark with index.html original bottom-right posture. */
+.menu-overlay::before {
+  content: "LinkX" !important;
+  position: absolute !important;
+  right: -0.08em !important;
+  bottom: -0.28em !important;
+  font-family: var(--font-serif) !important;
+  font-size: clamp(130px, 24vw, 360px) !important;
+  line-height: 1 !important;
+  color: rgba(250, 248, 244, 0.045) !important;
+  pointer-events: none !important;
+  letter-spacing: 0 !important;
+  transform: none !important;
+  z-index: 0 !important;
+}
+.menu-shell::before {
+  content: none !important;
+}
+
+
+
+/* Patch: remove default browser blue focus ring on menu links, keep LinkX-style focus affordance. */
+.menu-overlay a:focus,
+.menu-overlay button:focus {
+  outline: none !important;
+}
+.menu-primary a:focus-visible {
+  outline: 1px solid rgba(232, 213, 238, 0.42) !important;
+  outline-offset: -1px !important;
+  background: rgba(250, 248, 244, 0.035) !important;
+}
+.menu-primary a:focus:not(:focus-visible),
+.menu-contact-cta:focus:not(:focus-visible),
+.menu-social-icon:focus:not(:focus-visible),
+.menu-close:focus:not(:focus-visible) {
+  outline: none !important;
+  box-shadow: none !important;
+}
+.menu-contact-cta:focus-visible,
+.menu-social-icon:focus-visible,
+.menu-close:focus-visible {
+  outline: 1px solid rgba(232, 213, 238, 0.48) !important;
+  outline-offset: 4px !important;
+  box-shadow: none !important;
+}
+
+
+
+/* v131: Chinese menu shows full legal copyright; English keeps LINKX CAPITAL. */
+.menu-footer .menu-footer-brand {
+  display: inline-flex !important;
+  justify-self: start !important;
+  align-items: center !important;
+  color: rgba(250, 248, 244, 0.42) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+}
+@media (max-width: 860px) {
+  .menu-footer .menu-footer-brand {
+    display: inline-flex !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+  }
+}
+
+
+
+/* v132: force visible menu footer copyright in both languages. */
+.menu-footer {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  column-gap: clamp(18px, 2.4vw, 32px) !important;
+}
+.menu-footer .menu-footer-brand {
+  display: inline-flex !important;
+  justify-self: start !important;
+  align-items: center !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  color: rgba(250, 248, 244, 0.42) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: none !important;
+  white-space: normal !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+.menu-footer .menu-footer-brand .zh-only,
+.menu-footer .menu-footer-brand .en-only {
+  display: inline !important;
+}
+html[data-lang="zh"] .menu-footer .menu-footer-brand .en-only { display: none !important; }
+html[data-lang="en"] .menu-footer .menu-footer-brand .zh-only { display: none !important; }
+html[data-lang="en"] .menu-footer .menu-footer-brand .en-only {
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+}
+@media (max-width: 860px) {
+  .menu-footer { grid-template-columns: 1fr !important; row-gap: 14px !important; }
+  .menu-footer .menu-footer-brand { order: 1 !important; }
+  .menu-footer .menu-social-matrix { order: 2 !important; margin-left: 0 !important; justify-content: flex-start !important; }
+}
+
+
+
+/* v200: robust visible menu footer copyright via generated left grid item.
+   This avoids earlier display:none rules and i18n/localStorage overwrites. */
+.menu-footer {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  column-gap: clamp(18px, 2.4vw, 32px) !important;
+}
+.menu-footer::before {
+  content: "© 2026 北京星连肇基私募基金管理有限责任公司" !important;
+  grid-column: 1 !important;
+  justify-self: start !important;
+  display: block !important;
+  color: rgba(250, 248, 244, 0.46) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: none !important;
+  white-space: normal !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 3 !important;
+  pointer-events: none !important;
+}
+html[data-lang="en"] .menu-footer::before {
+  content: "LINKX CAPITAL" !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+}
+.menu-footer .menu-footer-brand {
+  display: none !important;
+}
+.menu-footer .menu-social-matrix {
+  grid-column: 2 !important;
+  justify-self: end !important;
+  z-index: 3 !important;
+}
+@media (max-width: 860px) {
+  .menu-footer {
+    grid-template-columns: 1fr !important;
+    row-gap: 14px !important;
+  }
+  .menu-footer::before {
+    grid-column: 1 !important;
+    max-width: 100% !important;
+  }
+  .menu-footer .menu-social-matrix {
+    grid-column: 1 !important;
+    justify-self: start !important;
+    margin-left: 0 !important;
+  }
+}
+
+
+
+/* v300: final robust visible copyright node, no pseudo-element dependency. */
+.menu-footer::before { content: none !important; display: none !important; }
+.menu-footer {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  column-gap: clamp(18px, 2.4vw, 32px) !important;
+}
+.menu-footer .menu-copyright-fixed {
+  grid-column: 1 !important;
+  justify-self: start !important;
+  display: inline-block !important;
+  color: rgba(250, 248, 244, 0.50) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: none !important;
+  white-space: normal !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  z-index: 10 !important;
+  pointer-events: none !important;
+}
+.menu-footer .menu-copyright-fixed .menu-copyright-zh,
+.menu-footer .menu-copyright-fixed .menu-copyright-en { display: inline !important; }
+html[data-lang="zh"] .menu-footer .menu-copyright-fixed .menu-copyright-en { display: none !important; }
+html[data-lang="en"] .menu-footer .menu-copyright-fixed .menu-copyright-zh { display: none !important; }
+html[data-lang="en"] .menu-footer .menu-copyright-fixed {
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+}
+.menu-footer .menu-social-matrix {
+  grid-column: 2 !important;
+  justify-self: end !important;
+}
+@media (max-width: 860px) {
+  .menu-footer { grid-template-columns: 1fr !important; row-gap: 14px !important; }
+  .menu-footer .menu-copyright-fixed,
+  .menu-footer .menu-social-matrix { grid-column: 1 !important; justify-self: start !important; }
+}
+
+
+
+/* v999: force visible menu copyright at the actual drawer bottom-left. */
+.menu-overlay .menu-shell {
+  position: relative !important;
+  padding-bottom: 72px !important;
+}
+.menu-overlay .menu-footer {
+  position: static !important;
+  display: block !important;
+  padding-top: 24px !important;
+  min-height: 48px !important;
+}
+.menu-overlay .menu-copyright-fixed {
+  position: absolute !important;
+  left: clamp(22px, 3vw, 40px) !important;
+  bottom: 28px !important;
+  display: block !important;
+  width: calc(100% - clamp(22px, 3vw, 40px) * 2 - 220px) !important;
+  min-width: 260px !important;
+  max-width: 420px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: rgba(250, 248, 244, 0.58) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: none !important;
+  white-space: normal !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 999 !important;
+  pointer-events: none !important;
+  background: transparent !important;
+}
+.menu-overlay .menu-copyright-fixed .menu-copyright-zh,
+.menu-overlay .menu-copyright-fixed .menu-copyright-en {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+html[data-lang="zh"] .menu-overlay .menu-copyright-fixed .menu-copyright-zh { display: inline !important; }
+html[data-lang="zh"] .menu-overlay .menu-copyright-fixed .menu-copyright-en { display: none !important; }
+html[data-lang="en"] .menu-overlay .menu-copyright-fixed .menu-copyright-zh { display: none !important; }
+html[data-lang="en"] .menu-overlay .menu-copyright-fixed .menu-copyright-en {
+  display: inline !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+}
+.menu-overlay .menu-social-matrix {
+  position: absolute !important;
+  right: clamp(22px, 3vw, 40px) !important;
+  bottom: 24px !important;
+  z-index: 999 !important;
+}
+@media (max-width: 860px) {
+  .menu-overlay .menu-shell { padding-bottom: 124px !important; }
+  .menu-overlay .menu-copyright-fixed {
+    left: clamp(22px, 3vw, 40px) !important;
+    right: clamp(22px, 3vw, 40px) !important;
+    bottom: 74px !important;
+    width: auto !important;
+    max-width: none !important;
+  }
+  .menu-overlay .menu-social-matrix {
+    left: clamp(22px, 3vw, 40px) !important;
+    right: auto !important;
+    bottom: 24px !important;
+  }
+}
+
+
+
+/* final: menu bottom-left brand by language */
+.menu-overlay .menu-copyright-fixed {
+  color: rgba(250, 248, 244, 0.58) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: none !important;
+}
+html[data-lang="zh"] .menu-overlay .menu-copyright-fixed .menu-copyright-zh { display: inline !important; }
+html[data-lang="zh"] .menu-overlay .menu-copyright-fixed .menu-copyright-en { display: none !important; }
+html[data-lang="en"] .menu-overlay .menu-copyright-fixed .menu-copyright-zh { display: none !important; }
+html[data-lang="en"] .menu-overlay .menu-copyright-fixed .menu-copyright-en {
+  display: inline !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+}
+
+
+
+/* v1001: robust footer copyright: single i18n text node, no child-span dependency. */
+.menu-overlay .menu-copyright-fixed {
+  display: block !important;
+  color: rgba(250, 248, 244, 0.58) !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+html[data-lang="zh"] .menu-overlay .menu-copyright-fixed {
+  letter-spacing: 0.04em !important;
+  text-transform: none !important;
+}
+html[data-lang="en"] .menu-overlay .menu-copyright-fixed {
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+}
+
+
+
+/* FINAL FIX: real menu footer copyright, no generated pseudo-text. */
+.menu-footer::before {
+  content: none !important;
+  display: none !important;
+}
+.menu-footer .menu-copyright-fixed {
+  grid-column: 1 !important;
+  justify-self: start !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: rgba(250, 248, 244, 0.46) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: none !important;
+  white-space: normal !important;
+  pointer-events: none !important;
+}
+html[data-lang="en"] .menu-footer .menu-copyright-fixed {
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+}
+.menu-footer .menu-social-matrix {
+  grid-column: 2 !important;
+}
+
+
+/* v1002: pin menu copyright to the true bottom-left of the drawer. */
+.menu-overlay .menu-shell {
+  position: relative !important;
+  min-height: 100dvh !important;
+  padding-bottom: 86px !important;
+}
+.menu-overlay .menu-footer {
+  position: static !important;
+}
+.menu-overlay .menu-footer::before {
+  content: none !important;
+  display: none !important;
+}
+.menu-overlay .menu-copyright-fixed {
+  position: absolute !important;
+  left: clamp(22px, 3vw, 40px) !important;
+  bottom: 26px !important;
+  right: auto !important;
+  top: auto !important;
+  transform: none !important;
+  display: block !important;
+  width: auto !important;
+  max-width: calc(100% - clamp(22px, 3vw, 40px) * 2) !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: left !important;
+  color: rgba(250, 248, 244, 0.58) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: none !important;
+  white-space: nowrap !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 1001 !important;
+  pointer-events: none !important;
+}
+html[data-lang="en"] .menu-overlay .menu-copyright-fixed {
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+}
+.menu-overlay .menu-social-matrix {
+  position: absolute !important;
+  right: clamp(22px, 3vw, 40px) !important;
+  bottom: 24px !important;
+  z-index: 1000 !important;
+}
+@media (max-width: 860px) {
+  .menu-overlay .menu-shell { padding-bottom: 128px !important; }
+  .menu-overlay .menu-copyright-fixed {
+    left: clamp(22px, 3vw, 40px) !important;
+    bottom: 78px !important;
+    max-width: calc(100% - clamp(22px, 3vw, 40px) * 2) !important;
+    white-space: normal !important;
+  }
+  .menu-overlay .menu-social-matrix {
+    left: clamp(22px, 3vw, 40px) !important;
+    right: auto !important;
+    bottom: 24px !important;
+  }
+}
+
+
+
+/* v1003 final: remove footer home/back link and pin copyright at menu drawer bottom-left. */
+.menu-overlay .menu-footer > a,
+.menu-overlay .menu-footer .menu-footer-home,
+.menu-overlay .menu-footer .footer-home,
+.menu-overlay .menu-footer .back-home,
+.menu-overlay .menu-footer [data-i18n="menu.footer.home"],
+.menu-overlay .menu-footer [data-i18n="footer.home"] {
+  display: none !important;
+}
+.menu-overlay .menu-footer::before,
+.menu-overlay .menu-footer::after {
+  content: none !important;
+  display: none !important;
+}
+.menu-overlay .menu-shell {
+  position: relative !important;
+  min-height: 100dvh !important;
+  padding-bottom: 86px !important;
+}
+.menu-overlay .menu-footer {
+  position: static !important;
+}
+.menu-overlay .menu-copyright-fixed {
+  position: absolute !important;
+  left: clamp(22px, 3vw, 40px) !important;
+  bottom: 26px !important;
+  right: auto !important;
+  top: auto !important;
+  display: block !important;
+  width: auto !important;
+  max-width: calc(100% - clamp(22px, 3vw, 40px) * 2) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: left !important;
+  color: rgba(250, 248, 244, 0.58) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: none !important;
+  white-space: nowrap !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: none !important;
+  z-index: 1001 !important;
+}
+html[data-lang="en"] .menu-overlay .menu-copyright-fixed {
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+}
+
+
+
+/* v1004: align bottom copyright with the left edge of menu number column (01/02/03). */
+.menu-overlay .menu-copyright-fixed {
+  left: clamp(22px, 3vw, 40px) !important;
+  inset-inline-start: clamp(22px, 3vw, 40px) !important;
+}
+@media (max-width: 860px) {
+  .menu-overlay .menu-copyright-fixed {
+    left: clamp(22px, 3vw, 40px) !important;
+    inset-inline-start: clamp(22px, 3vw, 40px) !important;
+  }
+}
+
+
+
+/* v1005: align footer brand text with the left border of the Build With Us card.
+   Footer is positioned as a full-width row inside the same menu content column as the card. */
+.menu-overlay .menu-shell {
+  position: relative !important;
+  padding-bottom: 92px !important;
+}
+.menu-overlay .menu-footer {
+  position: absolute !important;
+  left: clamp(22px, 3vw, 40px) !important;
+  right: clamp(22px, 3vw, 40px) !important;
+  bottom: 24px !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  column-gap: clamp(18px, 2.4vw, 32px) !important;
+  width: auto !important;
+  min-height: 42px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-top: 0 !important;
+  z-index: 1000 !important;
+}
+.menu-overlay .menu-copyright-fixed {
+  position: static !important;
+  grid-column: 1 !important;
+  justify-self: start !important;
+  align-self: center !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  top: auto !important;
+  width: auto !important;
+  max-width: min(100%, 460px) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: left !important;
+  color: rgba(250, 248, 244, 0.58) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: none !important;
+  white-space: normal !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: none !important;
+  z-index: 1001 !important;
+}
+html[data-lang="en"] .menu-overlay .menu-copyright-fixed {
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+}
+.menu-overlay .menu-social-matrix {
+  position: static !important;
+  grid-column: 2 !important;
+  justify-self: end !important;
+  align-self: center !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  margin: 0 !important;
+  z-index: 1001 !important;
+}
+@media (max-width: 860px) {
+  .menu-overlay .menu-shell { padding-bottom: 132px !important; }
+  .menu-overlay .menu-footer {
+    grid-template-columns: 1fr !important;
+    row-gap: 14px !important;
+    bottom: 22px !important;
+  }
+  .menu-overlay .menu-copyright-fixed,
+  .menu-overlay .menu-social-matrix {
+    grid-column: 1 !important;
+    justify-self: start !important;
+  }
+}
+
+
+
+
+
+
+/* Fix v2: prevent browser blue focus rectangle after menu navigation clicks. */
+.menu-overlay a:focus,
+.menu-overlay a:focus-visible,
+.menu-overlay a:active,
+.menu-primary a:focus,
+.menu-primary a:focus-visible,
+.menu-primary a:active,
+.menu-home-link:focus,
+.menu-home-link:focus-visible,
+.menu-home-link:active,
+.menu-contact-cta:focus,
+.menu-contact-cta:focus-visible,
+.menu-contact-cta:active,
+.menu-toggle:focus,
+.menu-toggle:focus-visible,
+.menu-toggle:active,
+.brand-logo:focus,
+.brand-logo:focus-visible,
+.brand-logo:active {
+  outline: 0 !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+.menu-overlay a,
+.menu-primary a,
+.menu-home-link,
+.menu-contact-cta,
+.menu-toggle,
+.brand-logo {
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+
+/* Fix v3: remove the brief blue focus/tap flash on menu navigation. */
+#siteMenu a,
+#siteMenu button,
+.menu-overlay a,
+.menu-overlay button,
+.menu-primary a,
+.menu-home-link,
+.menu-contact-cta,
+.menu-toggle,
+.menu-close,
+.brand-logo {
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+  tap-highlight-color: rgba(0,0,0,0) !important;
+}
+#siteMenu a:focus,
+#siteMenu a:focus-visible,
+#siteMenu a:active,
+#siteMenu button:focus,
+#siteMenu button:focus-visible,
+#siteMenu button:active,
+.menu-overlay a:focus,
+.menu-overlay a:focus-visible,
+.menu-overlay a:active,
+.menu-overlay button:focus,
+.menu-overlay button:focus-visible,
+.menu-overlay button:active,
+.menu-primary a:focus,
+.menu-primary a:focus-visible,
+.menu-primary a:active,
+.menu-home-link:focus,
+.menu-home-link:focus-visible,
+.menu-home-link:active,
+.menu-contact-cta:focus,
+.menu-contact-cta:focus-visible,
+.menu-contact-cta:active,
+.menu-toggle:focus,
+.menu-toggle:focus-visible,
+.menu-toggle:active,
+.menu-close:focus,
+.menu-close:focus-visible,
+.menu-close:active,
+.brand-logo:focus,
+.brand-logo:focus-visible,
+.brand-logo:active {
+  outline: 0 !important;
+  outline-color: transparent !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+#siteMenu *::selection { background: transparent; }
+
 </style>
+<script>
+/* Fix v3.2: immediately clear focus on page load to prevent blue outline from previous page navigation */
+(function() {
+  if (document.activeElement && document.activeElement !== document.body) {
+    document.activeElement.blur();
+  }
+  window.addEventListener('DOMContentLoaded', function() {
+    if (document.activeElement && document.activeElement !== document.body) {
+      document.activeElement.blur();
+    }
+  });
+})();
+</script>
 </head>
 <body>
 <div class="progress-bar" id="progressBar"></div>
@@ -1531,49 +2369,60 @@ html[data-lang="en"] .contact-belief-list .body {
 <div class="menu-shell">
 <div class="menu-top">
 <div class="menu-label"><span data-i18n="menu.label">导航</span><i>/</i><em>Menu</em></div>
-<button aria-label="Close menu" class="menu-close" data-menu-close="" type="button">
-<span></span>
-<span></span>
-</button>
+<button aria-label="Close menu" class="menu-close" data-menu-close="" type="button"><span></span><span></span></button>
 </div>
 <div class="menu-grid">
 <nav aria-label="Primary navigation" class="menu-primary">
-<a data-menu-link="" href="index.html#about-fund"><span class="menu-num">01</span><strong data-i18n="menu.nav.about">关于我们</strong><em>About Us</em></a>
+<a data-menu-link="" href="index.html#slogan"><span class="menu-num">01</span><strong data-i18n="menu.home">首页</strong><em>Home</em></a>
 <a data-menu-link="" href="index.html#focus"><span class="menu-num">02</span><strong data-i18n="menu.nav.portfolio">投资组合</strong><em>Portfolio</em></a>
-<a data-menu-link="" href="insights.html"><span class="menu-num">03</span><strong data-i18n="menu.nav.insights">洞察</strong><em>Insights</em></a>
-<a data-menu-link="" href="team.html"><span class="menu-num">04</span><strong data-i18n="menu.nav.team">团队</strong><em>Team</em></a>
+<a data-menu-link="" href="team.html"><span class="menu-num">03</span><strong data-i18n="menu.nav.team">团队</strong><em>Team</em></a>
+<a data-menu-link="" href="insights.html"><span class="menu-num">04</span><strong data-i18n="menu.nav.insights">洞察</strong><em>Insights</em></a>
 </nav>
 <aside aria-label="Featured links" class="menu-side">
 <div class="menu-panel menu-build-card">
-<div aria-hidden="true" class="menu-orbit-visual">
-<svg preserveaspectratio="xMidYMid meet" viewbox="-120 -80 240 160">
-<ellipse class="menu-orbit o1" cx="0" cy="0" rx="82" ry="26" transform="rotate(-12)"></ellipse>
-<ellipse class="menu-orbit o2" cx="0" cy="0" rx="96" ry="31" transform="rotate(18)"></ellipse>
-<ellipse class="menu-orbit o3" cx="0" cy="0" rx="58" ry="20" transform="rotate(56)"></ellipse>
-<path class="menu-link-line" d="M-62,-10 C-34,-29 -8,-24 0,0 C18,20 43,16 65,4"></path>
-<circle class="menu-node n1" cx="-62" cy="-10" r="3"></circle>
-<circle class="menu-node n2" cx="0" cy="0" r="4.2"></circle>
-<circle class="menu-node n3" cx="65" cy="4" r="2.8"></circle>
-<circle class="menu-node n4" cx="28" cy="-30" r="2.3"></circle>
-</svg>
-</div>
 <div class="menu-build-copy">
 <div class="menu-kicker" data-i18n="menu.contact.kicker">Build With Us</div>
 <p data-i18n="menu.contact.text"><span class="phrase">如果你正在寻找、定义，</span><span class="phrase">或亲手建造一个尚未被市场命名的未来，</span><span class="phrase">我们希望更早与你相遇。</span></p>
 </div>
-<a class="menu-contact-cta" data-menu-link="" href="contact.html">
-<span data-i18n="menu.contact.link">联系我们</span>
-<span aria-hidden="true">→</span>
-</a>
+<a class="menu-contact-cta" data-menu-link="" href="contact.html"><span data-i18n="menu.contact.link">联系我们</span><span aria-hidden="true">→</span></a>
 </div>
 </aside>
 </div>
 <div class="menu-footer">
-<a class="menu-home-link" data-i18n="menu.footer.home" data-menu-link="" href="index.html">回到首页</a>
-<span class="menu-footer-brand" data-i18n="menu.footer.meta">LinkX · 北京清华科技园</span>
-<div aria-label="Social accounts" class="menu-footer-social">
-<span class="menu-footer-social-label">You can also find us on</span><a aria-label="LinkX Capital on X" href="https://x.com/LinkXCapital" rel="noreferrer" target="_blank">X</a>
-<a aria-label="LinkX Capital on LinkedIn" href="https://www.linkedin.com/company/link-x-%E6%98%9F%E8%BF%9E%E8%B5%84%E6%9C%AC/?viewAsMember=true" rel="noreferrer" target="_blank">LinkedIn</a>
+<span class="menu-copyright-fixed" aria-label="版权信息" data-i18n="menu.footer.meta">© 2026 北京星连肇基私募基金管理有限责任公司</span>
+<div aria-label="社媒账号" class="menu-footer-social menu-social-matrix">
+<div class="menu-social-links">
+<div class="social-item menu-social-item">
+<button aria-label="基金微信公众号二维码" class="social-icon menu-social-icon" type="button">
+<img alt="" aria-hidden="true" src="https://cdn.simpleicons.org/wechat/FFFFFF"/>
+</button>
+<div class="qr-popover menu-qr-popover" role="tooltip">
+<img alt="基金微信公众号二维码" onerror="this.closest('.qr-popover').classList.add('qr-missing'); this.style.display='none';" onload="this.closest('.qr-popover').classList.remove('qr-missing'); this.style.display='block';" src="assets/wechat-linkx-capital.jpg"/><div aria-hidden="true" class="qr-fallback">QR</div>
+<span data-i18n="footer.wechatFund">基金微信公众号</span>
+</div>
+</div>
+<div class="social-item menu-social-item">
+<button aria-label="孵化器微信公众号二维码" class="social-icon menu-social-icon" type="button">
+<img alt="" aria-hidden="true" src="https://cdn.simpleicons.org/wechat/FFFFFF"/>
+</button>
+<div class="qr-popover menu-qr-popover" role="tooltip">
+<img alt="孵化器微信公众号二维码" onerror="this.closest('.qr-popover').classList.add('qr-missing'); this.style.display='none';" onload="this.closest('.qr-popover').classList.remove('qr-missing'); this.style.display='block';" src="assets/wechat-qingzhi-incubator.jpg"/><div aria-hidden="true" class="qr-fallback">QR</div>
+<span data-i18n="footer.wechatIncubator">孵化器微信公众号</span>
+</div>
+</div>
+<a aria-label="小红书账号" class="social-icon menu-social-icon" href="https://xhslink.com/m/UjLFumWxau" rel="noopener" target="_blank">
+<img alt="" aria-hidden="true" class="icon-xhs" src="https://cdn.simpleicons.org/xiaohongshu/FFFFFF"/>
+</a>
+<a aria-label="抖音账号" class="social-icon menu-social-icon" href="https://www.douyin.com/user/MS4wLjABAAAAHYtbwIVUi113kSYUweZGc-tFiJGG1WPk8Jgldgk9Fhw?previous_page=app_code_link" rel="noopener" target="_blank">
+<img alt="" aria-hidden="true" class="icon-douyin" src="https://cdn.simpleicons.org/tiktok/FFFFFF"/>
+</a>
+<a aria-label="LinkX Capital on X" class="social-icon menu-social-icon" href="https://x.com/LinkXCapital" rel="noreferrer" target="_blank">
+<svg aria-hidden="true" focusable="false" viewbox="0 0 24 24"><path d="M13.93 10.36 21.38 2h-1.77l-6.47 7.25L7.98 2H2.03l7.82 11.02L2.03 22h1.77l6.83-7.65L16.09 22h5.95l-8.11-11.64Zm-2.42 2.71-.79-1.09L4.42 3.29h2.71l5.08 7.01.79 1.09 6.61 9.12H16.9l-5.39-7.44Z" fill="currentColor"></path></svg>
+</a>
+<a aria-label="LinkX Capital on LinkedIn" class="social-icon menu-social-icon" href="https://www.linkedin.com/company/link-x-%E6%98%9F%E8%BF%9E%E8%B5%84%E6%9C%AC/?viewAsMember=true" rel="noreferrer" target="_blank">
+<svg aria-hidden="true" focusable="false" viewbox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.36 8.12h4.25V23H.36V8.12ZM7.5 8.12h4.07v2.03h.06c.57-1.08 1.96-2.22 4.03-2.22 4.31 0 5.1 2.84 5.1 6.53V23h-4.24v-7.56c0-1.8-.03-4.12-2.51-4.12-2.52 0-2.9 1.97-2.9 4V23H7.5V8.12Z" fill="currentColor"></path></svg>
+</a>
+</div>
 </div>
 </div>
 </div>
@@ -1733,8 +2582,8 @@ html[data-lang="en"] .contact-belief-list .body {
     menuOverlay.setAttribute("aria-hidden", open ? "false" : "true");
     document.body.classList.toggle("menu-open", open);
     menuOpeners.forEach(btn => btn.setAttribute("aria-expanded", open ? "true" : "false"));
-    if (open) { lastMenuTrigger = document.activeElement; const cb = menuOverlay.querySelector("[data-menu-close]"); if (cb) cb.focus(); }
-    else if (lastMenuTrigger && typeof lastMenuTrigger.focus === "function") { lastMenuTrigger.focus(); }
+    if (open) { lastMenuTrigger = document.activeElement; }
+    else { lastMenuTrigger = null; if (document.activeElement && typeof document.activeElement.blur === "function") document.activeElement.blur(); }
   }
   menuOpeners.forEach(btn => { btn.addEventListener("click", () => setMenuOpen(true)); });
   menuClosers.forEach(btn => { btn.addEventListener("click", () => setMenuOpen(false)); });
@@ -1794,5 +2643,133 @@ html[data-lang="en"] .contact-belief-list .body {
   document.addEventListener("click", interceptOutsideMenu, true);
 })();
 </script>
+
+<script>
+(function(){
+  var MENU_COPY = {
+    zh: {
+      'menu.label':'导航','menu.open':'Menu','menu.home':'首页',
+      'menu.nav.portfolio':'投资组合','menu.nav.team':'团队','menu.nav.insights':'洞察',
+      'menu.contact.kicker':'Build With Us',
+      'menu.contact.text':'如果你正在寻找、定义，或亲手建造一个尚未被市场命名的未来，我们希望更早与你相遇。',
+      'menu.contact.link':'联系我们',
+      'menu.footer.meta':'© 2026 北京星连肇基私募基金管理有限责任公司',
+      'footer.wechatFund':'基金微信公众号','footer.wechatIncubator':'孵化器微信公众号'
+    },
+    en: {
+      'menu.label':'Navigation','menu.open':'Menu','menu.home':'Home',
+      'menu.nav.portfolio':'Portfolio','menu.nav.team':'Team','menu.nav.insights':'Insights',
+      'menu.contact.kicker':'Build With Us',
+      'menu.contact.text':'If you are searching for, defining, or building a future the market has not yet named, we hope to meet you earlier.',
+      'menu.contact.link':'Contact Us',
+      'menu.footer.meta':'LINKX CAPITAL',
+      'footer.wechatFund':'LinkX Capital WeChat','footer.wechatIncubator':'Incubator WeChat'
+    }
+  };
+  function applyMenuCopy(){
+    var lang = document.documentElement.getAttribute('data-lang') || document.documentElement.lang || 'zh';
+    lang = String(lang).toLowerCase().slice(0,2) === 'en' ? 'en' : 'zh';
+    var dict = MENU_COPY[lang];
+    Object.keys(dict).forEach(function(key){
+      document.querySelectorAll('#siteMenu [data-i18n="' + key + '"], header [data-i18n="' + key + '"]').forEach(function(el){
+        if (key === 'menu.contact.text') {
+          if (lang === 'zh') {
+            el.innerHTML = '<span class="phrase">如果你正在寻找、定义，</span><span class="phrase">或亲手建造一个尚未被市场命名的未来，</span><span class="phrase">我们希望更早与你相遇。</span>';
+          } else {
+            el.textContent = dict[key];
+          }
+        } else {
+          el.textContent = dict[key];
+        }
+      });
+    });
+  }
+  document.addEventListener('DOMContentLoaded', applyMenuCopy);
+  document.querySelectorAll('[data-set-lang]').forEach(function(btn){
+    btn.addEventListener('click', function(){ setTimeout(applyMenuCopy, 0); setTimeout(applyMenuCopy, 60); });
+  });
+  if (window.MutationObserver) {
+    new MutationObserver(applyMenuCopy).observe(document.documentElement, {attributes:true, attributeFilter:['data-lang','lang']});
+  }
+})();
+
+
+  // Fix v2: avoid leaving focus on the clicked menu link or restoring focus to the menu button after navigation.
+  (function removeMenuNavigationFocusRing() {
+    const blurActive = () => {
+      const active = document.activeElement;
+      if (active && typeof active.blur === "function") active.blur();
+    };
+
+    document.querySelectorAll("[data-menu-link], .menu-home-link, .menu-primary a").forEach(link => {
+      link.addEventListener("pointerdown", () => {
+        if (typeof link.blur === "function") link.blur();
+      }, { passive: true });
+
+      link.addEventListener("mousedown", () => {
+        if (typeof link.blur === "function") link.blur();
+      });
+
+      link.addEventListener("click", () => {
+        if (typeof lastMenuTrigger !== "undefined") lastMenuTrigger = null;
+        if (typeof link.blur === "function") link.blur();
+        window.setTimeout(blurActive, 0);
+      }, true);
+    });
+
+    window.addEventListener("pageshow", blurActive);
+  })();
+</script>
+
+
+<script>
+/* Fix v3: prevent the blue focus flash before navigation starts. */
+(function removeMenuPressFocusFlash() {
+  function clearFocus() {
+    var active = document.activeElement;
+    if (active && typeof active.blur === "function") active.blur();
+  }
+
+  function isMenuNavTarget(el) {
+    return !!(el && el.closest && el.closest('#siteMenu a, #siteMenu button, .menu-toggle, .brand-logo'));
+  }
+
+  ['pointerdown', 'mousedown'].forEach(function(type) {
+    document.addEventListener(type, function(e) {
+      var target = e.target && e.target.closest ? e.target.closest('#siteMenu a, #siteMenu button, .menu-toggle, .brand-logo') : null;
+      if (!target) return;
+      // Prevent mouse/pointer press from assigning focus, which is what creates the one-frame blue ring.
+      if (target.matches('a, button, .menu-toggle, .brand-logo')) e.preventDefault();
+      clearFocus();
+      if (typeof target.blur === 'function') target.blur();
+    }, true);
+  });
+
+  document.addEventListener('click', function(e) {
+    var target = e.target && e.target.closest ? e.target.closest('#siteMenu a[href], .brand-logo[href]') : null;
+    if (!target) return;
+    clearFocus();
+    if (typeof target.blur === 'function') target.blur();
+
+    var href = target.getAttribute('href');
+    if (!href || href.charAt(0) === '#') return;
+
+    // Because pointerdown is prevented to suppress focus, navigate explicitly for full browser consistency.
+    e.preventDefault();
+    e.stopPropagation();
+    document.body.classList.remove('menu-open');
+    var menu = document.getElementById('siteMenu');
+    if (menu) {
+      menu.classList.remove('is-open');
+      menu.setAttribute('aria-hidden', 'true');
+    }
+    window.setTimeout(function(){ window.location.href = href; }, 0);
+  }, true);
+
+  window.addEventListener('pageshow', clearFocus);
+  window.addEventListener('blur', clearFocus);
+})();
+</script>
+
 </body>
 </html>

@@ -4,8 +4,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>法律声明 · LinkX</title>
-<meta content="LinkX 法律声明与隐私政策。" name="description"/>
+<title>张鸣晨 · LinkX</title>
+<meta content="张鸣晨，主管合伙人，15年以上 TMT 早期投资与互联网经验。" name="description"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
@@ -14,139 +14,280 @@
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;500;600&display=swap");
 
-    :root {
-      --bg: #FAF8F4;
-      --border: #DDD5CA;
-      --border-light: #EAE4DC;
-      --text: #1C1917;
-      --text-muted: #78716C;
-      --text-light: #A8A29E;
-      --purple: #660874;
-      --purple-soft: #B07CC0;
-      --purple-pale: #E8D5EE;
+:root {
+  --bg: #FAF8F4;
+  --bg-warm: #F2EBE0;
+  --bg-deep: #E8DFD2;
+  --border: #DDD5CA;
+  --border-light: #EAE4DC;
+  --text: #1C1917;
+  --text-soft: #44403C;
+  --text-muted: #78716C;
+  --text-light: #A8A29E;
+  --accent: #9B7B5E;
+  --accent-hover: #7D6148;
+  --accent-light: #EBE1D5;
+  --purple: #660874;
+  --purple-mid: #8B3A9A;
+  --purple-soft: #B07CC0;
+  --purple-pale: #E8D5EE;
+  --purple-wash: #F3EAF6;
 
-      --font-serif: "Instrument Serif", "Noto Serif SC", Georgia, serif;
-      --font-sans: "Instrument Sans", "Inter", system-ui, -apple-system, sans-serif;
-      --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --font-serif: "Instrument Serif", "Noto Serif SC", Georgia, serif;
+  --font-sans: "Instrument Sans", "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 
-      --max: 1180px;
-      --px: clamp(24px, 6vw, 80px);
-    }
+  --max: 1180px;
+  --px: clamp(24px, 6vw, 80px);
+}
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--font-sans);
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-    .container {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 var(--px);
-    }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+.container { max-width: var(--max); margin: 0 auto; padding: 0 var(--px); }
 
-    /* ---------- Header — matches index.html ---------- */
-    header.site-header { position: sticky; top: 0; z-index: 300; background: rgba(250,248,244,0.84); backdrop-filter: blur(18px) saturate(120%); -webkit-backdrop-filter: blur(18px) saturate(120%); border-bottom: 1px solid var(--border-light); }
-    .nav { display: grid; grid-template-columns: auto 1fr; align-items: center; height: 76px; padding: 0 clamp(20px, 4vw, 48px); }
-    .brand-logo { display: inline-flex; align-items: center; gap: 13px; color: var(--text); text-decoration: none; white-space: nowrap; }
-    .brand-mark { width: 50px; height: 34px; object-fit: contain; display: block; flex: 0 0 auto; }
-    .brand-lockup { display: grid; gap: 1px; line-height: 1; }
-    .brand-cn { font-family: var(--font-sans); font-size: 20px; font-weight: 700; letter-spacing: 0.03em; }
-    .brand-en { font-family: var(--font-sans); font-size: 11.5px; font-weight: 700; letter-spacing: 0.045em; }
-    .nav-actions { display: flex; align-items: center; justify-content: flex-end; gap: clamp(18px, 2.4vw, 34px); font-size: 13px; color: var(--text-muted); }
-    .lang-toggle { display: flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; color: var(--text-light); }
-    .lang-toggle button { background: none; border: none; padding: 2px 4px; cursor: pointer; color: var(--text-light); font: inherit; transition: color 0.2s ease; }
-    .lang-toggle button.active { color: var(--text); }
-    .lang-toggle button:hover { color: var(--purple); }
-    .lang-toggle .sep { color: var(--border); padding: 0 2px; }
-    .menu-toggle { display: inline-flex; align-items: center; gap: 13px; min-height: 40px; background: transparent; border: 0; color: var(--text); cursor: pointer; font: 500 13px/1 var(--font-sans); padding: 0; }
-    .menu-toggle-mark { display: grid; gap: 5px; width: 34px; }
-    .menu-toggle-mark span { display: block; height: 1px; background: currentColor; transform-origin: right center; transition: transform 0.2s ease; }
-    .menu-toggle:hover .menu-toggle-mark span:first-child { transform: scaleX(0.64); }
-    .menu-toggle:hover .menu-toggle-mark span:last-child { transform: scaleX(1.18); }
-    .menu-toggle-text { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.07em; text-transform: uppercase; }
-    body.menu-open { overflow: hidden; }
-    .menu-overlay { position: fixed; inset: 0 0 0 auto; width: min(720px, 50vw); z-index: 500; color: var(--bg); background: linear-gradient(90deg, rgba(250,248,244,0.035) 1px, transparent 1px), linear-gradient(0deg, rgba(250,248,244,0.03) 1px, transparent 1px), linear-gradient(135deg, #151012 0%, #21161E 52%, #2A162F 100%); background-size: 96px 96px, 96px 96px, auto; opacity: 0; visibility: hidden; pointer-events: none; overflow-x: hidden; overflow-y: auto; scrollbar-width: none; box-shadow: -28px 0 70px rgba(28,25,23,0.22); transform: translateX(24px); transition: opacity 0.28s ease, transform 0.28s ease, visibility 0s linear 0.28s; }
-    .menu-overlay::-webkit-scrollbar { display: none; }
-    .menu-overlay.is-open { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(0); transition-delay: 0s; }
-    .menu-overlay::before { content: "LinkX"; position: absolute; right: -0.08em; bottom: -0.28em; font-family: var(--font-serif); font-size: clamp(130px, 24vw, 360px); line-height: 1; color: rgba(250,248,244,0.045); pointer-events: none; letter-spacing: 0; }
-    .menu-shell { position: relative; z-index: 1; min-height: 100dvh; display: grid; grid-template-rows: auto 1fr auto; padding: 0 clamp(22px, 3vw, 40px) 28px; }
-    .menu-top { display: flex; align-items: center; justify-content: space-between; height: 76px; border-bottom: 1px solid rgba(250,248,244,0.12); }
-    .menu-label { display: inline-flex; align-items: baseline; gap: 10px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(250,248,244,0.48); }
-    .menu-label span { color: var(--purple-pale); }
-    .menu-label i { font-style: normal; color: rgba(250,248,244,0.28); }
-    .menu-label em { font-style: normal; color: rgba(250,248,244,0.42); }
-    .menu-close { position: relative; width: 44px; height: 44px; display: grid; place-items: center; background: transparent; border: 1px solid rgba(250,248,244,0.22); color: var(--bg); cursor: pointer; transition: border-color 0.2s ease, background 0.2s ease; }
-    .menu-close:hover { background: rgba(250,248,244,0.08); border-color: rgba(250,248,244,0.5); }
-    .menu-close span { position: absolute; width: 18px; height: 1px; background: currentColor; }
-    .menu-close span:first-child { transform: rotate(45deg); }
-    .menu-close span:last-child { transform: rotate(-45deg); }
-    .menu-grid { display: grid; grid-template-columns: minmax(0,1fr); gap: 22px; align-items: start; padding: clamp(24px, 4vh, 34px) 0; }
-    .menu-primary { display: flex; flex-direction: column; border-top: 1px solid rgba(250,248,244,0.16); }
-    .menu-primary a { display: grid; grid-template-columns: 36px 1fr auto; gap: 16px; align-items: baseline; padding: clamp(9px, 1.15vh, 11px) 0; border-bottom: 1px solid rgba(250,248,244,0.16); color: rgba(250,248,244,0.9); opacity: 0; transform: translateY(18px); transition: color 0.2s ease, opacity 0.4s ease, transform 0.4s ease; text-decoration: none; }
-    .menu-overlay.is-open .menu-primary a { opacity: 1; transform: none; }
-    .menu-overlay.is-open .menu-primary a:nth-child(1) { transition-delay: 0.06s; }
-    .menu-overlay.is-open .menu-primary a:nth-child(2) { transition-delay: 0.1s; }
-    .menu-overlay.is-open .menu-primary a:nth-child(3) { transition-delay: 0.14s; }
-    .menu-overlay.is-open .menu-primary a:nth-child(4) { transition-delay: 0.18s; }
-    .menu-overlay.is-open .menu-primary a:nth-child(5) { transition-delay: 0.22s; }
-    .menu-overlay.is-open .menu-primary a:nth-child(6) { transition-delay: 0.26s; }
-    .menu-primary a:hover { color: #fff; }
-    .menu-primary .menu-num { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; color: rgba(232,213,238,0.54); }
-    .menu-primary strong { font-family: var(--font-serif); font-size: clamp(26px, 2.45vw, 36px); font-weight: 400; line-height: 1.02; letter-spacing: 0; }
-    .menu-primary em { font-family: var(--font-mono); font-size: 11px; font-style: normal; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(250,248,244,0.35); }
-    .menu-side { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; opacity: 0; transform: translateY(18px); transition: opacity 0.45s ease 0.24s, transform 0.45s ease 0.24s; }
-    .menu-overlay.is-open .menu-side { opacity: 1; transform: none; }
-    .menu-panel { border: 1px solid rgba(250,248,244,0.14); background: rgba(250,248,244,0.055); padding: clamp(18px, 2vw, 22px); }
-    .menu-kicker { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--purple-pale); margin-bottom: 18px; }
-    .menu-panel p { color: rgba(250,248,244,0.74); font-size: 13.5px; line-height: 1.7; margin-bottom: 18px; }
-    .menu-panel a { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #fff; text-decoration: none; border-bottom: 1px solid rgba(250,248,244,0.36); padding-bottom: 4px; transition: gap 0.2s ease, border-color 0.2s ease; }
-    .menu-panel a:hover { gap: 13px; border-color: #fff; }
-    .menu-footer { display: flex; justify-content: space-between; gap: 24px; padding-top: 24px; border-top: 1px solid rgba(250,248,244,0.12); font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(250,248,244,0.42); }
-    .menu-footer a { color: rgba(250,248,244,0.42); text-decoration: none; }
-    .menu-footer a:hover { color: #fff; }
+/* ---------- Progress bar ---------- */
+.progress-bar { position: fixed; top: 0; left: 0; height: 2px; background: var(--purple); z-index: 999; transition: width 0.1s linear; }
 
-    .kicker {
-      display: inline-block;
-      font-family: var(--font-mono); font-size: 10px;
-      font-weight: 500; letter-spacing: 0.18em;
-      text-transform: uppercase; color: var(--purple);
-      margin-bottom: 14px;
-    }
+/* ---------- Header ---------- */
+header.site-header { position: sticky; top: 0; z-index: 300; background: rgba(250,248,244,0.84); backdrop-filter: blur(18px) saturate(120%); -webkit-backdrop-filter: blur(18px) saturate(120%); border-bottom: 1px solid var(--border-light); }
+.nav { display: grid; grid-template-columns: auto 1fr; align-items: center; height: 76px; padding: 0 clamp(20px, 4vw, 48px); flex: 0 0 auto; }
+.brand-logo { display: inline-flex; align-items: center; gap: 13px; color: var(--text); text-decoration: none; white-space: nowrap; }
+.brand-mark { width: 50px; height: 34px; object-fit: contain; display: block; flex: 0 0 auto; }
+.brand-lockup { display: grid; gap: 1px; line-height: 1; }
+.brand-cn { font-family: var(--font-sans); font-size: 20px; font-weight: 700; letter-spacing: 0.03em; }
+.brand-en { font-family: var(--font-sans); font-size: 11.5px; font-weight: 700; letter-spacing: 0.045em; }
+.nav-actions { display: flex; align-items: center; justify-content: flex-end; gap: clamp(18px, 2.4vw, 34px); font-size: 13px; color: var(--text-muted); }
+.lang-toggle { display: flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; color: var(--text-light); }
+.lang-toggle button { background: none; border: none; padding: 2px 4px; cursor: pointer; color: var(--text-light); font: inherit; transition: color 0.2s ease; }
+.lang-toggle button.active { color: var(--text); }
+.lang-toggle button:hover { color: var(--purple); }
+.lang-toggle .sep { color: var(--border); padding: 0 2px; }
+.menu-toggle { display: inline-flex; align-items: center; gap: 13px; min-height: 40px; background: transparent; border: 0; color: var(--text); cursor: pointer; font: 500 13px/1 var(--font-sans); padding: 0; }
+.menu-toggle-mark { display: grid; gap: 5px; width: 34px; }
+.menu-toggle-mark span { display: block; height: 1px; background: currentColor; transform-origin: right center; transition: transform 0.2s ease; }
+.menu-toggle:hover .menu-toggle-mark span:first-child { transform: scaleX(0.64); }
+.menu-toggle:hover .menu-toggle-mark span:last-child { transform: scaleX(1.18); }
+.menu-toggle-text { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.07em; text-transform: uppercase; }
+body.menu-open { overflow: hidden; }
+.menu-overlay { position: fixed; inset: 0 0 0 auto; width: min(720px, 50vw); z-index: 500; color: var(--bg); background: linear-gradient(90deg, rgba(250,248,244,0.035) 1px, transparent 1px), linear-gradient(0deg, rgba(250,248,244,0.03) 1px, transparent 1px), linear-gradient(135deg, #151012 0%, #21161E 52%, #2A162F 100%); background-size: 96px 96px, 96px 96px, auto; opacity: 0; visibility: hidden; pointer-events: none; overflow-x: hidden; overflow-y: auto; scrollbar-width: none; box-shadow: -28px 0 70px rgba(28,25,23,0.22); transform: translateX(24px); transition: opacity 0.28s ease, transform 0.28s ease, visibility 0s linear 0.28s; }
+.menu-overlay::-webkit-scrollbar { display: none; }
+.menu-overlay.is-open { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(0); transition-delay: 0s; }
+.menu-overlay::before { content: "LinkX"; position: absolute; right: -0.08em; bottom: -0.28em; font-family: var(--font-serif); font-size: clamp(130px, 24vw, 360px); line-height: 1; color: rgba(250,248,244,0.045); pointer-events: none; letter-spacing: 0; }
+.menu-shell { position: relative; z-index: 1; min-height: 100dvh; display: grid; grid-template-rows: auto 1fr auto; padding: 0 clamp(22px, 3vw, 40px) 28px; }
+.menu-top { display: flex; align-items: center; justify-content: space-between; height: 76px; border-bottom: 1px solid rgba(250,248,244,0.12); }
+.menu-label { display: inline-flex; align-items: baseline; gap: 10px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(250,248,244,0.48); }
+.menu-label span { color: var(--purple-pale); }
+.menu-label i { font-style: normal; color: rgba(250,248,244,0.28); }
+.menu-label em { font-style: normal; color: rgba(250,248,244,0.42); }
+.menu-close { position: relative; width: 44px; height: 44px; display: grid; place-items: center; background: transparent; border: 1px solid rgba(250,248,244,0.22); color: var(--bg); cursor: pointer; transition: border-color 0.2s ease, background 0.2s ease; }
+.menu-close:hover { background: rgba(250,248,244,0.08); border-color: rgba(250,248,244,0.5); }
+.menu-close span { position: absolute; width: 18px; height: 1px; background: currentColor; }
+.menu-close span:first-child { transform: rotate(45deg); }
+.menu-close span:last-child { transform: rotate(-45deg); }
+.menu-grid { display: grid; grid-template-columns: minmax(0,1fr); gap: 22px; align-items: start; padding: clamp(24px, 4vh, 34px) 0; }
+.menu-primary { display: flex; flex-direction: column; border-top: 1px solid rgba(250,248,244,0.16); }
+.menu-primary a { display: grid; grid-template-columns: 36px 1fr auto; gap: 16px; align-items: baseline; padding: clamp(9px, 1.15vh, 11px) 0; border-bottom: 1px solid rgba(250,248,244,0.16); color: rgba(250,248,244,0.9); opacity: 0; transform: translateY(18px); transition: color 0.2s ease, opacity 0.4s ease, transform 0.4s ease; text-decoration: none; }
+.menu-overlay.is-open .menu-primary a { opacity: 1; transform: none; }
+.menu-overlay.is-open .menu-primary a:nth-child(1) { transition-delay: 0.06s; }
+.menu-overlay.is-open .menu-primary a:nth-child(2) { transition-delay: 0.1s; }
+.menu-overlay.is-open .menu-primary a:nth-child(3) { transition-delay: 0.14s; }
+.menu-overlay.is-open .menu-primary a:nth-child(4) { transition-delay: 0.18s; }
+.menu-primary a:hover { color: #fff; }
+.menu-primary .menu-num { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; color: rgba(232,213,238,0.54); }
+.menu-primary strong { font-family: var(--font-serif); font-size: clamp(26px, 2.45vw, 36px); font-weight: 400; line-height: 1.02; letter-spacing: 0; }
+.menu-primary em { font-family: var(--font-mono); font-size: 11px; font-style: normal; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(250,248,244,0.35); }
+.menu-side { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; opacity: 0; transform: translateY(18px); transition: opacity 0.45s ease 0.24s, transform 0.45s ease 0.24s; }
+.menu-overlay.is-open .menu-side { opacity: 1; transform: none; }
+.menu-panel { border: 1px solid rgba(250,248,244,0.14); background: rgba(250,248,244,0.055); padding: clamp(18px, 2vw, 22px); }
+.menu-kicker { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--purple-pale); margin-bottom: 18px; }
+.menu-panel p { color: rgba(250,248,244,0.74); font-size: 13.5px; line-height: 1.7; margin-bottom: 18px; }
+.menu-panel a { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #fff; text-decoration: none; border-bottom: 1px solid rgba(250,248,244,0.36); padding-bottom: 4px; transition: gap 0.2s ease, border-color 0.2s ease; }
+.menu-panel a:hover { gap: 13px; border-color: #fff; }
+.menu-footer { display: flex; justify-content: space-between; gap: 24px; padding-top: 24px; border-top: 1px solid rgba(250,248,244,0.12); font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(250,248,244,0.42); }
+.menu-footer a { color: rgba(250,248,244,0.42); text-decoration: none; }
+.menu-footer a:hover { color: #fff; }
 
-    /* ---------- Content ---------- */
-    .legal-content {
-      padding: clamp(100px, 14vw, 200px) 0 clamp(80px, 10vw, 140px);
-      max-width: 720px;
-    }
-    .legal-content h1 {
-      font-family: var(--font-serif);
-      font-size: clamp(36px, 5vw, 48px);
-      font-weight: 400; letter-spacing: -0.025em;
-      line-height: 1.15; margin-bottom: 48px;
-    }
-    .legal-content h2 {
-      font-family: var(--font-serif);
-      font-size: 24px; font-weight: 400;
-      margin-top: 40px; margin-bottom: 16px;
-      letter-spacing: -0.01em;
-    }
-    .legal-content p {
-      color: var(--text-muted);
-      font-size: 15px; line-height: 1.8;
-      margin-bottom: 16px;
-    }
-    .legal-content .last-updated {
-      font-family: var(--font-mono); font-size: 11px;
-      letter-spacing: 0.1em; color: var(--text-light);
-      margin-top: 48px; padding-top: 24px;
-      border-top: 1px solid var(--border);
-    }
+/* ---------- Back link ---------- */
+.back-link-bar { padding: clamp(18px, 2.5vh, 28px) 00; }
+.back-link { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.2s ease, gap 0.2s ease; }
+.back-link:hover { color: var(--purple); gap: 13px; }
 
-    /* ---------- Footer ---------- */
+/* ---------- Partner Hero ---------- */
+.partner-hero {
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: 27% 1fr;
+  align-items: stretch;
+  min-height: calc(100svh - 76px);
+}
+.partner-hero_photo {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-deep);
+}
+.partner-hero_photo img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+.partner-hero_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(48px, 7vw, 88px) clamp(40px, 6vw, 96px);
+  background: #F7F3EC;
+}
+.partner-kicker {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--purple);
+  margin-bottom: 24px;
+}
+.partner-name {
+  font-family: var(--font-serif);
+  font-size: clamp(44px, 5.5vw, 80px);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.0;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+.partner-title {
+  font-family: var(--font-mono);
+  font-size: clamp(11px, 1.2vw, 14px);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 44px;
+}
+.partner-bio {
+  font-size: clamp(15px, 1.2vw, 17px);
+  line-height: 1.82;
+  color: var(--text-soft);
+  max-width: 54ch;
+  margin-bottom: 48px;
+}
+.partner-social {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 52px;
+}
+.partner-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 3px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.partner-social a:hover { color: var(--purple); border-color: var(--purple-soft); }
+.partner-investments_heading {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--purple-mid);
+  margin-bottom: 18px;
+}
+.partner-investments_grid {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.partner-investment-item {
+  display: flex;
+  flex-direction: column;
+  padding: 14px 18px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+}
+.partner-investment-item:hover {
+  border-color: var(--purple-soft);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(102, 8, 116, 0.08);
+}
+.partner-investment-item_name {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-bottom: 5px;
+}
+.partner-investment-item_stage {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ---------- Featured Investments ---------- */
+.investments-section { background: var(--bg-warm); padding: clamp(48px, 7vw, 96px) 0; }
+.investments-section .container { max-width: 1160px; }
+.section-heading { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--purple); margin-bottom: 36px; }
+.investments-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.investment-item { display: flex; flex-direction: column; padding: 28px 24px; border: 1px solid var(--border); background: var(--bg); text-decoration: none; color: var(--text); transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; }
+.investment-item:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 8px 32px rgba(28,25,23,0.1); }
+.investment-item_logo { height: 36px; display: flex; align-items: center; margin-bottom: 14px; }
+.investment-item_logo img { height: 100%; width: auto; max-width: 140px; object-fit: contain; filter: grayscale(0.2) brightness(0.85); transition: filter 0.2s ease; }
+.investment-item:hover .investment-item_logo img { filter: none; }
+.investment-item_name { font-family: var(--font-serif); font-size: 20px; font-weight: 400; letter-spacing: -0.01em; margin-bottom: 6px; color: var(--text); }
+.investment-item_desc { font-size: 12.5px; line-height: 1.65; color: var(--text-muted); flex: 1; }
+.investment-item_stage { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-top: 14px; }
+
+/* ---------- Footer ---------- */
+footer { background: linear-gradient(135deg, #171218 0%, #241827 46%, #171218 100%); isolation: isolate; color: rgba(250,248,244,0.6); flex: 0 0 auto; padding: clamp(48px, 7vw, 76px) 0 clamp(28px, 4vw, 40px); }
+.footer-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: end; gap: 24px; position: relative; z-index: 1; }
+.footer-copyright { grid-column: 1; justify-self: start; color: rgba(250,248,244,0.48); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: none; }
+.footer-slogan { grid-column: 2; justify-self: center; color: rgba(250,248,244,0.82); font-family: var(--font-serif); font-size: clamp(18px, 2.2vw, 30px); line-height: 1.15; letter-spacing: -0.02em; white-space: nowrap; }
+.footer-legal { grid-column: 3; justify-self: end; color: rgba(250,248,244,0.54); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-decoration: none; transition: color 180ms ease; }
+.footer-legal:hover { color: rgba(250,248,244,0.9); }
+
+/* ---------- i18n ---------- */
+[data-lang="zh"] .en-only { display: none; }
+[data-lang="en"] .zh-only { display: none; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .partner-hero { grid-template-columns: 1fr; min-height: auto; }
+  .partner-hero_photo { max-height: 55svh; }
+  .partner-hero_photo img { aspect-ratio: 3/4; object-position: top center; }
+  .partner-hero_content { padding: clamp(36px, 6vw, 56px) clamp(24px, 5vw, 48px); }
+  .partner-investments_grid { gap: 8px; }
+  .footer-inner { grid-template-columns: 1fr !important; align-items: start; }
+}
+@media (max-width: 720px) {
+  .partner-name { font-size: clamp(38px, 10vw, 56px); }
+  .footer-inner { grid-template-columns: 1fr !important; }
+}
+
+
+/* ---- Copied from legal.html: footer + unified menu ---- */
+/* ---------- Footer ---------- */
     footer {
       background: var(--text);
       color: rgba(250,248,244,0.6);
@@ -174,18 +315,6 @@
     .footer-bottom a:hover { color: rgba(250,248,244,0.6); }
 
     /* ---------- i18n ---------- */
-    [data-lang="zh"] .en-only { display: none; }
-    [data-lang="en"] .zh-only { display: none; }
-
-    @media (max-width: 720px) {
-      .brand-logo { gap: 9px; }
-      .brand-mark { width: 36px; height: 24px; }
-      .brand-cn { font-size: 17px; letter-spacing: 0.02em; }
-      .brand-en { display: none; }
-      .footer-inner { flex-direction: column; align-items: flex-start; }
-    }
-  
-
 /* Unified LinkX menu: half-screen drawer, single watermark, revised footer. */
 @import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;500;600&display=swap");
 
@@ -1515,6 +1644,51 @@ html[data-lang="zh"] .feature-title-phrase {
 
 
 
+
+
+
+/* v1004: definitive right-side drawer override for team-alex. */
+html body .menu-overlay#menu-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: auto !important;
+  inset: 0 0 0 auto !important;
+  width: min(720px, 50vw) !important;
+  max-width: 100vw !important;
+  transform: translate3d(100%, 0, 0) !important;
+  transform-origin: right center !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  box-shadow: -28px 0 70px rgba(28, 25, 23, 0.22) !important;
+}
+html body.menu-open .menu-overlay#menu-overlay,
+html body .menu-overlay#menu-overlay.is-open {
+  transform: translate3d(0, 0, 0) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+@media (max-width: 860px) {
+  html body .menu-overlay#menu-overlay {
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: auto !important;
+    inset: 0 0 0 auto !important;
+    width: 100vw !important;
+    transform: translate3d(100%, 0, 0) !important;
+  }
+  html body.menu-open .menu-overlay#menu-overlay,
+  html body .menu-overlay#menu-overlay.is-open {
+    transform: translate3d(0, 0, 0) !important;
+  }
+}
+
+
+
 /* Fix v2: prevent browser blue focus rectangle after menu navigation clicks. */
 .menu-overlay a:focus,
 .menu-overlay a:focus-visible,
@@ -1618,19 +1792,25 @@ html[data-lang="zh"] .feature-title-phrase {
 </script>
 </head>
 <body>
-<header class="site-header">
-<div class="nav">
+<div class="progress-bar" id="progressBar"></div>
+<!-- ============ HEADER ============ -->
+<header class="site-header"><div class="nav">
 <a aria-label="星连资本 LinkX" class="brand-logo" href="index.html">
-<img alt="" aria-hidden="true" class="brand-mark" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgxIiBoZWlnaHQ9IjE1MyIgdmlld0JveD0iMCAwIDE4MSAxNTMiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik03My44ODc1IDU2LjEzNjFINTEuNzE5OVY1Ni4wNzRINDYuNzg3NkM0MS4zNTEgNTYuMDc0IDM2Ljk0MzggNTEuNjY2NyAzNi45NDM4IDQ2LjIzMDFWMjYuNzcwNEMzNi45NDM4IDIyLjY4NzggMzMuNjM0OCAxOS4zNzg5IDI5LjU1MjIgMTkuMzc4OUg3LjM5MTUxQzMuMzA4OTEgMTkuMzc4OSAwIDIyLjY4NzggMCAyNi43NzA0VjQ4LjkzODFDMCA1My4wMjA3IDMuMzA4OTEgNTYuMzI5NiA3LjM5MTUxIDU2LjMyOTZIMjkuMjc1OUMzMy42Njk0IDU3LjMxNzQgMzYuOTUwNyA2MS4yNDExIDM2Ljk1MDcgNjUuOTMxNlY3MC44NjM5Vjg1Ljc2NDRWOTAuNzM4MUMzNi45NTA3IDk2LjIyMyAzMi41MDE5IDEwMC42NzIgMjcuMDE3IDEwMC42NzJINy4zOTE1MUMzLjMwODkxIDEwMC42NzIgMCAxMDMuOTgxIDAgMTA4LjA2M1YxMzAuMjMxQzAgMTM0LjMxNCAzLjMwODkxIDEzNy42MjIgNy4zOTE1MSAxMzcuNjIySDI5LjU1OTFDMzMuNjQxOCAxMzcuNjIyIDM2Ljk1MDcgMTM0LjMxNCAzNi45NTA3IDEzMC4yMzFWMTEwLjYwNUMzNi45NTA3IDEwNS4xMiA0MS4zOTk0IDEwMC42NzkgNDYuODc3NCAxMDAuNjc5SDUxLjg1MTFWMTAwLjQ5Mkg3My44OTQ0Qzc3Ljk3NyAxMDAuNDkyIDgxLjI4NTkgOTcuMTgzMiA4MS4yODU5IDkzLjEwMDZWNjMuNTQ4NEM4MS4yODU5IDU5LjQ2NTggNzcuOTc3IDU2LjE1NjkgNzMuODk0NCA1Ni4xNTY5TDczLjg4NzUgNTYuMTM2MVoiIGZpbGw9InVybCgjcGFpbnQwX2xpbmVhcl8yNjBfNCkiLz4KPHBhdGggZD0iTTE0My4yODQgNjUuOTI0N0MxNDMuMjg0IDYxLjIzNDIgMTQ2LjU2NiA1Ny4zMTc0IDE1MC45NTkgNTYuMzIyN0gxNzIuODQ0QzE3Ni45MjYgNTYuMzIyNyAxODAuMjM1IDUzLjAxMzcgMTgwLjIzNSA0OC45MzExVjI2Ljc3MDRDMTgwLjIzNSAyMi42ODc4IDE3Ni45MjYgMTkuMzc4OSAxNzIuODQ0IDE5LjM3ODlIMTUwLjY3NkMxNDYuNTkzIDE5LjM3ODkgMTQzLjI4NCAyMi42ODc4IDE0My4yODQgMjYuNzcwNFY0Ni4yMzAxQzE0My4yODQgNTEuNjY2NyAxMzguODc3IDU2LjA3NCAxMzMuNDQxIDU2LjA3NEgxMjguNTA4VjU2LjEzNjFIMTA2LjM0MUMxMDIuMjU4IDU2LjEzNjEgOTguOTQ5MiA1OS40NDUxIDk4Ljk0OTIgNjMuNTI3N1Y5My4wNzk5Qzk4Ljk0OTIgOTcuMTYyNSAxMDIuMjU4IDEwMC40NzEgMTA2LjM0MSAxMDAuNDcxSDEyOC4zODRWMTAwLjY1OEgxMzMuMzU4QzEzOC44NDMgMTAwLjY1OCAxNDMuMjg0IDEwNS4xMDcgMTQzLjI4NCAxMTAuNTg1VjEzMC4yMUMxNDMuMjg0IDEzNC4yOTMgMTQ2LjU5MyAxMzcuNjAyIDE1MC42NzYgMTM3LjYwMkgxNzIuODQ0QzE3Ni45MjYgMTM3LjYwMiAxODAuMjM1IDEzNC4yOTMgMTgwLjIzNSAxMzAuMjFWMTA4LjA0M0MxODAuMjM1IDEwMy45NiAxNzYuOTI2IDEwMC42NTEgMTcyLjg0NCAxMDAuNjUxSDE1My4yMThDMTQ3LjczMyAxMDAuNjUxIDE0My4yODQgOTYuMjAyMyAxNDMuMjg0IDkwLjcxNzRWNjUuOTEwOVY2NS45MjQ3WiIgZmlsbD0idXJsKCNwYWludDFfbGluZWFyXzI2MF80KSIvPgo8ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDBfbGluZWFyXzI2MF80IiB4MT0iMTkuNTgzIiB5MT0iMjMuMDI3OCIgeDI9Ijg2LjA1MjIiIHkyPSI5Ni41OTM4IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiM2MzQwOUMiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNkY0QUE4Ii8+CjwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQxX2xpbmVhcl8yNjBfNCIgeDE9IjExOC41MzIiIHkxPSIyMy4wMjcxIiB4Mj0iMTg0Ljk4OSIgeTI9Ijk2LjU5MTgiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzYzNDA5QyIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM2RjRBQTgiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8L3N2Zz4="/>
+<img alt="" aria-hidden="true" class="brand-mark" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgxIiBoZWlnaHQ9IjE1MyIgdmlld0JveD0iMCAwIDE4MSAxNTMiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik03My44ODc1IDU2LjEzNjFINTEuNzE5OVY1Ni4wNzRINDYuNzg3NkM0MS4zNTEgNTYuMDc0IDM2Ljk0MzggNTEuNjY2NyAzNi45NDM4IDQ2LjIzMDFWMjYuNzcwNEMzNi45NDM4IDIyLjY4NzggMzMuNjM0OCAxOS4zNzc4OSAyOS41NTIyIDE5LjM3ODlINy4zOTE1MUMyMy4zMDg5MSAxOS4zNzc4OSAwIDIyLjY4NzggMCAyNi43NzA0VjQ4LjkzODFDMCA1My4wMjA3IDMuMzA4OTEgNTYuMzI5NiA3LjM5MTUxIDU2LjMyOTZIMjkuMjc1OUMzMy42Njk0IDU3LjMxNzQgMzYuOTUwNyA2MS4yNDExIDM2Ljk1MDcgNjUuOTMxNlY3MC44NjM5Vjg1Ljc2NDRWOTAuNzM4MUMzNi45NTA3IDk2LjIyMyAzMi41MDE5IDEwMC42NzIgMjcuMDE3IDEwMC42NzJINy4zOTE1MUMzLjMwODkxIDEwMC42NzIgMCAxMDMuOTgxIDAgMTA4LjA2M1YxMzAuMjMxQzAgMTM0LjMxNCAzLjMwODkxIDEzNy42MjIgNy4zOTE1MSAxMzcuNjIySDI5LjU1OTFDMzMuNjQxOCAxMzcuNjIyIDM2Ljk1MDcgMTM0LjMxNCAzNi45NTA3IDEzMC4yMzFWMTEwLjYwNUMzNi45NTA3IDEwNS4xMiA0MS4zOTk0IDEwMC42NzkgNDYuODc3NCAxMDAuNjc5SDUxLjg1MTFWMTAwLjQ5Mkg3My44OTQ0Qzc3Ljk3NyAxMDAuNDkyIDgxLjI4NTkgOTcuMTgzMiA4MS4yODU5IDkzLjEwMDZWNjMuNTQ4NEM4MS4yODU5IDU5LjQ2NTggNzcuOTc3IDU2LjE1NjkgNzMuODk0NCA1Ni4xNTY5TDczLjg4NzUgNTYuMTM2MVoiIGZpbGw9InVybCgjcGFpbnQwX2xpbmVhcl8yNjBfNCkiLz4KPHBhdGggZD0iTTE0My4yODQgNjUuOTI0N0MxNDMuMjg0IDYxLjIzNDIgMTQ2LjU2NiA1Ny4zMTc0IDE1MC45NTkgNTYuMzIyN0gxNzIuODQ0QzE3Ni45MjYgNTYuMzIyNyAxODAuMjM1IDUzLjAxMzcgMTgwLjIzNSA0OC45MzExVjI2Ljc3MDRDMTgwLjIzNSAyMi42ODc4IDE3Ni45MjYgMTkuMzc4OSAxNzIuODQ0IDE5LjM3ODlIMTUwLjY3NkMxNDYuNTkzIDE5LjM3ODkgMTQzLjI4NCAyMi42ODc4IDE0My4yODQgMjYuNzcwNFY0Ni4yMzAxQzE0My4yODQgNTEuNjY2NyAxMzguODc3IDU2LjA3NCAxMzMuNDQxIDU2LjA3NEgxMjguNTA4VjU2LjEzNjFIMTA2LjM0MUMxMDIuMjU4IDU2LjEzNjEgOTguOTQ5MiA1OS40NDUxIDk4Ljk0OTIgNjMuNTI3N1Y5My4wNzk5Qzk4Ljk0OTIgOTcuMTYyNSAxMDIuMjU4IDEwMC40NzEgMTA2LjM0MSAxMDAuNDcxSDEyOC4zODRWMTAwLjY1OEgxMzMuMzU4QzEzOC44NDMgMTAwLjY1OCAxNDMuMjg0IDEwNS4xMDcgMTQzLjI4NCAxMTAuNTg1VjEzMC4yMUMxNDMuMjg0IDEzNC4yOTMgMTQ2LjU5MyAxMzcuNjAyIDE1MC42NzYgMTM3LjYwMkgxNzIuODQ0QzE3Ni45MjYgMTM3LjYwMiAxODAuMjM1IDEzNC4yOTMgMTgwLjIzNSAxMzAuMjFWMTA4LjA0M0MxODAuMjM1IDEwMy45NiAxNzYuOTI2IDEwMC42NTEgMTcyLjg0NCAxMDAuNjUxSDE1My4yMThDMTQ3LjczMyAxMDAuNjUxIDE0My4yODQgOTYuMjAyMyAxNDMuMjg0IDkwLjcxNzRWNjUuOTEwOVY2NS45MjQ3WiIgZmlsbD0idXJsKCNwYWludDFfbGluZWFyXzI2MF80KSIvPgo8ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDBfbGluZWFyXzI2MF80IiB4MT0iMTkuNTgzIiB5MT0iMjMuMDI3OCIgeDI9Ijg2LjA1MjIiIHkyPSI5Ni41OTM4IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiM2MzQwOUMiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNkY0QUE4Ii8+CjwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQxX2xpbmVhcl8yNjBfNCIgeDE9IjExOC41MzIiIHkxPSIyMy4wMjcxIiB4Mj0iMTg0Ljk4OSIgeTI9Ijk2LjU5MTgiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzYzNDA5QyIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM2RjRBQTgiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8L3N2Zz4="/>
 <span class="brand-lockup"><span class="brand-cn">星连资本</span><span class="brand-en">LINKX CAPITAL</span></span>
 </a>
 <div class="nav-actions">
-<span aria-label="Language" class="lang-toggle" role="group"><button data-set-lang="en">EN</button><span class="sep">|</span><button class="active" data-set-lang="zh">中</button></span>
-<button aria-controls="siteMenu" aria-expanded="false" class="menu-toggle" data-menu-open="" type="button"><span class="menu-toggle-text" data-i18n="menu.open">Menu</span><span aria-hidden="true" class="menu-toggle-mark"><span></span><span></span></span></button>
+<div aria-label="Language" class="lang-toggle" role="group">
+<button data-set-lang="en">EN</button><span class="sep">|</span><button class="active" data-set-lang="zh">中</button>
 </div>
+<button aria-controls="menu-overlay" aria-expanded="false" aria-label="Menu" class="menu-toggle" data-menu-open="">
+<div aria-hidden="true" class="menu-toggle-mark"><span></span><span></span></div>
+<span class="menu-toggle-text" data-i18n="menu.open">Menu</span>
+</button>
 </div>
-</header>
-<div aria-hidden="true" class="menu-overlay" id="siteMenu">
+</div></header>
+<!-- ============ MENU OVERLAY ============ -->
+<div aria-hidden="true" class="menu-overlay" id="menu-overlay">
 <div class="menu-shell">
 <div class="menu-top">
 <div class="menu-label"><span data-i18n="menu.label">导航</span><i>/</i><em>Menu</em></div>
@@ -1654,7 +1834,7 @@ html[data-lang="zh"] .feature-title-phrase {
 </aside>
 </div>
 <div class="menu-footer">
-<span class="menu-copyright-fixed" aria-label="版权信息" data-i18n="menu.footer.meta">© 2026 北京星连肇基私募基金管理有限责任公司</span>
+<span aria-label="版权信息" class="menu-copyright-fixed" data-i18n="menu.footer.meta">© 2026 北京星连肇基私募基金管理有限责任公司</span>
 <div aria-label="社媒账号" class="menu-footer-social menu-social-matrix">
 <div class="menu-social-links">
 <div class="social-item menu-social-item">
@@ -1692,178 +1872,101 @@ html[data-lang="zh"] .feature-title-phrase {
 </div>
 </div>
 </div>
-<div class="container">
-<div class="legal-content">
-<span class="kicker">Legal</span>
-<h1 data-i18n="legal.title">法律声明</h1>
-<h2 data-i18n="legal.disclaimer.h">免责声明</h2>
-<p data-i18n="legal.disclaimer.p">本网站所载信息仅供参考，不构成任何投资建议、要约或招揽。过往投资业绩不代表未来表现。LinkX 不对信息的准确性、完整性或及时性作出保证。</p>
-<h2 data-i18n="legal.ip.h">知识产权</h2>
-<p data-i18n="legal.ip.p">本网站所有内容，包括但不限于文字、图像、标志、设计和代码，均为 LinkX 所有或经授权使用。未经书面许可，严禁复制、修改或分发。</p>
-<h2 data-i18n="legal.privacy.h">隐私政策</h2>
-<p data-i18n="legal.privacy.p">我们重视您的隐私。通过本网站提交的个人信息仅用于您所请求的用途（如邮件订阅或联系沟通），不会出售或分享给第三方。您可随时要求删除个人信息。</p>
-<h2 data-i18n="legal.cookies.h">Cookie 政策</h2>
-<p data-i18n="legal.cookies.p">本网站可能使用 Cookie 以改善浏览体验和网站性能。您可通过浏览器设置管理 Cookie 偏好。</p>
-<h2 data-i18n="legal.jurisdiction.h">适用法律</h2>
-<p data-i18n="legal.jurisdiction.p">本法律声明受中华人民共和国法律管辖。如有争议，应提交北京有管辖权的人民法院解决。</p>
-<div class="last-updated">Last updated: 2026-05-12</div>
+<!-- ============ PARTNER HERO ============ -->
+<section class="partner-hero">
+<div class="partner-hero_photo">
+<img alt="张鸣晨" src="assets/team-mingchen-web.png"/>
+</div>
+<div class="partner-hero_content">
+<span class="partner-kicker" data-i18n="partner.kicker">Partner · 合伙人</span>
+<h1 class="partner-name" data-i18n="partner.name">张鸣晨</h1>
+<p class="partner-title" data-i18n="partner.title">主管合伙人 / Managing Partner</p>
+<p class="partner-bio" data-i18n="partner.bio">15年以上 TMT 早期投资与互联网经验，曾任红点中国合伙人，投资智谱 AI、小马智行、辉羲智能等头部科技企业。在 AI 大模型、智能驾驶、新能源领域深度布局，持续陪伴科学家创业，推动前沿科研走向产业落地与规模化增长。</p>
+<div class="partner-social">
+<a aria-label="返回团队" href="team.html">← <span data-i18n="partner.back">返回团队</span></a>
+</div>
+<div class="partner-investments_heading">代表投资 <span data-i18n="investments.heading">· Featured Investments</span></div>
+<div class="partner-investments_grid">
+<a class="partner-investment-item" href="https://www.zhipuai.cn" rel="noreferrer" target="_blank">
+<div class="partner-investment-item_name">智谱 AI</div>
+<div class="partner-investment-item_stage">早期投资</div>
+</a>
+<a class="partner-investment-item" href="https://www.pony.ai" rel="noreferrer" target="_blank">
+<div class="partner-investment-item_name">小马智行</div>
+<div class="partner-investment-item_stage">早期投资</div>
+</a>
+<a class="partner-investment-item" href="https://www.rhino.auto/" rel="noreferrer" target="_blank">
+<div class="partner-investment-item_name">辉羲智能</div>
+<div class="partner-investment-item_stage">早期投资</div>
+</a>
 </div>
 </div>
+</section>
+<!-- ============ FOOTER ============ -->
 <footer><div class="container"><div class="footer-inner"><span class="footer-copyright" data-i18n="footer.copyright">@2026 北京星连肇基私募基金管理有限责任公司</span><span class="footer-slogan" data-i18n="footer.slogan">与 AGI 时代的定义者同行</span><a class="footer-legal" data-i18n="footer.legal" href="legal.html">法律声明</a></div></div></footer>
 <script>
-  const i18n = {
-    zh: {
-      "menu.open": "Menu", "menu.label": "导航", 
-      
-      
-      
-      
-      
-      
-      "footer.slogan": "与 AGI 时代的定义者同行","footer.copyright": "@2026 北京星连肇基私募基金管理有限责任公司","menu.footer.home": "回到首页","menu.nav.team": "团队","menu.nav.insights": "洞察","menu.nav.portfolio": "投资组合","menu.nav.about": "关于我们","menu.home": "首页", "menu.research": "洞察", "menu.focus": "关注领域", "menu.portfolio": "投资组合", "menu.team": "团队", "menu.contact": "联系我们", "menu.footer.meta": "LinkX · 北京清华科技园", "menu.research.kicker": "Insights Feed", "menu.research.text": "持续追踪 AI 生态一线信号，捕捉通用智能时代最值得关注的技术、产品与创始人动态。", "menu.research.link": "获取最新动态", "menu.contact.kicker": "Build With Us", "menu.contact.text": "<span class=\"phrase\">如果你正在寻找、定义，</span><span class=\"phrase\">或亲手建造一个尚未被市场命名的未来，</span><span class=\"phrase\">我们希望更早与你相遇。</span>", "menu.contact.link": "联系我们",
-      "legal.title": "法律声明",
-      "legal.disclaimer.h": "免责声明",
-      "legal.disclaimer.p": "本网站所载信息仅供参考，不构成任何投资建议、要约或招揽。过往投资业绩不代表未来表现。LinkX 不对信息的准确性、完整性或及时性作出保证。",
-      "legal.ip.h": "知识产权",
-      "legal.ip.p": "本网站所有内容，包括但不限于文字、图像、标志、设计和代码，均为 LinkX 所有或经授权使用。未经书面许可，严禁复制、修改或分发。",
-      "legal.privacy.h": "隐私政策",
-      "legal.privacy.p": "我们重视您的隐私。通过本网站提交的个人信息仅用于您所请求的用途（如邮件订阅或联系沟通），不会出售或分享给第三方。您可随时要求删除个人信息。",
-      "legal.cookies.h": "Cookie 政策",
-      "legal.cookies.p": "本网站可能使用 Cookie 以改善浏览体验和网站性能。您可通过浏览器设置管理 Cookie 偏好。",
-      "legal.jurisdiction.h": "适用法律",
-      "legal.jurisdiction.p": "本法律声明受中华人民共和国法律管辖。如有争议，应提交北京有管辖权的人民法院解决。",
-      "footer.desc": "与 AGI 时代的定义者同行。",
-      "footer.legal": "法律声明"
-    },
-    en: {
-      "menu.open": "Menu", "menu.label": "Navigation", 
-      
-      
-      
-      
-      
-      
-      "footer.slogan": "Partnering with founders defining the AGI era","footer.copyright": "@2026 LinkX Capital. All rights reserved.","menu.footer.home": "Back Home","menu.nav.team": "Team","menu.nav.insights": "Insights","menu.nav.portfolio": "Portfolio","menu.nav.about": "About Us","menu.home": "Home", "menu.research": "Insights", "menu.focus": "Focus", "menu.portfolio": "Portfolio", "menu.team": "Team", "menu.contact": "Contact", "menu.footer.meta": "LINKX CAPITAL", "menu.research.kicker": "Research Feed", "menu.research.text": "持续追踪 AI 生态一线信号，捕捉通用智能时代最值得关注的技术、产品与创始人动态。", "menu.research.link": "获取最新动态", "menu.contact.kicker": "Build With Us", "menu.contact.text": "If you are seeking, defining, or building a future the market has not yet named, we hope to meet you earlier.", "menu.contact.link": "Contact Us",
-      "legal.title": "Legal Notice",
-      "legal.disclaimer.h": "Disclaimer",
-      "legal.disclaimer.p": "The information on this website is for informational purposes only and does not constitute investment advice, an offer, or a solicitation. Past performance is not indicative of future results. LinkX makes no guarantees regarding the accuracy, completeness, or timeliness of the information.",
-      "legal.ip.h": "Intellectual Property",
-      "legal.ip.p": "All content on this website, including but not limited to text, images, logos, designs and code, is owned by or licensed to LinkX. Unauthorized reproduction, modification, or distribution is prohibited.",
-      "legal.privacy.h": "Privacy Policy",
-      "legal.privacy.p": "We respect your privacy. Personal information submitted through this website is used solely for the purpose you requested (e.g., newsletter subscription or communication) and will not be sold or shared with third parties. You may request deletion of your personal information at any time.",
-      "legal.cookies.h": "Cookie Policy",
-      "legal.cookies.p": "This website may use cookies to improve browsing experience and site performance. You can manage your cookie preferences through your browser settings.",
-      "legal.jurisdiction.h": "Governing Law",
-      "legal.jurisdiction.p": "This legal notice is governed by the laws of the People's Republic of China. Any disputes shall be submitted to the competent courts in Beijing.",
-      "footer.desc": "Partnering with the founders defining the AGI era.",
-      "footer.legal": "Legal"
-    }
-  };
-
-  function applyLang(lang) {
-    const dict = i18n[lang];
-    document.documentElement.setAttribute("data-lang", lang);
-    document.documentElement.setAttribute("lang", lang === "zh" ? "zh-CN" : "en");
-    document.querySelectorAll("[data-i18n]").forEach(el => {
-      const key = el.getAttribute("data-i18n");
-      if (dict[key]) el.textContent = dict[key];
-    });
-    document.querySelectorAll("[data-set-lang]").forEach(btn => {
-      btn.classList.toggle("active", btn.getAttribute("data-set-lang") === lang);
-    });
-    try { localStorage.setItem("linkx.lang", lang); } catch(e){}
+const i18n = {
+  zh: {
+    "menu.open":"Menu","menu.label":"导航","menu.footer.home":"回到首页","menu.nav.team":"团队","menu.nav.insights":"洞察","menu.nav.portfolio":"投资组合","menu.nav.about":"关于我们","menu.home":"首页","menu.contact.kicker":"Build With Us","menu.contact.text":"如果你正在寻找、定义，或亲手建造一个尚未被市场命名的未来，我们希望更早与你相遇。","menu.contact.link":"联系我们",
+    "partner.kicker":"Partner · 合伙人","partner.name":"张鸣晨","partner.title":"主管合伙人 / Managing Partner","partner.bio":"15年以上 TMT 早期投资与互联网经验，曾任红点中国合伙人，投资智谱 AI、小马智行、辉羲智能等头部科技企业。在 AI 大模型、智能驾驶、新能源领域深度布局，持续陪伴科学家创业，推动前沿科研走向产业落地与规模化增长。","partner.back":"返回团队","back.team":"团队",
+    "investments.heading":"代表投资 · Featured Investments",
+    "footer.slogan":"与 AGI 时代的定义者同行","footer.copyright":"@2026 北京星连肇基私募基金管理有限责任公司","footer.legal":"法律声明"
+  },
+  en: {
+    "menu.open":"Menu","menu.label":"Navigation","menu.footer.home":"Back Home","menu.nav.team":"Team","menu.nav.insights":"Insights","menu.nav.portfolio":"Portfolio","menu.nav.about":"About Us","menu.home":"Home","menu.contact.kicker":"Build With Us","menu.contact.text":"If you are seeking, defining, or building a future the market has not yet named, we hope to meet you earlier.","menu.contact.link":"Contact Us",
+    "partner.kicker":"Partner","partner.name":"Alex Zhang","partner.title":"Managing Partner","partner.bio":"15+ years in early-stage TMT investing and internet operations; former Partner at Redpoint China. Investments include Zhipu AI, Pony.ai and Huixi Intelligence, among others. Deep expertise in large language models, autonomous driving, and new energy sectors.","partner.back":"Back to Team","back.team":"Team",
+    "investments.heading":"Featured Investments",
+    "footer.slogan":"Partnering with founders defining the AGI era","footer.copyright":"@2026 LinkX Capital. All rights reserved.","footer.legal":"Legal"
   }
+};
 
-  document.querySelectorAll("[data-set-lang]").forEach(btn => {
-    btn.addEventListener("click", () => applyLang(btn.getAttribute("data-set-lang")));
+function applyI18n(lang) {
+  document.documentElement.dataset.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (i18n[lang] && i18n[lang][key]) el.innerHTML = i18n[lang][key];
   });
+  document.querySelectorAll('.lang-toggle button').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.setLang === lang);
+  });
+}
 
-  (function() {
-    let lang = "zh";
-    try {
-      const saved = localStorage.getItem("linkx.lang");
-      if (saved === "en" || saved === "zh") lang = saved;
-      else if ((navigator.language || "").toLowerCase().startsWith("en")) lang = "en";
-    } catch(e) {}
-    applyLang(lang);
-  })();
+document.querySelectorAll('[data-set-lang]').forEach(btn => {
+  btn.addEventListener('click', () => applyI18n(btn.dataset.setLang));
+});
 
-  /* ---------- Menu ---------- */
-  const menuOverlay = document.getElementById("siteMenu");
-  const menuOpeners = document.querySelectorAll("[data-menu-open]");
-  const menuClosers = document.querySelectorAll("[data-menu-close]");
-  const menuLinks = document.querySelectorAll("[data-menu-link]");
-  let lastMenuTrigger = null;
-  function setMenuOpen(open) {
-    if (!menuOverlay) return;
-    menuOverlay.classList.toggle("is-open", open);
-    menuOverlay.setAttribute("aria-hidden", open ? "false" : "true");
-    document.body.classList.toggle("menu-open", open);
-    menuOpeners.forEach(btn => btn.setAttribute("aria-expanded", open ? "true" : "false"));
-    if (open) { lastMenuTrigger = document.activeElement; }
-    else { lastMenuTrigger = null; if (document.activeElement && typeof document.activeElement.blur === "function") document.activeElement.blur(); }
-  }
-  menuOpeners.forEach(btn => { btn.addEventListener("click", () => setMenuOpen(true)); });
-  menuClosers.forEach(btn => { btn.addEventListener("click", () => setMenuOpen(false)); });
-  menuLinks.forEach(link => { link.addEventListener("click", () => setMenuOpen(false)); });
-  document.addEventListener("click", (e) => {
-    if (!menuOverlay || !menuOverlay.classList.contains("is-open")) return;
-    if (e.target.closest("[data-menu-open]") || e.target.closest("[data-menu-close]")) return;
-    if (!menuOverlay.contains(e.target)) setMenuOpen(false);
+// Progress bar
+window.addEventListener('scroll', () => {
+  const bar = document.getElementById('progressBar');
+  if (bar) bar.style.width = (window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100) + '%';
+});
+
+// Menu
+document.querySelectorAll('[data-menu-open]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.getElementById('menu-overlay').classList.add('is-open');
+    document.getElementById('menu-overlay').setAttribute('aria-hidden', 'false');
+    document.body.classList.add('menu-open');
+    btn.setAttribute('aria-expanded', 'true');
   });
-  document.addEventListener("keydown", (e) => {
-    if (!menuOverlay || !menuOverlay.classList.contains("is-open")) return;
-    if (e.key === "Escape") { setMenuOpen(false); return; }
-    if (e.key !== "Tab") return;
-    const f = Array.from(menuOverlay.querySelectorAll("a[href], button:not([disabled])"));
-    if (!f.length) return;
-    if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f[f.length-1].focus(); }
-    else if (!e.shiftKey && document.activeElement === f[f.length-1]) { e.preventDefault(); f[0].focus(); }
+});
+document.querySelectorAll('[data-menu-close]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.getElementById('menu-overlay').classList.remove('is-open');
+    document.getElementById('menu-overlay').setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('menu-open');
+    document.querySelector('[data-menu-open]').setAttribute('aria-expanded', 'false');
   });
+});
+document.querySelectorAll('[data-menu-link]').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('menu-overlay').classList.remove('is-open');
+    document.getElementById('menu-overlay').setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('menu-open');
+    document.querySelector('[data-menu-open]').setAttribute('aria-expanded', 'false');
+  });
+});
 </script>
-
-<script>
-(() => {
-  "use strict";
-
-  function getMenuOverlay() {
-    return document.getElementById("siteMenu") || document.getElementById("menu-overlay") || document.querySelector(".menu-overlay");
-  }
-
-  function isMenuOpen(menu) {
-    return !!menu && menu.classList.contains("is-open");
-  }
-
-  function closeMenu(menu) {
-    if (!menu) return;
-    menu.classList.remove("is-open");
-    menu.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("menu-open");
-    document.querySelectorAll("[data-menu-open]").forEach(btn => {
-      btn.setAttribute("aria-expanded", "false");
-    });
-  }
-
-  function shouldIgnore(target, menu) {
-    return !menu || menu.contains(target) || !!target.closest("[data-menu-open], [data-menu-close]");
-  }
-
-  function interceptOutsideMenu(event) {
-    const menu = getMenuOverlay();
-    if (!isMenuOpen(menu) || shouldIgnore(event.target, menu)) return;
-
-    event.preventDefault();
-    event.stopPropagation();
-    event.stopImmediatePropagation();
-    closeMenu(menu);
-  }
-
-  document.addEventListener("pointerdown", interceptOutsideMenu, true);
-  document.addEventListener("click", interceptOutsideMenu, true);
-})();
-</script>
-
-
 <script>
 (function(){
   var MENU_COPY = {
@@ -1891,7 +1994,7 @@ html[data-lang="zh"] .feature-title-phrase {
     lang = String(lang).toLowerCase().slice(0,2) === 'en' ? 'en' : 'zh';
     var dict = MENU_COPY[lang];
     Object.keys(dict).forEach(function(key){
-      document.querySelectorAll('#siteMenu [data-i18n="' + key + '"], header [data-i18n="' + key + '"]').forEach(function(el){
+      document.querySelectorAll('.menu-overlay [data-i18n="' + key + '"], header [data-i18n="' + key + '"]').forEach(function(el){
         if (key === 'menu.contact.text') {
           if (lang === 'zh') {
             el.innerHTML = '<span class="phrase">如果你正在寻找、定义，</span><span class="phrase">或亲手建造一个尚未被市场命名的未来，</span><span class="phrase">我们希望更早与你相遇。</span>';
@@ -1940,8 +2043,6 @@ html[data-lang="zh"] .feature-title-phrase {
     window.addEventListener("pageshow", blurActive);
   })();
 </script>
-
-
 
 <script>
 /* Fix v3: prevent the blue focus flash before navigation starts. */
