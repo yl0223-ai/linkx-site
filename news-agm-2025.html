@@ -291,6 +291,18 @@
       line-height: 1.2;
       text-wrap: balance;
     }
+    .article-hero h1 {
+      word-break: keep-all;
+      overflow-wrap: normal;
+      line-break: strict;
+    }
+    .article-hero h1 wbr {
+      display: inline;
+    }
+    @media (max-width: 520px) {
+      .article-hero h1 { font-size: clamp(30px, 8.2vw, 40px); }
+    }
+
 
     /* ---------- Article body ---------- */
     .article-body {
@@ -997,7 +1009,1668 @@ html[data-lang="en"] .menu-footer-social-label {
   align-items: center;
 }
 
+
+
+/* === Canonical menu sync from insights_menu_updated_feature_titles.html === */
+/* v128: restore visible Build With Us card + full social matrix in menu drawer. */
+.menu-panel.menu-build-card {
+  border-radius: 28px !important;
+  border: 1px solid rgba(250, 248, 244, 0.16) !important;
+  background:
+    radial-gradient(circle at 18% 16%, rgba(176, 124, 192, 0.22), transparent 36%),
+    radial-gradient(circle at 92% 88%, rgba(250, 248, 244, 0.09), transparent 30%),
+    linear-gradient(180deg, rgba(250, 248, 244, 0.085), rgba(250, 248, 244, 0.038)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(250, 248, 244, 0.10),
+    0 18px 52px rgba(0, 0, 0, 0.10) !important;
+  padding: clamp(22px, 2.7vw, 34px) !important;
+  overflow: hidden !important;
+}
+@media (min-width: 861px) {
+  .menu-panel.menu-build-card {
+    min-height: clamp(176px, 20vh, 236px) !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    align-content: end !important;
+  }
+  .menu-contact-cta { min-width: min(240px, 58%) !important; }
+}
+@media (max-width: 860px) {
+  .menu-panel.menu-build-card {
+    min-height: 210px !important;
+    padding: 24px !important;
+  }
+}
+
+.menu-footer { gap: clamp(18px, 2.4vw, 32px) !important; align-items: center !important; }
+.menu-social-matrix {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 0 !important;
+  margin-left: auto !important;
+}
+.menu-social-matrix .menu-footer-social-label { display: none !important; }
+.menu-social-links {
+  display: inline-flex !important;
+  align-items: center !important;
+  flex-wrap: nowrap !important;
+  gap: 8px !important;
+}
+.menu-social-item { position: relative !important; display: inline-flex !important; }
+.menu-social-icon {
+  width: 28px !important;
+  height: 28px !important;
+  display: inline-grid !important;
+  place-items: center !important;
+  padding: 0 !important;
+  border: 1px solid rgba(250, 248, 244, 0.18) !important;
+  border-radius: 50% !important;
+  border-bottom-color: rgba(250, 248, 244, 0.18) !important;
+  background: rgba(250, 248, 244, 0.045) !important;
+  color: rgba(250, 248, 244, 0.84) !important;
+  text-decoration: none !important;
+  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease, color 0.18s ease !important;
+}
+.menu-social-icon:hover,
+.menu-social-icon:focus-visible {
+  transform: translateY(-2px) !important;
+  border-color: rgba(250, 248, 244, 0.48) !important;
+  background: rgba(250, 248, 244, 0.12) !important;
+  color: #fff !important;
+  outline: none !important;
+}
+.menu-social-icon svg,
+.menu-social-icon img {
+  width: 14px !important;
+  height: 14px !important;
+  display: block !important;
+  fill: currentColor !important;
+  object-fit: contain !important;
+}
+.menu-social-icon img.icon-xhs { width: 15px !important; height: 15px !important; }
+.menu-social-icon img.icon-douyin { width: 14px !important; height: 14px !important; }
+.menu-qr-popover {
+  position: absolute !important;
+  right: 50% !important;
+  top: auto !important;
+  bottom: calc(100% + 14px) !important;
+  width: 168px !important;
+  padding: 12px !important;
+  border-radius: 8px !important;
+  background: rgba(250, 248, 244, 0.98) !important;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.32) !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: translate(50%, 8px) !important;
+  pointer-events: none !important;
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease !important;
+  z-index: 20 !important;
+}
+.menu-qr-popover::after {
+  content: "" !important;
+  position: absolute !important;
+  right: 50% !important;
+  top: auto !important;
+  bottom: -7px !important;
+  width: 14px !important;
+  height: 14px !important;
+  background: rgba(250, 248, 244, 0.98) !important;
+  transform: translateX(50%) rotate(45deg) !important;
+}
+.menu-qr-popover img {
+  width: 100% !important;
+  aspect-ratio: 1 !important;
+  object-fit: cover !important;
+  border-radius: 4px !important;
+}
+.menu-qr-popover span {
+  display: block !important;
+  margin-top: 9px !important;
+  color: var(--text) !important;
+  font-size: 12px !important;
+  line-height: 1.4 !important;
+  text-align: center !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+.menu-social-item:hover .menu-qr-popover,
+.menu-social-item:focus-within .menu-qr-popover {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translate(50%, 0) !important;
+  pointer-events: auto !important;
+}
+.qr-fallback {
+  display: none;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 4px;
+  place-items: center;
+  color: rgba(102, 8, 116, 0.62);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  background:
+    linear-gradient(90deg, rgba(102, 8, 116, 0.11) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(102, 8, 116, 0.11) 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, rgba(176, 124, 192, 0.12), transparent 58%),
+    rgba(250, 248, 244, 0.96);
+  background-size: 12px 12px, 12px 12px, 100% 100%, 100% 100%;
+  border: 1px solid rgba(102, 8, 116, 0.10);
+}
+.qr-popover.qr-missing .qr-fallback { display: grid; }
+.qr-popover.qr-missing span::after {
+  content: " · 二维码图片待补充";
+  color: rgba(120, 113, 108, 0.72);
+}
+@media (max-width: 860px) {
+  .menu-footer {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    align-items: start !important;
+  }
+  .menu-social-matrix {
+    margin-left: 0 !important;
+    justify-content: flex-start !important;
+  }
+  .menu-social-links { flex-wrap: wrap !important; }
+  .menu-social-icon { width: 30px !important; height: 30px !important; }
+}
+
+
+
+/* v127: align LinkX menu watermark with index.html original bottom-right posture. */
+.menu-overlay::before {
+  content: "LinkX" !important;
+  position: absolute !important;
+  right: -0.08em !important;
+  bottom: -0.28em !important;
+  font-family: var(--font-serif) !important;
+  font-size: clamp(130px, 24vw, 360px) !important;
+  line-height: 1 !important;
+  color: rgba(250, 248, 244, 0.045) !important;
+  pointer-events: none !important;
+  letter-spacing: 0 !important;
+  transform: none !important;
+  z-index: 0 !important;
+}
+.menu-shell::before {
+  content: none !important;
+}
+
+
+
+/* Patch: remove default browser blue focus ring on menu links, keep LinkX-style focus affordance. */
+.menu-overlay a:focus,
+.menu-overlay button:focus {
+  outline: none !important;
+}
+.menu-primary a:focus-visible {
+  outline: 1px solid rgba(232, 213, 238, 0.42) !important;
+  outline-offset: -1px !important;
+  background: rgba(250, 248, 244, 0.035) !important;
+}
+.menu-primary a:focus:not(:focus-visible),
+.menu-contact-cta:focus:not(:focus-visible),
+.menu-social-icon:focus:not(:focus-visible),
+.menu-close:focus:not(:focus-visible) {
+  outline: none !important;
+  box-shadow: none !important;
+}
+.menu-contact-cta:focus-visible,
+.menu-social-icon:focus-visible,
+.menu-close:focus-visible {
+  outline: 1px solid rgba(232, 213, 238, 0.48) !important;
+  outline-offset: 4px !important;
+  box-shadow: none !important;
+}
+
+
+
+/* v131: Chinese menu shows full legal copyright; English keeps LINKX CAPITAL. */
+.menu-footer .menu-footer-brand {
+  display: inline-flex !important;
+  justify-self: start !important;
+  align-items: center !important;
+  color: rgba(250, 248, 244, 0.42) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+}
+@media (max-width: 860px) {
+  .menu-footer .menu-footer-brand {
+    display: inline-flex !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+  }
+}
+
+
+
+/* v132: force visible menu footer copyright in both languages. */
+.menu-footer {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  column-gap: clamp(18px, 2.4vw, 32px) !important;
+}
+.menu-footer .menu-footer-brand {
+  display: inline-flex !important;
+  justify-self: start !important;
+  align-items: center !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  color: rgba(250, 248, 244, 0.42) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: none !important;
+  white-space: normal !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+.menu-footer .menu-footer-brand .zh-only,
+.menu-footer .menu-footer-brand .en-only {
+  display: inline !important;
+}
+html[data-lang="zh"] .menu-footer .menu-footer-brand .en-only { display: none !important; }
+html[data-lang="en"] .menu-footer .menu-footer-brand .zh-only { display: none !important; }
+html[data-lang="en"] .menu-footer .menu-footer-brand .en-only {
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+}
+@media (max-width: 860px) {
+  .menu-footer { grid-template-columns: 1fr !important; row-gap: 14px !important; }
+  .menu-footer .menu-footer-brand { order: 1 !important; }
+  .menu-footer .menu-social-matrix { order: 2 !important; margin-left: 0 !important; justify-content: flex-start !important; }
+}
+
+
+
+/* v200: robust visible menu footer copyright via generated left grid item.
+   This avoids earlier display:none rules and i18n/localStorage overwrites. */
+.menu-footer {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  column-gap: clamp(18px, 2.4vw, 32px) !important;
+}
+.menu-footer::before {
+  content: "© 2026 北京星连肇基私募基金管理有限责任公司" !important;
+  grid-column: 1 !important;
+  justify-self: start !important;
+  display: block !important;
+  color: rgba(250, 248, 244, 0.46) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: none !important;
+  white-space: normal !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 3 !important;
+  pointer-events: none !important;
+}
+html[data-lang="en"] .menu-footer::before {
+  content: "LINKX CAPITAL" !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+}
+.menu-footer .menu-footer-brand {
+  display: none !important;
+}
+.menu-footer .menu-social-matrix {
+  grid-column: 2 !important;
+  justify-self: end !important;
+  z-index: 3 !important;
+}
+@media (max-width: 860px) {
+  .menu-footer {
+    grid-template-columns: 1fr !important;
+    row-gap: 14px !important;
+  }
+  .menu-footer::before {
+    grid-column: 1 !important;
+    max-width: 100% !important;
+  }
+  .menu-footer .menu-social-matrix {
+    grid-column: 1 !important;
+    justify-self: start !important;
+    margin-left: 0 !important;
+  }
+}
+
+
+
+/* v300: final robust visible copyright node, no pseudo-element dependency. */
+.menu-footer::before { content: none !important; display: none !important; }
+.menu-footer {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  column-gap: clamp(18px, 2.4vw, 32px) !important;
+}
+.menu-footer .menu-copyright-fixed {
+  grid-column: 1 !important;
+  justify-self: start !important;
+  display: inline-block !important;
+  color: rgba(250, 248, 244, 0.50) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: none !important;
+  white-space: normal !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  z-index: 10 !important;
+  pointer-events: none !important;
+}
+.menu-footer .menu-copyright-fixed .menu-copyright-zh,
+.menu-footer .menu-copyright-fixed .menu-copyright-en { display: inline !important; }
+html[data-lang="zh"] .menu-footer .menu-copyright-fixed .menu-copyright-en { display: none !important; }
+html[data-lang="en"] .menu-footer .menu-copyright-fixed .menu-copyright-zh { display: none !important; }
+html[data-lang="en"] .menu-footer .menu-copyright-fixed {
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+}
+.menu-footer .menu-social-matrix {
+  grid-column: 2 !important;
+  justify-self: end !important;
+}
+@media (max-width: 860px) {
+  .menu-footer { grid-template-columns: 1fr !important; row-gap: 14px !important; }
+  .menu-footer .menu-copyright-fixed,
+  .menu-footer .menu-social-matrix { grid-column: 1 !important; justify-self: start !important; }
+}
+
+
+
+/* v999: force visible menu copyright at the actual drawer bottom-left. */
+.menu-overlay .menu-shell {
+  position: relative !important;
+  padding-bottom: 72px !important;
+}
+.menu-overlay .menu-footer {
+  position: static !important;
+  display: block !important;
+  padding-top: 24px !important;
+  min-height: 48px !important;
+}
+.menu-overlay .menu-copyright-fixed {
+  position: absolute !important;
+  left: clamp(22px, 3vw, 40px) !important;
+  bottom: 28px !important;
+  display: block !important;
+  width: calc(100% - clamp(22px, 3vw, 40px) * 2 - 220px) !important;
+  min-width: 260px !important;
+  max-width: 420px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: rgba(250, 248, 244, 0.58) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: none !important;
+  white-space: normal !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 999 !important;
+  pointer-events: none !important;
+  background: transparent !important;
+}
+.menu-overlay .menu-copyright-fixed .menu-copyright-zh,
+.menu-overlay .menu-copyright-fixed .menu-copyright-en {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+html[data-lang="zh"] .menu-overlay .menu-copyright-fixed .menu-copyright-zh { display: inline !important; }
+html[data-lang="zh"] .menu-overlay .menu-copyright-fixed .menu-copyright-en { display: none !important; }
+html[data-lang="en"] .menu-overlay .menu-copyright-fixed .menu-copyright-zh { display: none !important; }
+html[data-lang="en"] .menu-overlay .menu-copyright-fixed .menu-copyright-en {
+  display: inline !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+}
+.menu-overlay .menu-social-matrix {
+  position: absolute !important;
+  right: clamp(22px, 3vw, 40px) !important;
+  bottom: 24px !important;
+  z-index: 999 !important;
+}
+@media (max-width: 860px) {
+  .menu-overlay .menu-shell { padding-bottom: 124px !important; }
+  .menu-overlay .menu-copyright-fixed {
+    left: clamp(22px, 3vw, 40px) !important;
+    right: clamp(22px, 3vw, 40px) !important;
+    bottom: 74px !important;
+    width: auto !important;
+    max-width: none !important;
+  }
+  .menu-overlay .menu-social-matrix {
+    left: clamp(22px, 3vw, 40px) !important;
+    right: auto !important;
+    bottom: 24px !important;
+  }
+}
+
+
+
+/* final: menu bottom-left brand by language */
+.menu-overlay .menu-copyright-fixed {
+  color: rgba(250, 248, 244, 0.58) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: none !important;
+}
+html[data-lang="zh"] .menu-overlay .menu-copyright-fixed .menu-copyright-zh { display: inline !important; }
+html[data-lang="zh"] .menu-overlay .menu-copyright-fixed .menu-copyright-en { display: none !important; }
+html[data-lang="en"] .menu-overlay .menu-copyright-fixed .menu-copyright-zh { display: none !important; }
+html[data-lang="en"] .menu-overlay .menu-copyright-fixed .menu-copyright-en {
+  display: inline !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+}
+
+
+
+/* v1001: robust footer copyright: single i18n text node, no child-span dependency. */
+.menu-overlay .menu-copyright-fixed {
+  display: block !important;
+  color: rgba(250, 248, 244, 0.58) !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+html[data-lang="zh"] .menu-overlay .menu-copyright-fixed {
+  letter-spacing: 0.04em !important;
+  text-transform: none !important;
+}
+html[data-lang="en"] .menu-overlay .menu-copyright-fixed {
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+}
+
+
+
+/* FINAL FIX: real menu footer copyright, no generated pseudo-text. */
+.menu-footer::before {
+  content: none !important;
+  display: none !important;
+}
+.menu-footer .menu-copyright-fixed {
+  grid-column: 1 !important;
+  justify-self: start !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: rgba(250, 248, 244, 0.46) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: none !important;
+  white-space: normal !important;
+  pointer-events: none !important;
+}
+html[data-lang="en"] .menu-footer .menu-copyright-fixed {
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+}
+.menu-footer .menu-social-matrix {
+  grid-column: 2 !important;
+}
+
+
+/* v1002: pin menu copyright to the true bottom-left of the drawer. */
+.menu-overlay .menu-shell {
+  position: relative !important;
+  min-height: 100dvh !important;
+  padding-bottom: 86px !important;
+}
+.menu-overlay .menu-footer {
+  position: static !important;
+}
+.menu-overlay .menu-footer::before {
+  content: none !important;
+  display: none !important;
+}
+.menu-overlay .menu-copyright-fixed {
+  position: absolute !important;
+  left: clamp(22px, 3vw, 40px) !important;
+  bottom: 26px !important;
+  right: auto !important;
+  top: auto !important;
+  transform: none !important;
+  display: block !important;
+  width: auto !important;
+  max-width: calc(100% - clamp(22px, 3vw, 40px) * 2) !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: left !important;
+  color: rgba(250, 248, 244, 0.58) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: none !important;
+  white-space: nowrap !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 1001 !important;
+  pointer-events: none !important;
+}
+html[data-lang="en"] .menu-overlay .menu-copyright-fixed {
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+}
+.menu-overlay .menu-social-matrix {
+  position: absolute !important;
+  right: clamp(22px, 3vw, 40px) !important;
+  bottom: 24px !important;
+  z-index: 1000 !important;
+}
+@media (max-width: 860px) {
+  .menu-overlay .menu-shell { padding-bottom: 128px !important; }
+  .menu-overlay .menu-copyright-fixed {
+    left: clamp(22px, 3vw, 40px) !important;
+    bottom: 78px !important;
+    max-width: calc(100% - clamp(22px, 3vw, 40px) * 2) !important;
+    white-space: normal !important;
+  }
+  .menu-overlay .menu-social-matrix {
+    left: clamp(22px, 3vw, 40px) !important;
+    right: auto !important;
+    bottom: 24px !important;
+  }
+}
+
+
+
+/* v1003 final: remove footer home/back link and pin copyright at menu drawer bottom-left. */
+.menu-overlay .menu-footer > a,
+.menu-overlay .menu-footer .menu-footer-home,
+.menu-overlay .menu-footer .footer-home,
+.menu-overlay .menu-footer .back-home,
+.menu-overlay .menu-footer [data-i18n="menu.footer.home"],
+.menu-overlay .menu-footer [data-i18n="footer.home"] {
+  display: none !important;
+}
+.menu-overlay .menu-footer::before,
+.menu-overlay .menu-footer::after {
+  content: none !important;
+  display: none !important;
+}
+.menu-overlay .menu-shell {
+  position: relative !important;
+  min-height: 100dvh !important;
+  padding-bottom: 86px !important;
+}
+.menu-overlay .menu-footer {
+  position: static !important;
+}
+.menu-overlay .menu-copyright-fixed {
+  position: absolute !important;
+  left: clamp(22px, 3vw, 40px) !important;
+  bottom: 26px !important;
+  right: auto !important;
+  top: auto !important;
+  display: block !important;
+  width: auto !important;
+  max-width: calc(100% - clamp(22px, 3vw, 40px) * 2) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: left !important;
+  color: rgba(250, 248, 244, 0.58) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: none !important;
+  white-space: nowrap !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: none !important;
+  z-index: 1001 !important;
+}
+html[data-lang="en"] .menu-overlay .menu-copyright-fixed {
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+}
+
+
+
+/* v1004: align bottom copyright with the left edge of menu number column (01/02/03). */
+.menu-overlay .menu-copyright-fixed {
+  left: clamp(22px, 3vw, 40px) !important;
+  inset-inline-start: clamp(22px, 3vw, 40px) !important;
+}
+@media (max-width: 860px) {
+  .menu-overlay .menu-copyright-fixed {
+    left: clamp(22px, 3vw, 40px) !important;
+    inset-inline-start: clamp(22px, 3vw, 40px) !important;
+  }
+}
+
+
+
+/* v1005: align footer brand text with the left border of the Build With Us card.
+   Footer is positioned as a full-width row inside the same menu content column as the card. */
+.menu-overlay .menu-shell {
+  position: relative !important;
+  padding-bottom: 92px !important;
+}
+.menu-overlay .menu-footer {
+  position: absolute !important;
+  left: clamp(22px, 3vw, 40px) !important;
+  right: clamp(22px, 3vw, 40px) !important;
+  bottom: 24px !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  column-gap: clamp(18px, 2.4vw, 32px) !important;
+  width: auto !important;
+  min-height: 42px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-top: 0 !important;
+  z-index: 1000 !important;
+}
+.menu-overlay .menu-copyright-fixed {
+  position: static !important;
+  grid-column: 1 !important;
+  justify-self: start !important;
+  align-self: center !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  top: auto !important;
+  width: auto !important;
+  max-width: min(100%, 460px) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: left !important;
+  color: rgba(250, 248, 244, 0.58) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: none !important;
+  white-space: normal !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: none !important;
+  z-index: 1001 !important;
+}
+html[data-lang="en"] .menu-overlay .menu-copyright-fixed {
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+}
+.menu-overlay .menu-social-matrix {
+  position: static !important;
+  grid-column: 2 !important;
+  justify-self: end !important;
+  align-self: center !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  margin: 0 !important;
+  z-index: 1001 !important;
+}
+@media (max-width: 860px) {
+  .menu-overlay .menu-shell { padding-bottom: 132px !important; }
+  .menu-overlay .menu-footer {
+    grid-template-columns: 1fr !important;
+    row-gap: 14px !important;
+    bottom: 22px !important;
+  }
+  .menu-overlay .menu-copyright-fixed,
+  .menu-overlay .menu-social-matrix {
+    grid-column: 1 !important;
+    justify-self: start !important;
+  }
+}
+
+
+
+/* v168: featured Chinese titles keep phrase integrity. */
+html[data-lang="zh"] .feature-image-card h2,
+html[data-lang="zh"] .feature-image-card h3 {
+  text-wrap: normal !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+  line-break: strict !important;
+  max-width: 18em !important;
+}
+
+html[data-lang="zh"] .feature-title-phrase {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  html[data-lang="zh"] .feature-image-card h2,
+  html[data-lang="zh"] .feature-image-card h3 {
+    max-width: 100% !important;
+    font-size: clamp(21px, 5.6vw, 29px) !important;
+  }
+}
+/* === End canonical menu sync === */
+
+
+
+/* ---------- Article reading layout upgrade: minimal metadata / wide reading / right rail ---------- */
+.article-hero {
+  padding: clamp(58px, 7vw, 94px) 0 clamp(30px, 4vw, 54px) !important;
+  border-bottom: 1px solid var(--border-light);
+}
+.article-hero .container {
+  max-width: 1280px !important;
+}
+.article-meta {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 8px 12px !important;
+  margin-bottom: 18px !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10.5px !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  color: var(--text-light) !important;
+}
+.article-meta span {
+  display: inline-flex !important;
+  align-items: center !important;
+}
+.article-meta span + span::before {
+  content: "·";
+  margin-right: 12px;
+  color: var(--border);
+}
+.article-tag {
+  color: var(--purple) !important;
+  border: 0 !important;
+  padding: 0 !important;
+}
+.article-hero h1 {
+  max-width: 980px !important;
+  font-family: var(--font-serif) !important;
+  font-size: clamp(42px, 5vw, 68px) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.025em !important;
+  font-weight: 400 !important;
+  margin: 0 !important;
+}
+.article-deck {
+  max-width: 720px;
+  margin-top: 24px;
+  color: var(--text-muted);
+  font-size: clamp(16px, 1.2vw, 18px);
+  line-height: 1.82;
+}
+.article-layout {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 760px) minmax(230px, 280px);
+  column-gap: clamp(56px, 7vw, 104px);
+  align-items: start;
+}
+.article-layout .article-body {
+  max-width: none !important;
+  margin: 0 !important;
+  padding: clamp(54px, 6vw, 82px) 0 clamp(72px, 8vw, 110px) !important;
+}
+.article-body p {
+  font-size: clamp(17px, 1.12vw, 19px) !important;
+  line-height: 1.96 !important;
+  letter-spacing: 0.005em;
+  margin-bottom: 1.35em !important;
+}
+.article-body h2 {
+  margin-top: 2.35em !important;
+  margin-bottom: 0.85em !important;
+  padding-top: 0.35em;
+  font-size: clamp(30px, 3vw, 42px) !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.018em !important;
+}
+.article-body h3 {
+  margin-top: 2em !important;
+  margin-bottom: 0.72em !important;
+  font-size: clamp(21px, 1.65vw, 26px) !important;
+  line-height: 1.45 !important;
+  letter-spacing: -0.01em !important;
+}
+.article-body img,
+.article-body figure img {
+  width: 100%;
+  height: auto;
+}
+.article-sidebar {
+  position: sticky;
+  top: calc(76px + 28px);
+  padding-top: clamp(54px, 6vw, 82px);
+  max-height: calc(100vh - 104px);
+  overflow: auto;
+  scrollbar-width: none;
+}
+.article-sidebar::-webkit-scrollbar { display: none; }
+.article-side-block {
+  padding: 18px 0;
+  border-top: 1px solid var(--border);
+}
+.article-side-block:last-child {
+  border-bottom: 1px solid var(--border);
+}
+.article-side-kicker {
+  display: block;
+  margin-bottom: 12px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--purple);
+}
+.article-toc {
+  display: grid;
+  gap: 10px;
+}
+.article-toc a {
+  display: block;
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.45;
+  text-decoration: none;
+  transition: color .2s ease, transform .2s ease;
+}
+.article-toc a:hover {
+  color: var(--purple);
+  transform: translateX(3px);
+}
+.article-toc a.is-h3 {
+  padding-left: 14px;
+  font-size: 12.5px;
+  color: var(--text-light);
+}
+.article-share {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.article-share a,
+.article-share button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color .2s ease, color .2s ease, background .2s ease;
+}
+.article-share a:hover,
+.article-share button:hover {
+  border-color: var(--purple-soft);
+  color: var(--purple);
+  background: var(--purple-wash, rgba(232,213,238,.28));
+}
+.article-info-list {
+  display: grid;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+.article-info-list b {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.article-info-list span {
+  color: var(--text-light);
+}
+.article-back {
+  margin-top: 42px !important;
+}
+@media (max-width: 1080px) {
+  .article-layout {
+    display: block;
+  }
+  .article-sidebar {
+    position: static;
+    max-height: none;
+    padding: 0 0 48px;
+  }
+  .article-sidebar-inner {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+  }
+  .article-side-block:last-child { border-bottom: 0; }
+}
+@media (max-width: 720px) {
+  .article-hero { padding: 42px 0 28px !important; }
+  .article-hero h1 { font-size: clamp(32px, 8.7vw, 44px) !important; }
+  .article-layout .article-body { padding: 38px 0 56px !important; }
+  .article-body p { font-size: 16.5px !important; line-height: 1.88 !important; }
+  .article-sidebar-inner { grid-template-columns: 1fr; gap: 0; }
+  .article-sidebar { padding-bottom: 40px; }
+}
+
+/* Article title: semantic wrapping without visible helper tags. */
+.article-hero h1 {
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+  line-break: strict;
+  text-wrap: balance;
+}
+@media (max-width: 720px) {
+  .article-hero h1 {
+    word-break: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+}
+
+
+/* Share label cleanup: keep only one Share trigger with arrow. */
+.article-side-block .article-share.article-share-menu {
+  margin-top: 0 !important;
+}
+.article-share-trigger {
+  width: 100%;
+  justify-content: space-between !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+  color: var(--text-light) !important;
+  padding: 0 0 12px !important;
+  border-bottom: 1px solid var(--border-light) !important;
+}
+.article-share.article-share-menu.is-open .article-share-trigger,
+.article-share-trigger:hover {
+  color: var(--purple) !important;
+}
+
+
+
+/* Fix v2: prevent browser blue focus rectangle after menu navigation clicks. */
+.menu-overlay a:focus,
+.menu-overlay a:focus-visible,
+.menu-overlay a:active,
+.menu-primary a:focus,
+.menu-primary a:focus-visible,
+.menu-primary a:active,
+.menu-home-link:focus,
+.menu-home-link:focus-visible,
+.menu-home-link:active,
+.menu-contact-cta:focus,
+.menu-contact-cta:focus-visible,
+.menu-contact-cta:active,
+.menu-toggle:focus,
+.menu-toggle:focus-visible,
+.menu-toggle:active,
+.brand-logo:focus,
+.brand-logo:focus-visible,
+.brand-logo:active {
+  outline: 0 !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+.menu-overlay a,
+.menu-primary a,
+.menu-home-link,
+.menu-contact-cta,
+.menu-toggle,
+.brand-logo {
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+
+/* Fix v3: remove the brief blue focus/tap flash on menu navigation. */
+#siteMenu a,
+#siteMenu button,
+.menu-overlay a,
+.menu-overlay button,
+.menu-primary a,
+.menu-home-link,
+.menu-contact-cta,
+.menu-toggle,
+.menu-close,
+.brand-logo {
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+  tap-highlight-color: rgba(0,0,0,0) !important;
+}
+#siteMenu a:focus,
+#siteMenu a:focus-visible,
+#siteMenu a:active,
+#siteMenu button:focus,
+#siteMenu button:focus-visible,
+#siteMenu button:active,
+.menu-overlay a:focus,
+.menu-overlay a:focus-visible,
+.menu-overlay a:active,
+.menu-overlay button:focus,
+.menu-overlay button:focus-visible,
+.menu-overlay button:active,
+.menu-primary a:focus,
+.menu-primary a:focus-visible,
+.menu-primary a:active,
+.menu-home-link:focus,
+.menu-home-link:focus-visible,
+.menu-home-link:active,
+.menu-contact-cta:focus,
+.menu-contact-cta:focus-visible,
+.menu-contact-cta:active,
+.menu-toggle:focus,
+.menu-toggle:focus-visible,
+.menu-toggle:active,
+.menu-close:focus,
+.menu-close:focus-visible,
+.menu-close:active,
+.brand-logo:focus,
+.brand-logo:focus-visible,
+.brand-logo:active {
+  outline: 0 !important;
+  outline-color: transparent !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+#siteMenu *::selection { background: transparent; }
+
 </style>
+<style>
+
+/* Article layout refinement: original title metadata + left-side contents/share. */
+.article-hero {
+  padding: clamp(80px, 12vw, 150px) 0 0 !important;
+}
+.article-meta {
+  margin-bottom: 22px !important;
+}
+.article-readtime,
+.article-deck,
+.article-kicker {
+  display: none !important;
+}
+.article-layout {
+  max-width: 1180px !important;
+  margin: 0 auto !important;
+  display: grid !important;
+  grid-template-columns: minmax(172px, 236px) minmax(0, 760px) !important;
+  column-gap: clamp(44px, 6vw, 88px) !important;
+  justify-content: center !important;
+  align-items: start !important;
+}
+.article-layout .article-body {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+  max-width: none !important;
+}
+.article-sidebar {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  position: sticky !important;
+  top: calc(76px + 28px) !important;
+  padding-top: clamp(54px, 6vw, 82px) !important;
+  max-height: calc(100vh - 104px) !important;
+  overflow: auto !important;
+  scrollbar-width: none !important;
+}
+.article-sidebar-inner {
+  max-width: 236px !important;
+}
+.article-side-block {
+  padding: 17px 0 !important;
+}
+.article-side-block:last-child {
+  border-bottom: 1px solid var(--border) !important;
+}
+.article-info-list {
+  display: none !important;
+}
+.article-share {
+  gap: 7px !important;
+}
+.article-share a,
+.article-share button {
+  min-height: 28px !important;
+  padding: 5px 9px !important;
+}
+@media (max-width: 1080px) {
+  .article-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    max-width: 760px !important;
+  }
+  .article-layout .article-body {
+    width: 100% !important;
+    order: 2 !important;
+  }
+  .article-sidebar {
+    position: static !important;
+    width: 100% !important;
+    max-height: none !important;
+    padding: 0 0 22px !important;
+    order: 1 !important;
+  }
+  .article-sidebar-inner {
+    max-width: none !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(180px, .55fr) !important;
+    gap: 22px !important;
+  }
+  .article-side-block:last-child { border-bottom: 0 !important; }
+}
+@media (max-width: 720px) {
+  .article-hero { padding: 42px 0 24px !important; }
+  .article-sidebar-inner { grid-template-columns: 1fr !important; gap: 0 !important; }
+}
+
+</style>
+
+<style>
+/* Final article display fix: left contents shows only first-level section titles; hero title wraps only at semantic breakpoints. */
+.article-hero h1 {
+  max-width: 1080px !important;
+  text-wrap: balance;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+}
+.article-toc a.is-h3 { display: none !important; }
+.article-toc a { padding-left: 0 !important; }
+.article-body h2 {
+  font-family: var(--font-serif) !important;
+  font-weight: 400 !important;
+}
+</style>
+
+
+<style>
+/* Article left contents: a16z-inspired rail + active section indicator. */
+.article-sidebar-inner {
+  position: relative !important;
+}
+.article-side-block[data-toc-block] {
+  border-top: 0 !important;
+  padding-top: 0 !important;
+}
+.article-side-block[data-toc-block] .article-side-kicker {
+  margin-bottom: 14px !important;
+}
+.article-toc {
+  position: relative !important;
+  display: grid !important;
+  gap: 2px !important;
+  padding-left: 18px !important;
+}
+.article-toc::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  bottom: 4px;
+  width: 1px;
+  background: rgba(120, 113, 108, 0.22);
+}
+.article-toc a {
+  position: relative !important;
+  display: block !important;
+  padding: 6px 0 6px 0 !important;
+  color: rgba(120, 113, 108, 0.82) !important;
+  font-size: 12.5px !important;
+  line-height: 1.45 !important;
+  text-decoration: none !important;
+  transform: none !important;
+  transition: color .2s ease, opacity .2s ease !important;
+}
+.article-toc a::before {
+  content: "";
+  position: absolute;
+  left: -18px;
+  top: 8px;
+  width: 2px;
+  height: 16px;
+  border-radius: 999px;
+  background: transparent;
+  transition: background .18s ease, height .18s ease, top .18s ease, box-shadow .18s ease;
+}
+.article-toc a:hover {
+  color: var(--purple) !important;
+}
+.article-toc a.is-active {
+  color: var(--text) !important;
+  opacity: 1 !important;
+}
+.article-toc a.is-active::before {
+  top: 5px;
+  height: 22px;
+  background: var(--purple);
+  box-shadow: 0 0 0 3px rgba(102, 8, 116, 0.08);
+}
+.article-share {
+  padding-left: 18px !important;
+}
+@media (max-width: 1080px) {
+  .article-toc { max-height: none !important; }
+  .article-share { padding-left: 0 !important; }
+}
+</style>
+
+
+
+<style>
+/* Article share dropdown: compact trigger + expandable share actions. */
+.article-share.article-share-menu {
+  display: block !important;
+  padding-left: 18px !important;
+}
+.article-share-trigger {
+  width: 100% !important;
+  min-height: 34px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  padding: 8px 0 !important;
+  border: 0 !important;
+  border-top: 1px solid rgba(221, 213, 202, 0.82) !important;
+  border-bottom: 1px solid rgba(221, 213, 202, 0.82) !important;
+  background: transparent !important;
+  color: var(--text) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10.5px !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+}
+.article-share-trigger:hover {
+  color: var(--purple) !important;
+}
+.share-trigger-mark {
+  position: relative;
+  width: 13px;
+  height: 13px;
+  flex: 0 0 auto;
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  transform-origin: center;
+  transition: transform .2s ease, color .2s ease;
+}
+.article-share-menu.is-open .share-trigger-mark {
+  transform: rotate(-135deg) translateY(-2px);
+}
+.article-share-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows .24s ease, opacity .2s ease, padding-top .24s ease;
+  padding-top: 0;
+}
+.article-share-menu.is-open .article-share-panel {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  padding-top: 10px;
+}
+.article-share-panel-inner {
+  overflow: hidden;
+  display: grid;
+  gap: 4px;
+}
+.article-share-panel a,
+.article-share-panel button {
+  width: 100% !important;
+  min-height: 30px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  padding: 6px 0 !important;
+  border: 0 !important;
+  border-bottom: 1px solid rgba(221, 213, 202, 0.52) !important;
+  background: transparent !important;
+  color: rgba(120, 113, 108, 0.9) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10.5px !important;
+  letter-spacing: .1em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  transition: color .18s ease, padding-left .18s ease, border-color .18s ease !important;
+}
+.article-share-panel a::after,
+.article-share-panel button::after {
+  content: "↗";
+  color: rgba(168, 162, 158, 0.85);
+  font-size: 11px;
+  transition: transform .18s ease, color .18s ease;
+}
+.article-share-panel button[data-copy-link]::after {
+  content: "⧉";
+}
+.article-share-panel a:hover,
+.article-share-panel button:hover {
+  color: var(--purple) !important;
+  border-color: rgba(102, 8, 116, 0.26) !important;
+  padding-left: 4px !important;
+}
+.article-share-panel a:hover::after,
+.article-share-panel button:hover::after {
+  color: var(--purple);
+  transform: translateX(2px);
+}
+.article-share-status {
+  min-height: 16px;
+  margin-top: 8px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: .08em;
+  color: var(--purple);
+  opacity: 0;
+  transition: opacity .18s ease;
+}
+.article-share-status.is-visible {
+  opacity: 1;
+}
+@media (max-width: 1080px) {
+  .article-share.article-share-menu { padding-left: 0 !important; }
+}
+</style>
+
+
+<style>
+/* Share/sidebar divider cleanup: keep one separator between contents and share only. */
+.article-side-block[data-toc-block] {
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+}
+.article-sidebar .article-side-block:not([data-toc-block]) {
+  border-top: 1px solid rgba(221, 213, 202, 0.82) !important;
+  border-bottom: 0 !important;
+  padding-top: 18px !important;
+}
+.article-sidebar .article-side-block:last-child {
+  border-bottom: 0 !important;
+}
+.article-share-trigger {
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 8px !important;
+}
+.article-share-panel a,
+.article-share-panel button {
+  border-bottom: 0 !important;
+}
+.article-share-panel-inner {
+  border: 0 !important;
+}
+@media (max-width: 1080px) {
+  .article-sidebar .article-side-block:not([data-toc-block]) {
+    border-top: 1px solid rgba(221, 213, 202, 0.82) !important;
+  }
+}
+</style>
+
+
+
+<style>
+/* Article typography + left sidebar mini title refinement. */
+.article-hero h1 {
+  font-size: clamp(36px, 4.25vw, 56px) !important;
+  line-height: 1.12 !important;
+  letter-spacing: -0.018em !important;
+  max-width: 920px !important;
+}
+.article-body h2 {
+  font-size: clamp(25px, 2.25vw, 34px) !important;
+  line-height: 1.28 !important;
+  margin-top: 2.15em !important;
+  margin-bottom: 0.72em !important;
+  letter-spacing: -0.012em !important;
+}
+.article-body h3 {
+  font-size: clamp(19px, 1.35vw, 23px) !important;
+  line-height: 1.48 !important;
+  margin-top: 1.9em !important;
+  margin-bottom: 0.62em !important;
+  letter-spacing: -0.004em !important;
+}
+.article-mini-title {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(-6px);
+  transition: max-height .24s ease, opacity .2s ease, transform .24s ease, margin-bottom .24s ease;
+  margin-bottom: 0;
+  padding-left: 18px;
+}
+body.article-scrolled .article-mini-title {
+  max-height: 132px;
+  opacity: 1;
+  transform: translateY(0);
+  margin-bottom: 20px;
+}
+.article-mini-title-label {
+  display: block;
+  margin-bottom: 7px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--purple);
+}
+.article-mini-title-text {
+  display: block;
+  color: var(--text);
+  font-family: var(--font-serif);
+  font-size: 16px;
+  line-height: 1.28;
+  letter-spacing: -0.01em;
+}
+@media (max-width: 1080px) {
+  .article-mini-title { display: none !important; }
+}
+@media (max-width: 720px) {
+  .article-hero h1 { font-size: clamp(30px, 7.8vw, 40px) !important; }
+  .article-body h2 { font-size: clamp(23px, 6vw, 29px) !important; }
+  .article-body h3 { font-size: clamp(18px, 5vw, 22px) !important; }
+}
+</style>
+<script>
+(function(){
+  function initSidebarMiniTitle(){
+    var sidebarInner = document.querySelector('.article-sidebar-inner');
+    var tocBlock = document.querySelector('.article-side-block[data-toc-block]');
+    var hero = document.querySelector('.article-hero');
+    var titleEl = document.querySelector('.article-hero h1');
+    if(!sidebarInner || !tocBlock || !hero || !titleEl) return;
+    var mini = sidebarInner.querySelector('.article-mini-title');
+    if(!mini){
+      mini = document.createElement('div');
+      mini.className = 'article-mini-title';
+      mini.innerHTML = '<span class="article-mini-title-label"><span class="zh-only">当前文章</span><span class="en-only">Article</span></span><span class="article-mini-title-text"></span>';
+      sidebarInner.insertBefore(mini, tocBlock);
+    }
+    var miniText = mini.querySelector('.article-mini-title-text');
+    function syncTitle(){
+      if(miniText) miniText.textContent = (titleEl.textContent || document.title || '').trim().replace(/\s+/g, ' ');
+    }
+    function updateScrolled(){
+      var threshold = hero.getBoundingClientRect().bottom + window.scrollY - 56;
+      document.body.classList.toggle('article-scrolled', window.scrollY > threshold);
+    }
+    syncTitle();
+    updateScrolled();
+    window.addEventListener('scroll', updateScrolled, { passive: true });
+    window.addEventListener('resize', updateScrolled);
+    if(window.MutationObserver){
+      new MutationObserver(function(){ syncTitle(); }).observe(titleEl, {childList:true, subtree:true, characterData:true});
+      new MutationObserver(function(){ setTimeout(syncTitle, 0); setTimeout(syncTitle, 60); }).observe(document.documentElement, {attributes:true, attributeFilter:['data-lang','lang']});
+    }
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initSidebarMiniTitle);
+  } else {
+    initSidebarMiniTitle();
+  }
+})();
+</script>
+
+
+<style>
+/* Sidebar left alignment: mini title, contents label, and share trigger align to the same text edge. */
+.article-mini-title,
+.article-side-block[data-toc-block] .article-side-kicker,
+.article-share.article-share-menu {
+  padding-left: 18px !important;
+}
+.article-side-block[data-toc-block] .article-side-kicker {
+  display: block !important;
+}
+.article-toc {
+  padding-left: 18px !important;
+}
+@media (max-width: 1080px) {
+  .article-mini-title,
+  .article-side-block[data-toc-block] .article-side-kicker,
+  .article-share.article-share-menu {
+    padding-left: 0 !important;
+  }
+}
+</style>
+
+
+<style>
+/* Final sidebar share alignment: remove residual button padding so Share aligns with Contents and mini title. */
+.article-sidebar .article-share.article-share-menu {
+  padding-left: 18px !important;
+}
+.article-sidebar .article-share.article-share-menu .article-share-trigger {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.article-sidebar .article-share.article-share-menu .article-share-trigger > span:first-child,
+.article-sidebar .article-share.article-share-menu .article-share-trigger > span.en-only:first-child {
+  margin-left: 0 !important;
+}
+.article-sidebar .article-share-panel a,
+.article-sidebar .article-share-panel button {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+@media (max-width: 1080px) {
+  .article-sidebar .article-share.article-share-menu {
+    padding-left: 0 !important;
+  }
+}
+</style>
+
+
+<style>
+/* Final article heading scale + semantic wrapping.
+   Keep titles on one line when space allows; only wrap at natural/semantic breakpoints. */
+.article-hero h1 {
+  max-width: 1120px !important;
+  font-family: var(--font-serif) !important;
+  font-size: clamp(30px, 3.55vw, 48px) !important;
+  line-height: 1.16 !important;
+  letter-spacing: -0.016em !important;
+  font-weight: 400 !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+  line-break: strict !important;
+  text-wrap: normal !important;
+}
+.article-body h2 {
+  font-family: var(--font-serif) !important;
+  font-size: clamp(22px, 1.85vw, 28px) !important;
+  line-height: 1.34 !important;
+  letter-spacing: -0.008em !important;
+  font-weight: 400 !important;
+  margin-top: 2.05em !important;
+  margin-bottom: 0.68em !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+  line-break: strict !important;
+  text-wrap: normal !important;
+}
+.article-body h3 {
+  font-size: clamp(17px, 1.1vw, 20px) !important;
+  line-height: 1.5 !important;
+  letter-spacing: -0.002em !important;
+  font-weight: 600 !important;
+  margin-top: 1.75em !important;
+  margin-bottom: 0.56em !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+  line-break: strict !important;
+  text-wrap: normal !important;
+}
+.article-body h2 br,
+.article-body h3 br,
+.article-hero h1 br {
+  display: none !important;
+}
+@media (max-width: 720px) {
+  .article-hero h1 {
+    font-size: clamp(27px, 7vw, 36px) !important;
+    line-height: 1.2 !important;
+    word-break: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+  .article-body h2 {
+    font-size: clamp(21px, 5.2vw, 26px) !important;
+    word-break: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+  .article-body h3 {
+    font-size: clamp(17px, 4.4vw, 20px) !important;
+    word-break: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+}
+</style>
+<script>
+/* Fix v3.2: immediately clear focus on page load to prevent blue outline from previous page navigation */
+(function() {
+  if (document.activeElement && document.activeElement !== document.body) {
+    document.activeElement.blur();
+  }
+  window.addEventListener('DOMContentLoaded', function() {
+    if (document.activeElement && document.activeElement !== document.body) {
+      document.activeElement.blur();
+    }
+  });
+})();
+</script>
 </head>
 <body>
 <div class="progress-bar" id="progressBar"></div>
@@ -1029,7 +2702,6 @@ html[data-lang="en"] .menu-footer-social-label {
 </header>
 <!-- ============ MENU ============ -->
 <div aria-hidden="true" class="menu-overlay" id="siteMenu">
-
 <div class="menu-shell">
 <div class="menu-top">
 <div class="menu-label"><span data-i18n="menu.label">导航</span><i>/</i><em>Menu</em></div>
@@ -1037,10 +2709,10 @@ html[data-lang="en"] .menu-footer-social-label {
 </div>
 <div class="menu-grid">
 <nav aria-label="Primary navigation" class="menu-primary">
-<a data-menu-link="" href="index.html#about-fund"><span class="menu-num">01</span><strong data-i18n="menu.nav.about">关于我们</strong><em>About Us</em></a>
+<a data-menu-link="" href="index.html#slogan"><span class="menu-num">01</span><strong data-i18n="menu.home">首页</strong><em>Home</em></a>
 <a data-menu-link="" href="index.html#focus"><span class="menu-num">02</span><strong data-i18n="menu.nav.portfolio">投资组合</strong><em>Portfolio</em></a>
-<a data-menu-link="" href="insights.html"><span class="menu-num">03</span><strong data-i18n="menu.nav.insights">洞察</strong><em>Insights</em></a>
-<a data-menu-link="" href="team.html"><span class="menu-num">04</span><strong data-i18n="menu.nav.team">团队</strong><em>Team</em></a>
+<a data-menu-link="" href="team.html"><span class="menu-num">03</span><strong data-i18n="menu.nav.team">团队</strong><em>Team</em></a>
+<a data-menu-link="" href="insights.html"><span class="menu-num">04</span><strong data-i18n="menu.nav.insights">洞察</strong><em>Insights</em></a>
 </nav>
 <aside aria-label="Featured links" class="menu-side">
 <div class="menu-panel menu-build-card">
@@ -1053,9 +2725,41 @@ html[data-lang="en"] .menu-footer-social-label {
 </aside>
 </div>
 <div class="menu-footer">
-<a class="menu-home-link" data-i18n="menu.footer.home" data-menu-link="" href="index.html">回到首页</a>
-<span class="menu-footer-brand" data-i18n="menu.footer.meta">LINKX CAPITAL</span>
-<div aria-label="Social accounts" class="menu-footer-social"><span class="menu-footer-social-label">You can also find us on</span><a aria-label="LinkX Capital on X" href="https://x.com/LinkXCapital" rel="noreferrer" target="_blank">X</a><a aria-label="LinkX Capital on LinkedIn" href="https://www.linkedin.com/company/link-x-%E6%98%9F%E8%BF%9E%E8%B5%84%E6%9C%AC/?viewAsMember=true" rel="noreferrer" target="_blank">LinkedIn</a></div>
+<span aria-label="版权信息" class="menu-copyright-fixed" data-i18n="menu.footer.meta">© 2026 北京星连肇基私募基金管理有限责任公司</span>
+<div aria-label="社媒账号" class="menu-footer-social menu-social-matrix">
+<div class="menu-social-links">
+<div class="social-item menu-social-item">
+<button aria-label="基金微信公众号二维码" class="social-icon menu-social-icon" type="button">
+<img alt="" aria-hidden="true" src="https://cdn.simpleicons.org/wechat/FFFFFF"/>
+</button>
+<div class="qr-popover menu-qr-popover" role="tooltip">
+<img alt="基金微信公众号二维码" onerror="this.closest('.qr-popover').classList.add('qr-missing'); this.style.display='none';" onload="this.closest('.qr-popover').classList.remove('qr-missing'); this.style.display='block';" src="assets/wechat-linkx-capital.jpg"/><div aria-hidden="true" class="qr-fallback">QR</div>
+<span data-i18n="footer.wechatFund">基金微信公众号</span>
+</div>
+</div>
+<div class="social-item menu-social-item">
+<button aria-label="孵化器微信公众号二维码" class="social-icon menu-social-icon" type="button">
+<img alt="" aria-hidden="true" src="https://cdn.simpleicons.org/wechat/FFFFFF"/>
+</button>
+<div class="qr-popover menu-qr-popover" role="tooltip">
+<img alt="孵化器微信公众号二维码" onerror="this.closest('.qr-popover').classList.add('qr-missing'); this.style.display='none';" onload="this.closest('.qr-popover').classList.remove('qr-missing'); this.style.display='block';" src="assets/wechat-qingzhi-incubator.jpg"/><div aria-hidden="true" class="qr-fallback">QR</div>
+<span data-i18n="footer.wechatIncubator">孵化器微信公众号</span>
+</div>
+</div>
+<a aria-label="小红书账号" class="social-icon menu-social-icon" href="https://xhslink.com/m/UjLFumWxau" rel="noopener" target="_blank">
+<img alt="" aria-hidden="true" class="icon-xhs" src="https://cdn.simpleicons.org/xiaohongshu/FFFFFF"/>
+</a>
+<a aria-label="抖音账号" class="social-icon menu-social-icon" href="https://www.douyin.com/user/MS4wLjABAAAAHYtbwIVUi113kSYUweZGc-tFiJGG1WPk8Jgldgk9Fhw?previous_page=app_code_link" rel="noopener" target="_blank">
+<img alt="" aria-hidden="true" class="icon-douyin" src="https://cdn.simpleicons.org/tiktok/FFFFFF"/>
+</a>
+<a aria-label="LinkX Capital on X" class="social-icon menu-social-icon" href="https://x.com/LinkXCapital" rel="noreferrer" target="_blank">
+<svg aria-hidden="true" focusable="false" viewbox="0 0 24 24"><path d="M13.93 10.36 21.38 2h-1.77l-6.47 7.25L7.98 2H2.03l7.82 11.02L2.03 22h1.77l6.83-7.65L16.09 22h5.95l-8.11-11.64Zm-2.42 2.71-.79-1.09L4.42 3.29h2.71l5.08 7.01.79 1.09 6.61 9.12H16.9l-5.39-7.44Z" fill="currentColor"></path></svg>
+</a>
+<a aria-label="LinkX Capital on LinkedIn" class="social-icon menu-social-icon" href="https://www.linkedin.com/company/link-x-%E6%98%9F%E8%BF%9E%E8%B5%84%E6%9C%AC/?viewAsMember=true" rel="noreferrer" target="_blank">
+<svg aria-hidden="true" focusable="false" viewbox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.36 8.12h4.25V23H.36V8.12ZM7.5 8.12h4.07v2.03h.06c.57-1.08 1.96-2.22 4.03-2.22 4.31 0 5.1 2.84 5.1 6.53V23h-4.24v-7.56c0-1.8-.03-4.12-2.51-4.12-2.52 0-2.9 1.97-2.9 4V23H7.5V8.12Z" fill="currentColor"></path></svg>
+</a>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1067,13 +2771,13 @@ html[data-lang="en"] .menu-footer-social-label {
 <span class="article-tag" data-i18n="article.tag.perspectives">观点</span>
 <span class="article-date">2025.11.21</span>
 </div>
-<h1 data-i18n="title">从模型突破到产业落地：<br/>2025 AI全景观察与2026展望</h1>
+<h1 data-i18n="title">从模型突破到产业落地：2025 AI全景观察与2026展望</h1>
 </div>
 </section>
 <!-- ============ ARTICLE BODY ============ -->
 <section>
 <div class="container">
-<div class="article-body">
+<div class="article-layout"><div class="article-body">
 <p data-i18n="p0">2025年11月21日，星连资本年度大会（AGM）在武汉举行。</p>
 <p data-i18n="p1">百余年前，武汉以"敢想敢为"的气魄，开启了中国现代工业的探索之路——1890年，中国第一座近代钢铁厂在这片土地应运而生，为本土工业发展播下了最初的火种。1911年，同样是在这片土地上，一群年仅未满30岁的青年在城墙上扣动扳机，点燃了新时代的序章。</p>
 <p data-i18n="p2">如今，"历史性的变革机遇，正再一次呈现在我们面前。"星连资本合伙人王璞在开场致辞中指出。大会选址武汉的深意正在于此：当全球科技竞争进入白热化阶段，中国企业与资本力量迎来了新一轮"敢想敢为"的机遇期。</p>
@@ -1149,8 +2853,7 @@ html[data-lang="en"] .menu-footer-social-label {
 <p data-i18n="p40">星连资本将持续发掘与支持那些"敢想敢为"的创业者，在新的加速周期跑出速度与方向，共同推动中国科技产业的新一轮发展和创新，助力中国在全球科技竞争中占据领先地位。</p>
 <p><em data-i18n="p41">我们相信，2025年只是一个新的起点。</em></p>
 <a class="article-back" data-i18n="article.back" href="insights.html">← 返回洞察</a>
-</div>
-</div>
+</div><aside aria-label="文章侧栏" class="article-sidebar"><div class="article-sidebar-inner"><div class="article-side-block" data-toc-block=""><span class="article-side-kicker"><span class="zh-only">目录</span><span class="en-only">Contents</span></span><nav aria-label="Table of contents" class="article-toc"></nav></div><div class="article-side-block"><div class="article-share article-share-menu" data-share-menu=""><button aria-controls="article-share-panel-news_agm_2025" aria-expanded="false" class="article-share-trigger" data-share-toggle="" type="button"><span class="zh-only">分享</span><span class="en-only">Share</span><span aria-hidden="true" class="share-trigger-mark"></span></button><div class="article-share-panel" data-share-panel="" id="article-share-panel-news_agm_2025"><div class="article-share-panel-inner"><button data-copy-link="" type="button"><span class="zh-only">复制链接</span><span class="en-only">Copy link</span></button><a data-share-x="" href="https://twitter.com/intent/tweet?url=" rel="noopener" target="_blank">X</a><a data-share-linkedin="" href="https://www.linkedin.com/sharing/share-offsite/?url=" rel="noopener" target="_blank">LinkedIn</a><a data-share-email="" href="mailto:?subject=从模型突破到产业落地：2025 AI全景观察与2026展望">Email</a><div aria-live="polite" class="article-share-status" data-share-status=""></div></div></div></div></div></div></aside></div></div>
 </section>
 <!-- ============ FOOTER ============ -->
 <footer><div class="container"><div class="footer-inner"><span class="footer-copyright" data-i18n="footer.copyright">@2026 北京星连肇基私募基金管理有限责任公司</span><span class="footer-slogan" data-i18n="footer.slogan">与 AGI 时代的定义者同行</span><a class="footer-legal" data-i18n="footer.legal" href="legal.html">法律声明</a></div></div></footer>
@@ -1165,7 +2868,7 @@ html[data-lang="en"] .menu-footer-social-label {
       
       
       
-      "footer.slogan": "与 AGI 时代的定义者同行","footer.copyright": "@2026 北京星连肇基私募基金管理有限责任公司","menu.footer.home": "回到首页","menu.contact.link": "联系我们","menu.nav.team": "团队","menu.nav.insights": "洞察","menu.nav.portfolio": "投资组合","menu.nav.about": "关于我们","menu.home": "首页", "menu.research": "洞察", "menu.focus": "关注领域", "menu.portfolio": "投资组合", "menu.team": "团队", "menu.contact": "联系我们", "menu.footer.meta": "LinkX · 北京清华科技园", "menu.research.kicker": "Insights Feed", "menu.research.text": "持续追踪 AI 生态一线信号，捕捉通用智能时代最值得关注的技术、产品与创始人动态。", "menu.research.link": "获取最新动态", "menu.contact.kicker": "Build With Us", "menu.contact.text": "<span class=\"phrase\">如果你正在寻找、定义，</span><span class=\"phrase\">或亲手建造一个尚未被市场命名的未来，</span><span class=\"phrase\">我们希望更早与你相遇。</span>",
+      "footer.slogan": "与 AGI 时代的定义者同行","footer.copyright": "@2026 北京星连肇基私募基金管理有限责任公司","menu.contact.link": "联系我们","menu.nav.team": "团队","menu.nav.insights": "洞察","menu.nav.portfolio": "投资组合","menu.nav.about": "关于我们","menu.home": "首页", "menu.research": "洞察", "menu.focus": "关注领域", "menu.portfolio": "投资组合", "menu.team": "团队", "menu.contact": "联系我们", "menu.footer.meta": "LinkX · 北京清华科技园", "menu.research.kicker": "Insights Feed", "menu.research.text": "持续追踪 AI 生态一线信号，捕捉通用智能时代最值得关注的技术、产品与创始人动态。", "menu.research.link": "获取最新动态", "menu.contact.kicker": "Build With Us", "menu.contact.text": "<span class=\"phrase\">如果你正在寻找、定义，</span><span class=\"phrase\">或亲手建造一个尚未被市场命名的未来，</span><span class=\"phrase\">我们希望更早与你相遇。</span>",
       "article.tag.news": "新闻",
       "article.tag.perspectives": "观点",
       "article.back": "← 返回洞察",
@@ -1414,7 +3117,6 @@ html[data-lang="en"] .menu-footer-social-label {
     if (e.key === "Escape") setMenuOpen(false);
   });
 </script>
-
 <script>
 (() => {
   "use strict";
@@ -1453,6 +3155,482 @@ html[data-lang="en"] .menu-footer-social-label {
 
   document.addEventListener("pointerdown", interceptOutsideMenu, true);
   document.addEventListener("click", interceptOutsideMenu, true);
+})();
+</script>
+<script>
+(function(){
+  var MENU_COPY = {
+    zh: {
+      'menu.label':'导航','menu.open':'Menu','menu.home':'首页',
+      'menu.nav.portfolio':'投资组合','menu.nav.team':'团队','menu.nav.insights':'洞察',
+      'menu.contact.kicker':'Build With Us',
+      'menu.contact.text':'如果你正在寻找、定义，或亲手建造一个尚未被市场命名的未来，我们希望更早与你相遇。',
+      'menu.contact.link':'联系我们',
+      'menu.footer.meta':'© 2026 北京星连肇基私募基金管理有限责任公司',
+      'footer.wechatFund':'基金微信公众号','footer.wechatIncubator':'孵化器微信公众号'
+    },
+    en: {
+      'menu.label':'Navigation','menu.open':'Menu','menu.home':'Home',
+      'menu.nav.portfolio':'Portfolio','menu.nav.team':'Team','menu.nav.insights':'Insights',
+      'menu.contact.kicker':'Build With Us',
+      'menu.contact.text':'If you are searching for, defining, or building a future the market has not yet named, we hope to meet you earlier.',
+      'menu.contact.link':'Contact Us',
+      'menu.footer.meta':'LINKX CAPITAL',
+      'footer.wechatFund':'LinkX Capital WeChat','footer.wechatIncubator':'Incubator WeChat'
+    }
+  };
+  function applyMenuCopy(){
+    var lang = document.documentElement.getAttribute('data-lang') || document.documentElement.lang || 'zh';
+    lang = String(lang).toLowerCase().slice(0,2) === 'en' ? 'en' : 'zh';
+    var dict = MENU_COPY[lang];
+    Object.keys(dict).forEach(function(key){
+      document.querySelectorAll('#siteMenu [data-i18n="' + key + '"], header [data-i18n="' + key + '"]').forEach(function(el){
+        if (key === 'menu.contact.text') {
+          if (lang === 'zh') {
+            el.innerHTML = '<span class="phrase">如果你正在寻找、定义，</span><span class="phrase">或亲手建造一个尚未被市场命名的未来，</span><span class="phrase">我们希望更早与你相遇。</span>';
+          } else {
+            el.textContent = dict[key];
+          }
+        } else {
+          el.textContent = dict[key];
+        }
+      });
+    });
+  }
+  document.addEventListener('DOMContentLoaded', applyMenuCopy);
+  document.querySelectorAll('[data-set-lang]').forEach(function(btn){
+    btn.addEventListener('click', function(){ setTimeout(applyMenuCopy, 0); setTimeout(applyMenuCopy, 60); });
+  });
+  if (window.MutationObserver) {
+    new MutationObserver(applyMenuCopy).observe(document.documentElement, {attributes:true, attributeFilter:['data-lang','lang']});
+  }
+})();
+</script>
+
+<script>
+(function(){
+  function enhanceArticleLayout(){
+    var body = document.querySelector('.article-layout .article-body') || document.querySelector('.article-body');
+    var sidebar = document.querySelector('.article-sidebar');
+    if(!body || !sidebar) return;
+
+    var headings = Array.prototype.slice.call(body.querySelectorAll('h2')); // only first-level section titles
+    var toc = sidebar.querySelector('.article-toc');
+    if(toc && !toc.dataset.ready){
+      headings.forEach(function(h, index){
+        if(!h.id){ h.id = 'section-' + (index + 1); }
+        var a = document.createElement('a');
+        a.href = '#' + h.id;
+        a.className = 'is-h2';
+        a.textContent = h.textContent.trim().replace(/\s+/g, ' ');
+        toc.appendChild(a);
+      });
+      if(!headings.length){
+        var block = sidebar.querySelector('[data-toc-block]');
+        if(block) block.style.display = 'none';
+      }
+      toc.dataset.ready = '1';
+    }
+
+    var links = toc ? Array.prototype.slice.call(toc.querySelectorAll('a')) : [];
+    var sectionPairs = links.map(function(a){
+      var id = decodeURIComponent((a.getAttribute('href') || '').replace(/^#/, ''));
+      var h = id ? document.getElementById(id) : null;
+      return h ? { link: a, heading: h } : null;
+    }).filter(Boolean);
+
+    function setActive(){
+      if(!sectionPairs.length) return;
+      var offset = 76 + 92;
+      var active = sectionPairs[0];
+      sectionPairs.forEach(function(pair){
+        if(pair.heading.getBoundingClientRect().top <= offset){ active = pair; }
+      });
+      sectionPairs.forEach(function(pair){
+        pair.link.classList.toggle('is-active', pair === active);
+      });
+    }
+
+    var ticking = false;
+    function requestActive(){
+      if(ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(function(){
+        setActive();
+        ticking = false;
+      });
+    }
+
+    setActive();
+    window.addEventListener('scroll', requestActive, { passive: true });
+    window.addEventListener('resize', requestActive);
+    window.addEventListener('hashchange', function(){ setTimeout(setActive, 80); });
+
+    var text = body.innerText || '';
+    var cjk = (text.match(/[\u4e00-\u9fff]/g) || []).length;
+    var words = text.trim().split(/\s+/).filter(Boolean).length;
+    var minutes = Math.max(1, Math.round((cjk / 450) + (words / 220)));
+    document.querySelectorAll('[data-reading-time]').forEach(function(el){ el.textContent = minutes + ' min read'; });
+    document.querySelectorAll('[data-reading-time-zh]').forEach(function(el){ el.textContent = '约 ' + minutes + ' 分钟阅读'; });
+    function copyArticleLink(btn){
+      var url = window.location.href.split('#')[0];
+      var lang = document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'zh';
+      var status = btn.closest('[data-share-menu]') ? btn.closest('[data-share-menu]').querySelector('[data-share-status]') : null;
+      var message = lang === 'en' ? 'Link copied' : '链接已复制';
+      var done = function(){
+        if(status){
+          status.textContent = message;
+          status.classList.add('is-visible');
+          clearTimeout(status._timer);
+          status._timer = setTimeout(function(){ status.classList.remove('is-visible'); }, 1800);
+        } else {
+          var old = btn.textContent;
+          btn.textContent = lang === 'en' ? 'Copied' : '已复制';
+          setTimeout(function(){ btn.textContent = old; }, 1300);
+        }
+      };
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(url).then(done).catch(done);
+      } else {
+        var ta = document.createElement('textarea');
+        ta.value = url;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); } catch(e) {}
+        document.body.removeChild(ta);
+        done();
+      }
+    }
+
+    function initShareMenus(){
+      var url = window.location.href.split('#')[0];
+      var titleEl = document.querySelector('.article-hero h1, h1.article-title, h1');
+      var title = titleEl ? titleEl.textContent.trim().replace(/\s+/g, ' ') : document.title;
+      var encUrl = encodeURIComponent(url);
+      var encTitle = encodeURIComponent(title);
+      document.querySelectorAll('[data-share-menu]').forEach(function(menu){
+        if(menu.dataset.shareReady) return;
+        menu.dataset.shareReady = '1';
+        var trigger = menu.querySelector('[data-share-toggle]');
+        var panel = menu.querySelector('[data-share-panel]');
+        var x = menu.querySelector('[data-share-x]');
+        var linkedin = menu.querySelector('[data-share-linkedin]');
+        var email = menu.querySelector('[data-share-email]');
+        if(x) x.href = 'https://twitter.com/intent/tweet?url=' + encUrl + '&text=' + encTitle;
+        if(linkedin) linkedin.href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encUrl;
+        if(email) email.href = 'mailto:?subject=' + encTitle + '&body=' + encUrl;
+        if(trigger && panel){
+          trigger.addEventListener('click', function(){
+            var open = menu.classList.toggle('is-open');
+            trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+          });
+        }
+      });
+      document.addEventListener('click', function(e){
+        document.querySelectorAll('[data-share-menu].is-open').forEach(function(menu){
+          if(!menu.contains(e.target)){
+            menu.classList.remove('is-open');
+            var trigger = menu.querySelector('[data-share-toggle]');
+            if(trigger) trigger.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+      document.addEventListener('keydown', function(e){
+        if(e.key !== 'Escape') return;
+        document.querySelectorAll('[data-share-menu].is-open').forEach(function(menu){
+          menu.classList.remove('is-open');
+          var trigger = menu.querySelector('[data-share-toggle]');
+          if(trigger) trigger.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    document.querySelectorAll('[data-copy-link]').forEach(function(btn){
+      if(btn.dataset.copyReady) return;
+      btn.dataset.copyReady = '1';
+      btn.addEventListener('click', function(){ copyArticleLink(btn); });
+    });
+    initShareMenus();
+  }
+  document.addEventListener('DOMContentLoaded', enhanceArticleLayout);
+})();
+</script>
+
+
+<script>
+(function () {
+  const semanticTitles = {
+    '2026年在等到AGI之前，我们先做什么。': '2026年在等到AGI之前，<wbr>我们先做什么。',
+    '从模型突破到产业落地：2025 AI全景观察与2026展望': '从模型突破到产业落地：<wbr>2025 AI全景观察与2026展望',
+    '圆木智能：AI 智能体如何重塑机加工生产管理？': '圆木智能：<wbr>AI 智能体如何重塑机加工生产管理？',
+    '珀乐互动 CTO 徐京徽：AI泛娱乐如何演进？': '珀乐互动 CTO 徐京徽：<wbr>AI泛娱乐如何演进？',
+    '张钹院士的压轴发言，为我们留下了什么？': '张钹院士的压轴发言，<wbr>为我们留下了什么？',
+    '智谱港股上市，星连资本见证成长。': '智谱港股上市，<wbr>星连资本见证成长。'
+  };
+  function applySemanticTitleBreaks() {
+    const title = document.querySelector('.article-hero h1');
+    if (!title) return;
+    const plain = title.textContent.trim();
+    if (semanticTitles[plain]) title.innerHTML = semanticTitles[plain];
+  }
+  applySemanticTitleBreaks();
+  window.addEventListener('load', applySemanticTitleBreaks);
+  document.querySelectorAll('.lang-toggle button').forEach(btn => {
+    btn.addEventListener('click', () => setTimeout(applySemanticTitleBreaks, 0));
+  });
+})();
+</script>
+
+
+<style>
+/* Final article typography + bilingual TOC refinement */
+.article-hero h1,
+h1.article-title {
+  font-size: clamp(28px, 3.15vw, 42px) !important;
+  line-height: 1.16 !important;
+  letter-spacing: -0.018em !important;
+  max-width: min(100%, 920px) !important;
+  text-wrap: balance !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+  line-break: strict !important;
+}
+.article-body h2 {
+  font-size: clamp(22px, 2.05vw, 29px) !important;
+  line-height: 1.34 !important;
+  letter-spacing: -0.012em !important;
+  margin-top: clamp(48px, 6vw, 72px) !important;
+  margin-bottom: 18px !important;
+  text-wrap: balance !important;
+  word-break: keep-all !important;
+}
+.article-body h3 {
+  font-size: clamp(18px, 1.55vw, 23px) !important;
+  line-height: 1.42 !important;
+  letter-spacing: -0.006em !important;
+  margin-top: clamp(34px, 4vw, 52px) !important;
+  margin-bottom: 14px !important;
+  text-wrap: balance !important;
+  word-break: keep-all !important;
+}
+html[data-lang="en"] .article-hero h1,
+html[data-lang="en"] h1.article-title {
+  font-family: var(--font-serif) !important;
+  font-size: clamp(36px, 5vw, 60px) !important;
+  line-height: 0.98 !important;
+  letter-spacing: -0.035em !important;
+  max-width: min(100%, 980px) !important;
+  text-wrap: balance !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: manual !important;
+}
+html[data-lang="en"] .article-body h2 {
+  font-family: var(--font-serif) !important;
+  font-size: clamp(26px, 2.45vw, 36px) !important;
+  line-height: 1.12 !important;
+  letter-spacing: -0.025em !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: manual !important;
+}
+html[data-lang="en"] .article-body h3 {
+  font-family: var(--font-serif) !important;
+  font-size: clamp(20px, 1.7vw, 26px) !important;
+  line-height: 1.22 !important;
+  letter-spacing: -0.015em !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: manual !important;
+}
+.article-toc a {
+  text-wrap: balance !important;
+  word-break: keep-all !important;
+}
+html[data-lang="en"] .article-toc a {
+  font-size: 12px !important;
+  line-height: 1.35 !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: manual !important;
+}
+@media (max-width: 760px) {
+  html[data-lang="en"] .article-hero h1,
+  .article-hero h1,
+  h1.article-title {
+    font-size: clamp(30px, 8vw, 42px) !important;
+    line-height: 1.08 !important;
+  }
+  html[data-lang="en"] .article-body h2,
+  .article-body h2 { font-size: clamp(22px, 6vw, 28px) !important; }
+  html[data-lang="en"] .article-body h3,
+  .article-body h3 { font-size: clamp(18px, 5vw, 23px) !important; }
+}
+</style>
+
+
+<script>
+(function(){
+  var TOC_MAP = {"h2_1": {"zh": "全球竞争", "en": "Global Competition"}, "全球竞争": {"zh": "全球竞争", "en": "Global Competition"}, "h3_1": {"zh": "中美驱动，AI主导，产业革命制胜的4个关键点", "en": "US-China Driven, AI-Led: 4 Keys to Winning the Industrial Revolution"}, "中美驱动，AI主导，产业革命制胜的4个关键点": {"zh": "中美驱动，AI主导，产业革命制胜的4个关键点", "en": "US-China Driven, AI-Led: 4 Keys to Winning the Industrial Revolution"}, "h2_2": {"zh": "从突破到应用", "en": "From Breakthrough to Application"}, "从突破到应用": {"zh": "从突破到应用", "en": "From Breakthrough to Application"}, "h3_2": {"zh": "星连资本在AI领域的前沿洞察与战略布局", "en": "LinkX's Frontier Insights and Strategic Positioning in AI"}, "星连资本在AI领域的前沿洞察与战略布局": {"zh": "星连资本在AI领域的前沿洞察与战略布局", "en": "LinkX's Frontier Insights and Strategic Positioning in AI"}, "h3_3": {"zh": "2025年的四个典型突破", "en": "Four Breakthroughs of 2025"}, "2025年的四个典型突破": {"zh": "2025年的四个典型突破", "en": "Four Breakthroughs of 2025"}, "h3_4": {"zh": "2026年五大发展方向", "en": "Five Directions for 2026"}, "2026年五大发展方向": {"zh": "2026年五大发展方向", "en": "Five Directions for 2026"}, "h2_3": {"zh": "探索智能上限", "en": "Exploring the Intelligence Ceiling"}, "探索智能上限": {"zh": "探索智能上限", "en": "Exploring the Intelligence Ceiling"}, "h3_5": {"zh": "实现AGI的突破点是基模能力、对齐与推理、AI原生生产力", "en": "AGI Breakthroughs: Foundation Model Capability, Alignment & Reasoning, AI-Native Productivity"}, "实现AGI的突破点是基模能力、对齐与推理、AI原生生产力": {"zh": "实现AGI的突破点是基模能力、对齐与推理、AI原生生产力", "en": "AGI Breakthroughs: Foundation Model Capability, Alignment & Reasoning, AI-Native Productivity"}, "h3_6": {"zh": "第一，基座模型能力仍将持续提升。", "en": "First, foundation model capabilities will continue to improve."}, "第一，基座模型能力仍将持续提升。": {"zh": "第一，基座模型能力仍将持续提升。", "en": "First, foundation model capabilities will continue to improve."}, "h3_7": {"zh": "第二，在能力激活层面，对齐（align）与推理（reasoning）的重要性进一步凸显。", "en": "Second, alignment and reasoning become increasingly important for capability activation."}, "第二，在能力激活层面，对齐（align）与推理（reasoning）的重要性进一步凸显。": {"zh": "第二，在能力激活层面，对齐（align）与推理（reasoning）的重要性进一步凸显。", "en": "Second, alignment and reasoning become increasingly important for capability activation."}, "h3_8": {"zh": "第三，从应用层的角度，AI的本质并非创造新的能力，而是替代人类的部分工作能力，这也决定了Agent的爆发几乎是必然趋势。", "en": "Third, from the application layer perspective, AI's essence is not creating new capabilities but replacing certain human work capabilities — making the Agent explosion almost inevitable."}, "第三，从应用层的角度，AI的本质并非创造新的能力，而是替代人类的部分工作能力，这也决定了Agent的爆发几乎是必然趋势。": {"zh": "第三，从应用层的角度，AI的本质并非创造新的能力，而是替代人类的部分工作能力，这也决定了Agent的爆发几乎是必然趋势。", "en": "Third, from the application layer perspective, AI's essence is not creating new capabilities but replacing certain human work capabilities — making the Agent explosion almost inevitable."}, "h2_4": {"zh": "AI加速落点", "en": "AI Accelerating Deployment"}, "AI加速落点": {"zh": "AI加速落点", "en": "AI Accelerating Deployment"}, "h3_9": {"zh": "前沿创新者在一线的思考与实践", "en": "Frontier Innovators' Thinking and Practice"}, "前沿创新者在一线的思考与实践": {"zh": "前沿创新者在一线的思考与实践", "en": "Frontier Innovators' Thinking and Practice"}, "h3_10": {"zh": "紫荆智康：AI打破医疗\"不可能三角\"", "en": "Zijing Zhikang: AI Breaks the Healthcare \"Impossible Triangle\""}, "紫荆智康：AI打破医疗\"不可能三角\"": {"zh": "紫荆智康：AI打破医疗\"不可能三角\"", "en": "Zijing Zhikang: AI Breaks the Healthcare \"Impossible Triangle\""}, "h3_11": {"zh": "奇点灵智：多模态AI陪伴重塑低龄教育", "en": "Qidian Lingzhi: Multimodal AI Companionship Reshaping Early Childhood Education"}, "奇点灵智：多模态AI陪伴重塑低龄教育": {"zh": "奇点灵智：多模态AI陪伴重塑低龄教育", "en": "Qidian Lingzhi: Multimodal AI Companionship Reshaping Early Childhood Education"}, "h3_12": {"zh": "吾云创新：以数据为基础，以AI为核心，打造家庭智能终端", "en": "Wuyun Innovation: Data-Driven, AI-Core Home Intelligent Terminals"}, "吾云创新：以数据为基础，以AI为核心，打造家庭智能终端": {"zh": "吾云创新：以数据为基础，以AI为核心，打造家庭智能终端", "en": "Wuyun Innovation: Data-Driven, AI-Core Home Intelligent Terminals"}, "h3_13": {"zh": "智映光年：AI全能剧组赋能视频创作", "en": "Zhiying Guangnian: AI-Powered Full Production Crew for Video Creation"}, "智映光年：AI全能剧组赋能视频创作": {"zh": "智映光年：AI全能剧组赋能视频创作", "en": "Zhiying Guangnian: AI-Powered Full Production Crew for Video Creation"}, "h2_5": {"zh": "Long China，Long AI", "en": "Long China, Long AI"}, "Long China，Long AI": {"zh": "Long China，Long AI", "en": "Long China, Long AI"}, "h3_14": {"zh": "科技投资新机", "en": "New Opportunities in Technology Investment"}, "科技投资新机": {"zh": "科技投资新机", "en": "New Opportunities in Technology Investment"}};
+  function getLang(){ return (document.documentElement.getAttribute('data-lang') || document.documentElement.lang || 'zh').toLowerCase().slice(0,2) === 'en' ? 'en' : 'zh'; }
+  function norm(s){ return (s || '').replace(/\s+/g, ' ').trim(); }
+  function getArticleTitle(){
+    var title = document.querySelector('.article-hero h1, h1.article-title, h1');
+    return title ? norm(title.textContent) : norm(document.title.replace(/·\s*LinkX$/i, ''));
+  }
+  function syncMiniTitle(){
+    var mini = document.querySelector('.article-mini-title-text');
+    if(mini) mini.textContent = getArticleTitle();
+  }
+  function collectHeadings(body){
+    var headings = Array.prototype.slice.call(body.querySelectorAll('h2'));
+    if(!headings.length) headings = Array.prototype.slice.call(body.querySelectorAll('h3'));
+    return headings;
+  }
+  function labelFor(h, lang){
+    var key = h.getAttribute('data-i18n');
+    var current = norm(h.textContent);
+    var item = null;
+    if(key && TOC_MAP[key]) item = TOC_MAP[key];
+    if(!item && TOC_MAP[current]) item = TOC_MAP[current];
+    if(!item) item = { zh: current, en: current };
+    return item[lang] || item.zh || current;
+  }
+  function rebuildToc(){
+    var body = document.querySelector('.article-layout .article-body') || document.querySelector('.article-body');
+    var sidebar = document.querySelector('.article-sidebar');
+    if(!body || !sidebar) return;
+    var toc = sidebar.querySelector('.article-toc');
+    if(!toc) return;
+    var headings = collectHeadings(body);
+    toc.innerHTML = '';
+    headings.forEach(function(h, index){
+      if(!h.id) h.id = 'section-' + (index + 1);
+      var a = document.createElement('a');
+      a.href = '#' + h.id;
+      a.className = h.tagName && h.tagName.toLowerCase() === 'h3' ? 'is-h3' : 'is-h2';
+      a.textContent = labelFor(h, getLang());
+      toc.appendChild(a);
+    });
+    var block = sidebar.querySelector('[data-toc-block]');
+    if(block) block.style.display = headings.length ? '' : 'none';
+    syncMiniTitle();
+    updateActiveToc();
+  }
+  function updateActiveToc(){
+    var body = document.querySelector('.article-layout .article-body') || document.querySelector('.article-body');
+    var toc = document.querySelector('.article-sidebar .article-toc');
+    if(!body || !toc) return;
+    var pairs = Array.prototype.slice.call(toc.querySelectorAll('a')).map(function(a){
+      var id = decodeURIComponent((a.getAttribute('href') || '').replace(/^#/, ''));
+      var h = id ? document.getElementById(id) : null;
+      return h ? {link:a, heading:h} : null;
+    }).filter(Boolean);
+    if(!pairs.length) return;
+    var active = pairs[0];
+    var offset = 168;
+    pairs.forEach(function(pair){ if(pair.heading.getBoundingClientRect().top <= offset) active = pair; });
+    pairs.forEach(function(pair){ pair.link.classList.toggle('is-active', pair === active); });
+  }
+  var ticking = false;
+  function onScroll(){
+    if(ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(function(){ updateActiveToc(); ticking = false; });
+  }
+  document.addEventListener('DOMContentLoaded', function(){
+    setTimeout(rebuildToc, 0);
+    setTimeout(rebuildToc, 80);
+    window.addEventListener('scroll', onScroll, {passive:true});
+    window.addEventListener('resize', onScroll);
+  });
+  document.querySelectorAll('[data-set-lang]').forEach(function(btn){
+    btn.addEventListener('click', function(){ setTimeout(rebuildToc, 20); setTimeout(rebuildToc, 140); });
+  });
+  if(window.MutationObserver){
+    new MutationObserver(function(){ setTimeout(rebuildToc, 20); }).observe(document.documentElement, {attributes:true, attributeFilter:['data-lang','lang']});
+  }
+})();
+
+
+  // Fix v2: avoid leaving focus on the clicked menu link or restoring focus to the menu button after navigation.
+  (function removeMenuNavigationFocusRing() {
+    const blurActive = () => {
+      const active = document.activeElement;
+      if (active && typeof active.blur === "function") active.blur();
+    };
+
+    document.querySelectorAll("[data-menu-link], .menu-home-link, .menu-primary a").forEach(link => {
+      link.addEventListener("pointerdown", () => {
+        if (typeof link.blur === "function") link.blur();
+      }, { passive: true });
+
+      link.addEventListener("mousedown", () => {
+        if (typeof link.blur === "function") link.blur();
+      });
+
+      link.addEventListener("click", () => {
+        if (typeof lastMenuTrigger !== "undefined") lastMenuTrigger = null;
+        if (typeof link.blur === "function") link.blur();
+        window.setTimeout(blurActive, 0);
+      }, true);
+    });
+
+    window.addEventListener("pageshow", blurActive);
+  })();
+</script>
+
+
+
+<script>
+/* Fix v3: prevent the blue focus flash before navigation starts. */
+(function removeMenuPressFocusFlash() {
+  function clearFocus() {
+    var active = document.activeElement;
+    if (active && typeof active.blur === "function") active.blur();
+  }
+
+  function isMenuNavTarget(el) {
+    return !!(el && el.closest && el.closest('#siteMenu a, #siteMenu button, .menu-toggle, .brand-logo'));
+  }
+
+  ['pointerdown', 'mousedown'].forEach(function(type) {
+    document.addEventListener(type, function(e) {
+      var target = e.target && e.target.closest ? e.target.closest('#siteMenu a, #siteMenu button, .menu-toggle, .brand-logo') : null;
+      if (!target) return;
+      // Prevent mouse/pointer press from assigning focus, which is what creates the one-frame blue ring.
+      if (target.matches('a, button, .menu-toggle, .brand-logo')) e.preventDefault();
+      clearFocus();
+      if (typeof target.blur === 'function') target.blur();
+    }, true);
+  });
+
+  document.addEventListener('click', function(e) {
+    var target = e.target && e.target.closest ? e.target.closest('#siteMenu a[href], .brand-logo[href]') : null;
+    if (!target) return;
+    clearFocus();
+    if (typeof target.blur === 'function') target.blur();
+
+    var href = target.getAttribute('href');
+    if (!href || href.charAt(0) === '#') return;
+
+    // Because pointerdown is prevented to suppress focus, navigate explicitly for full browser consistency.
+    e.preventDefault();
+    e.stopPropagation();
+    document.body.classList.remove('menu-open');
+    var menu = document.getElementById('siteMenu');
+    if (menu) {
+      menu.classList.remove('is-open');
+      menu.setAttribute('aria-hidden', 'true');
+    }
+    window.setTimeout(function(){ window.location.href = href; }, 0);
+  }, true);
+
+  window.addEventListener('pageshow', clearFocus);
+  window.addEventListener('blur', clearFocus);
 })();
 </script>
 
