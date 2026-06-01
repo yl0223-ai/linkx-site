@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html data-lang="zh" lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>圆木智能：AI 智能体如何重塑机加工生产管理？ · LinkX</title>
+<meta content="圆木智能产品合伙人贺眈：AI智能体在制造业排产场景的应用，从行业核心痛点、产品技术方案到AI在制造业的发展趋势。" name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&display=swap" media="print" onload="this.media='all'" rel="stylesheet"/>
+<style>
+:root {
+  --bg: #FAF8F4; --bg-warm: #F2EBE0; --border: #DDD5CA; --border-light: #EAE4DC;
+  --text: #1C1917; --text-soft: #44403C; --text-muted: #78716C; --text-light: #A8A29E;
+  --purple: #660874; --purple-mid: #8B3A9A; --purple-soft: #B07CC0; --purple-pale: #E8D5EE;
+  --font-serif: "Instrument Serif", "Noto Serif SC", Georgia, serif;
+  --font-sans: "Instrument Sans", "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --max: 1180px; --px: clamp(24px, 6vw, 80px);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-sans); background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+.container { max-width: var(--max); margin: 0 auto; padding: 0 var(--px); }
+.progress-bar { position: fixed; top: 0; left: 0; height: 2px; background: var(--purple); z-index: 999; transition: width 0.1s linear; }
+
+header.site-header { position: sticky; top: 0; z-index: 300; background: rgba(250,248,244,0.84); backdrop-filter: blur(18px) saturate(120%); -webkit-backdrop-filter: blur(18px) saturate(120%); border-bottom: 1px solid var(--border-light); }
+.nav { display: grid; grid-template-columns: auto 1fr; align-items: center; height: 76px; padding: 0 clamp(20px, 4vw, 48px); }
+.brand-logo { display: inline-flex; align-items: center; gap: 13px; color: var(--text); text-decoration: none; white-space: nowrap; }
+.brand-mark { width: 50px; height: 34px; object-fit: contain; display: block; flex: 0 0 auto; }
+.brand-lockup { display: grid; gap: 1px; line-height: 1; }
+.brand-cn { font-family: var(--font-sans); font-size: 20px; font-weight: 700; letter-spacing: 0.03em; }
+.brand-en { font-family: var(--font-sans); font-size: 11.5px; font-weight: 700; letter-spacing: 0.045em; }
+.nav-actions { display: flex; align-items: center; justify-content: flex-end; gap: clamp(18px, 2.4vw, 34px); font-size: 13px; color: var(--text-muted); }
+.lang-toggle { display: flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; color: var(--text-light); }
+.lang-toggle button { background: none; border: none; padding: 2px 4px; cursor: pointer; color: var(--text-light); font: inherit; transition: color 0.2s ease; }
+.lang-toggle button.active { color: var(--text); }
+.lang-toggle button:hover { color: var(--purple); }
+.lang-toggle .sep { color: var(--border); padding: 0 2px; }
+.menu-toggle { display: inline-flex; align-items: center; gap: 13px; min-height: 40px; background: transparent; border: 0; color: var(--text); cursor: pointer; font: 500 13px/1 var(--font-sans); padding: 0; }
+.menu-toggle-mark { display: grid; gap: 5px; width: 34px; }
+.menu-toggle-mark span { display: block; height: 1px; background: currentColor; transform-origin: right center; transition: transform 0.2s ease; }
+.menu-toggle:hover .menu-toggle-mark span:first-child { transform: scaleX(0.64); }
+.menu-toggle:hover .menu-toggle-mark span:last-child { transform: scaleX(1.18); }
+.menu-toggle-text { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.07em; text-transform: uppercase; }
+
+body.menu-open { overflow: hidden; }
+.menu-overlay { position: fixed; inset: 0 0 0 auto; width: min(720px, 50vw); z-index: 500; color: var(--bg); background: linear-gradient(135deg, #171218 0%, #241827 52%, #2A162F 100%); opacity: 0; visibility: hidden; pointer-events: none; overflow-x: hidden; overflow-y: auto; scrollbar-width: none; box-shadow: -28px 0 70px rgba(28,25,23,0.22); transform: translateX(24px); transition: opacity 0.28s ease, transform 0.28s ease, visibility 0s linear 0.28s; }
+.menu-overlay::-webkit-scrollbar { display: none; }
+.menu-overlay.is-open { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(0); transition-delay: 0s; }
+.menu-shell { position: relative; z-index: 1; min-height: 100dvh; display: grid; grid-template-rows: auto 1fr auto; padding: 0 clamp(22px, 3vw, 40px) 28px; }
+.menu-shell::before { content: "LinkX"; position: absolute; right: clamp(-54px, -2.6vw, -20px); bottom: clamp(54px, 8vh, 96px); font-family: var(--font-serif); font-size: clamp(130px, 17vw, 270px); line-height: 0.8; color: rgba(250,248,244,0.038); pointer-events: none; z-index: 0; }
+.menu-top { display: flex; align-items: center; justify-content: space-between; height: 76px; border-bottom: 1px solid rgba(250,248,244,0.12); }
+.menu-label { display: inline-flex; align-items: baseline; gap: 10px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(250,248,244,0.48); }
+.menu-label span { color: var(--purple-pale); }
+.menu-label i { font-style: normal; color: rgba(250,248,244,0.28); }
+.menu-label em { font-style: normal; color: rgba(250,248,244,0.42); }
+.menu-close { position: relative; width: 44px; height: 44px; display: grid; place-items: center; background: transparent; border: 1px solid rgba(250,248,244,0.22); color: var(--bg); cursor: pointer; transition: border-color 0.2s ease, background 0.2s ease; }
+.menu-close:hover { background: rgba(250,248,244,0.08); border-color: rgba(250,248,244,0.5); }
+.menu-close span { position: absolute; width: 18px; height: 1px; background: currentColor; }
+.menu-close span:first-child { transform: rotate(45deg); }
+.menu-close span:last-child { transform: rotate(-45deg); }
+.menu-grid { display: grid; grid-template-columns: 1fr; gap: 22px; align-items: start; padding: clamp(24px, 4vh, 34px) 0; }
+.menu-primary { display: flex; flex-direction: column; border-top: 1px solid rgba(250,248,244,0.16); }
+.menu-primary a { display: grid; grid-template-columns: 36px 1fr auto; gap: 16px; align-items: baseline; padding: clamp(9px, 1.15vh, 11px) 0; border-bottom: 1px solid rgba(250,248,244,0.16); color: rgba(250,248,244,0.9); opacity: 0; transform: translateY(18px); transition: color 0.2s ease, opacity 0.4s ease, transform 0.4s ease; text-decoration: none; }
+.menu-overlay.is-open .menu-primary a { opacity: 1; transform: none; }
+.menu-overlay.is-open .menu-primary a:nth-child(1) { transition-delay: 0.06s; }
+.menu-overlay.is-open .menu-primary a:nth-child(2) { transition-delay: 0.1s; }
+.menu-overlay.is-open .menu-primary a:nth-child(3) { transition-delay: 0.14s; }
+.menu-overlay.is-open .menu-primary a:nth-child(4) { transition-delay: 0.18s; }
+.menu-primary a:hover { color: #fff; }
+.menu-primary .menu-num { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; color: rgba(232,213,238,0.54); }
+.menu-primary strong { font-family: var(--font-serif); font-size: clamp(26px, 2.45vw, 36px); font-weight: 400; line-height: 1.02; letter-spacing: 0; }
+.menu-primary em { font-family: var(--font-mono); font-size: 11px; font-style: normal; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(250,248,244,0.35); }
+.menu-side { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; opacity: 0; transform: translateY(18px); transition: opacity 0.45s ease 0.24s, transform 0.45s ease 0.24s; }
+.menu-overlay.is-open .menu-side { opacity: 1; transform: none; }
+.menu-panel { border: 1px solid rgba(250,248,244,0.14); background: rgba(250,248,244,0.055); padding: clamp(18px, 2vw, 22px); }
+.menu-kicker { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--purple-pale); margin-bottom: 18px; }
+.menu-panel p { color: rgba(250,248,244,0.74); font-size: 13.5px; line-height: 1.7; margin-bottom: 18px; }
+.menu-panel a { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #fff; text-decoration: none; border-bottom: 1px solid rgba(250,248,244,0.36); padding-bottom: 4px; transition: gap 0.2s ease, border-color 0.2s ease; }
+.menu-panel a:hover { gap: 13px; border-color: #fff; }
+.menu-footer { display: flex; justify-content: space-between; gap: 24px; padding-top: 24px; border-top: 1px solid rgba(250,248,244,0.12); font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(250,248,244,0.42); }
+.menu-footer a { color: rgba(250,248,244,0.42); text-decoration: none; }
+.menu-footer a:hover { color: #fff; }
+
+.article-hero { padding: clamp(80px, 12vw, 160px) 0 0; }
+.article-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+.article-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; color: var(--purple); padding: 4px 12px; border: 1px solid var(--purple-soft); }
+.article-date { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--text-light); }
+.article-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 4.5vw, 52px); font-weight: 400; letter-spacing: -0.02em; line-height: 1.2; text-wrap: balance; }
+.article-body { max-width: 700px; padding: clamp(48px, 6vw, 80px) 0 clamp(80px, 10vw, 140px); }
+.article-body p { font-size: 17px; line-height: 1.9; color: var(--text-soft); margin-bottom: 24px; text-align: justify; hyphens: auto; text-wrap: pretty; }
+.article-body h2 { font-family: var(--font-serif); font-size: 28px; font-weight: 400; letter-spacing: -0.01em; margin-top: 56px; margin-bottom: 20px; line-height: 1.3; text-wrap: balance; }
+.article-body ul { font-size: 17px; line-height: 1.9; color: var(--text-soft); margin: 0 0 24px 0; padding-left: 1.5em; }
+.article-body li { margin-bottom: 12px; text-align: justify; hyphens: auto; text-wrap: pretty; }
+.article-body figure { margin: 32px 0; }
+.article-body figure img { width: 100%; border-radius: 8px; }
+.article-back { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); text-decoration: none; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); transition: color 0.2s ease; }
+.article-back:hover { color: var(--purple); }
+
+footer { position: relative; overflow: hidden; isolation: isolate; background: linear-gradient(135deg, #171218 0%, #241827 46%, #171218 100%); color: rgba(250,248,244,0.68); padding: clamp(48px, 7vw, 76px) 0 clamp(28px, 4vw, 40px); }
+footer::before { content: ""; position: absolute; inset: auto -10% -35% auto; width: min(720px, 58vw); aspect-ratio: 1.8; border: 1px solid rgba(176,124,192,0.08); border-radius: 50%; transform: rotate(-8deg); pointer-events: none; }
+.footer-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: end; gap: 24px; position: relative; z-index: 1; }
+.footer-copyright { grid-column: 1; justify-self: start; color: rgba(250,248,244,0.48); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: none; }
+.footer-slogan { grid-column: 2; justify-self: center; color: rgba(250,248,244,0.82); font-family: var(--font-serif); font-size: clamp(18px, 2.2vw, 30px); line-height: 1.15; letter-spacing: -0.02em; white-space: nowrap; }
+.footer-legal { grid-column: 3; justify-self: end; color: rgba(250,248,244,0.54); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-decoration: none; transition: color 180ms ease; }
+.footer-legal:hover { color: rgba(250,248,244,0.9); }
+
+@media (max-width: 860px) {
+  .menu-overlay { width: 100vw; }
+  .menu-primary { display: flex; flex-direction: column; }
+  .footer-inner { grid-template-columns: 1fr; grid-template-rows: auto auto auto; gap: 14px; }
+  .footer-slogan { grid-column: 1; grid-row: 1; justify-self: start; font-size: 16px; }
+  .footer-copyright { grid-column: 1; grid-row: 3; }
+  .footer-legal { grid-column: 1; grid-row: 2; justify-self: start; }
+}
+@media (max-width: 720px) {
+  .brand-logo { gap: 9px; } .brand-mark { width: 36px; height: 24px; }
+  .brand-cn { font-size: 17px; letter-spacing: 0.02em; } .brand-en { display: none; }
+  .article-hero h1 { font-size: clamp(28px, 7vw, 38px); }
+  .article-body h2 { font-size: 24px; } .article-body p { font-size: 16px; }
+  .article-body ul { font-size: 16px; } .article-body li { font-size: 16px; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+  .footer-slogan { font-size: 13px; }
+}
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<header class="site-header">
+<div class="nav">
+<a aria-label="星连资本 LinkX" class="brand-logo" href="index.html">
+<img alt="" aria-hidden="true" class="brand-mark" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgxIiBoZWlnaHQ9IjE1MyIgdmlld0JveD0iMCAwIDE4MSAxNTMiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik03My44ODc1IDU2LjEzNjFINTEuNzE5OVY1Ni4wNzRINDYuNzg3NkM0MS4zNTEgNTYuMDc0IDM2Ljk0MzggNTEuNjY2NyAzNi45NDM4IDQ2LjIzMDFWMjYuNzcwNEMzNi45NDM4IDIyLjY4NzggMzMuNjM0OCAxOS4zNzg5IDI5LjU1MjIgMTkuMzc4OUg3LjM5MTUxQzMuMzA4OTEgMTkuMzc4OSAwIDIyLjY4NzggMCAyNi43NzA0VjQ4LjkzODFDMCA1My4wMjA3IDMuMzA4OTEgNTYuMzI5NiA3LjM5MTUxIDU2LjMyOTZIMjkyLjc3NTlDMzMuNjY5NCA1Ny4zMTc0IDM2Ljk1MDcgNjEuMjQxMSAzNi45NTA3IDY1LjkzMTZWNzAuODYzOVY4NS43NjQ0VjkwLjczODFDMzYuOTUwNyA5Ni4yMjMgMzIuNTAxOSAxMDAuNjcyIDI3LjAxNzEgMTAwLjY3Mkg3LjM5MTUxMUMzMy4zMDg5MSAxMDAuNjcyIDAgMTAzLjk4MSAwIDEwOC4wNjNWMTMwLjIzMUMwIDEzNC4zMTQgMy4zMDg5MSAxMzcuNjIyIDcuMzkxNTEgMTM3LjYyMkgyOS41NTkxMUMzMy42NDE4IDEzNy42MjIgMzYuOTUwNyAxMzQuMzE0IDM2Ljk1MDcgMTMwLjIzMVYxMTAuNjA1QzM2Ljk1MDcgMTA1LjEyIDQxLjM5OTQgMTAwLjY3OSA0Ni44Nzc0IDEwMC42NzlINTEuODUxMVYxMDAuNDkySDczLjg4OTQ0Qzc3Ljk3NyAxMDAuNDkyIDgxLjI4NTkgOTcuMTgzMiA4MS4yODU5IDkzLjEwMDZWNjMuNTQ4NEM4MS4yODU5IDU5LjQ2NTggNzcuOTc3IDU2LjE1NjkgNzMuODk0NCA1Ni4xNTY5TDczLjg4NzUgNTYuMTM2MVoiIGZpbGw9InVybCgjcGFpbnQwX2xpbmVhcl8yNjBfNCkiLz4KPHBhdGggZD0iTTE0My4yODQgNjUuOTI0N0MxNDMuMjg0IDYxLjIzNDIgMTQ2LjU2NiA1Ny4zMTc0IDE1MC45NTkgNTYuMzIyN0gxNzIuODQ0QzE3Ni45MjYgNTYuMzIyNyAxODAuMjM1IDUzLjAxMzcgMTgwLjIzNSA0OC45MzExVjI2Ljc3MDRDMTgwLjIzNSAyMi42ODc4IDE3Ni45MjYgMTkuMzc4OSAxNzIuODQ0IDE5LjM3ODlIMTUwLjY3NkMxNDYuNTkzIDE5LjM3ODkgMTQzLjI4NCAyMi42ODc4IDE0My4yODQgMjYuNzcwNFY0Ni4yMzAxQzE0My4yODQgNTEuNjY2NyAxMzguODc3IDU2LjA3NCAxMzMuNDQxIDU2LjA3NEgxMjguNTA4VjU2LjEzNjFIMTA2LjM0MUMxMDIuMjU4IDU2LjEzNjEgOTguOTQ5MiA1OS40NDUxIDk4Ljk0OTIgNjMuNTI3N1Y5My4wNzk5Qzk4Ljk0OTIgOTcuMTYyNSAxMDIuMjU4IDEwMC40NzEgMTA2LjM0MSAxMDAuNDcxSDEyOC4zODRWMTAwLjY1OEgxMzMuMzU4QzEzOC44NDMgMTAwLjY1OCAxNDMuMjg0IDEwNS4xMDcgMTQzLjI4NCAxMTAuNTg1VjEzMC4yMUMxNDMuMjg0IDEzNC4yOTMgMTQ2LjU5MyAxMzcuNjAyIDE1MC42NzYgMTM3LjYwMkgxNzIuODQ0QzE3Ni45MjYgMTM3LjYwMiAxODAuMjM1IDEzNC4yOTMgMTgwLjIzNSAxMzAuMjFWMTA4LjA0M0MxODAuMjM1IDEwMy45NiAxNzYuOTI2IDEwMC42NTEgMTcyLjg0NCAxMDAuNjUxSDE1My4yMThDMTQ3LjczMyAxMDAuNjUxIDE0My4yODQgOTYuMjAyMyAxNDMuMjg0IDkwLjcxNzRWNjUuOTEwOVY2NS45MjQ3WiIgZmlsbD0idXJsKCNwYWludDFfbGluZWFyXzI2MF80KSIvPgo8ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDBfbGluZWFyXzI2MF80IiB4MT0iMTkuNTgzIiB5MT0iMjMuMDI3OCIgeDI9Ijg2LjA1MjIiIHkyPSI5Ni41OTM4IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiM2MzQwOUMiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNkY0QUE4Ii8+CjwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQxX2xpbmVhcl8yNjBfNCIgeDE9IjExOC41MzIiIHkxPSIyMy4wMjcxIiB4Mj0iMTg0Ljk4OSIgeTI9Ijk2LjU5MTgiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzYzNDA5QyIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM2RjRBQTgiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8L3N2Zz4="/>
+<span class="brand-lockup"><span class="brand-cn">星连资本</span><span class="brand-en">LINKX CAPITAL</span></span>
+</a>
+<div class="nav-actions">
+<span aria-label="Language" class="lang-toggle" role="group"><button data-set-lang="en">EN</button><span class="sep">|</span><button class="active" data-set-lang="zh">中</button></span>
+<button aria-controls="siteMenu" aria-expanded="false" class="menu-toggle" data-menu-open="" type="button"><span class="menu-toggle-text">Menu</span><span aria-hidden="true" class="menu-toggle-mark"><span></span><span></span></span></button>
+</div>
+</div>
+</header>
+<div aria-hidden="true" class="menu-overlay" id="siteMenu">
+<div class="menu-shell">
+<div class="menu-top">
+<div class="menu-label"><span>导航</span><i>/</i><em>Menu</em></div>
+<button aria-label="Close menu" class="menu-close" data-menu-close="" type="button"><span></span><span></span></button>
+</div>
+<div class="menu-grid">
+<nav aria-label="Primary navigation" class="menu-primary">
+<a data-menu-link="" href="index.html#about-fund"><span class="menu-num">01</span><strong>关于我们</strong><em>About Us</em></a>
+<a data-menu-link="" href="index.html#focus"><span class="menu-num">02</span><strong>投资组合</strong><em>Portfolio</em></a>
+<a data-menu-link="" href="insights.html"><span class="menu-num">03</span><strong>洞察</strong><em>Insights</em></a>
+<a data-menu-link="" href="team.html"><span class="menu-num">04</span><strong>团队</strong><em>Team</em></a>
+</nav>
+<aside aria-label="Featured links" class="menu-side">
+<div class="menu-panel">
+<div class="menu-kicker">Build With Us</div>
+<p>如果你正在寻找、定义，或亲手建造一个尚未被市场命名的未来，我们希望更早与你相遇。</p>
+<a data-menu-link="" href="contact.html">联系我们 →</a>
+</div>
+</aside>
+</div>
+<div class="menu-footer">
+<a data-menu-link="" href="index.html">回到首页</a>
+<span>LinkX · 北京清华科技园</span>
+<div><a href="https://x.com/LinkXCapital" rel="noreferrer" target="_blank">X</a><a href="https://www.linkedin.com/company/link-x-%E6%98%9F%E8%BF%9E%E8%B5%84%E6%9C%AC/?viewAsMember=true" rel="noreferrer" target="_blank">LinkedIn</a></div>
+</div>
+</div>
+</div>
+</div>
+<section class="article-hero">
+<div class="container">
+<div class="article-meta">
+<span class="article-tag">投资组合</span>
+
+<span class="article-date">2026.05.26</span>
+</div>
+<h1>圆木智能：AI 智能体如何<br/>重塑机加工生产管理？</h1>
+</div>
+</section>
+<section>
+<div class="container">
+<div class="article-body">
+<p>订单随意插队打乱全盘生产，交货时间一再往后顺延，重金购置的设备白白闲置浪费产能。这些排产痛点，让无数加工厂倍感头疼。如今 AI 排产智能体应运而生，不仅革新生产作业工具，更颠覆传统管理思路。圆木智能产品合伙人贺眈，围绕《AI智能体在制造业排产场景的应用》这一主题，从行业核心痛点、产品技术方案到AI在制造业的发展趋势，进行了全面而深入的分享。</p>
+<h2>01 一个行业核心痛点：传统排产与APS软件的双重瓶颈</h2>
+<p>当前机加工行业的排产困境，是工厂自身业务特性与传统软件局限性共同作用的结果。从工厂端来看，三大痛点尤为突出。首先是<strong>排产复杂度高</strong>，行业普遍存在工序长、设备依赖度高、多品种小批量生产的特点，换产与插单情况十分频繁。其次是<strong>交付压力突出</strong>，客户普遍要求低库存甚至零库存，订单周期持续缩短，行业平均按期交付率仅能达到 60%-70%。同时还存在<strong>协同效率低下</strong>的问题，各部门缺乏全局统一计划，直接导致设备利用率不足，整体运营效率受到严重限制。</p>
+<p>而被寄予厚望的传统 APS 软件，同样存在难以克服的短板。这类软件数据门槛较高，需要提前准备大量标准化数据，中小型工厂往往难以满足相关要求，交付与维护成本也十分高昂。并且传统 APS 软件灵活性不足，高度依赖固定配置，对业务变化的适配能力较弱，无法应对工厂频繁的流程调整。此外其计算效率较低，生成完整排产计划需要数十分钟，难以满足中小工厂计划实时变动的需求。</p>
+<h2>02 一条产品技术路线：大模型+优化算法，打造可落地的排产智能体</h2>
+<p>圆木智能提出了一个核心产品价值观：<strong>灵活可执行的计划，比完美但无法落地的计划更有价值。</strong>工厂最迫切的需求，不是理论上最优的排产方案，而是能够轻松生成、随时调整、切实可行的生产计划。基于这一理念，团队采用"大模型+优化算法"的双轮驱动技术路线：大模型提升对业务的理解能力与使用灵活性，降低用户门槛；优化算法解决大规模数据下的计算效率问题，保证排产的科学性。</p>
+<p>在此基础上，排产智能体形成了<strong>六大核心优势</strong>：</p>
+<ul>
+<li><strong>语义理解：</strong>精准识别生产排产场景专用术语，支持自然语言对话与文档解析</li>
+<li><strong>自然语言操作：</strong>替代传统软件复杂的参数配置，用户可直接用口语表达排程诉求</li>
+<li><strong>多步规划：</strong>自主生成多套排产方案并进行对比优化，辅助决策</li>
+<li><strong>可插拔Skill：</strong>支持低代码动态扩展功能，快速适配不同客户的个性化需求</li>
+<li><strong>记忆功能：</strong>记录客户特定规则与历史偏好，持续提升指令执行准确性</li>
+<li><strong>智能数据转化：</strong>自动解析异构数据，完成字段映射与规则推断，通过多轮对话解决歧义，大幅降低数据导入成本</li>
+</ul>
+<p>在实际应用中，智能体可完成生产报工、数据转换、智能排程、数据分析等全流程工作，为用户提供一站式排产解决方案。</p>
+<h2>03 一个可量化的价值：从效率提升到全局优化</h2>
+<p>AI排产的价值，最终体现在可量化的效率与效益提升上。贺眈老师指出，AI 智能体主要从三个维度为工厂创造价值：</p>
+<ul>
+<li><strong>提升设备利用率：</strong>在工单、工序、设备数量多的复杂场景中，这一优势表现得尤为显著</li>
+<li><strong>提高交付达成率：</strong>基于全局视角优化排产，平衡各环节资源</li>
+<li><strong>增强响应能力：</strong>秒级完成插单与计划变更，提供透明的全局生产视图，支撑跨部门协同与预测</li>
+</ul>
+<h2>04 一个行业发展趋势：从辅助工具到AI原生组织</h2>
+<p>关于AI在制造业的发展阶段，贺眈老师给出了清晰的判断：目前AI是PMC的24小时在线专业助理，主要解决人类不擅长的大规模计算与复杂规划问题，核心角色是辅助而非替代。展望未来，AI在制造业的发展将沿着三个方向推进：</p>
+<ul>
+<li><strong>AI主导运营：</strong>未来工厂日常排产与运营将由AI主导，人类仅负责处理异常情况</li>
+<li><strong>AI原生组织：</strong>最终工厂各核心环节都将部署AI智能体，形成可自主迭代优化的AI原生体系</li>
+<li><strong>全场景串联：</strong>从生产计划延伸至研发、供应链等更多场景，实现多智能体协同，打通企业全流程</li>
+</ul>
+<p>贺眈老师预判，未来3-5年制造业AI将迎来关键拐点，政策扶持、技术进步与市场需求三大因素将共同驱动行业变革。随着智能体渗透率提升，不同智能体之间将形成连接，沉淀企业核心知识与能力，推动行业整体智能化升级。</p>
+<h2>05 结语</h2>
+<p>AI在制造业的落地，从来不是技术的单点突破，而是算法能力、产品思维与行业理解的深度融合。圆木智能从生产计划这一高频、核心、可验证的场景切入，用"大模型+优化算法"的技术路线，为制造业智能化转型提供了可落地的实践样本。随着技术的不断成熟与行业需求的持续释放，AI智能体将逐步渗透到制造业的各个环节，最终推动工厂向AI原生组织演进。</p>
+<a class="article-back" href="insights.html">← 返回洞察</a>
+</div>
+</div>
+</section>
+<footer><div class="container"><div class="footer-inner"><span class="footer-copyright">@2026 北京星连肇基私募基金管理有限责任公司</span><span class="footer-slogan">与 AGI 时代的定义者同行</span><a class="footer-legal" href="legal.html">法律声明</a></div></div></footer>
+<script>
+const bar = document.getElementById("progressBar");
+window.addEventListener("scroll", () => { const h = document.documentElement.scrollHeight - window.innerHeight; bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + "%"; }, { passive: true });
+const menu = document.getElementById("siteMenu");
+document.querySelectorAll("[data-menu-open]").forEach(btn => { btn.addEventListener("click", () => { menu.classList.add("is-open"); document.body.classList.add("menu-open"); btn.setAttribute("aria-expanded", "true"); }); });
+document.querySelectorAll("[data-menu-close]").forEach(btn => { btn.addEventListener("click", () => { menu.classList.remove("is-open"); document.body.classList.remove("menu-open"); document.querySelector("[data-menu-open]").setAttribute("aria-expanded", "false"); }); });
+document.querySelectorAll("[data-menu-link]").forEach(link => { link.addEventListener("click", () => { menu.classList.remove("is-open"); document.body.classList.remove("menu-open"); document.querySelector("[data-menu-open]").setAttribute("aria-expanded", "false"); }); });
+document.addEventListener("keydown", e => { if (e.key === "Escape" && menu.classList.contains("is-open")) { menu.classList.remove("is-open"); document.body.classList.remove("menu-open"); document.querySelector("[data-menu-open]").setAttribute("aria-expanded", "false"); } });
+</script>
+</body>
+</html>
