@@ -1,0 +1,2695 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>投资组合 · LinkX Capital 星连资本</title>
+  <link rel="icon" href="assets/portfolio/favicon.png">
+  <meta name="description" content="LinkX Capital 投资组合公司索引。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FAF8F4;
+      --bg-warm: #F2EBE0;
+      --card: #FFFDF9;
+      --border: #DDD5CA;
+      --border-light: #EAE4DC;
+      --text: #1C1917;
+      --text-soft: #44403C;
+      --text-muted: #78716C;
+      --text-light: #A8A29E;
+      --purple: #660874;
+      --purple-mid: #8B3A9A;
+      --purple-soft: #B07CC0;
+      --purple-pale: #E8D5EE;
+      --purple-wash: #F3EAF6;
+      --font-serif: "Instrument Serif", "Noto Serif SC", Georgia, serif;
+      --font-sans: "Instrument Sans", Inter, system-ui, -apple-system, sans-serif;
+      --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+      --max: 1320px;
+      --px: clamp(22px, 5.6vw, 76px);
+      --header-h: 76px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    button {
+      font: inherit
+    }
+
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--px)
+    }
+
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      background: var(--purple-mid);
+      z-index: 999;
+      transition: width .1s linear
+    }
+
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 300;
+      background: rgba(250, 248, 244, .84);
+      backdrop-filter: blur(18px) saturate(120%);
+      -webkit-backdrop-filter: blur(18px) saturate(120%);
+      border-bottom: 1px solid var(--border-light)
+    }
+
+    .nav {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      height: var(--header-h);
+      padding: 0 clamp(20px, 4vw, 48px)
+    }
+
+    .brand-logo {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 13px !important;
+      color: var(--text) !important;
+      text-decoration: none !important;
+      white-space: nowrap !important;
+    }
+
+    .brand-logo .brand-mark {
+      width: 50px !important;
+      height: 34px !important;
+      object-fit: contain !important;
+      display: block !important;
+      flex: 0 0 auto !important;
+    }
+
+    .brand-logo .brand-lockup {
+      display: grid !important;
+      gap: 1px !important;
+      line-height: 1 !important;
+    }
+
+    .brand-logo .brand-cn {
+      font-family: var(--font-sans) !important;
+      font-size: 20px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.03em !important;
+    }
+
+    .brand-logo .brand-en {
+      display: block !important;
+      font-family: var(--font-sans) !important;
+      font-size: 11.5px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.045em !important;
+      text-transform: uppercase !important;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: clamp(18px, 2.4vw, 34px);
+      color: var(--text-muted)
+    }
+
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: .04em;
+      color: var(--text-light)
+    }
+
+    .lang-toggle button {
+      background: none;
+      border: 0;
+      padding: 2px 4px;
+      color: var(--text-light);
+      cursor: pointer
+    }
+
+    .lang-toggle button.active,
+    .lang-toggle button:hover {
+      color: var(--purple)
+    }
+
+    .menu-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      min-height: 40px;
+      background: transparent;
+      border: 0;
+      color: var(--text);
+      cursor: pointer
+    }
+
+    .menu-toggle-mark {
+      display: grid;
+      gap: 5px;
+      width: 34px
+    }
+
+    .menu-toggle-mark span {
+      display: block;
+      height: 1px;
+      background: currentColor;
+      transform-origin: right center;
+      transition: transform .25s ease
+    }
+
+    .menu-toggle:hover .menu-toggle-mark span:first-child {
+      transform: scaleX(.64)
+    }
+
+    .menu-toggle:hover .menu-toggle-mark span:last-child {
+      transform: scaleX(1.18)
+    }
+
+    .menu-toggle-text {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: .07em;
+      text-transform: uppercase
+    }
+
+    body.menu-open {
+      overflow: hidden
+    }
+
+    .menu-overlay {
+      position: fixed;
+      inset: 0 0 0 auto;
+      width: min(720px, 50vw);
+      z-index: 500;
+      color: var(--bg);
+      background: linear-gradient(90deg, rgba(250, 248, 244, .035) 1px, transparent 1px), linear-gradient(0deg, rgba(250, 248, 244, .03) 1px, transparent 1px), linear-gradient(135deg, #151012 0%, #21161E 52%, #2A162F 100%);
+      background-size: 96px 96px, 96px 96px, auto;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateX(24px);
+      transition: opacity .28s ease, transform .28s ease, visibility 0s linear .28s;
+      box-shadow: -28px 0 70px rgba(28, 25, 23, .22);
+      overflow: auto
+    }
+
+    .menu-overlay.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: none;
+      transition-delay: 0s
+    }
+
+    .menu-overlay::before {
+      content: "LinkX";
+      position: absolute;
+      right: -.08em;
+      bottom: -.28em;
+      font-family: var(--font-serif);
+      font-size: clamp(130px, 24vw, 360px);
+      line-height: 1;
+      color: rgba(250, 248, 244, .045);
+      pointer-events: none
+    }
+
+    .menu-shell {
+      position: relative;
+      z-index: 1;
+      min-height: 100dvh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      padding: 0 clamp(22px, 3vw, 40px) 28px
+    }
+
+    .menu-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+      border-bottom: 1px solid rgba(250, 248, 244, .12)
+    }
+
+    .menu-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: rgba(250, 248, 244, .48)
+    }
+
+    .menu-label span {
+      color: var(--purple-pale)
+    }
+
+    .menu-close {
+      position: relative;
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      background: transparent;
+      border: 1px solid rgba(250, 248, 244, .22);
+      color: var(--bg);
+      cursor: pointer
+    }
+
+    .menu-close span {
+      position: absolute;
+      width: 18px;
+      height: 1px;
+      background: currentColor
+    }
+
+    .menu-close span:first-child {
+      transform: rotate(45deg)
+    }
+
+    .menu-close span:last-child {
+      transform: rotate(-45deg)
+    }
+
+    .menu-grid {
+      padding: clamp(34px, 6vh, 56px) 0
+    }
+
+    .menu-primary {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid rgba(250, 248, 244, .16)
+    }
+
+    .menu-primary a {
+      display: grid;
+      grid-template-columns: 36px 1fr auto;
+      gap: 16px;
+      align-items: baseline;
+      padding: clamp(12px, 1.8vh, 18px) 0;
+      border-bottom: 1px solid rgba(250, 248, 244, .16);
+      color: rgba(250, 248, 244, .9)
+    }
+
+    .menu-primary .menu-num {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .1em;
+      color: rgba(232, 213, 238, .54)
+    }
+
+    .menu-primary strong {
+      font-family: var(--font-serif);
+      font-size: clamp(30px, 3vw, 44px);
+      font-weight: 400;
+      line-height: 1.02
+    }
+
+    .menu-primary em {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-style: normal;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(250, 248, 244, .35)
+    }
+
+    .menu-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(250, 248, 244, .12);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(250, 248, 244, .42)
+    }
+
+    .hero {
+      position: relative;
+      padding: clamp(86px, 10vw, 148px) 0 clamp(42px, 6vw, 76px);
+      overflow: hidden;
+      background: radial-gradient(circle at 78% 12%, rgba(176, 124, 192, .24), transparent 28%), radial-gradient(ellipse at 6% 88%, rgba(235, 225, 213, .72), transparent 44%), var(--bg)
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 1px;
+      background: var(--border)
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(280px, .6fr);
+      gap: clamp(40px, 7vw, 94px);
+      align-items: center
+    }
+
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 18px;
+      display: block
+    }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(48px, 7vw, 92px);
+      font-weight: 400;
+      letter-spacing: -.045em;
+      line-height: .88
+    }
+
+    .hero-copy {
+      max-width: 34ch;
+      color: var(--text-soft);
+      font-size: clamp(16px, 1.25vw, 18px);
+      line-height: 1.85;
+      justify-self: end
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr
+    }
+
+    .hero-stat {
+      padding: 0
+    }
+
+    .hero-stat:last-child {
+      border-right: 0
+    }
+
+    .hero-stat strong {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: clamp(44px, 5vw, 68px);
+      font-weight: 400;
+      color: var(--purple);
+      line-height: 1
+    }
+
+    .hero-stat span {
+      display: block;
+      margin-bottom: 20px;
+      color: var(--text-muted);
+      font-size: clamp(16px, 1.4vw, 20px);
+      line-height: 1.55
+    }
+
+    .toolbar-shell {
+      position: sticky;
+      top: var(--header-h);
+      z-index: 80;
+      background: rgba(242, 235, 224, .9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      border-top: 1px solid var(--border)
+    }
+
+    .toolbar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 18px var(--px)
+    }
+
+    .view-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end
+    }
+
+    .view-tab,
+    .filter-btn {
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-muted);
+      height: 38px;
+      padding: 0 15px;
+      cursor: pointer;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      transition: all .2s ease
+    }
+
+    .view-tab:hover,
+    .filter-btn:hover {
+      border-color: var(--purple-soft);
+      color: var(--purple)
+    }
+
+    .view-tab.active,
+    .filter-btn.active {
+      background: var(--purple);
+      border-color: var(--purple);
+      color: #fff
+    }
+
+    section {
+      padding: clamp(64px, 8vw, 116px) 0
+    }
+
+    .section-alt {
+      background: var(--bg-warm)
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 28px;
+      flex-wrap: wrap;
+      margin-bottom: 34px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--border)
+    }
+
+    .section-head h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(34px, 4.2vw, 62px);
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: -.03em
+    }
+
+    .section-head p {
+      max-width: 46ch;
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.7
+    }
+
+    .filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 30px
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: minmax(340px, auto);
+      gap: 11px;
+      width: 100%;
+    }
+
+    .featured-card {
+      --brand: var(--purple);
+      min-height: 340px;
+      padding: 0;
+      border: 0;
+      border-radius: 4px;
+      background: linear-gradient(135deg, color-mix(in srgb, var(--brand) 14%, var(--card)), var(--card));
+      transition: transform .28s ease, box-shadow .28s ease, background .28s ease, min-height .34s ease, max-height .34s ease;
+      position: relative;
+      overflow: hidden;
+      text-align: left;
+      color: inherit;
+      cursor: pointer;
+      outline: none;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .featured-card.big-card {
+      grid-column: span 2;
+    }
+
+    .featured-card.medium-card {
+      grid-column: span 1;
+    }
+
+    .featured-card.small-card {
+      min-height: 190px;
+      height: calc(50% - 6px);
+    }
+
+    .companies-grid-vertical {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      height: 100%;
+      grid-column: span 1;
+    }
+
+    .featured-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(145deg, color-mix(in srgb, var(--brand) 58%, #1c1917), color-mix(in srgb, var(--brand) 18%, #fffdf9));
+      opacity: 0;
+      transition: opacity .32s ease;
+      z-index: 1;
+    }
+
+    .featured-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 78% 16%, rgba(255, 255, 255, 0.55), transparent 24%);
+      opacity: 0.18;
+      transition: transform .32s ease, opacity .32s ease;
+      z-index: 1;
+    }
+
+    .featured-card:hover,
+    .featured-card:focus-visible,
+    .featured-card.is-open {
+      transform: translateY(-4px);
+      box-shadow: 0 26px 54px rgba(28, 25, 23, 0.14);
+      z-index: 2;
+    }
+
+    .featured-card:hover::before,
+    .featured-card:focus-visible::before,
+    .featured-card.is-open::before {
+      opacity: 0.93;
+    }
+
+    .featured-card:hover::after,
+    .featured-card.is-open::after {
+      transform: scale(1.08);
+      opacity: 0.3;
+    }
+
+    .featured-card-inner {
+      position: relative;
+      z-index: 2;
+      min-height: inherit;
+      padding: 26px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 18px;
+      color: var(--text);
+      height: 100%;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .small-card .featured-card-inner {
+      padding: 16px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      height: 100%;
+      min-height: auto;
+    }
+
+    .featured-card:hover .featured-card-inner,
+    .featured-card:focus-visible .featured-card-inner,
+    .featured-card.is-open .featured-card-inner {
+      color: #fffdf9;
+    }
+
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+      width: 100%;
+    }
+
+    .logo-box {
+      width: min(46%, 220px);
+      height: 96px;
+      border: 0;
+      background: transparent;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      justify-self: center;
+      align-self: center;
+      box-shadow: none;
+      border-radius: 2px;
+    }
+
+    .small-card .logo-box {
+      width: 60px;
+      height: 40px;
+      margin: 0;
+      flex-shrink: 0;
+    }
+
+    .big-card .logo-box {
+      width: 35%;
+      height: 96px;
+    }
+
+    .featured-card[data-slug="infrawaves"] .logo-box {
+      transform: translateY(-14px);
+    }
+
+    /* Responsive Logo Image Sizing Constraints per Card Size */
+    .logo-box img,
+    .logo-box iframe,
+    .logo-box object {
+      object-fit: contain;
+      filter: saturate(0.92);
+      transition: max-width 0.28s ease, max-height 0.28s ease;
+    }
+
+    /* Big Card: highly refined, spacious centered logo */
+    .big-card .logo-box img,
+    .big-card .logo-box iframe,
+    .big-card .logo-box object {
+      max-width: 48%;
+      max-height: 56%;
+    }
+
+    /* Medium Card: balanced standard logo layout */
+    .medium-card .logo-box img,
+    .medium-card .logo-box iframe,
+    .medium-card .logo-box object {
+      max-width: 60%;
+      max-height: 52%;
+    }
+
+    /* Small Card: optimized and snug logo fit */
+    .small-card .logo-box img,
+    .small-card .logo-box iframe,
+    .small-card .logo-box object {
+      max-width: 78%;
+      max-height: 64%;
+    }
+
+    .logo-fallback {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--purple);
+      letter-spacing: 0.04em;
+      transition: color 0.28s ease;
+    }
+
+    .featured-card:hover .logo-fallback,
+    .featured-card.is-open .logo-fallback {
+      color: var(--purple-pale);
+    }
+
+    .small-card .logo-fallback {
+      font-size: 14px;
+    }
+
+    .company-index {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      color: var(--purple);
+      text-transform: uppercase;
+    }
+
+    .featured-card:hover .company-index,
+    .featured-card.is-open .company-index {
+      color: rgba(255, 253, 249, 0.72);
+    }
+
+    .card-main {
+      align-self: stretch;
+      margin-top: auto;
+    }
+
+    .small-card .card-main {
+      margin-top: 0;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-self: center;
+    }
+
+    .featured-card h3 {
+      font-family: var(--font-serif);
+      font-size: clamp(24px, 2.5vw, 36px);
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .small-card h3 {
+      font-size: 16px !important;
+      line-height: 1.2;
+    }
+
+    .featured-card .en-name {
+      margin-top: 6px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+
+    .featured-card:hover .en-name,
+    .featured-card.is-open .en-name {
+      color: rgba(255, 253, 249, 0.68);
+    }
+
+    .track-name {
+      display: block;
+      margin-top: 10px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .small-card .track-name {
+      margin-top: 4px;
+      font-size: 9px;
+    }
+
+    .featured-card:hover .track-name,
+    .featured-card.is-open .track-name {
+      color: rgba(255, 253, 249, 0.76);
+    }
+
+    .card-detail {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.34s ease;
+    }
+
+    .featured-card.is-open .card-detail {
+      grid-template-rows: 1fr;
+    }
+
+    .card-detail-inner {
+      overflow: hidden;
+    }
+
+    .card-detail p {
+      margin-top: 14px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 253, 249, 0.28);
+      color: rgba(255, 253, 249, 0.82);
+      font-size: 14px;
+      line-height: 1.72;
+    }
+
+    .expand-cue {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--purple);
+    }
+
+    .featured-card:hover .expand-cue,
+    .featured-card.is-open .expand-cue {
+      color: #fffdf9;
+    }
+
+    .expand-cue::after {
+      content: "+";
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      border: 1px solid currentColor;
+      border-radius: 50%;
+      font-size: 14px;
+      font-family: var(--font-sans);
+      font-weight: 500;
+      line-height: 18px;
+      letter-spacing: 0;
+      text-align: center;
+    }
+
+    .featured-card.is-open .expand-cue::after {
+      content: "−";
+    }
+
+    /* Subtitle Link for Full Portfolio or BP */
+    .portfolio-contact-link {
+      display: inline-block;
+      margin-left: 12px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    .portfolio-contact-link a {
+      color: var(--purple);
+      text-decoration: underline;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .portfolio-contact-link a:hover {
+      color: var(--purple-mid);
+    }
+
+    /* Jump Link below 展开详情 in Card View */
+    .card-website-link {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--purple-soft);
+      text-decoration: underline;
+      margin-top: 4px;
+      transition: color 0.2s ease, opacity 0.2s ease;
+      z-index: 5;
+      position: relative;
+    }
+
+    .featured-card:hover .card-website-link,
+    .featured-card.is-open .card-website-link {
+      color: #fffdf9;
+      opacity: 0.85;
+    }
+
+    .featured-card:hover .card-website-link:hover,
+    .featured-card.is-open .card-website-link:hover {
+      color: #fff;
+      opacity: 1;
+    }
+
+    /* Full-Viewport Company Detail Page Styling */
+    body.company-detail-open .hero,
+    body.company-detail-open .toolbar-shell,
+    body.company-detail-open .view-switch-shell,
+    body.company-detail-open .companies-panel,
+    body.company-detail-open .join {
+      display: none;
+    }
+
+    .company-detail {
+      display: block;
+      background: var(--bg);
+      padding: clamp(72px, 9vw, 132px) 0;
+    }
+
+    .company-detail[hidden] {
+      display: none;
+    }
+
+    .detail-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 44px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      color: var(--purple);
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 5px;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .detail-back:hover {
+      color: var(--purple-mid);
+      transform: translateX(-4px);
+    }
+
+    .detail-shell {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(260px, .75fr);
+      gap: clamp(36px, 7vw, 92px);
+      align-items: start;
+    }
+
+    @media screen and (max-width: 900px) {
+      .detail-shell {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    .detail-main h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(58px, 9vw, 122px);
+      font-weight: 400;
+      line-height: .9;
+      letter-spacing: -.045em;
+    }
+
+    .detail-en {
+      margin-top: 16px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+
+    .detail-desc {
+      margin-top: 34px;
+      max-width: 760px;
+      color: var(--text-soft);
+      font-size: clamp(20px, 2vw, 30px);
+      line-height: 1.35;
+    }
+
+    .detail-body {
+      margin-top: 34px;
+      max-width: 780px;
+      color: var(--text-soft);
+      font-size: 16px;
+      line-height: 1.85;
+    }
+
+    .detail-side {
+      position: sticky;
+      top: calc(var(--header-h) + 34px);
+      border-top: 1px solid var(--border);
+      display: grid;
+    }
+
+    .detail-logo {
+      min-height: 220px;
+      padding: 20px 0;
+      display: grid;
+      place-items: center;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(135deg, var(--purple-wash), var(--card));
+    }
+
+    .detail-logo .logo-box {
+      width: min(92%, 560px);
+      min-height: 190px;
+      height: auto;
+      padding: 22px;
+      border: 0;
+      background: rgba(255, 253, 249, 0.78);
+      display: grid;
+      place-items: center;
+      overflow: visible;
+      box-shadow: inset 0 0 0 1px rgba(28, 25, 23, 0.07);
+      border-radius: 4px;
+    }
+
+    .detail-logo .logo-box img {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 190px;
+      object-fit: contain;
+      filter: saturate(0.92);
+    }
+
+    .detail-meta {
+      display: grid;
+      gap: 22px;
+      padding: 26px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .detail-meta-item {
+      display: grid;
+      gap: 8px;
+    }
+
+    .detail-meta-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+
+    .detail-meta-value {
+      font-size: 17px;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .detail-website {
+      display: inline-flex;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 26px;
+      height: 48px;
+      background: var(--purple);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: transform 0.22s ease, opacity 0.22s ease;
+      box-shadow: 0 8px 24px rgba(102, 8, 116, 0.12);
+    }
+
+    .detail-website:hover {
+      transform: translateY(-2px);
+      opacity: 0.92;
+      color: #fff;
+    }
+
+    /* Accordion Auto Height for Small Cards inside Grid */
+    .featured-card.small-card {
+      min-height: 190px;
+      max-height: 190px;
+      height: calc(50% - 6px);
+      flex-shrink: 0;
+    }
+
+    .featured-card.small-card.is-open {
+      min-height: 340px;
+      max-height: 560px;
+      height: auto !important;
+      flex-grow: 1;
+    }
+
+    .featured-card.small-card.is-open .en-name {
+      display: block;
+    }
+
+    .featured-card.small-card .featured-card-inner {
+      padding: 18px 22px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 10px;
+      height: 100%;
+    }
+
+    .featured-card.small-card .logo-box {
+      width: 72px;
+      height: 40px;
+      margin: 0;
+      justify-self: flex-start;
+      align-self: center;
+    }
+
+    .featured-card.small-card h3 {
+      font-size: 16px !important;
+      line-height: 1.2;
+    }
+
+    .featured-card.small-card .en-name {
+      display: block;
+    }
+
+    .featured-card.small-card .track-name {
+      margin-top: 2px;
+      font-size: 9px;
+    }
+
+    .companies-grid-vertical {
+      min-height: 390px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      transition: min-height .34s ease, height .34s ease;
+    }
+
+    .companies-grid-vertical.has-open-card {
+      height: auto;
+      min-height: 540px;
+      align-self: start;
+    }
+
+    .companies-grid-vertical.has-open-card .featured-card.small-card {
+      height: auto;
+    }
+
+    .companies-grid-vertical:has(.is-open) {
+      height: auto !important;
+    }
+
+    .companies-panel {
+      display: block;
+      padding-top: 24px;
+    }
+
+    .companies-panel[hidden] {
+      display: none
+    }
+
+    /* Two-column layout for List View */
+    .list-layout-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    @media (min-width: 992px) {
+      .list-layout-grid {
+        grid-template-columns: 1fr 340px;
+      }
+    }
+
+    .list-main-col {
+      min-width: 0;
+    }
+
+    .list-side-col {
+      position: sticky;
+      top: calc(var(--header-h) + 40px);
+    }
+
+    .contact-sidebar-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 36px 30px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-sidebar-card:hover {
+      border-color: var(--purple-soft);
+      box-shadow: 0 20px 40px rgba(102, 8, 116, 0.08);
+    }
+
+    .contact-sidebar-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--purple);
+    }
+
+    .contact-sidebar-title {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      line-height: 1.3;
+      font-weight: 400;
+      color: var(--text);
+    }
+
+    .contact-sidebar-desc {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-soft);
+    }
+
+    .contact-sidebar-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--purple);
+      color: #fff !important;
+      padding: 12px 24px;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      margin-top: 8px;
+      width: fit-content;
+    }
+
+    .contact-sidebar-btn:hover {
+      background: var(--purple-mid);
+      box-shadow: 0 4px 12px rgba(102, 8, 116, 0.15);
+    }
+
+    .company-list {
+      border-top: 1px solid var(--border)
+    }
+
+    .company-row {
+      display: grid;
+      grid-template-columns: minmax(230px, 1.15fr) minmax(200px, .85fr) minmax(160px, .55fr) 42px;
+      gap: 22px;
+      align-items: center;
+      padding: 24px 16px;
+      border-bottom: 1px solid var(--border);
+      transition: background .22s ease, color .22s ease, box-shadow .22s ease;
+      cursor: pointer
+    }
+
+    .company-row:hover {
+      background: linear-gradient(90deg, var(--purple) 0%, #332435 100%);
+      color: #fffdf9;
+      box-shadow: inset 4px 0 0 var(--purple-soft)
+    }
+
+    .company-row h3 {
+      font-family: var(--font-serif);
+      font-size: clamp(24px, 2.4vw, 36px);
+      font-weight: 400;
+      line-height: 1.02;
+      letter-spacing: -.02em
+    }
+
+    .company-row .en-name {
+      margin-top: 6px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      transition: color .22s ease
+    }
+
+    .company-row:hover .en-name {
+      color: rgba(255, 253, 249, .62)
+    }
+
+    .track-pill {
+      display: inline-flex;
+      border: 1px solid var(--border);
+      padding: 6px 10px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: rgba(250, 248, 244, .48);
+      transition: color .22s ease, border-color .22s ease, background .22s ease
+    }
+
+    .track-cell {
+      display: grid;
+      gap: 8px;
+      justify-items: start;
+    }
+
+    .row-subtag {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      line-height: 1.4;
+      transition: color .22s ease;
+    }
+
+    .company-row:hover .track-pill {
+      color: #fffdf9;
+      border-color: rgba(232, 213, 238, .64);
+      background: rgba(232, 213, 238, .12)
+    }
+
+    .company-row:hover .row-subtag {
+      color: rgba(255, 253, 249, .68)
+    }
+
+    .row-link {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--purple);
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 4px;
+      word-break: break-word;
+      transition: color .22s ease
+    }
+
+    .company-row:hover .row-link {
+      color: #fffdf9
+    }
+
+    .row-arrow {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      color: var(--purple);
+      font-family: var(--font-serif);
+      font-size: 32px;
+      line-height: 1;
+      justify-self: end;
+      transition: transform .22s ease, color .22s ease
+    }
+
+    .company-row:hover .row-arrow {
+      transform: translateX(4px);
+      color: var(--purple-pale)
+    }
+
+    .empty-state {
+      display: none;
+      padding: 60px 0;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      color: var(--text-muted)
+    }
+
+    .empty-state.is-visible {
+      display: block
+    }
+
+    .join {
+      background: radial-gradient(circle at 82% 12%, rgba(176, 124, 192, .24), transparent 34%), linear-gradient(180deg, #4A3D49 0%, #332435 38%, #211722 72%, #171218 100%);
+      color: var(--bg);
+      padding: clamp(62px, 7vw, 92px) 0;
+      position: relative;
+      overflow: hidden
+    }
+
+    .join::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(250, 248, 244, .06) 1px, transparent 1px), linear-gradient(0deg, rgba(250, 248, 244, .042) 1px, transparent 1px);
+      background-size: 112px 112px;
+      opacity: .18
+    }
+
+    .join-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 34px;
+      align-items: end
+    }
+
+    .join h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(38px, 5vw, 72px);
+      font-weight: 400;
+      line-height: .98;
+      letter-spacing: -.035em
+    }
+
+    .join p {
+      margin-top: 16px;
+      color: rgba(250, 248, 244, .68);
+      max-width: 54ch
+    }
+
+    .join a {
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(250, 248, 244, .56);
+      font-size: 18px
+    }
+
+    @media screen and (max-width: 1024px) {
+      .featured-grid {
+        grid-auto-rows: 300px;
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .companies-grid-vertical {
+        display: contents;
+      }
+
+      .featured-card.small-card {
+        grid-column: span 1;
+        height: auto;
+        min-height: 190px;
+        max-height: none;
+      }
+
+      .small-card .featured-card-inner {
+        min-height: 190px;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .featured-grid {
+        grid-auto-rows: 220px;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .featured-card.big-card {
+        grid-column: span 2;
+      }
+
+      .featured-card.small-card {
+        min-height: 190px;
+        max-height: none;
+        height: auto;
+      }
+
+      .small-card .featured-card-inner {
+        min-height: 190px;
+      }
+    }
+
+    @media screen and (max-width: 567px) {
+      .featured-grid {
+        grid-auto-rows: 180px;
+        grid-template-columns: 1fr;
+      }
+
+      .featured-card.big-card {
+        grid-column: span 1;
+      }
+    }
+
+    @media(max-width:1180px) {
+      .company-row {
+        grid-template-columns: minmax(180px, 1fr) minmax(170px, .72fr) minmax(140px, .58fr) 34px;
+        gap: 16px
+      }
+    }
+
+    @media(max-width:860px) {
+      :root {
+        --header-h: 66px
+      }
+
+      .nav {
+        height: 66px;
+        padding: 0 20px
+      }
+
+      .brand-mark {
+        width: 36px;
+        height: 24px;
+        font-size: 10px
+      }
+
+      .brand-cn {
+        font-size: 17px
+      }
+
+      .brand-en,
+      .menu-toggle-text {
+        display: none
+      }
+
+      .menu-overlay {
+        width: 100vw
+      }
+
+      .hero-grid,
+      .join-inner {
+        grid-template-columns: 1fr
+      }
+
+      .hero h1 {
+        font-size: clamp(38px, 12vw, 68px)
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr
+      }
+
+      .hero-stat {
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+        padding-left: 0
+      }
+
+      .hero-stat:last-child {
+        border-bottom: 0;
+        padding-left: 0
+      }
+
+      .toolbar {
+        justify-content: flex-start;
+        padding: 14px 20px
+      }
+
+      .view-tabs {
+        justify-content: flex-start
+      }
+
+      .company-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 22px 0;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 0
+      }
+
+      section {
+        padding: 58px 0
+      }
+    }
+
+    /* ======================================================== */
+    /* MENU & FOOTER CSS COPIED FROM insights.html              */
+    /* ======================================================== */
+    .brand-logo .brand-mark {
+      width: 50px !important;
+      height: 34px !important;
+      object-fit: contain !important;
+      display: block !important;
+      flex: 0 0 auto !important;
+    }
+
+    .brand-logo .brand-lockup {
+      display: grid !important;
+      gap: 1px !important;
+      line-height: 1 !important;
+    }
+
+    .brand-logo .brand-cn {
+      font-family: var(--font-sans) !important;
+      font-size: 20px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.03em !important;
+    }
+
+    .brand-logo .brand-en {
+      display: block !important;
+      font-family: var(--font-sans) !important;
+      font-size: 11.5px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.045em !important;
+      text-transform: uppercase !important;
+    }
+
+    .menu-overlay {
+      width: min(720px, 50vw) !important;
+      background:
+        radial-gradient(circle at 78% 26%, rgba(176, 124, 192, 0.14), transparent 30%),
+        radial-gradient(circle at 10% 80%, rgba(102, 8, 116, 0.18), transparent 34%),
+        linear-gradient(135deg, #171218 0%, #241827 48%, #171218 100%) !important;
+    }
+
+    .menu-overlay::before {
+      content: none !important;
+    }
+
+    .menu-shell {
+      position: relative !important;
+      overflow: hidden !important;
+    }
+
+    .menu-shell::after {
+      content: none !important;
+    }
+
+    @media (min-width: 861px) {
+      .menu-shell::before {
+        content: "LinkX" !important;
+        position: absolute;
+        right: clamp(-54px, -2.6vw, -20px);
+        bottom: clamp(54px, 8vh, 96px);
+        font-family: var(--font-serif);
+        font-size: clamp(130px, 17vw, 270px);
+        line-height: 0.8;
+        color: rgba(250, 248, 244, 0.038);
+        letter-spacing: -0.08em;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .menu-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: clamp(20px, 2.8vh, 32px) !important;
+        align-items: stretch !important;
+        padding: clamp(24px, 3.6vh, 40px) 0 clamp(18px, 2.6vh, 28px) !important;
+        min-height: 0 !important;
+        position: relative !important;
+        z-index: 1 !important;
+      }
+
+      .menu-primary {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 0 !important;
+        border-top: 1px solid rgba(250, 248, 244, 0.18) !important;
+        border-bottom: 0 !important;
+      }
+
+      .menu-primary a {
+        display: grid !important;
+        grid-template-columns: clamp(44px, 5vw, 64px) minmax(0, 1fr) minmax(86px, auto) !important;
+        grid-template-rows: 1fr !important;
+        align-items: center !important;
+        min-height: clamp(76px, 9.4vh, 104px) !important;
+        padding: 0 !important;
+        border-right: 0 !important;
+        border-bottom: 1px solid rgba(250, 248, 244, 0.18) !important;
+        gap: clamp(14px, 2vw, 24px) !important;
+        position: relative !important;
+        overflow: hidden !important;
+        text-decoration: none !important;
+      }
+
+      .menu-primary .menu-num {
+        margin-bottom: 0 !important;
+        align-self: center !important;
+        justify-self: start !important;
+        font-family: var(--font-mono);
+        font-size: clamp(10px, 0.78vw, 12px) !important;
+        letter-spacing: 0.1em !important;
+        color: rgba(232, 213, 238, 0.54) !important;
+      }
+
+      .menu-primary strong {
+        align-self: center !important;
+        justify-self: start !important;
+        font-family: var(--font-serif);
+        font-size: clamp(34px, 4.3vw, 58px) !important;
+        font-weight: 400 !important;
+        line-height: 0.98 !important;
+        letter-spacing: -0.035em !important;
+        color: rgba(250, 248, 244, 0.92);
+        transform: none !important;
+        transition: transform 300ms cubic-bezier(.18, .84, .22, 1), color 220ms ease, opacity 220ms ease !important;
+      }
+
+      .menu-primary em {
+        align-self: center !important;
+        justify-self: end !important;
+        min-width: 0 !important;
+        text-align: right !important;
+        font-family: var(--font-mono);
+        font-size: clamp(9px, 0.75vw, 11px) !important;
+        font-style: normal !important;
+        letter-spacing: 0.2em !important;
+        text-transform: uppercase !important;
+        color: rgba(250, 248, 244, 0.38) !important;
+      }
+
+      .menu-primary a::before {
+        content: "" !important;
+        position: absolute !important;
+        left: clamp(16px, 2vw, 28px) !important;
+        top: 50% !important;
+        bottom: auto !important;
+        width: 5px !important;
+        height: 5px !important;
+        border-radius: 999px !important;
+        background: rgba(176, 124, 192, 0.76) !important;
+        box-shadow: 0 0 18px rgba(176, 124, 192, 0.45) !important;
+        opacity: 0 !important;
+        transform: translate(-10px, -50%) scale(0.68) !important;
+        transition: opacity 220ms ease, transform 260ms cubic-bezier(.18, .84, .22, 1) !important;
+      }
+
+      .menu-primary a::after {
+        content: "" !important;
+        position: absolute !important;
+        left: clamp(28px, 2.8vw, 42px) !important;
+        top: 50% !important;
+        bottom: auto !important;
+        width: 0 !important;
+        height: 1px !important;
+        transform: translateY(-50%) !important;
+        background: linear-gradient(90deg, rgba(176, 124, 192, 0.42), transparent) !important;
+        transition: width 320ms cubic-bezier(.18, .84, .22, 1) !important;
+      }
+
+      .menu-primary a:hover::before,
+      .menu-primary a:focus-visible::before {
+        opacity: 1 !important;
+        transform: translate(0, -50%) scale(1) !important;
+      }
+
+      .menu-primary a:hover::after,
+      .menu-primary a:focus-visible::after {
+        width: clamp(54px, 6vw, 96px) !important;
+      }
+
+      .menu-primary a:hover strong,
+      .menu-primary a:focus-visible strong {
+        transform: translateX(clamp(8px, 0.9vw, 14px)) !important;
+        color: #fff !important;
+      }
+
+      .menu-primary a:hover .menu-num,
+      .menu-primary a:focus-visible .menu-num {
+        color: rgba(232, 213, 238, 0.82) !important;
+      }
+
+      .menu-side {
+        display: block !important;
+        max-width: none !important;
+        justify-self: stretch !important;
+        align-self: auto !important;
+        position: relative !important;
+        z-index: 1 !important;
+        opacity: 0;
+        transform: translateY(18px);
+        transition: opacity 0.45s ease 0.24s, transform 0.45s ease 0.24s;
+      }
+
+      .menu-overlay.is-open .menu-side {
+        opacity: 1;
+        transform: none;
+      }
+
+      .menu-panel.menu-build-card {
+        min-height: 0 !important;
+        border-radius: 0 !important;
+        border: 0 !important;
+        border-top: 1px solid rgba(250, 248, 244, 0.14) !important;
+        background: transparent !important;
+        padding: clamp(16px, 2vw, 22px) 0 0 !important;
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 16px !important;
+        align-items: start !important;
+        overflow: visible !important;
+      }
+
+      .menu-build-copy {
+        position: relative;
+        z-index: 1;
+        max-width: 100% !important;
+      }
+
+      .menu-build-card .menu-kicker {
+        margin-bottom: 10px !important;
+        font-size: clamp(10px, 0.8vw, 12px) !important;
+        letter-spacing: 0.18em !important;
+      }
+
+      .menu-build-card p {
+        margin-bottom: 0 !important;
+        max-width: 100% !important;
+        font-size: clamp(13px, 0.9vw, 15px) !important;
+        line-height: 1.68 !important;
+        color: rgba(250, 248, 244, 0.72) !important;
+      }
+
+      .menu-contact-cta {
+        position: relative;
+        z-index: 1;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        min-width: clamp(132px, 10vw, 174px) !important;
+        padding: 12px 0 11px !important;
+        border-bottom: 1px solid rgba(250, 248, 244, 0.52) !important;
+        color: #fff !important;
+        font-family: var(--font-mono) !important;
+        font-size: clamp(10.5px, 0.72vw, 12px) !important;
+        letter-spacing: 0.14em !important;
+        text-transform: uppercase !important;
+        text-decoration: none !important;
+        justify-self: start !important;
+        min-width: min(220px, 52%) !important;
+        margin-top: 2px !important;
+      }
+
+      .menu-contact-cta span:last-child {
+        font-size: 18px;
+        transition: transform 180ms ease;
+      }
+
+      .menu-contact-cta:hover span:last-child,
+      .menu-contact-cta:focus-visible span:last-child {
+        transform: translateX(5px);
+      }
+
+      .menu-footer {
+        display: grid !important;
+        grid-template-columns: 1fr auto !important;
+        align-items: center !important;
+        position: relative !important;
+        z-index: 1 !important;
+        margin-top: clamp(10px, 1.6vh, 18px) !important;
+      }
+
+      .menu-footer-brand {
+        display: none;
+      }
+
+      .menu-footer-social {
+        display: none;
+        align-items: center;
+        justify-content: flex-end;
+        gap: clamp(16px, 2vw, 28px);
+        margin-left: auto;
+      }
+
+      .menu-footer-social a {
+        color: rgba(250, 248, 244, 0.46);
+        text-decoration: none;
+        transition: color 180ms ease, transform 180ms ease;
+      }
+
+      .menu-footer-social a:hover,
+      .menu-footer-social a:focus-visible {
+        color: rgba(250, 248, 244, 0.86);
+        transform: translateY(-1px);
+        outline: none;
+      }
+
+      html[data-lang="en"] .menu-footer-brand {
+        display: inline-flex;
+        justify-self: start;
+        letter-spacing: 0.18em;
+      }
+
+      html[data-lang="en"] .menu-footer-social {
+        display: inline-flex;
+      }
+
+      html[data-lang="zh"] .menu-build-card p[data-i18n="menu.contact.text"] {
+        word-break: keep-all !important;
+        overflow-wrap: normal !important;
+        line-break: strict !important;
+      }
+
+      html[data-lang="zh"] .menu-build-card p[data-i18n="menu.contact.text"] .phrase {
+        display: inline-block;
+        white-space: nowrap;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .menu-overlay {
+        width: 100vw !important;
+      }
+
+      .menu-primary {
+        display: flex !important;
+        flex-direction: column !important;
+      }
+
+      .menu-panel.menu-build-card {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+        min-height: 0 !important;
+      }
+
+      .menu-build-card p {
+        font-size: 14.5px !important;
+      }
+
+      .menu-footer-brand,
+      .menu-footer-social {
+        display: none;
+      }
+
+      html[data-lang="en"] .menu-footer-brand,
+      html[data-lang="en"] .menu-footer-social {
+        display: inline-flex;
+      }
+
+      .menu-contact-cta {
+        justify-self: start !important;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .menu-footer {
+        align-items: flex-start !important;
+        flex-direction: column !important;
+      }
+
+      .menu-footer-social {
+        margin-left: 0;
+        justify-content: flex-start;
+      }
+
+      .brand-logo .brand-en {
+        display: none !important;
+      }
+    }
+
+    footer {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(176, 124, 192, 0.22), transparent 34%),
+        radial-gradient(circle at 86% 72%, rgba(102, 8, 116, 0.28), transparent 36%),
+        linear-gradient(135deg, #171218 0%, #241827 46%, #171218 100%) !important;
+      color: rgba(250, 248, 244, 0.68) !important;
+      padding: clamp(48px, 7vw, 76px) 0 clamp(28px, 4vw, 40px) !important;
+    }
+
+    footer::before {
+      content: "";
+      position: absolute;
+      inset: auto -10% -35% auto;
+      width: min(720px, 58vw);
+      aspect-ratio: 1.8;
+      border: 1px solid rgba(176, 124, 192, 0.08);
+      border-radius: 50%;
+      transform: rotate(-8deg);
+      pointer-events: none;
+    }
+
+    footer .footer-inner {
+      display: grid !important;
+      grid-template-columns: 1fr auto 1fr !important;
+      align-items: end !important;
+      gap: 24px !important;
+      position: relative;
+      z-index: 1;
+    }
+
+    footer .footer-left,
+    footer .footer-bottom {
+      display: contents !important;
+    }
+
+    footer .footer-brand,
+    footer .footer-left .brand-lockup,
+    footer .footer-left p {
+      display: none !important;
+    }
+
+    footer .footer-copyright {
+      grid-column: 1;
+      justify-self: start;
+      color: rgba(250, 248, 244, 0.48);
+      font-family: var(--font-mono);
+      font-size: 11px !important;
+      letter-spacing: 0.04em;
+      text-transform: none;
+    }
+
+    footer .footer-slogan {
+      grid-column: 2;
+      justify-self: center;
+      color: rgba(250, 248, 244, 0.76) !important;
+      font-family: var(--font-sans) !important;
+      font-size: clamp(12.5px, 1.05vw, 14px) !important;
+      line-height: 1.35 !important;
+      letter-spacing: 0.02em !important;
+    }
+
+    footer .footer-legal {
+      grid-column: 3;
+      justify-self: end;
+      color: rgba(250, 248, 244, 0.54);
+      font-family: var(--font-mono);
+      font-size: 11px !important;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      transition: color 180ms ease;
+    }
+
+    footer .footer-legal:hover {
+      color: rgba(250, 248, 244, 0.9);
+    }
+
+    @media (max-width: 860px) {
+      footer .footer-inner {
+        grid-template-columns: 1fr !important;
+        align-items: start !important;
+      }
+
+      footer .footer-copyright,
+      footer .footer-slogan,
+      footer .footer-legal {
+        grid-column: 1;
+        justify-self: start;
+        white-space: normal;
+      }
+    }
+
+    @media (max-width: 720px) {
+      footer .footer-slogan {
+        font-size: 13px !important;
+      }
+    }
+
+    /* Social WeChat Matrix popover & icons style overrides */
+    .menu-footer {
+      gap: clamp(18px, 2.4vw, 32px) !important;
+      align-items: center !important;
+    }
+
+    .menu-social-matrix {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: flex-end !important;
+      gap: 0 !important;
+      margin-left: auto !important;
+    }
+
+    .menu-social-matrix .menu-footer-social-label {
+      display: none !important;
+    }
+
+    .menu-social-links {
+      display: inline-flex !important;
+      align-items: center !important;
+      flex-wrap: nowrap !important;
+      gap: 8px !important;
+    }
+
+    .menu-social-item {
+      position: relative !important;
+      display: inline-flex !important;
+    }
+
+    .menu-social-icon {
+      width: 28px !important;
+      height: 28px !important;
+      display: inline-grid !important;
+      place-items: center !important;
+      padding: 0 !important;
+      border: 1px solid rgba(250, 248, 244, 0.18) !important;
+      border-radius: 50% !important;
+      border-bottom-color: rgba(250, 248, 244, 0.18) !important;
+      background: rgba(250, 248, 244, 0.045) !important;
+      color: rgba(250, 248, 244, 0.84) !important;
+      text-decoration: none !important;
+      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease, color 0.18s ease !important;
+    }
+
+    .menu-social-icon:hover,
+    .menu-social-icon:focus-visible {
+      transform: translateY(-2px) !important;
+      border-color: rgba(250, 248, 244, 0.48) !important;
+      background: rgba(250, 248, 244, 0.12) !important;
+      color: #fff !important;
+      outline: none !important;
+    }
+
+    .menu-social-icon svg,
+    .menu-social-icon img {
+      width: 14px !important;
+      height: 14px !important;
+      display: block !important;
+      fill: currentColor !important;
+      object-fit: contain !important;
+    }
+
+    .menu-social-icon img.icon-xhs {
+      width: 15px !important;
+      height: 15px !important;
+    }
+
+    .menu-social-icon img.icon-douyin {
+      width: 14px !important;
+      height: 14px !important;
+    }
+
+    .menu-qr-popover {
+      position: absolute !important;
+      right: 50% !important;
+      top: auto !important;
+      bottom: calc(100% + 14px) !important;
+      width: 168px !important;
+      padding: 12px !important;
+      border-radius: 8px !important;
+      background: rgba(250, 248, 244, 0.98) !important;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.32) !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      transform: translate(50%, 8px) !important;
+      pointer-events: none !important;
+      transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease !important;
+      z-index: 20 !important;
+    }
+
+    .menu-qr-popover::after {
+      content: "" !important;
+      position: absolute !important;
+      right: 50% !important;
+      top: auto !important;
+      bottom: -7px !important;
+      width: 14px !important;
+      height: 14px !important;
+      background: rgba(250, 248, 244, 0.98) !important;
+      transform: translateX(50%) rotate(45deg) !important;
+    }
+
+    .menu-qr-popover img {
+      width: 100% !important;
+      aspect-ratio: 1 !important;
+      object-fit: cover !important;
+      border-radius: 4px !important;
+    }
+
+    .menu-qr-popover span {
+      display: block !important;
+      margin-top: 9px !important;
+      color: var(--text) !important;
+      font-size: 12px !important;
+      line-height: 1.4 !important;
+      text-align: center !important;
+      letter-spacing: 0 !important;
+      text-transform: none !important;
+    }
+
+    .menu-social-item:hover .menu-qr-popover,
+    .menu-social-item:focus-within .menu-qr-popover {
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: translate(50%, 0) !important;
+      pointer-events: auto !important;
+    }
+
+    .qr-fallback {
+      display: none;
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 4px;
+      place-items: center;
+      color: rgba(102, 8, 116, 0.62);
+      font-family: var(--font-mono);
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      background:
+        linear-gradient(90deg, rgba(102, 8, 116, 0.11) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(102, 8, 116, 0.11) 1px, transparent 1px),
+        radial-gradient(circle at 50% 50%, rgba(176, 124, 192, 0.12), transparent 58%),
+        rgba(250, 248, 244, 0.96);
+    }
+
+    /* Match the shared LinkX menu treatment used across the site. */
+    .menu-overlay::before {
+      content: "LinkX" !important;
+      position: absolute !important;
+      right: -0.08em !important;
+      bottom: -0.28em !important;
+      font-family: var(--font-serif) !important;
+      font-size: clamp(130px, 24vw, 360px) !important;
+      line-height: 1 !important;
+      color: rgba(250, 248, 244, 0.045) !important;
+      pointer-events: none !important;
+      letter-spacing: 0 !important;
+      transform: none !important;
+      z-index: 0 !important;
+    }
+
+    .menu-shell::before {
+      content: none !important;
+    }
+
+    .menu-panel.menu-build-card {
+      border-radius: 28px !important;
+      border: 1px solid rgba(250, 248, 244, 0.16) !important;
+      background:
+        radial-gradient(circle at 18% 16%, rgba(176, 124, 192, 0.22), transparent 36%),
+        radial-gradient(circle at 92% 88%, rgba(250, 248, 244, 0.09), transparent 30%),
+        linear-gradient(180deg, rgba(250, 248, 244, 0.085), rgba(250, 248, 244, 0.038)) !important;
+      box-shadow:
+        inset 0 1px 0 rgba(250, 248, 244, 0.10),
+        0 18px 52px rgba(0, 0, 0, 0.10) !important;
+      padding: clamp(22px, 2.7vw, 34px) !important;
+      overflow: hidden !important;
+    }
+
+    @media (min-width: 861px) {
+      .menu-panel.menu-build-card {
+        min-height: clamp(176px, 20vh, 236px) !important;
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 18px !important;
+        align-content: end !important;
+      }
+
+      .menu-contact-cta {
+        min-width: min(240px, 58%) !important;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .menu-panel.menu-build-card {
+        min-height: 210px !important;
+        padding: 24px !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="progress-bar" id="progressBar"></div>
+  <header class="site-header">
+    <div class="nav">
+      <a aria-label="星连资本 LinkX" class="brand-logo" href="index.html">
+        <svg aria-hidden="true" class="brand-mark" focusable="false" viewBox="0 0 181 153" xmlns="http://www.w3.org/2000/svg">
+          <path d="M73.8875 56.1361H51.7199V56.074H46.7876C41.351 56.074 36.9438 51.6667 36.9438 46.2301V26.7704C36.9438 22.6878 33.6348 19.3789 29.5522 19.3789H7.39151C3.30891 19.3789 0 22.6878 0 26.7704V48.9381C0 53.0207 3.30891 56.3296 7.39151 56.3296H29.2759C33.6694 57.3174 36.9507 61.2411 36.9507 65.9316V70.8639V85.7644V90.7381C36.9507 96.223 32.5019 100.672 27.017 100.672H7.39151C3.30891 100.672 0 103.981 0 108.063V130.231C0 134.314 3.30891 137.622 7.39151 137.622H29.5591C33.6418 137.622 36.9507 134.314 36.9507 130.231V110.605C36.9507 105.12 41.3994 100.679 46.8774 100.679H51.8511V100.492H73.8944C77.977 100.492 81.2859 97.1832 81.2859 93.1006V63.5484C81.2859 59.4658 77.977 56.1569 73.8944 56.1569L73.8875 56.1361Z" fill="url(#linkxMarkA)"/>
+          <path d="M143.284 65.9247C143.284 61.2342 146.566 57.3174 150.959 56.3227H172.844C176.926 56.3227 180.235 53.0137 180.235 48.9311V26.7704C180.235 22.6878 176.926 19.3789 172.844 19.3789H150.676C146.593 19.3789 143.284 22.6878 143.284 26.7704V46.2301C143.284 51.6667 138.877 56.074 133.441 56.074H128.508V56.1361H106.341C102.258 56.1361 98.9492 59.4451 98.9492 63.5277V93.0799C98.9492 97.1625 102.258 100.471 106.341 100.471H128.384V100.658H133.358C138.843 100.658 143.284 105.107 143.284 110.585V130.21C143.284 134.293 146.593 137.602 150.676 137.602H172.844C176.926 137.602 180.235 134.293 180.235 130.21V108.043C180.235 103.96 176.926 100.651 172.844 100.651H153.218C147.733 100.651 143.284 96.2023 143.284 90.7174V65.9109V65.9247Z" fill="url(#linkxMarkB)"/>
+          <defs>
+            <linearGradient id="linkxMarkA" x1="19.583" x2="86.0522" y1="23.0278" y2="96.5938" gradientUnits="userSpaceOnUse"><stop stop-color="#63409C"/><stop offset="1" stop-color="#6F4AA8"/></linearGradient>
+            <linearGradient id="linkxMarkB" x1="118.532" x2="184.989" y1="23.0271" y2="96.5918" gradientUnits="userSpaceOnUse"><stop stop-color="#63409C"/><stop offset="1" stop-color="#6F4AA8"/></linearGradient>
+          </defs>
+        </svg>
+        <span class="brand-lockup">
+          <span class="brand-cn">星连资本</span>
+          <span class="brand-en">LINKX CAPITAL</span>
+        </span>
+      </a>
+      <div class="nav-actions">
+        <span aria-label="Language" class="lang-toggle" role="group">
+          <button data-set-lang="en">EN</button>
+          <span class="sep">|</span>
+          <button class="active" data-set-lang="zh">中</button>
+        </span>
+        <button aria-controls="siteMenu" aria-expanded="false" class="menu-toggle" data-menu-open="" type="button">
+          <span class="menu-toggle-text" data-i18n="menu.open">Menu</span>
+          <span aria-hidden="true" class="menu-toggle-mark">
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <!-- ============ MENU ============ -->
+  <div data-shared-menu></div>
+  <script src="assets/shared-menu.js" data-current="portfolio" data-menu-id="siteMenu"></script>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid reveal">
+        <div><span class="eyebrow">Portfolio · Companies</span>
+          <h1 data-i18n="hero.title">被投企业</h1>
+        </div>
+        <div class="hero-copy">
+          <div class="hero-stats">
+            <div class="hero-stat"><span data-i18n="hero.s1">AGI 领域早期被投企业</span><strong id="companyCount">70+</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="section-alt view-switch-shell" style="padding-top: 48px; padding-bottom: 12px; border-bottom: none;">
+      <div class="container" style="display: flex; justify-content: flex-start;">
+        <div class="view-tabs" role="tablist" aria-label="Portfolio views">
+          <button class="view-tab active" data-view="featured" data-i18n="tab.featured">Card View</button>
+          <button class="view-tab" data-view="list" data-i18n="tab.list">List View</button>
+        </div>
+      </div>
+    </div>
+    <section id="featured" class="section-alt companies-panel" data-panel="featured">
+      <div class="container">
+        <div class="featured-grid reveal" id="featuredGrid"></div>
+      </div>
+    </section>
+    <section id="list" class="section-alt companies-panel" data-panel="list" hidden>
+      <div class="container">
+        <div class="list-layout-grid">
+          <div class="list-main-col">
+            <div class="filters" id="filters"></div>
+            <div class="company-list" id="companyList"></div>
+            <div class="empty-state" id="emptyState" data-i18n="empty">No results found</div>
+          </div>
+          <aside class="list-side-col">
+            <div class="contact-sidebar-card">
+              <span class="contact-sidebar-eyebrow" data-i18n="menu.contact.kicker">Build With Us</span>
+              <p class="contact-sidebar-desc" data-i18n="list.contact.p">如需了解完整投资组合，或希望就正在建设的方向与我们交流，欢迎联系我们。</p>
+              <a class="contact-sidebar-btn" href="contact.html">
+                <span data-i18n="list.contact.cta">联系我们</span>
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+    <div class="company-detail" id="companyDetail" hidden></div>
+  </main>
+  <footer>
+    <div class="container">
+      <div class="footer-inner"><span class="footer-copyright" data-i18n="footer.copyright">@2026
+          北京星连肇基私募基金管理有限责任公司</span><span class="footer-slogan" data-i18n="footer.slogan">与定义未来的创业者同行</span><a
+          class="footer-legal" data-i18n="footer.legal" href="legal.html">法律声明</a></div>
+    </div>
+  </footer>
+  <script>
+    const DATA = {
+      "companies": [
+        { "name": "智谱AI", "desc": "基础模型", "detail": "中国领先的人工智能企业，专注 AGI 技术研发与产业化应用。公司已推出 GLM 系列自研大模型，并围绕大模型底座构建了覆盖 MaaS/API 服务、企业级私有化部署和智能体应用开发的产品体系。2026 年 1 月，智谱正式登陆港交所主板。", "website": "https://www.zhipuai.cn/zh/about", "group": "基础模型", "groupEn": "Foundation Models", "nameEn": "Z.ai", "descEn": "Foundation models", "detailEn": "Z.ai listed on the HKEX Main Board in January 2026 (stock code 02513.HK); the company builds GLM models, MaaS model services and agent applications across reasoning, coding, agents and multimodal capabilities.", "slug": "zhipu-ai", "featured": true },
+        { "name": "生数科技", "desc": "多模态模型", "detail": "专注多模态通用大模型及应用研发。公司 2022 年 9 月即提出 U-ViT 创新架构，现已围绕 Vidu 系列自研多模态基础模型，构建 MaaS、SaaS、Agent 与 APP 产品矩阵，服务全球 200 多个国家和地区的创作者、内容机构和行业客户。", "website": "https://www.shengshu.com/zh/about", "group": "基础模型", "groupEn": "Foundation Models", "nameEn": "Shengshu Technology", "descEn": "Multimodal foundation models", "detailEn": "ShengShu develops multimodal foundation models and applications. Vidu supports video generation and multimodal content creation through SaaS, MaaS and open-platform offerings.", "slug": "shengshu-technology", "featured": true },
+        { "name": "面壁智能", "desc": "高效模型", "detail": "专注高效大模型研发与端侧部署，现已推出 MiniCPM「面壁小钢炮」系列语言、多模态及全模态模型，以更小参数和更低算力成本实现高性能智能，并推动相关技术在手机、PC、汽车、机器人等终端场景落地。公司联合清华大学等团队提出的大模型“密度法则”相关研究发表于 Nature 子刊。", "website": "https://modelbest.cn/", "group": "基础模型", "groupEn": "Foundation Models", "nameEn": "ModelBest", "descEn": "Efficient models", "detailEn": "ModelBest builds the MiniCPM on-device model family, improving model knowledge density and deployment efficiency across phones, AIPCs, cockpits and robots.", "slug": "modelbest", "featured": false },
+        { "name": "瑞莱智慧", "desc": "AI 安全", "detail": "专注安全、可靠、可控的 AI 基础设施与解决方案。公司围绕大模型安全、AI 生成内容检测、模型安全评测和对抗防御构建产品体系，推出 RealSafe、RealGuard、RealRange、DeepReal 等产品，服务政务、金融、教育、安防等高价值场景。", "website": "https://www.realai.ai/about?scrollId=t19", "group": "模型应用与 AI for Science", "groupEn": "AI Applications & AI for Science", "nameEn": "RealAI", "descEn": "AI safety", "detailEn": "RealAI, initiated by Tsinghua University's Institute for AI Industry Research, provides AI platform and safety solutions across governance, finance, research, education and mobility.", "slug": "realai", "featured": false },
+        { "name": "趋境科技", "desc": "推理优化", "detail": "专注大模型推理优化与 AI Token 生产基础设施，构建 ATaaS 平台，为企业级大模型应用提供低时延、高吞吐、稳定结构化输出和可预测服务质量的 Token 规模化供给能力。公司团队源自清华高性能计算与系统软件方向，参与 KTransformers、Mooncake 等推理开源项目，致力以“以存换算”和异构协同架构降低推理成本、提升算力效率。", "website": "https://approaching-ai.com/introduction", "group": "AI 基础设施", "groupEn": "AI Infrastructure", "nameEn": "Approaching.AI", "descEn": "Inference optimization", "detailEn": "Approaching AI focuses on large-scale inference and token production, using heterogeneous compute coordination and memory-compute optimization to lower deployment cost.", "slug": "approaching-ai", "featured": false },
+        { "name": "无问芯穹", "desc": "高效算力云平台", "detail": "中国领先的 AI 原生基础设施企业，聚焦多元异构算力与软硬协同优化，打造连接 “M 种模型” 与 “N 种芯片” 的 “M×N” AI 基础设施范式。公司通过 Infini-AI 异构云平台，为大模型训练、推理与部署提供高性价比算力、原生工具链和推理加速能力，持续提升 Token 生产效率，并面向智能体时代构建可学习、可进化的 Agentic Infra。", "website": "https://cloud.infini-ai.com/platform/ai", "group": "AI 基础设施", "groupEn": "AI Infrastructure", "nameEn": "Infinigence AI", "descEn": "Efficient AI cloud platform", "detailEn": "Infinigence provides Agentic Infra and Agentic MaaS, managing multiple chip types for large-model training, production inference and enterprise agents.", "slug": "infinigence-ai", "featured": false },
+        { "name": "谦合益邦", "desc": "高效能芯片", "detail": "专注智能终端与云游戏核心芯片方案，依托 AIoT 高能效技术和云端高清流媒体加速技术，为终端智能教育、云游戏等场景提供低功耗、高性能的硬件加速能力。公司自研高能效 SoC 芯片 G100，面向实时语音、图像处理及智能终端应用，已在翻译笔、学习机等产品中逐步落地。", "website": "https://www.agicmicro.com/gywm/", "group": "AI 基础设施", "groupEn": "AI Infrastructure", "nameEn": "AGIC Micro", "descEn": "Efficient chips", "detailEn": "AGICmicro centers on AIoT energy efficiency and cloud HD streaming acceleration, offering high-efficiency SoCs, cloud gaming chips and chip design services.", "slug": "agic-micro", "featured": false },
+        { "name": "基流科技", "desc": "智算基础设施", "detail": "中国领先的独立 AI 算力集群提供商。围绕高速组网、集合通信、并行框架和管控调度等核心能力，公司打造了 Galaxy 端到端 AI 算力集群产品体系，覆盖 AI 算力设备、Mercury 算力网络系统与 Venus AI 算力操作系统，为大模型预训练、后训练、推理和智能体等场景提供高效、稳定、可扩展的 AI 基础设施能力。", "website": "https://infrawaves.com/home", "group": "AI 基础设施", "groupEn": "AI Infrastructure", "nameEn": "Infrawaves", "descEn": "AI compute infrastructure", "detailEn": "Infrawaves provides high-performance networking, communication optimization and the Venus compute platform for AI clusters, covering deployment, scheduling, training, inference, monitoring and maintenance.", "slug": "infrawaves", "featured": true },
+        { "name": "珀乐互动", "desc": "AI 互动娱乐", "detail": "聚焦 “AI+IP” 的数字内容科技公司。通过自研技术中台将 AI 大模型能力应用于 IP 开发、内容制作、运营与衍生环节，提升泛娱乐内容生产效率。公司已推出「剧灵 AI」「珀乐视界」等产品，业务覆盖 AIGC 动漫短剧、互动娱乐内容与多模态 IP 商业化。", "group": "模型应用与 AI for Science", "groupEn": "AI Applications & AI for Science", "nameEn": "Polo Interactive", "descEn": "AI interactive entertainment", "detailEn": "Pule applies large-model capabilities to IP development, operations and derivatives through an in-house technology platform, improving digital-content production and monetization.", "slug": "polo-interactive", "featured": false },
+        { "name": "紫荆智康", "desc": "AI 医疗", "detail": "致力以 AI 提供便捷、低廉、优质的医疗服务。公司研发“紫荆 AI 医院”（Agent Hospital），通过疾病生成模型与数据飞轮机制推动医疗智能体自我进化，已构建二十多个科室的医疗 Agent，并在全国多个城市启动公开测试，推动优质智能医疗资源下沉与区域医疗资源均衡布局。", "website": "https://www.tairex.cn/gy", "group": "模型应用与 AI for Science", "groupEn": "AI Applications & AI for Science", "nameEn": "Tairex", "descEn": "AI healthcare", "detailEn": "Tairex builds Agent Hospital around medical agents, providing intelligent assistance and workflow services for patients, doctors and hospitals.", "slug": "tairex", "featured": false },
+        { "name": "百奥几何", "desc": "AI for Science", "detail": "生成式 AI 蛋白质设计公司，围绕 GeoBiologics 大分子药物设计平台与高通量湿实验验证平台，构建干湿实验闭环，实现蛋白序列、结构与功能的一体化设计和优化。公司面向生物医药与合成生物学场景，提供抗体、多肽、疫苗、酶等可编程蛋白的从头设计能力。", "website": "https://www.biogeom.com/about/", "group": "模型应用与 AI for Science", "groupEn": "AI Applications & AI for Science", "nameEn": "BioGeometry", "descEn": "AI for Science", "detailEn": "BioGeometry focuses on generative AI protein design, bridging protein sequence, structure and function for biopharma and synthetic biology.", "slug": "biogeometry", "featured": true },
+        { "name": "动易科技", "desc": "具身/机器人", "detail": "秉承 “Robot for AI” 的愿景，致力于打造新一代通用具身智能体。公司通过全栈自研机器人硬件，训练端到端运动控制系统，并融合多模态大模型，为生产制造、特种作业、生活服务等领域提供新一代 AI 生产力。其核心团队是国内少数能够将强化学习算法在全尺寸人形机器人运动控制中实现规模化落地的团队之一。", "website": "https://www.phybot.tech/", "group": "具身智能", "groupEn": "Embodied Intelligence", "nameEn": "Phybot", "descEn": "Embodied intelligence / robotics", "detailEn": "PHYBOT builds embodied agents through full-stack hardware, end-to-end motion control and multimodal models for manufacturing, special operations and life services.", "slug": "phybot", "featured": false },
+        { "name": "阿米奥机器人", "desc": "具身/机器人", "detail": "专注工业具身智能与规模化商业机器人应用，面向 3C、汽车电子等制造场景提供柔性生产与亚毫米级精密装配解决方案。公司融合人工智能、多模态感知与自主运动控制技术，产品覆盖复杂装配、精密检测、智能仓储等环节，核心团队具备自动驾驶、机器人和量产交付经验。", "group": "具身智能", "groupEn": "Embodied Intelligence", "nameEn": "AMIO Robotics", "descEn": "Embodied intelligence / robotics", "detailEn": "Amigos develops intelligent robot systems and application solutions for large-scale commercial scenarios such as logistics, warehousing and retail automation.", "slug": "amio-robotics", "featured": false },
+        { "name": "求之科技", "desc": "具身/机器人", "detail": "专注人工智能与机器人融合创新，由清华大学智能产业研究院（AIR）孵化成立。公司打造 AIRBOT 系列机器人产品，面向科研、教学实训及行业应用场景，提供具身智能研发所需的机器人本体、遥操作套装与移动双臂平台等软硬件一体化能力。", "website": "https://www.discover-robotics.com/about-us", "group": "具身智能", "groupEn": "Embodied Intelligence", "nameEn": "Discover Robotics", "descEn": "Embodied intelligence / robotics", "detailEn": "DiscoverTech is a LinkX portfolio company focused on intelligent systems, human-machine collaboration and AI application scenarios.", "slug": "discover-robotics", "featured": false }
+      ]
+    };
+    const i18n = {
+      zh: {
+        "menu.open": "Menu",
+        "menu.label": "导航",
+        "menu.about": "关于我们",
+        "menu.portfolio": "投资组合",
+        "menu.insights": "洞察",
+        "menu.team": "团队",
+        "menu.contact": "联系我们",
+        "hero.title": "被投企业",
+        "hero.s1": "AGI 领域早期被投企业",
+        "tab.featured": "Card View",
+        "tab.list": "List View",
+        "featured.h": "精选公司",
+        "featured.p": "以卡片方式浏览代表性组合公司，点击卡片展开详情。",
+        "featured.contact": "完整投资组合或发送 BP，请 联系我们 →",
+        "list.h": "Company index",
+        "list.p": "按方向筛选，快速浏览完整投资组合。",
+        "list.contact.p": "如需了解完整投资组合，或希望就正在建设的方向与我们交流，欢迎联系我们。",
+        "list.contact.cta": "联系我们",
+        "empty": "No results found",
+        "expand": "展开详情",
+        "collapse": "收起详情",
+        "join.h": "Build with us.",
+        "join.p": "如果你正在寻找、定义，或亲手建造一个尚未被市场命名的未来，我们希望更早与你相遇。",
+        "join.cta": "联系我们",
+        "all": "全部",
+        "profile": "公司简介",
+        "menu.home": "首页",
+        "menu.nav.about": "关于我们",
+        "menu.nav.portfolio": "投资组合",
+        "menu.nav.team": "团队",
+        "menu.nav.insights": "洞察",
+        "menu.footer.home": "回到首页",
+        "menu.contact.kicker": "Build With Us",
+        "menu.contact.text": "如果你正在寻找、定义，或亲手建造一个尚未被市场命名的未来，我们希望更早与你相遇。",
+        "menu.contact.link": "联系我们",
+        "menu.footer.meta": "© 2026 北京星连肇基私募基金管理有限责任公司",
+        "footer.wechatFund": "基金微信公众号",
+        "footer.wechatIncubator": "孵化器微信公众号",
+        "footer.slogan": "与定义未来的创业者同行",
+        "footer.copyright": "@2026 北京星连肇基私募基金管理有限责任公司",
+        "footer.legal": "法律声明",
+        "menu.back": "返回",
+        "back": "返回",
+        "sector": "方向",
+        "website": "官网",
+        "pending": "暂无",
+        "visit": "访问官网"
+      },
+      en: {
+        "menu.open": "Menu",
+        "menu.label": "Menu",
+        "menu.about": "About Us",
+        "menu.portfolio": "Portfolio",
+        "menu.insights": "Insights",
+        "menu.team": "Team",
+        "menu.contact": "Contact",
+        "hero.title": "Companies",
+        "hero.s1": "early-stage AGI portfolio companies",
+        "tab.featured": "Card View",
+        "tab.list": "List View",
+        "featured.h": "Selected companies",
+        "featured.p": "Browse selected portfolio companies as expandable cards.",
+        "featured.contact": "For full portfolio or sending BP, please contact us →",
+        "list.h": "Company index",
+        "list.p": "Filter the full portfolio by focus area.",
+        "list.contact.p": "Contact us for the full portfolio or to start a conversation around the areas you are building in.",
+        "list.contact.cta": "Contact us",
+        "empty": "No results found",
+        "expand": "Expand details",
+        "collapse": "Collapse details",
+        "join.h": "Build with us.",
+        "join.p": "If you are searching for, defining, or building a future the market has not yet named, we hope to meet you early.",
+        "join.cta": "Contact us",
+        "all": "All",
+        "profile": "Company profile",
+        "menu.home": "Home",
+        "menu.nav.about": "About Us",
+        "menu.nav.portfolio": "Portfolio",
+        "menu.nav.team": "Team",
+        "menu.nav.insights": "Insights",
+        "menu.footer.home": "Back Home",
+        "menu.contact.kicker": "Build With Us",
+        "menu.contact.text": "If you are seeking, defining, or building a future the market has not yet named, we hope to meet you earlier.",
+        "menu.contact.link": "Contact Us",
+        "menu.footer.meta": "LINKX CAPITAL",
+        "footer.wechatFund": "WeChat · Fund",
+        "footer.wechatIncubator": "WeChat · Incubator",
+        "footer.slogan": "Partnering with founders defining what comes next",
+        "footer.copyright": "@2026 LinkX Capital. All rights reserved.",
+        "footer.legal": "Legal Notice",
+        "menu.back": "Back",
+        "back": "Back",
+        "sector": "Sector",
+        "website": "Website",
+        "pending": "Pending",
+        "visit": "Visit Website"
+      }
+    };
+    let state = { lang: localStorage.getItem('linkx.lang') || 'zh', filter: 'all', view: 'featured' };
+    const $ = (s, root = document) => root.querySelector(s); const $$ = (s, root = document) => Array.from(root.querySelectorAll(s)); function dict() { return i18n[state.lang] || i18n.zh } function isEn() { return state.lang === 'en' } function companyName(c) { return isEn() && c.nameEn ? c.nameEn : c.name } function companyDetail(c) { return isEn() && c.detailEn ? c.detailEn : c.detail } function companyGroup(c) { return isEn() && c.groupEn ? c.groupEn : c.group } function esc(v) { return String(v || '').replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m])) }
+    const GROUP_LABELS = {
+      "基础模型": { zh: "智能基础层", en: "Intelligence Foundations" },
+      "AI 基础设施": { zh: "AI 基础设施", en: "AI Infrastructure" },
+      "模型应用与 AI for Science": { zh: "智能体与 AI 原生应用", en: "Agents & AI-native Applications" },
+      "具身智能": { zh: "物理智能", en: "Physical Intelligence" }
+    };
+    function displayGroup(group) { const label = GROUP_LABELS[group]; return label ? (isEn() ? label.en : label.zh) : group }
+    const LOGOS = {
+      "zhipu-ai": "assets/portfolio/zai.svg",
+      "shengshu-technology": "assets/portfolio/shengshu.png",
+      "modelbest": "assets/portfolio/modelbest-mark.png",
+      "infrawaves": "assets/portfolio/infrawaves-mark.png",
+      "approaching-ai": "assets/portfolio/approaching-mark.png",
+      "infinigence-ai": "assets/portfolio/infinigence-mark.png",
+      "agic-micro": "assets/portfolio/agic.png",
+      "realai": "assets/portfolio/realai-mark.png",
+      "polo-interactive": "assets/portfolio/boyue.jpg",
+      "tairex": "assets/portfolio/tairex-mark.png",
+      "biogeometry": "assets/portfolio/biogeometry.png",
+      "phybot": "assets/portfolio/phybot-mark.png",
+      "discover-robotics": "assets/portfolio/discovertech.png",
+      "amio-robotics": "assets/portfolio/amigos.png"
+    };
+    const DETAIL_LOGOS = {
+      "zhipu-ai": "assets/portfolio/zai.svg",
+      "shengshu-technology": "assets/portfolio/shengshu.png",
+      "modelbest": "assets/portfolio/modelbest.png",
+      "infrawaves": "assets/portfolio/infrawave.png",
+      "approaching-ai": "assets/portfolio/approachingai.png",
+      "infinigence-ai": "assets/portfolio/infinigence.png",
+      "agic-micro": "assets/portfolio/agic.png",
+      "realai": "assets/portfolio/realai.png",
+      "polo-interactive": "assets/portfolio/boyue.jpg",
+      "tairex": "assets/portfolio/tairex.png",
+      "biogeometry": "assets/portfolio/biogeometry.png",
+      "phybot": "assets/portfolio/phybot.png",
+      "discover-robotics": "assets/portfolio/discoverrobotics.png",
+      "amio-robotics": "assets/portfolio/amigos.png"
+    };
+    const BRAND = { "zhipu-ai": "#660874", "shengshu-technology": "#7E2CA8", "modelbest": "#24505A", "infrawaves": "#275D8C", "approaching-ai": "#7B4D38", "infinigence-ai": "#1B6269", "agic-micro": "#675140", "realai": "#6251A4", "tairex": "#897042", "biogeometry": "#2E6D58", "phybot": "#6B3A51", "discover-robotics": "#425F3D", "amio-robotics": "#594878", "polo-interactive": "#8A3B5B" };
+
+    function initials(c) { return (companyName(c).replace(/\s+/g, '').slice(0, 2) || 'LX').toUpperCase() }
+    function logo(c, options = {}) {
+      const src = options.detail ? (DETAIL_LOGOS[c.slug] || LOGOS[c.slug]) : LOGOS[c.slug];
+      if (!src) return `<span class="logo-fallback">${esc(initials(c))}</span>`;
+      if (src.endsWith('.pdf')) {
+        return `<iframe src="${esc(src)}#toolbar=0&navpanes=0&scrollbar=0&view=Fit" style="width: 100%; height: 100%; border: none; overflow: hidden; pointer-events: none;" scrolling="no"></iframe>`;
+      }
+      return `<img src="${esc(src)}" alt="${esc(companyName(c))} logo" loading="lazy">`;
+    }
+
+    function toggleCardAccordion(card) {
+      const open = !card.classList.contains('is-open');
+      $$('#featuredGrid .featured-card.is-open').forEach(c => {
+        if (c !== card) {
+          c.classList.remove('is-open');
+          c.setAttribute('aria-expanded', 'false');
+          c.closest('.companies-grid-vertical')?.classList.remove('has-open-card');
+          const cue = c.querySelector('.expand-cue');
+          if (cue) cue.textContent = dict().expand;
+        }
+      });
+      card.classList.toggle('is-open', open);
+      card.setAttribute('aria-expanded', open ? 'true' : 'false');
+      card.closest('.companies-grid-vertical')?.classList.toggle('has-open-card', open);
+      const cue = card.querySelector('.expand-cue');
+      if (cue) cue.textContent = open ? dict().collapse : dict().expand;
+    }
+
+    const DEFAULT_TITLE = "投资组合 · LinkX Capital 星连资本";
+    function companyDesc(c) { return isEn() && c.descEn ? c.descEn : c.desc }
+    function siteLabel(url) { if (!url) return dict().pending; try { return new URL(url).hostname.replace(/^www\./, '').toUpperCase() } catch (e) { return dict().visit } }
+    function detailHref(c) { return `?company=${encodeURIComponent(c.slug)}` }
+    function portfolioHref() { return `${location.pathname}#list` }
+    function currentCompany() { return DATA.companies.find(c => c.slug === new URLSearchParams(location.search).get('company')) }
+
+    function renderCompanyDetail(options = {}) {
+      const detail = $('#companyDetail');
+      const c = currentCompany();
+      document.body.classList.toggle('company-detail-open', !!c);
+      if (!c) {
+        detail.hidden = true;
+        detail.innerHTML = '';
+        document.title = DEFAULT_TITLE;
+        return;
+      }
+      detail.hidden = false;
+      document.title = `${companyName(c)} · LinkX Capital 星连资本`;
+      detail.innerHTML = `<div class="container"><a class="detail-back" href="${portfolioHref()}">← ${dict().back}</a><div class="detail-shell"><article class="detail-main"><span class="eyebrow">${esc(companyGroup(c))}</span><h1>${esc(companyName(c))}</h1><div class="detail-en">${esc(isEn() ? c.name : c.nameEn)}</div><p class="detail-desc">${esc(companyDesc(c))}</p><p class="detail-body">${esc(companyDetail(c))}</p></article><aside class="detail-side"><div class="detail-logo"><div class="logo-box">${logo(c, { detail: true })}</div></div><div class="detail-meta"><div class="detail-meta-item"><span class="detail-meta-label">${dict().sector}</span><span class="detail-meta-value">${esc(companyGroup(c))}</span></div><div class="detail-meta-item"><span class="detail-meta-label">${dict().website}</span><span class="detail-meta-value">${c.website ? siteLabel(c.website) : dict().pending}</span></div></div>${c.website ? `<a class="detail-website" href="${esc(c.website)}" target="_blank" rel="noopener">${dict().visit} →</a>` : ''}</aside></div></div>`;
+      if (options.scrollToTop) {
+        requestAnimationFrame(() => window.scrollTo(0, 0));
+      }
+    }
+
+    function setLang(lang) { const sx = window.scrollX, sy = window.scrollY; state.lang = lang; document.documentElement.dataset.lang = lang; document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en'; localStorage.setItem('linkx.lang', lang); const d = dict(); $$('[data-i18n]').forEach(el => { const k = el.dataset.i18n; if (d[k]) el.innerHTML = d[k] }); $$('[data-set-lang]').forEach(b => b.classList.toggle('active', b.dataset.setLang === lang)); renderAll(); renderCompanyDetail(); requestAnimationFrame(() => window.scrollTo(sx, sy)) }
+
+    function renderFeatured() {
+      const grid = $('#featuredGrid');
+      let html = '';
+      const skipped = new Set();
+
+      for (let i = 0; i < DATA.companies.length; i++) {
+        if (skipped.has(i)) continue;
+
+        const c = DATA.companies[i];
+        const indexStr = String(i + 1).padStart(2, '0');
+
+        if (i === 2 || i === 10) {
+          const cNext = DATA.companies[i + 1];
+          const indexNextStr = String(i + 2).padStart(2, '0');
+          skipped.add(i + 1);
+
+          html += `
+        <div class="companies-grid-vertical">
+          <article class="featured-card small-card" data-slug="${c.slug}" style="--brand:${BRAND[c.slug] || '#660874'}" role="button" tabindex="0" aria-expanded="false" aria-label="${esc(companyName(c))}" onclick="toggleCardAccordion(this)">
+            <span class="featured-card-inner">
+              <span class="card-top">
+                <span class="company-index">${indexStr}</span>
+                <span class="card-top-right" style="display: flex; flex-direction: column; align-items: flex-end;">
+                  <span class="expand-cue">${dict().expand}</span>
+                  ${c.website ? `<a class="card-website-link" href="${esc(c.website)}" target="_blank" rel="noopener" onclick="event.stopPropagation();">${isEn() ? 'Website ↗' : '访问官网 ↗'}</a>` : ''}
+                </span>
+              </span>
+              <span class="logo-box">${logo(c)}</span>
+              <span class="card-main"><h3>${esc(companyName(c))}</h3><span class="en-name">${esc(isEn() ? c.name : c.nameEn)}</span><span class="track-name">${esc(companyDesc(c))}</span><span class="card-detail"><span class="card-detail-inner"><p>${esc(companyDetail(c))}</p></span></span></span>
+            </span>
+          </article>
+          <article class="featured-card small-card" data-slug="${cNext.slug}" style="--brand:${BRAND[cNext.slug] || '#660874'}" role="button" tabindex="0" aria-expanded="false" aria-label="${esc(companyName(cNext))}" onclick="toggleCardAccordion(this)">
+            <span class="featured-card-inner">
+              <span class="card-top">
+                <span class="company-index">${indexNextStr}</span>
+                <span class="card-top-right" style="display: flex; flex-direction: column; align-items: flex-end;">
+                  <span class="expand-cue">${dict().expand}</span>
+                  ${cNext.website ? `<a class="card-website-link" href="${esc(cNext.website)}" target="_blank" rel="noopener" onclick="event.stopPropagation();">${isEn() ? 'Website ↗' : '访问官网 ↗'}</a>` : ''}
+                </span>
+              </span>
+              <span class="logo-box">${logo(cNext)}</span>
+              <span class="card-main"><h3>${esc(companyName(cNext))}</h3><span class="en-name">${esc(isEn() ? cNext.name : cNext.nameEn)}</span><span class="track-name">${esc(companyDesc(cNext))}</span><span class="card-detail"><span class="card-detail-inner"><p>${esc(companyDetail(cNext))}</p></span></span></span>
+            </span>
+          </article>
+        </div>
+      `;
+        } else {
+          const sizeClass = (i === 0 || i === 8 || i === 12 || i === 13) ? 'big-card' : 'medium-card';
+          html += `
+        <article class="featured-card ${sizeClass}" data-slug="${c.slug}" style="--brand:${BRAND[c.slug] || '#660874'}" role="button" tabindex="0" aria-expanded="false" aria-label="${esc(companyName(c))}" onclick="toggleCardAccordion(this)">
+          <span class="featured-card-inner">
+            <span class="card-top">
+              <span class="company-index">${indexStr}</span>
+              <span class="card-top-right" style="display: flex; flex-direction: column; align-items: flex-end;">
+                <span class="expand-cue">${dict().expand}</span>
+                ${c.website ? `<a class="card-website-link" href="${esc(c.website)}" target="_blank" rel="noopener" onclick="event.stopPropagation();">${isEn() ? 'Website ↗' : '访问官网 ↗'}</a>` : ''}
+              </span>
+            </span>
+            <span class="logo-box">${logo(c)}</span>
+            <span class="card-main"><h3>${esc(companyName(c))}</h3><span class="en-name">${esc(isEn() ? c.name : c.nameEn)}</span><span class="track-name">${esc(companyDesc(c))}</span><span class="card-detail"><span class="card-detail-inner"><p>${esc(companyDetail(c))}</p></span></span></span>
+          </span>
+        </article>
+      `;
+        }
+      }
+
+      grid.innerHTML = html;
+      $$('#featuredGrid .featured-card').forEach(card => card.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); } });
+    }
+
+    function renderFilters() { const groups = ['all', ...new Set(DATA.companies.map(c => c.group))]; $('#filters').innerHTML = groups.map(g => `<button class="filter-btn ${state.filter === g ? 'active' : ''}" data-filter="${esc(g)}">${g === 'all' ? dict().all : esc(displayGroup(g))}</button>`).join(''); $$('#filters .filter-btn').forEach(btn => btn.onclick = () => { state.filter = btn.dataset.filter; renderAll() }) }
+    function matches(c) { return state.filter === 'all' || c.group === state.filter }
+    function renderList() {
+      const items = DATA.companies.filter(matches);
+      $('#companyList').innerHTML = items.map(c => `<a class="company-row" href="${detailHref(c)}"><div><h3>${esc(companyName(c))}</h3><div class="en-name">${esc(isEn() ? c.name : c.nameEn)}</div></div><div class="track-cell"><span class="track-pill">${esc(displayGroup(c.group))}</span><span class="row-subtag">${esc(companyDesc(c))}</span></div><span class="row-link">${dict().profile}</span><span class="row-arrow" aria-hidden="true">→</span></a>`).join('');
+      $('#emptyState').classList.toggle('is-visible', items.length === 0);
+
+      $$('#companyList .company-row').forEach(row => {
+        row.onclick = e => {
+          e.preventDefault();
+          const href = row.getAttribute('href');
+          history.pushState(null, '', href);
+          renderCompanyDetail({ scrollToTop: true });
+        };
+      });
+    }
+    function renderAll() { $('#companyCount').textContent = '70+'; renderFilters(); renderFeatured(); renderList() }
+
+    $$('[data-set-lang]').forEach(btn => btn.onclick = () => setLang(btn.dataset.setLang));
+
+    function switchView(view, options = {}) { const sx = window.scrollX, sy = window.scrollY; state.view = view; $$('[data-panel]').forEach(p => p.hidden = p.dataset.panel !== view); $$('.view-tab').forEach(b => b.classList.toggle('active', b.dataset.view === view)); if (!options.fromNavigation) history.replaceState(null, '', '#' + view); if (options.preserveScroll !== false) requestAnimationFrame(() => window.scrollTo(sx, sy)) }
+    $$('.view-tab').forEach(btn => btn.onclick = () => switchView(btn.dataset.view));
+
+    const menu = $('#siteMenu');
+    function setMenu(open) { document.body.classList.toggle('menu-open', open); menu.classList.toggle('is-open', open); menu.setAttribute('aria-hidden', open ? 'false' : 'true'); $('[data-menu-open]').setAttribute('aria-expanded', open ? 'true' : 'false') }
+    $('[data-menu-open]').onclick = () => setMenu(true);
+    $('[data-menu-close]').onclick = () => setMenu(false);
+    $$('[data-menu-link]').forEach(a => a.onclick = () => setMenu(false));
+
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false) });
+    const bar = $('#progressBar');
+    window.addEventListener('scroll', () => { const h = document.documentElement.scrollHeight - window.innerHeight; bar.style.width = (h > 0 ? (scrollY / h) * 100 : 0) + '%' }, { passive: true });
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target) } }), { threshold: .08 });
+    $$('.reveal').forEach(el => io.observe(el));
+
+    function handleNavigation(options = {}) {
+      renderCompanyDetail({ scrollToTop: !!options.scrollToTop });
+      const hash = location.hash.replace('#', '') || 'featured';
+      if (hash === 'list' || hash === 'featured') {
+        switchView(hash, { fromNavigation: true, preserveScroll: false });
+      }
+    }
+    window.addEventListener('popstate', () => handleNavigation({ scrollToTop: true }));
+    window.addEventListener('hashchange', () => handleNavigation());
+
+    setLang(state.lang === 'en' ? 'en' : 'zh');
+    handleNavigation({ scrollToTop: !!currentCompany() });
+  </script>
+
+</body>
+
+</html>

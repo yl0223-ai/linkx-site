@@ -1161,6 +1161,203 @@ html[data-lang="en"] .team-member > .member-bio {
 }
 #siteMenu *::selection { background: transparent; }
 
+/* Shared LinkX menu footer/social matrix from the home page. */
+.menu-footer {
+  gap: clamp(18px, 2.4vw, 32px) !important;
+  align-items: center !important;
+}
+
+.menu-overlay .menu-copyright-fixed {
+  justify-self: start !important;
+  color: rgba(250, 248, 244, 0.58) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: none !important;
+  white-space: normal !important;
+}
+
+html[data-lang="en"] .menu-overlay .menu-copyright-fixed {
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+}
+
+.menu-overlay .menu-footer-brand {
+  display: none !important;
+}
+
+.menu-social-matrix {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 0 !important;
+  margin-left: auto !important;
+}
+
+html[data-lang="zh"] .menu-social-matrix,
+html[data-lang="en"] .menu-social-matrix {
+  display: inline-flex !important;
+}
+
+.menu-social-matrix .menu-footer-social-label {
+  display: none !important;
+}
+
+.menu-social-links {
+  display: inline-flex !important;
+  align-items: center !important;
+  flex-wrap: nowrap !important;
+  gap: 8px !important;
+}
+
+.menu-social-item {
+  position: relative !important;
+  display: inline-flex !important;
+}
+
+.menu-social-icon {
+  width: 28px !important;
+  height: 28px !important;
+  display: inline-grid !important;
+  place-items: center !important;
+  padding: 0 !important;
+  border: 1px solid rgba(250, 248, 244, 0.18) !important;
+  border-radius: 50% !important;
+  border-bottom-color: rgba(250, 248, 244, 0.18) !important;
+  background: rgba(250, 248, 244, 0.045) !important;
+  color: rgba(250, 248, 244, 0.84) !important;
+  text-decoration: none !important;
+  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease, color 0.18s ease !important;
+}
+
+.menu-social-icon:hover,
+.menu-social-icon:focus-visible {
+  transform: translateY(-2px) !important;
+  border-color: rgba(250, 248, 244, 0.48) !important;
+  background: rgba(250, 248, 244, 0.12) !important;
+  color: #fff !important;
+  outline: none !important;
+}
+
+.menu-social-icon svg,
+.menu-social-icon img {
+  width: 14px !important;
+  height: 14px !important;
+  display: block !important;
+  fill: currentColor !important;
+  object-fit: contain !important;
+}
+
+.menu-social-icon img.icon-xhs {
+  width: 15px !important;
+  height: 15px !important;
+}
+
+.menu-social-icon img.icon-douyin {
+  width: 14px !important;
+  height: 14px !important;
+}
+
+.menu-qr-popover {
+  position: absolute !important;
+  right: 50% !important;
+  top: auto !important;
+  bottom: calc(100% + 14px) !important;
+  width: 168px !important;
+  padding: 12px !important;
+  border-radius: 8px !important;
+  background: rgba(250, 248, 244, 0.98) !important;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.32) !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: translate(50%, 8px) !important;
+  pointer-events: none !important;
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease !important;
+  z-index: 20 !important;
+}
+
+.menu-qr-popover::after {
+  content: "" !important;
+  position: absolute !important;
+  right: 50% !important;
+  top: auto !important;
+  bottom: -7px !important;
+  width: 14px !important;
+  height: 14px !important;
+  background: rgba(250, 248, 244, 0.98) !important;
+  transform: translateX(50%) rotate(45deg) !important;
+}
+
+.menu-qr-popover img {
+  width: 100% !important;
+  aspect-ratio: 1 !important;
+  object-fit: cover !important;
+  border-radius: 4px !important;
+}
+
+.menu-qr-popover span {
+  display: block !important;
+  margin-top: 9px !important;
+  color: var(--text) !important;
+  font-size: 12px !important;
+  line-height: 1.4 !important;
+  text-align: center !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+.menu-social-item:hover .menu-qr-popover,
+.menu-social-item:focus-within .menu-qr-popover {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translate(50%, 0) !important;
+  pointer-events: auto !important;
+}
+
+.qr-fallback {
+  display: none;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 4px;
+  place-items: center;
+  color: rgba(102, 8, 116, 0.62);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  background:
+    linear-gradient(90deg, rgba(102, 8, 116, 0.11) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(102, 8, 116, 0.11) 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, rgba(176, 124, 192, 0.12), transparent 58%),
+    rgba(250, 248, 244, 0.96);
+}
+
+@media (max-width: 860px) {
+  .menu-footer {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    align-items: start !important;
+  }
+
+  .menu-social-matrix {
+    margin-left: 0 !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    gap: 10px !important;
+  }
+
+  .menu-social-links {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+
+  .menu-social-icon {
+    width: 30px !important;
+    height: 30px !important;
+  }
+}
+
 </style>
 <script>
 /* Fix v3.2: immediately clear focus on page load to prevent blue outline from previous page navigation */
@@ -1199,37 +1396,9 @@ html[data-lang="en"] .team-member > .member-bio {
 </button>
 </div>
 </div></header>
-<!-- ============ MENU OVERLAY ============ -->
-<div aria-hidden="true" aria-label="Navigation" aria-modal="true" class="menu-overlay" id="menu-overlay" role="dialog">
-<div class="menu-shell">
-<div class="menu-top">
-<div class="menu-label"><span data-i18n="menu.label">导航</span><i>/</i><em>Menu</em></div>
-<button aria-label="Close menu" class="menu-close" data-menu-close="" type="button"><span></span><span></span></button>
-</div>
-<div class="menu-grid">
-<nav aria-label="Primary navigation" class="menu-primary">
-<a data-menu-link="" href="index.html#about-fund"><span class="menu-num">01</span><strong data-i18n="menu.nav.about">关于我们</strong><em>About Us</em></a>
-<a data-menu-link="" href="index.html#focus"><span class="menu-num">02</span><strong data-i18n="menu.nav.portfolio">投资组合</strong><em>Portfolio</em></a>
-<a data-menu-link="" href="insights.html"><span class="menu-num">03</span><strong data-i18n="menu.nav.insights">洞察</strong><em>Insights</em></a>
-<a data-menu-link="" href="team.html"><span class="menu-num">04</span><strong data-i18n="menu.nav.team">团队</strong><em>Team</em></a>
-</nav>
-<aside aria-label="Featured links" class="menu-side">
-<div class="menu-panel menu-build-card">
-<div class="menu-build-copy">
-<div class="menu-kicker" data-i18n="menu.contact.kicker">Build With Us</div>
-<p data-i18n="menu.contact.text"><span class="phrase">如果你正在寻找、定义，</span><span class="phrase">或亲手建造一个尚未被市场命名的未来，</span><span class="phrase">我们希望更早与你相遇。</span></p>
-</div>
-<a class="menu-contact-cta" data-menu-link="" href="contact.html"><span data-i18n="menu.contact.link">联系我们</span><span aria-hidden="true">→</span></a>
-</div>
-</aside>
-</div>
-<div class="menu-footer">
-<a class="menu-home-link" data-i18n="menu.footer.home" data-menu-link="" href="index.html">回到首页</a>
-<span class="menu-footer-brand" data-i18n="menu.footer.meta">LINKX CAPITAL</span>
-<div aria-label="Social accounts" class="menu-footer-social"><span class="menu-footer-social-label">You can also find us on</span><a aria-label="LinkX Capital on X" href="https://x.com/LinkXCapital" rel="noreferrer" target="_blank">X</a><a aria-label="LinkX Capital on LinkedIn" href="https://www.linkedin.com/company/link-x-%E6%98%9F%E8%BF%9E%E8%B5%84%E6%9C%AC/?viewAsMember=true" rel="noreferrer" target="_blank">LinkedIn</a></div>
-</div>
-</div>
-</div>
+<!-- ============ MENU ============ -->
+<div data-shared-menu></div>
+<script src="assets/shared-menu.js" data-current="team" data-menu-id="menu-overlay"></script>
 <!-- ============ TEAM HERO ============ -->
 <section class="team-hero">
 <div class="container reveal">
@@ -1295,7 +1464,7 @@ html[data-lang="en"] .team-member > .member-bio {
       
       
       
-      "footer.slogan": "与 AGI 时代的定义者同行","footer.copyright": "@2026 北京星连肇基私募基金管理有限责任公司","menu.footer.home": "回到首页","menu.nav.team": "团队","menu.nav.insights": "洞察","menu.nav.portfolio": "投资组合","menu.nav.about": "关于我们","menu.home": "首页", "menu.research": "洞察", "menu.focus": "关注领域", "menu.portfolio": "投资组合", "menu.team": "团队", "menu.contact": "联系我们", "menu.footer.meta": "LinkX · 北京清华科技园", "menu.research.kicker": "Insights Feed", "menu.research.text": "持续追踪 AI 生态一线信号，捕捉通用智能时代最值得关注的技术、产品与创始人动态。", "menu.research.link": "获取最新动态", "menu.contact.kicker": "Build With Us", "menu.contact.text": "<span class=\"phrase\">如果你正在寻找、定义，</span><span class=\"phrase\">或亲手建造一个尚未被市场命名的未来，</span><span class=\"phrase\">我们希望更早与你相遇。</span>", "menu.contact.link": "联系我们",
+      "footer.slogan": "与 AGI 时代的定义者同行","footer.copyright": "@2026 北京星连肇基私募基金管理有限责任公司","footer.wechatFund": "基金微信公众号","footer.wechatIncubator": "孵化器微信公众号","menu.footer.home": "回到首页","menu.nav.team": "团队","menu.nav.insights": "洞察","menu.nav.portfolio": "投资组合","menu.nav.about": "关于我们","menu.home": "首页", "menu.research": "洞察", "menu.focus": "关注领域", "menu.portfolio": "投资组合", "menu.team": "团队", "menu.contact": "联系我们", "menu.footer.meta": "LinkX · 北京清华科技园", "menu.research.kicker": "Insights Feed", "menu.research.text": "持续追踪 AI 生态一线信号，捕捉通用智能时代最值得关注的技术、产品与创始人动态。", "menu.research.link": "获取最新动态", "menu.contact.kicker": "Build With Us", "menu.contact.text": "<span class=\"phrase\">如果你正在寻找、定义，</span><span class=\"phrase\">或亲手建造一个尚未被市场命名的未来，</span><span class=\"phrase\">我们希望更早与你相遇。</span>", "menu.contact.link": "联系我们",
       "nav.beliefs": "理念", "nav.daily": "洞察", "nav.focus": "关注领域", "nav.portfolio": "投资组合", "nav.team": "团队", "nav.contact": "联系",
       "team.kicker": "Team · 管理团队",
       "team.n1": "张鸣晨", "team.t1": "主管合伙人 / Managing Partner",
@@ -1318,7 +1487,7 @@ html[data-lang="en"] .team-member > .member-bio {
       
       
       
-      "footer.slogan": "Partnering with founders defining the AGI era","footer.copyright": "@2026 LinkX Capital. All rights reserved.","menu.footer.home": "Back Home","menu.nav.team": "Team","menu.nav.insights": "Insights","menu.nav.portfolio": "Portfolio","menu.nav.about": "About Us","menu.home": "Home", "menu.research": "Insights", "menu.focus": "Focus", "menu.portfolio": "Portfolio", "menu.team": "Team", "menu.contact": "Contact", "menu.footer.meta": "LINKX CAPITAL", "menu.research.kicker": "Research Feed", "menu.research.text": "持续追踪 AI 生态一线信号，捕捉通用智能时代最值得关注的技术、产品与创始人动态。", "menu.research.link": "获取最新动态", "menu.contact.kicker": "Build With Us", "menu.contact.text": "If you are seeking, defining, or building a future the market has not yet named, we hope to meet you earlier.", "menu.contact.link": "Contact Us",
+      "footer.slogan": "Partnering with founders defining the AGI era","footer.copyright": "@2026 LinkX Capital. All rights reserved.","footer.wechatFund": "WeChat · Fund","footer.wechatIncubator": "WeChat · Incubator","menu.footer.home": "Back Home","menu.nav.team": "Team","menu.nav.insights": "Insights","menu.nav.portfolio": "Portfolio","menu.nav.about": "About Us","menu.home": "Home", "menu.research": "Insights", "menu.focus": "Focus", "menu.portfolio": "Portfolio", "menu.team": "Team", "menu.contact": "Contact", "menu.footer.meta": "LINKX CAPITAL", "menu.research.kicker": "Research Feed", "menu.research.text": "持续追踪 AI 生态一线信号，捕捉通用智能时代最值得关注的技术、产品与创始人动态。", "menu.research.link": "获取最新动态", "menu.contact.kicker": "Build With Us", "menu.contact.text": "If you are seeking, defining, or building a future the market has not yet named, we hope to meet you earlier.", "menu.contact.link": "Contact Us",
       "nav.beliefs": "Beliefs", "nav.daily": "Insights", "nav.focus": "Focus", "nav.portfolio": "Portfolio", "nav.team": "Team", "nav.contact": "Contact",
       "team.kicker": "Team",
       "team.n1": "Alex Zhang", "team.t1": "Managing Partner",
