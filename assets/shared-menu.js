@@ -313,7 +313,7 @@ html[data-lang="en"] .menu-overlay .menu-copyright-fixed {
 
   const items = [
     { key: "home", href: "index.html#slogan", i18n: "menu.home", zh: "首页", en: "Home" },
-    { key: "portfolio", href: "portfolio-redpoint-linkx(2).html", i18n: "menu.nav.portfolio", zh: "投资组合", en: "Portfolio" },
+    { key: "portfolio", href: "portfolio.html", i18n: "menu.nav.portfolio", zh: "投资组合", en: "Portfolio" },
     { key: "team", href: "team.html", i18n: "menu.nav.team", zh: "团队", en: "Team" },
     { key: "insights", href: "insights.html", i18n: "menu.nav.insights", zh: "洞察", en: "Insights" }
   ].filter(item => item.key !== current);
