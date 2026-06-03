@@ -1,0 +1,1808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research Department Showcase - LinkX Capital</title>
+  <meta name="description" content="LinkX Capital Industry Research: mapping the AI frontier through two core research threads, five signal layers, and six analytical lenses.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F7F2EA;
+      --bg-warm: #ECE2D4;
+      --paper: #FFFCF6;
+      --border: rgba(25, 23, 22, 0.18);
+      --border-light: rgba(25, 23, 22, 0.10);
+      --text: #191716;
+      --muted: #706A62;
+      --light: #A49A8C;
+      --purple: #5D126A;
+      --purple-mid: #8C3A83;
+      --purple-soft: #C99CC4;
+      --purple-pale: #EFE0EC;
+      --purple-wash: #F3E9F0;
+      --moss: #6F7F55;
+      --rust: #A95532;
+      --gold: #B88A38;
+      --dark: #181318;
+      --shadow: 0 26px 80px rgba(58, 41, 28, 0.13);
+      --serif: "Instrument Serif", Georgia, serif;
+      --sans: "Instrument Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
+      --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      --max: 1180px;
+      --px: clamp(22px, 5vw, 76px);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        linear-gradient(90deg, rgba(25, 23, 22, 0.035) 1px, transparent 1px) 0 0 / 42px 42px,
+        linear-gradient(180deg, rgba(25, 23, 22, 0.028) 1px, transparent 1px) 0 0 / 42px 42px,
+        var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.68;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      line-break: strict;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+    a { color: inherit; }
+    h1, h2, h3 { text-wrap: balance; }
+    p, li { text-wrap: pretty; }
+    .container {
+      width: min(var(--max), 100%);
+      margin: 0 auto;
+      padding: 0 var(--px);
+    }
+    .kicker {
+      display: inline-flex;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--purple);
+    }
+    .section-title {
+      margin: 16px 0 0;
+      font-family: var(--serif);
+      font-size: clamp(32px, 3.6vw, 52px);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.12;
+      max-width: 13em;
+    }
+    .section-intro {
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: clamp(15px, 1vw, 16px);
+      line-height: 1.86;
+      max-width: 54em;
+    }
+
+    /* ─── Site Header ─── */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(247, 242, 234, 0.82);
+      border-bottom: 1px solid var(--border-light);
+      backdrop-filter: blur(18px) saturate(120%);
+    }
+    .nav {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 0 clamp(20px, 4vw, 48px);
+    }
+    .brand {
+      display: inline-grid;
+      gap: 1px;
+      text-decoration: none;
+      line-height: 1;
+    }
+    .brand strong {
+      font-size: 20px;
+      letter-spacing: 0.03em;
+    }
+    .brand span {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: clamp(10px, 1.6vw, 20px);
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .nav-links a { text-decoration: none; padding: 10px 0; white-space: nowrap; }
+    .nav-links a:hover, .nav-links a:focus-visible { color: var(--purple); outline: none; }
+    .language-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      padding: 3px;
+      border: 1px solid var(--border);
+      background: rgba(255, 252, 246, 0.48);
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+    .language-toggle a,
+    .language-toggle .lang-current {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 34px;
+      min-height: 24px;
+      padding: 6px 8px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .language-toggle a { color: var(--muted); transition: background 180ms ease, color 180ms ease; }
+    .language-toggle a:hover,
+    .language-toggle a:focus-visible { color: var(--purple); background: var(--purple-wash); outline: none; }
+    .language-toggle .lang-current { color: #fff; background: var(--purple); }
+    footer .language-toggle {
+      border-color: rgba(250, 248, 244, 0.24);
+      background: rgba(250, 248, 244, 0.08);
+    }
+    footer .language-toggle a { color: rgba(250, 248, 244, 0.58); }
+    footer .language-toggle a:hover,
+    footer .language-toggle a:focus-visible { color: rgba(250, 248, 244, 0.96); background: rgba(250, 248, 244, 0.14); }
+    footer .language-toggle .lang-current { color: var(--dark); background: rgba(250, 248, 244, 0.86); }
+
+    /* ─── Hero ─── */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(62px, 8vw, 112px) 0 clamp(52px, 6vw, 84px);
+      background:
+        radial-gradient(circle at 88% 8%, rgba(93, 18, 106, 0.08), transparent 28%),
+        linear-gradient(180deg, rgba(255, 252, 246, 0.72) 0%, rgba(247, 242, 234, 0.92) 100%);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 20px clamp(18px, 3vw, 42px);
+      pointer-events: none;
+      border: 1px solid var(--border-light);
+      border-radius: 2px;
+      mask-image: linear-gradient(90deg, #000 0 18%, transparent 18% 82%, #000 82%);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(320px, 1.02fr) minmax(360px, 0.98fr);
+      gap: clamp(34px, 5vw, 72px);
+      align-items: start;
+    }
+    h1 {
+      margin: 18px 0 0;
+      font-family: var(--serif);
+      font-size: clamp(42px, 4.8vw, 64px);
+      font-weight: 400;
+      line-height: 1.09;
+      letter-spacing: -0.02em;
+      max-width: 12ch;
+    }
+    h1 em { color: var(--purple); font-style: italic; }
+    .hero-copy p {
+      margin: clamp(22px, 3vw, 34px) 0 0;
+      max-width: 42em;
+      color: var(--muted);
+      font-size: clamp(15px, 1.02vw, 16px);
+      line-height: 1.9;
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0;
+      margin-top: 32px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .stat {
+      background: transparent;
+      padding: 18px 18px 18px 0;
+      min-height: 98px;
+      border-right: 1px solid var(--border-light);
+    }
+    .stat:last-child { border-right: none; }
+    .stat b {
+      display: block;
+      font-family: var(--serif);
+      font-size: clamp(28px, 3.2vw, 44px);
+      line-height: 1;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    }
+    .stat span {
+      display: block;
+      margin-top: 9px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.65;
+    }
+
+    /* ─── Feature Rail ─── */
+    .feature-rail { min-width: 0; display: grid; gap: 14px; }
+    .feature-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+    }
+    .feature-head .hint {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--light);
+      text-transform: uppercase;
+    }
+    .featured-showcase {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .feature-card {
+      position: relative;
+      min-height: auto;
+      display: grid;
+      gap: 10px;
+      padding: clamp(18px, 2vw, 24px);
+      color: var(--text);
+      text-decoration: none;
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      background: rgba(255, 252, 246, 0.56);
+      transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+    }
+    .feature-card:first-child { grid-row: auto; }
+    .feature-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 3px;
+      background: var(--purple);
+      opacity: 0;
+      transition: opacity 200ms ease;
+    }
+    .feature-card:hover,
+    .feature-card:focus-visible {
+      border-color: rgba(93, 18, 106, 0.26);
+      box-shadow: 0 12px 34px rgba(58, 41, 28, 0.08);
+      transform: translateY(-2px);
+      outline: none;
+    }
+    .feature-card:hover::before,
+    .feature-card:focus-visible::before { opacity: 1; }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      font-family: var(--mono);
+      font-size: 9.5px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .meta span {
+      color: var(--light);
+      border: 1px solid var(--border-light);
+      background: rgba(255, 252, 246, 0.42);
+      padding: 3px 9px;
+    }
+    .feature-card h2,
+    .feature-card h3 {
+      margin: 0;
+      max-width: 19em;
+      color: var(--text);
+      font-family: var(--serif);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      text-shadow: none;
+    }
+    .feature-card h2 { font-size: clamp(22px, 1.9vw, 29px); }
+    .feature-card h3 { font-size: clamp(19px, 1.55vw, 24px); }
+    .feature-card p {
+      margin: 0;
+      max-width: 38em;
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.72;
+    }
+
+    /* ─── Main Framework Section ─── */
+    .framework-section {
+      padding: clamp(42px, 6vw, 78px) 0;
+      border-top: 1px solid var(--border);
+    }
+    .section-grid {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.76fr) minmax(0, 1.24fr);
+      gap: clamp(34px, 6vw, 86px);
+      align-items: start;
+    }
+    .section-lede {
+      position: sticky;
+      top: 104px;
+      padding-left: clamp(0px, 1.8vw, 18px);
+      border-left: 1px solid var(--border-light);
+    }
+    .section-lede h2 {
+      margin: 16px 0 0;
+      font-family: var(--serif);
+      font-size: clamp(31px, 3.45vw, 50px);
+      line-height: 1.12;
+      font-weight: 400;
+      letter-spacing: -0.018em;
+      max-width: 11.5em;
+    }
+    .section-lede p {
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: clamp(15px, 1vw, 16px);
+      line-height: 1.86;
+    }
+    .back-to-showcases {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      min-height: 34px;
+      margin-top: 22px;
+      padding: 8px 12px;
+      color: var(--purple);
+      background: rgba(255, 252, 246, 0.52);
+      border: 1px solid var(--purple-soft);
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      line-height: 1;
+      text-decoration: none;
+      text-transform: uppercase;
+      white-space: nowrap;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+    }
+    .back-to-showcases:hover,
+    .back-to-showcases:focus-visible {
+      transform: translateY(-1px);
+      background: var(--purple-wash);
+      border-color: var(--purple);
+      outline: none;
+    }
+    .content-block { display: grid; gap: 22px; }
+    .panel {
+      border-top: 1px solid var(--border);
+      padding-top: clamp(18px, 2.2vw, 24px);
+    }
+    .panel h3 {
+      margin: 0 0 12px;
+      font-size: 13px;
+      font-family: var(--mono);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple);
+      font-weight: 500;
+    }
+    .panel p {
+      margin: 0 0 14px;
+      color: var(--text);
+      font-size: 15.25px;
+      line-height: 1.86;
+    }
+    .panel ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+    .panel li {
+      position: relative;
+      padding-left: 20px;
+      color: var(--text);
+      font-size: 14.75px;
+      line-height: 1.84;
+    }
+    .panel li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.78em;
+      width: 6px;
+      height: 1px;
+      background: var(--purple);
+    }
+
+    /* ─── L1-L5 Matrix ─── */
+    .signal-matrix {
+      display: grid;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .matrix-row {
+      display: grid;
+      grid-template-columns: minmax(74px, 0.18fr) 1fr;
+      gap: 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .matrix-row:last-child { border-bottom: none; }
+    .matrix-label {
+      background: rgba(255, 252, 246, 0.72);
+      padding: 14px;
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      font-weight: 500;
+      color: var(--purple);
+      display: flex;
+      align-items: start;
+      border-right: 1px solid var(--border-light);
+    }
+    .matrix-cell {
+      background: rgba(255, 252, 246, 0.72);
+      padding: 14px 18px;
+    }
+    .matrix-title {
+      font-size: 14.75px;
+      color: var(--text);
+      font-weight: 500;
+      line-height: 1.62;
+    }
+    .matrix-sub {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-top: 4px;
+    }
+    .matrix-sub::before {
+      content: "↳ ";
+      color: var(--light);
+    }
+
+    /* ─── Research Products ─── */
+    .products-section {
+      padding: clamp(42px, 6vw, 78px) 0;
+      border-top: 1px solid var(--border);
+      background: var(--bg-warm);
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+    .product-card {
+      position: relative;
+      overflow: hidden;
+      background: rgba(255, 252, 246, 0.76);
+      border: 1px solid var(--border-light);
+      box-shadow: 0 18px 54px rgba(58, 41, 28, 0.075);
+      padding: clamp(22px, 2.5vw, 30px);
+      display: grid;
+      gap: 12px;
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+    }
+    .product-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--purple), var(--rust), var(--gold));
+      opacity: 0.72;
+    }
+    .product-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(93, 18, 106, 0.24);
+      box-shadow: 0 24px 68px rgba(58, 41, 28, 0.12);
+    }
+    .product-card .prod-tag {
+      font-family: var(--mono);
+      font-size: 9.5px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple);
+      border: 1px solid var(--purple-soft);
+      padding: 3px 9px;
+      width: fit-content;
+    }
+    .product-card h3 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(20px, 1.65vw, 24px);
+      font-weight: 400;
+      letter-spacing: -0.005em;
+      line-height: 1.36;
+    }
+    .product-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13.75px;
+      line-height: 1.78;
+    }
+    .product-card .prod-meta {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      color: var(--light);
+      border-top: 1px solid var(--border-light);
+      padding-top: 10px;
+    }
+    .product-card a {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--purple);
+      text-decoration: none;
+      border-bottom: 1px solid var(--purple-soft);
+      width: fit-content;
+    }
+    .product-card a:hover { color: var(--purple-mid); }
+
+    /* ─── Pipeline Section ─── */
+    .pipeline-section {
+      padding: clamp(42px, 6vw, 78px) 0;
+      border-top: 1px solid var(--border);
+    }
+    .pipeline-flow {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 24px;
+    }
+    .pipe-step {
+      background: rgba(255, 252, 246, 0.72);
+      padding: 18px 20px;
+      display: grid;
+      gap: 8px;
+    }
+    .pipe-step .step-num {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--light);
+    }
+    .pipe-step .step-title {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      color: var(--text);
+      font-weight: 500;
+    }
+    .pipe-step .step-desc {
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.68;
+    }
+
+    /* ─── Tools Roadmap ─── */
+    .tools-section {
+      padding: clamp(42px, 6vw, 78px) 0;
+      border-top: 1px solid var(--border);
+      background: var(--bg-warm);
+    }
+    .roadmap {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 32px;
+    }
+    .roadmap-col {
+      display: grid;
+      gap: 16px;
+    }
+    .roadmap-col h3 {
+      margin: 0;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+    }
+    .roadmap-col .col-subtitle {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: -8px;
+    }
+    .tool-item {
+      background: rgba(255, 252, 246, 0.62);
+      border: 1px solid var(--border-light);
+      border-left: 3px solid rgba(93, 18, 106, 0.28);
+      padding: 14px 16px;
+      display: grid;
+      gap: 6px;
+    }
+    .tool-item .tool-name {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--text);
+      font-weight: 500;
+    }
+    .tool-item .tool-desc {
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.68;
+    }
+
+    /* ─── Showcases ─── */
+    .showcase-section {
+      padding: clamp(42px, 6vw, 78px) 0;
+      border-top: 1px solid var(--border);
+    }
+    .showcase-list {
+      display: grid;
+      gap: 0;
+      border-top: 1px solid var(--border);
+      margin-top: 32px;
+    }
+    .showcase-item {
+      display: grid;
+      grid-template-columns: 78px minmax(0, 1fr);
+      gap: 32px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      transition: background 220ms ease, transform 220ms ease, padding-left 220ms ease;
+      cursor: pointer;
+    }
+    .showcase-item:hover, .showcase-item:focus-visible {
+      background: rgba(255, 252, 246, 0.72);
+      transform: translateX(8px);
+      padding-left: 18px;
+      outline: none;
+    }
+    .showcase-date {
+      padding-top: 5px;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: var(--light);
+      text-transform: uppercase;
+    }
+    .showcase-date .day {
+      display: block;
+      font-family: var(--serif);
+      font-size: 24px;
+      line-height: 1;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+    .showcase-item h3 {
+      margin: 0;
+      font-family: var(--serif);
+      max-width: 30em;
+      font-size: clamp(19px, 1.45vw, 23px);
+      line-height: 1.42;
+      font-weight: 400;
+      letter-spacing: -0.005em;
+    }
+    .showcase-item h3 a {
+      text-decoration: none;
+      background-image: linear-gradient(var(--purple-soft), var(--purple-soft));
+      background-position: 0 100%;
+      background-repeat: no-repeat;
+      background-size: 0 1px;
+      transition: color 180ms ease, background-size 220ms ease;
+    }
+    .showcase-item h3 a:hover,
+    .showcase-item h3 a:focus-visible {
+      color: var(--purple);
+      background-size: 100% 1px;
+      outline: none;
+    }
+    .showcase-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .download-btn,
+    .detail-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+      text-transform: uppercase;
+      text-decoration: none;
+      line-height: 1;
+      transition: transform 180ms ease, background 180ms ease, color 180ms ease, border-color 180ms ease;
+    }
+    .download-btn {
+      color: #fff;
+      background: var(--purple);
+      border: 1px solid var(--purple);
+      padding: 8px 12px;
+      box-shadow: 0 10px 28px rgba(93, 18, 106, 0.18);
+    }
+    .detail-link {
+      color: var(--purple);
+      border: 1px solid var(--purple-soft);
+      padding: 8px 11px;
+      background: rgba(255, 252, 246, 0.5);
+    }
+    .download-btn:hover,
+    .download-btn:focus-visible,
+    .detail-link:hover,
+    .detail-link:focus-visible {
+      transform: translateY(-1px);
+      outline: none;
+    }
+    .download-btn:hover,
+    .download-btn:focus-visible { background: var(--purple-mid); border-color: var(--purple-mid); }
+    .detail-link:hover,
+    .detail-link:focus-visible { background: var(--purple-wash); border-color: var(--purple); }
+    .showcase-item p {
+      margin: 12px 0 0;
+      max-width: 66ch;
+      color: var(--muted);
+      font-size: 14.75px;
+      line-height: 1.82;
+    }
+    .showcase-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 9px;
+    }
+    .showcase-tag {
+      font-family: var(--mono);
+      font-size: 9.5px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple);
+      border: 1px solid var(--purple-soft);
+      padding: 3px 10px;
+    }
+    .showcase-track {
+      font-family: var(--mono);
+      font-size: 9.5px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--light);
+      padding: 4px 0;
+    }
+
+    /* ─── Footer ─── */
+    footer {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(201, 156, 196, 0.22), transparent 34%),
+        radial-gradient(circle at 86% 72%, rgba(169, 85, 50, 0.18), transparent 36%),
+        linear-gradient(135deg, #171318 0%, #261829 46%, #171318 100%);
+      color: rgba(250, 248, 244, 0.68);
+      padding: clamp(48px, 7vw, 76px) 0 clamp(28px, 4vw, 40px);
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: end;
+      gap: 24px;
+      font-size: 11px;
+    }
+    .footer-inner span:first-child,
+    .footer-inner a {
+      font-family: var(--mono);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(250, 248, 244, 0.54);
+      text-decoration: none;
+    }
+    .footer-inner strong {
+      justify-self: center;
+      color: rgba(250, 248, 244, 0.82);
+      font-size: 13px;
+      letter-spacing: 0.02em;
+      font-weight: 500;
+    }
+    .footer-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      justify-self: end;
+    }
+    .pdf-btn {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(250, 248, 244, 0.7);
+      background: rgba(250, 248, 244, 0.12);
+      border: 1px solid rgba(250, 248, 244, 0.24);
+      padding: 7px 14px;
+      cursor: pointer;
+      transition: all 200ms ease;
+      text-decoration: none;
+    }
+    .pdf-btn:hover, .pdf-btn:focus-visible {
+      background: rgba(250, 248, 244, 0.2);
+      color: rgba(250, 248, 244, 0.95);
+      outline: none;
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .section-grid { grid-template-columns: 1fr; }
+      .section-lede { position: static; }
+      .featured-showcase { grid-template-columns: 1fr; }
+      .feature-card:first-child { grid-row: auto; }
+      .roadmap { grid-template-columns: 1fr; }
+      .section-lede { padding-left: 0; border-left: none; }
+    }
+    @media (max-width: 720px) {
+      .nav { height: 66px; }
+      .nav-links { display: none; }
+      .hero { padding-top: 44px; }
+      .hero::before { display: none; }
+      h1 { font-size: clamp(38px, 11vw, 48px); max-width: 11ch; line-height: 1.12; }
+      .section-title,
+      .section-lede h2 { font-size: clamp(30px, 8.5vw, 40px); line-height: 1.16; max-width: 12em; }
+      .section-intro,
+      .section-lede p,
+      .hero-copy p { line-height: 1.82; }
+      .feature-card { min-height: auto; }
+      .feature-card h2 { font-size: clamp(23px, 6.5vw, 30px); }
+      .feature-card h3 { font-size: clamp(20px, 5.6vw, 25px); }
+      .matrix-row { grid-template-columns: minmax(62px, 0.24fr) 1fr; }
+      .hero-stats { grid-template-columns: 1fr; }
+      .stat { border-right: none; border-bottom: 1px solid var(--border-light); }
+      .stat:last-child { border-bottom: none; }
+      .products-grid,
+      .pipeline-flow { grid-template-columns: 1fr; }
+      .showcase-item { grid-template-columns: 1fr; gap: 12px; padding: 24px 0; }
+      .showcase-item:hover,
+      .showcase-item:focus-visible { transform: none; padding-left: 0; }
+      .showcase-actions { gap: 8px; }
+      .download-btn,
+      .detail-link { min-height: 32px; padding: 8px 10px; font-size: 9.5px; }
+      .showcase-date .day { display: inline; font-family: var(--mono); font-size: 12px; margin-right: 6px; }
+      .footer-inner { grid-template-columns: 1fr; align-items: start; gap: 14px; }
+      .footer-inner strong, .footer-inner a, .footer-actions { justify-self: start; }
+      .footer-actions { flex-direction: row; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── Header ─── -->
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="#top" aria-label="LinkX Capital">
+        <strong>LinkX</strong>
+        <span>Capital</span>
+      </a>
+      <div class="nav-links">
+        <a href="#framework">Research Framework</a>
+        <a href="#products">Research Products</a>
+        <a href="#pipeline">Daily Intelligence Pipeline</a>
+        <a href="#tools">AI Research Tools</a>
+        <a href="#showcases">Selected Research Excerpts</a>
+        <div class="language-toggle" aria-label="Language switcher">
+          <span class="lang-current" aria-current="page">EN</span>
+          <a href="lp-ai-insights-brief-zh.html" hreflang="zh-CN">中文</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- ─── Hero ─── -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="kicker">Industry Research · Selected Work</span>
+          <h1 id="hero-title">Insight and Timing<br>Are the Real <em>Edge</em></h1>
+          <p>
+            We track the global AI frontier through a network of 2,000+ AI scientists, founders, and portfolio companies, capturing signals from labs, markets, and startup trenches. Our research turns those signals into forward-looking judgments for investment decisions, portfolio support, and ecosystem positioning at the moments that matter.
+          </p>
+          <div class="hero-stats" aria-label="Key metrics">
+            <div class="stat"><b>90+</b><span>Days of stable automated coverage of global AI signals since March 2026</span></div>
+            <div class="stat"><b>2,000+</b><span>AI scientists, founders, and portfolio companies feeding firsthand market and technical signals</span></div>
+            <div class="stat"><b>5</b><span>Research products: Daily Feed / Onepage / Weekly Briefing / Deep Research / Quarterly Sharing</span></div>
+          </div>
+        </div>
+        <div class="feature-rail">
+          <div class="feature-head">
+            <span class="kicker">Featured Research</span>
+            <span class="hint">Click cards for summaries</span>
+          </div>
+          <div class="featured-showcase">
+            <a class="feature-card" href="#detail-agi">
+              <div class="meta"><span>LinkX Ideas</span><span>Annual Thesis</span></div>
+              <h2>The AGI inflection point has not arrived; technology-first remains the priority.</h2>
+              <p>Model capabilities are still improving largely linearly. The key questions are how far the intelligence ceiling can be pushed, and how to unlock capabilities that models already have but rarely express in real-world settings.</p>
+            </a>
+            <a class="feature-card" href="#detail-agent-os">
+              <div class="meta"><span>Deep Research</span><span>2026 Q2</span></div>
+              <h3>OpenClaw reveals a broader migration in the Agent software stack.</h3>
+              <p>Competition is shifting from standalone models to full systems: model, runtime, memory, toolchain, observability, and human interface.</p>
+            </a>
+            <a class="feature-card" href="#detail-self-evolution">
+              <div class="meta"><span>Onepage</span><span>2026 Q2</span></div>
+              <h3>Self-evolving AI reframes scaling around experience, feedback, and experimental loops.</h3>
+              <p>The near-term frontier is concentrated around L2-L3 systems; the long-term option value sits in L4-L5 capability feedback loops.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Framework Section ─── -->
+    <section class="framework-section" id="framework">
+      <div class="container section-grid">
+        <div class="section-lede">
+          <span class="kicker">Research Framework</span>
+          <h2>Two Threads × Five<br>Signal Layers × Six<br>Research Dimensions</h2>
+          <p>
+            Our work follows two threads and focuses on where technical possibility meets real demand.
+          </p>
+        </div>
+        <div class="content-block">
+
+          <div class="panel">
+            <h3>Two Threads</h3>
+            <ul>
+              <li><b>Upward: the ceiling of intelligence</b> — Tracking how scaling curves evolve across parameter count, training compute, inference cost, and capability ceilings, while watching for empirical laws and inflection signals.</li>
+              <li><b>Downward: the floor of adoption</b> — Assessing product-market fit and identifying areas where real usage and commercial validation are emerging, especially while they are still early enough to become trends.</li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <h3>Five Signal Layers (L1–L5)</h3>
+            <p>From new computing platforms to new organizational forms, we track how signals propagate through the AI stack. Each layer is evaluated through two lenses, capability leaps and efficiency gains, forming a 2×5 matrix for weekly review and structured judgment.</p>
+          </div>
+
+          <div class="signal-matrix">
+            <div class="matrix-row">
+              <div class="matrix-label">L5</div>
+              <div class="matrix-cell">
+                <div class="matrix-title">New organizational forms, production models, business models, and governance systems</div>
+              </div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label">L4</div>
+              <div class="matrix-cell">
+                <div class="matrix-title">New hardware/software, interaction paradigms, and the agent economy</div>
+                <div class="matrix-sub">Track PMF by job type: coding, legal, customer support, healthcare, finance, and more</div>
+              </div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label">L3</div>
+              <div class="matrix-cell">
+                <div class="matrix-title">New developer platforms and deployment infrastructure</div>
+                <div class="matrix-sub">Agent Infra · On-device and edge inference · MLSys · Inference Architecture Optimization</div>
+              </div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label">L2</div>
+              <div class="matrix-cell">
+                <div class="matrix-title">Intelligence Foundation / Foundation Models</div>
+                <div class="matrix-sub">Five capability directions: Cognitive Models / Situated Intelligence / Embodied AI / Spatial Intelligence / AI4Science</div>
+                <div class="matrix-sub">Model Architecture · Training Methods · Evaluation · Safety & Alignment</div>
+              </div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label">L1</div>
+              <div class="matrix-cell">
+                <div class="matrix-title">New computing platforms</div>
+                <div class="matrix-sub">New computing paradigms · Compute supply · Inference cost curves</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h3>Six Research Dimensions</h3>
+            <ul>
+              <li>Model frontiers — Compute tracking — Research watch</li>
+              <li>Industry activity — Startups and financing — Frontier discourse</li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <h3>How the Research Is Used</h3>
+            <ul>
+              <li><b>Pre-Investment</b>: Identify frontier directions and founder windows earlier, improving sourcing, screening, and investment judgment.</li>
+              <li><b>Post-Investment</b>: Support portfolio companies on strategy, use cases, GTM, and technical path validation, improving execution quality and upside potential.</li>
+              <li><b>Long-Term</b>: Build the industry-research-investment-founder loop that supports researcher-founders, incubation, and long-term ecosystem formation.</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Research Products ─── -->
+    <section class="products-section" id="products">
+      <div class="container">
+        <span class="kicker">Research Product Suite</span>
+        <h2 class="section-title">
+          From Signals to Judgment<br>A Full Research Loop
+        </h2>
+        <p class="section-intro">
+          The Daily Feed captures raw signals. Onepage briefs unpack the important ones. Weekly Briefings synthesize themes through the signal matrix. Deep Research goes into priority areas, while quarterly and annual sharing turns the work into durable theses. The system moves from dense to sparse, broad to deep, and signal to judgment.
+        </p>
+        <div class="products-grid">
+          <div class="product-card">
+            <span class="prod-tag">Daily Delivery</span>
+            <h3>Daily AI Frontier Feed</h3>
+            <p>Daily coverage of frontier AI developments, drawing from leading technology companies, research labs, and high-signal builders worldwide.</p>
+            <div class="prod-meta">Six categories · Updated daily · 90+ days live</div>
+            <a href="https://linkx-capital.github.io/ai-daily-news/" target="_blank">View Daily Feed →</a>
+          </div>
+          <div class="product-card">
+            <span class="prod-tag">Weekly · As needed</span>
+            <h3>Onepage (OP)</h3>
+            <p>A concise deep read on important daily-feed signals, usually covering context, implications, and our view in a single page. Also used to distill expert interviews and selected overseas research.</p>
+            <div class="prod-meta">Single-page analysis · Recent topics: AGI path / Agent OS / self-evolution</div>
+            <a href="#showcases">View Onepage →</a>
+          </div>
+          <div class="product-card">
+            <span class="prod-tag">Weekly release · Structured longform</span>
+            <h3>Weekly Briefing</h3>
+            <p>A structured scan across the L1-L5 signal matrix, distilling two to three trend lines with a core thesis, weekly evidence, non-obvious implications, and links to prior weeks.</p>
+            <div class="prod-meta">Recent examples: April Signals / May Signals</div>
+            <a href="#showcases">View Weekly Briefings →</a>
+          </div>
+          <div class="product-card">
+            <span class="prod-tag">1-3 month cadence · Deep report</span>
+            <h3>Deep Research</h3>
+            <p>Deep analysis of specific technology directions, verticals, or capital markets, supporting investment judgment before the deal and strategic support after the deal.</p>
+            <div class="prod-meta">Recent examples: video model comparison / 2025 capital landscape / founder tracking</div>
+            <a href="#showcases">View Deep Research →</a>
+          </div>
+          <div class="product-card">
+            <span class="prod-tag">LinkX Ideas · Annual Release</span>
+            <h3>LinkX Ideas</h3>
+            <p>Annual thesis work on where AI is likely to move over the next one to three years, turning accumulated research into long-term judgment and thought leadership.</p>
+            <div class="prod-meta">Featured topics: AGI path / Agent stack narrative</div>
+            <a href="#showcases">View LinkX Ideas →</a>
+          </div>
+
+          <div class="product-card">
+            <span class="prod-tag">Specialized tool · On demand</span>
+            <h3>Founder Background Research Tool</h3>
+            <p>Multi-step search, extraction, and deduplication that produces structured founder profiles and risk flags for sourcing and early diligence.</p>
+            <div class="prod-meta">Example output: Jiaye Teng · Theory talent profile</div>
+            <a href="#showcases">View Output Example →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Pipeline Section ─── -->
+    <section class="pipeline-section" id="pipeline">
+      <div class="container section-grid">
+        <div class="section-lede">
+          <span class="kicker">Daily Intelligence Pipeline</span>
+          <h2>Daily AI Frontier Intelligence<br>Running for 90+ Days</h2>
+          <p>
+            An automated pipeline for monitoring the global AI frontier. It aggregates public signals, cleans and classifies them, summarizes key items, runs quality checks, and distributes a daily brief to the team.
+          </p>
+        </div>
+        <div class="content-block">
+          <div class="panel">
+            <h3>How the Pipeline Works</h3>
+            <p>Apart from final human review, the workflow is fully scheduled and has been running reliably for more than three months.</p>
+          </div>
+          <div class="pipeline-flow">
+            <div class="pipe-step">
+              <div class="step-num">Step 01</div>
+              <div class="step-title">Public-source signal capture</div>
+              <div class="step-desc">Automated aggregation across public sources</div>
+            </div>
+            <div class="pipe-step">
+              <div class="step-num">Step 02</div>
+              <div class="step-title">LLM classification and summarization</div>
+              <div class="step-desc">Multi-model processing and structured summaries</div>
+            </div>
+            <div class="pipe-step">
+              <div class="step-num">Step 03</div>
+              <div class="step-title">Multi-layer QA</div>
+              <div class="step-desc">Length checks / keyword checks / factual review</div>
+            </div>
+            <div class="pipe-step">
+              <div class="step-num">Step 04</div>
+              <div class="step-title">Content quality pass</div>
+              <div class="step-desc">Deduplication / density improvement / format normalization</div>
+            </div>
+            <div class="pipe-step">
+              <div class="step-num">Step 05</div>
+              <div class="step-title">HTML / screenshot / Feishu delivery</div>
+              <div class="step-desc">Distribution across internal channels</div>
+            </div>
+            <div class="pipe-step">
+              <div class="step-num">Step 06</div>
+              <div class="step-title">GitHub Pages archive</div>
+              <div class="step-desc">Searchable, time-stamped knowledge archive</div>
+            </div>
+          </div>
+          <div class="panel" style="margin-top:22px;">
+            <h3>Daily AI Frontier Feed</h3>
+            <ul>
+              <li>Daily AI Frontier Feed → <a href="https://linkx-capital.github.io/ai-daily-news/" target="_blank" style="color:var(--purple);">linkx-capital.github.io/ai-daily-news</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Tools Roadmap ─── -->
+    <section class="tools-section" id="tools">
+      <div class="container">
+        <span class="kicker">AI Research Tool Roadmap</span>
+        <h2 class="section-title">
+          AI-Native Tools for Research, Sourcing, and Portfolio Support
+        </h2>
+        <p class="section-intro">A roadmap for turning research workflows into reusable systems across daily intelligence, deep research, founder profiling, opportunity discovery, and portfolio support.</p>
+        <div class="roadmap">
+          <div class="roadmap-col">
+            <h3>1. Implemented (Infrastructure Layer)</h3>
+            <div class="tool-item">
+              <div class="tool-name">Daily AI Frontier Intelligence Pipeline</div>
+              <div class="tool-desc">Public-source capture → LLM classification and summarization → QA → quality pass → HTML/screenshot/Feishu delivery → GitHub Pages archive. Fully scheduled end to end.</div>
+            </div>
+            <div class="tool-item">
+              <div class="tool-name">Multi-agent Deep Research System</div>
+              <div class="tool-desc">A Planner / Collector / Analyst / Critic loop that can produce deep research on AI topics: framing, multi-round retrieval, structured writing, fact-checking, quality scoring, and gap-filling iteration.</div>
+            </div>
+            <div class="tool-item">
+              <div class="tool-name">Founder Background Investigation Tool</div>
+              <div class="tool-desc">Multi-step search, extraction, and deduplication that produces structured founder profiles and risk flags for sourcing and early diligence.</div>
+            </div>
+            <div class="tool-item">
+              <div class="tool-name">Frontier Model Tracking Database</div>
+              <div class="tool-desc">Time-series tracking across 10+ vendors, 30+ models, and 20+ benchmarks, supporting weekly analysis of release cadence, cost curves, and capability progress.</div>
+            </div>
+          </div>
+          <div class="roadmap-col">
+            <h3>2. In Progress (Intelligence & Opportunity Mining)</h3>
+            <div class="tool-item">
+              <div class="tool-name">Compute Market Tracking System</div>
+              <div class="tool-desc">Tracks model pricing, cloud AI workload pricing, chip vendor activity, and compute investment by model companies, helping assess supply-demand shifts and cost curves.</div>
+            </div>
+            <div class="tool-item">
+              <div class="tool-name">Four-Track Daily Intelligence Analysis</div>
+              <div class="tool-desc">Builds on the daily feed with structured analysis across models, compute, research, and applications, surfacing cross-track insights, funding hotspots, white-space opportunities, and productization signals.</div>
+            </div>
+            <div class="tool-item">
+              <div class="tool-name">Frontier Team and Talent Discovery</div>
+              <div class="tool-desc">Identifies high-signal researchers and early teams across academia and industry, building a time-stamped discovery record.</div>
+            </div>
+          </div>
+          <div class="roadmap-col">
+            <h3>3. Future (Decision and Portfolio Support Layer)</h3>
+            <div class="tool-item">
+              <div class="tool-name">Research Knowledge Graph and Timeline Memory</div>
+              <div class="tool-desc">Turns daily research into a structured, searchable knowledge base that can answer what we know, what is missing, and what to ask next in any direction.</div>
+            </div>
+            <div class="tool-item">
+              <div class="tool-name">Integrated Investment Research Decision Support</div>
+              <div class="tool-desc">Extends the research pipeline into diligence, post-investment monitoring, and portfolio review, embedding research capabilities into key investment workflows.</div>
+            </div>
+            <div class="tool-item">
+              <div class="tool-name">Portfolio Company Support Platform</div>
+              <div class="tool-desc">Provides portfolio companies with AI strategy assessment, competitive tracking, and technical path validation, turning research into a post-investment value driver.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Showcases ─── -->
+    <section class="showcase-section" id="showcases">
+      <div class="container">
+        <span class="kicker">Selected Research and Downloads</span>
+        <h2 class="section-title">
+          Research Excerpts
+        </h2>
+
+        <div class="showcase-list">
+
+          <article class="showcase-item">
+            <div class="showcase-date"><span class="day">LI</span>LinkX Ideas</div>
+            <div>
+              <div class="showcase-meta">
+                <span class="showcase-tag">LinkX Ideas</span>
+                <span class="showcase-track">Models / Scaling</span>
+              </div>
+              <h3><a href="#detail-agi">The AGI Inflection Point Has Not Arrived; Technology Still Comes First</a></h3>
+              <div class="showcase-actions">
+                <a class="download-btn" href="assets/reports/linkx-ideas-agi-inflection-en.pdf" download>Download Report</a>
+                <a class="detail-link" href="#detail-agi">Read Summary</a>
+              </div>
+              <p>Model capabilities are still improving largely linearly. Scaling is not over; the bottleneck is not only model size, but also how to activate long-tail capabilities. The most important opportunities sit where technical ceilings meet real adoption.</p>
+            </div>
+          </article>
+
+          <article class="showcase-item">
+            <div class="showcase-date"><span class="day">OP</span>Onepage</div>
+            <div>
+              <div class="showcase-meta">
+                <span class="showcase-tag">System</span>
+                <span class="showcase-track">Agent Stack</span>
+              </div>
+              <h3><a href="#detail-agent-os">OpenClaw: A Window into the Agent Software Stack Migration</a></h3>
+              <div class="showcase-actions">
+                <a class="download-btn" href="assets/reports/openclaw-agent-stack-migration-en.pdf" download>Download Report</a>
+                <a class="detail-link" href="#detail-agent-os">Read Summary</a>
+              </div>
+              <p>The competitive unit is moving from a single model to a full stack: model, runtime, memory, toolchain, observability, and human interface. Chinese developers are adopting Agent infrastructure quickly, while US frontier labs retain stronger model and safety advantages.</p>
+            </div>
+          </article>
+
+          <article class="showcase-item">
+            <div class="showcase-date"><span class="day">OP</span>Onepage</div>
+            <div>
+              <div class="showcase-meta">
+                <span class="showcase-tag">Frontier</span>
+                <span class="showcase-track">New Scaling Path</span>
+              </div>
+              <h3><a href="#detail-self-evolution">Self-Evolving AI: Scaling Through Experience, Feedback, and Experiment Loops</a></h3>
+              <div class="showcase-actions">
+                <a class="download-btn" href="assets/reports/ai-self-evolution-neo-lab-en.pdf" download>Download Report</a>
+                <a class="detail-link" href="#detail-self-evolution">Read Summary</a>
+              </div>
+              <p>The near-term verifiable inflection point is L2-L3: automated research or experiment loops. L4 is the true watershed, where experience feeds back into the next generation of systems. Code, math, simulation, and lab experiments are the most investable early environments.</p>
+            </div>
+          </article>
+
+          <article class="showcase-item">
+            <div class="showcase-date"><span class="day">04</span>Weekly</div>
+            <div>
+              <div class="showcase-meta">
+                <span class="showcase-tag">Weekly</span>
+                <span class="showcase-track">Efficiency / Infrastructure</span>
+              </div>
+              <h3><a href="#detail-april">April Signals: Before the Next Model Leap, Efficiency Becomes the Story</a></h3>
+              <div class="showcase-actions">
+                <a class="download-btn" href="assets/reports/weekly-briefing-0420-0426-en.pdf" download>Download Report</a>
+                <a class="detail-link" href="#detail-april">Read Summary</a>
+              </div>
+              <p>MoE, KV-cache compression, hybrid attention, cross-cluster inference, and routing are moving closer to the center of competition. DeepSeek V4 completing full training on domestic chips is an important signal.</p>
+            </div>
+          </article>
+
+          <article class="showcase-item">
+            <div class="showcase-date"><span class="day">05</span>Weekly</div>
+            <div>
+              <div class="showcase-meta">
+                <span class="showcase-tag">Weekly</span>
+                <span class="showcase-track">Deployment / Commercialization</span>
+              </div>
+              <h3><a href="#detail-may">May Signals: Enterprise AI Moves from Pilots Toward Execution</a></h3>
+              <div class="showcase-actions">
+                <a class="download-btn" href="assets/reports/weekly-briefing-0505-0524-en.pdf" download>Download Report</a>
+                <a class="detail-link" href="#detail-may">Read Summary</a>
+              </div>
+              <p>Enterprise deployment and L2-L3 self-evolution are accelerating. Real deployments create task experience. On Ramp data, Anthropic reached 34.4% enterprise share, surpassing OpenAI. The model-plus-harness narrative is getting stronger.</p>
+            </div>
+          </article>
+
+          <article class="showcase-item">
+            <div class="showcase-date"><span class="day">DR</span>Deep Research</div>
+            <div>
+              <div class="showcase-meta">
+                <span class="showcase-tag">Deep Research</span>
+                <span class="showcase-track">Video Generation</span>
+              </div>
+              <h3><a href="#detail-video">Vidu Q3 vs. Seedance 2.0: Physical Realism or Production Control</a></h3>
+              <div class="showcase-actions">
+                <a class="download-btn" href="assets/reports/vidu-q3-vs-seedance-2-en.pdf" download>Download Report</a>
+                <a class="detail-link" href="#detail-video">Read Summary</a>
+              </div>
+              <p>Both models sit in the first tier, but their architectures point to different trajectories. Vidu leans toward physical consistency and cinematic emergence; Seedance leans toward controllable production workflows and real-time interactive video.</p>
+            </div>
+          </article>
+
+          <article class="showcase-item">
+            <div class="showcase-date"><span class="day">DR</span>Deep Research</div>
+            <div>
+              <div class="showcase-meta">
+                <span class="showcase-tag">Deep Research</span>
+                <span class="showcase-track">Capital Landscape</span>
+              </div>
+              <h3><a href="#detail-capital">China AI Financing in 2025: More Active, More Strategic, More Enterprise-Oriented</a></h3>
+              <div class="showcase-actions">
+                <a class="download-btn" href="assets/reports/2025-investment-financing-situation-en.pdf" download>Download Report</a>
+                <a class="detail-link" href="#detail-capital">Read Summary</a>
+              </div>
+              <p>China recorded 9,058 private-market deals in 2025, up 28% year over year, with state-backed investors involved in 44.55% of transactions. In AI, 930 companies raised ¥107.07B; robotics grew 220.1%. More than 60% of AI capital went to enterprise-oriented scenarios.</p>
+            </div>
+          </article>
+
+          <article class="showcase-item">
+            <div class="showcase-date"><span class="day">T</span>Specialized Tool</div>
+            <div>
+              <div class="showcase-meta">
+                <span class="showcase-tag">Founder Investigation</span>
+                <span class="showcase-track">Theory Talent</span>
+              </div>
+              <h3><a href="#detail-founder">Jiaye Teng: A High-Signal AI Theory Profile, with Founder Intent Still Unclear</a></h3>
+              <div class="showcase-actions">
+                <a class="download-btn" href="assets/reports/founder-profile-teng-jiaye-en.pdf" download>Download Report</a>
+                <a class="detail-link" href="#detail-founder">Read Summary</a>
+              </div>
+              <p>A tenure-track assistant professor at SUFE with a PhD from Tsinghua IIIS. During his PhD, Teng published seven top-conference papers across ICML, ICLR, and NeurIPS, and collaborated with Turing Award winners Andrew Yao and Yoshua Bengio. His FAI-Seminar content has reached 200K+ views on Bilibili.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Detail Sections ─── -->
+
+    <!-- 01 AGI Path -->
+    <section class="framework-section" id="detail-agi" style="scroll-margin-top:92px;">
+      <div class="container section-grid">
+        <div class="section-lede">
+          <span class="kicker">LinkX Ideas</span>
+          <h2>Technology Still Comes First.</h2>
+          <p>The AGI inflection point has not yet arrived. The core task is twofold: keep pushing the intelligence ceiling, and learn how to reliably unlock capabilities that models already possess in real-world settings.</p>
+          <a class="back-to-showcases" href="#showcases">Back to Excerpts</a>
+        </div>
+        <div class="content-block">
+          <div class="panel">
+            <h3>Scaling Remains the Most Efficient Way to Raise the Ceiling</h3>
+            <p>Larger datasets, including synthetic and distilled data, larger parameter counts, and more compute remain necessary. Even after two years of multimodal and end-to-end speech exploration, <b>text</b> still appears to be the core substrate for pushing the intelligence ceiling.</p>
+          </div>
+          <div class="panel">
+            <h3>Alignment, Reasoning, and Activation Are the Unlocks</h3>
+            <ul>
+              <li>Reinforcement learning is gradually replacing SFT and chain-of-thought tuning as the dominant alignment path. Mid-training and post-training should make fast alignment possible across more scenarios.</li>
+              <li>Cross-environment generalization remains a hard problem for agents. The most direct path is to create more environment data and run reinforcement learning across different environments.</li>
+              <li>The next breakthrough is likely to involve <b>memory, online learning, and self-evaluation</b>. Context, RAG, and parameters roughly map to short-, medium-, and long-term memory; self-evaluation may become the basis for a new scaling paradigm.</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Application-Layer Strategy</h3>
+            <ul>
+              <li>Application-layer products need to stay thin enough to adapt as model capabilities evolve quickly.</li>
+              <li>Domain-specific models may eventually be absorbed by stronger foundation models, but they still have a real competitive window today.</li>
+              <li>Products should be organized around actual work types, not SaaS-era software categories.</li>
+            </ul>
+          </div>
+          <div class="signal-matrix">
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">Scaling</div>
+              <div class="matrix-cell"><div class="matrix-title">Still the most efficient path for improving model capability; text remains the core medium.</div></div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">Memory</div>
+              <div class="matrix-cell"><div class="matrix-title">A three-layer memory architecture: context for short-term memory, RAG for medium-term memory, and parameters for long-term memory.</div></div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">Self-Evaluation</div>
+              <div class="matrix-cell"><div class="matrix-title">Continual, real-time, and online learning may become a new scaling paradigm.</div></div>
+            </div>
+          </div>
+          <div class="panel">
+            <h3>What to Watch</h3>
+            <ul>
+              <li>Whether mid-training and post-training can rapidly align models to long-tail real-world scenarios.</li>
+              <li>Whether continual, online, and real-time learning become a new scaling paradigm.</li>
+              <li>Whether domain models become durable companies or are ultimately absorbed by stronger general-purpose foundation models.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 Agent OS -->
+    <section class="framework-section" id="detail-agent-os" style="scroll-margin-top:92px;background:var(--bg-warm);">
+      <div class="container section-grid">
+        <div class="section-lede">
+          <span class="kicker">Onepage · Agent OS</span>
+          <h2>From Reactive Software to Agentic Systems.</h2>
+          <p>OpenClaw is not just a product story. It is a visible sign of a broader shift: software is moving from something users operate to something that can act on their behalf.</p>
+          <a class="back-to-showcases" href="#showcases">Back to Excerpts</a>
+        </div>
+        <div class="content-block">
+          <div class="panel">
+            <h3>Adoption Signals</h3>
+            <p>OpenClaw surpassed <b>250K</b> GitHub stars in <b>60 days</b>, overtaking React (243K) and the Linux kernel (218K) as one of the fastest-growing software projects in GitHub history. ClawHub accumulated <b>26K</b> skills, and the Discord community reached <b>120K</b> members.</p>
+            <p>China is moving faster on application adoption for the first time: domestic model costs are <b>60-80% lower</b>, and multiple local governments have launched support programs, including up to ¥10M in Hefei and a roughly ¥3B industry fund in Wuxi.</p>
+          </div>
+          <div class="panel">
+            <h3>Key Bottlenecks</h3>
+            <ul>
+              <li><b>Token Cost</b>: Agents consume <b>100-1000×</b> more tokens than traditional chat. Each loop can reload conversation history, the system prompt, and tool definitions, creating real cost risk, including cases of losing $120 overnight to retry loops.</li>
+              <li><b>Robustness</b>: EvoClaw testing shows that the most advanced agents achieve only a <b>38%</b> average success rate on long-sequence tasks, falling to <b>13.37%</b> in the most complex scenarios.</li>
+              <li><b>Security</b>: The ecosystem has already seen 258 historical vulnerabilities, with malicious-code rates in ClawHub plugins estimated at <b>10.8%-26%</b>.</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Paradigm Shift</h3>
+            <ul>
+              <li>The competitive unit shifts from the model alone to the system stack: model, runtime, memory, toolchain, evaluation, observability, and human interface.</li>
+              <li>The economic unit shifts from "parameter scale" to "per-token output efficiency" — tokens per dollar, tokens per watt, total task completion cost.</li>
+              <li>Whoever controls the runtime may also control training, because execution traces, feedback, and RL loops are generated inside the runtime.</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Industry Layering View</h3>
+            <ul>
+              <li><b>Model / Platform Layer (OpenAI / Anthropic)</b>: Developer OS, controlling model + Agent OS + interface. Anthropic is building across MCP, Claude Code, economic indices, and agent autonomy, while OpenAI is integrating Computer Use, agents, tools, and containers. The fight is over default foundations and default protocols.</li>
+              <li><b>Middle Layer</b>: The core value is making agents truly usable by designing the runtime environment around them. This includes orchestration, workflows, memory, evaluation, safety, and observability around loops and token cost. One likely form is TaaS, as in Mechanize or Beam AI-Runtime.</li>
+              <li><b>Application layer</b>: New product forms may emerge as human-in-the-loop tools evolve into human-on-the-loop control panels. Agent value will increasingly depend on safe execution environments, composable skills and plugins, and workflow-native interfaces.</li>
+            </ul>
+          </div>
+          <div class="signal-matrix">
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">250K</div>
+              <div class="matrix-cell"><div class="matrix-title">GitHub stars in 60 days, surpassing React and Linux Kernel.</div></div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">38%</div>
+              <div class="matrix-cell"><div class="matrix-title">Average success rate of state-of-the-art Agents on long-sequence tasks (EvoClaw).</div></div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">100–1000×</div>
+              <div class="matrix-cell"><div class="matrix-title">Agent token consumption vs. traditional chat.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 Self-Evolution -->
+    <section class="framework-section" id="detail-self-evolution" style="scroll-margin-top:92px;">
+      <div class="container section-grid">
+        <div class="section-lede">
+          <span class="kicker">Onepage · Self-Evolution</span>
+          <h2>From Scaling Models to Scaling Experience.</h2>
+          <p>AI self-evolution reframes scaling: from scaling parameters, data, and compute to scaling experience, feedback, experiments, and discovery loops. L3 is the current verifiable inflection point; L4 is the watershed.</p>
+          <a class="back-to-showcases" href="#showcases">Back to Excerpts</a>
+        </div>
+        <div class="content-block">
+          <div class="panel">
+            <h3>Levels of Self-Evolution</h3>
+            <ul>
+              <li><b>L0</b>: Point tool → <b>L1</b>: Single-task self-correction → <b>L2</b>: Cross-task experience accumulation</li>
+              <li><b>L3</b>: Automated research loop (hypothesis → experiment → feedback → revised hypothesis) → current verifiable inflection point</li>
+              <li><b>L4</b>: Capability feedback loop (experience feeds into next-gen model) → the true watershed</li>
+              <li><b>L5</b>: Open-ended recursive self-improvement → highly uncertain</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Feedback Hierarchy (V5→V0)</h3>
+            <p>The strongest verification comes from <b>code and math</b> (immediate, objective, reproducible); the biggest challenge is at V0 open-ended innovation (highest risk of illusory progress). Code tests, math proofs, simulations, and lab experiments are the most investable early environments.</p>
+          </div>
+          <div class="panel">
+            <h3>Representative Funding Signals</h3>
+            <ul>
+              <li>Recursive: <b>$650M</b> funding, $4.65B valuation</li>
+              <li>Ineffable: <b>$1.1B</b> funding, $5.1B valuation</li>
+              <li>Periodic Labs: ~$300M seed</li>
+              <li>Isomorphic Labs: $2.1B funding in 2026</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Frontier Developments</h3>
+            <ul>
+              <li>OpenAI model disproves discrete geometry conjecture (L2-L3 level)</li>
+              <li>AlphaEvolve achieves "generate → evaluate → iterate" loop (L3)</li>
+              <li>Sakana AI Scientist-v2 paper passes ICLR blind review (L3 exploring toward L4)</li>
+            </ul>
+          </div>
+          <div class="signal-matrix">
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">L3</div>
+              <div class="matrix-cell"><div class="matrix-title">Current verifiable inflection point: automated research or experimental loops.</div></div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">L4</div>
+              <div class="matrix-cell"><div class="matrix-title">Watershed moment: experience feeds back into the next-generation system, creating a data/model flywheel.</div></div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">$1.1B</div>
+              <div class="matrix-cell"><div class="matrix-title">Ineffable funding amount, representing the option value of recursive research labs.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 April Signals -->
+    <section class="framework-section" id="detail-april" style="scroll-margin-top:92px;background:var(--bg-warm);">
+      <div class="container section-grid">
+        <div class="section-lede">
+          <span class="kicker">Weekly · April</span>
+          <h2>The Efficiency Revolution Before the Generational Leap.</h2>
+          <p>MoE architectures and software-hardware co-optimization are becoming more important. In the labor market, AI appears most promising where exposure is high but perceived substitution risk remains low.</p>
+          <a class="back-to-showcases" href="#showcases">Back to Excerpts</a>
+        </div>
+        <div class="content-block">
+          <div class="panel">
+            <h3>Model & Architecture Efficiency</h3>
+            <ul>
+              <li>DeepSeek V4 completes full training on domestic chips, scaling to <b>1.6T total / 49B active parameters</b>; KV Cache footprint only <b>7%</b> of previous generation (V4-Flash).</li>
+              <li>Kimi KDA's 3:1 layer ratio reduces KV Cache demand by <b>75%</b>.</li>
+              <li>GPT-5.5 Terminal-Bench 2.0 reaches <b>82.7%</b>, SWE-Bench Pro at 58.6%; API pricing $5 input / $30 output per 1M tokens.</li>
+              <li>Google DeepMind forms "strike team" to catch up with Claude's coding ability — Sergey Brin personally involved; Claude Code reportedly completed in one hour what took a Google engineering team months.</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Labor Market Signal</h3>
+            <p>Anthropic 80K survey: domains with <b>high AI exposure × low perceived substitution risk</b> (data scientists, financial analysts, legal consultants) are the blue ocean for copilot opportunities — users do not feel immediately replaceable, making willingness to pay more rational and durable.</p>
+          </div>
+          <div class="panel">
+            <h3>New Interaction Patterns to Watch</h3>
+            <ul>
+              <li>NeoCognition ($40M seed round): Building "micro-world models" to transform Agents from generalists to domain experts.</li>
+              <li>Flipbook: Real-time pixel rendering paradigm — from "models generating code" to "models directly rendering pixels" interaction shift.</li>
+            </ul>
+          </div>
+          <div class="signal-matrix">
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">7%</div>
+              <div class="matrix-cell"><div class="matrix-title">DeepSeek V4-Flash KV Cache footprint vs. previous generation.</div></div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">75%</div>
+              <div class="matrix-cell"><div class="matrix-title">Kimi KDA 3:1 ratio reduces KV Cache demand.</div></div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">22T</div>
+              <div class="matrix-cell"><div class="matrix-title">Openrouter monthly token calls (+5% MoM).</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 May Signals -->
+    <section class="framework-section" id="detail-may" style="scroll-margin-top:92px;">
+      <div class="container section-grid">
+        <div class="section-lede">
+          <span class="kicker">Weekly · May</span>
+          <h2>From the Coding Ceiling to Real Enterprise Deployment.</h2>
+          <p>Coding-driven model gains may approach a ceiling this year. Industry attention is shifting toward real enterprise deployment and L2-L3 self-evolution.</p>
+          <a class="back-to-showcases" href="#showcases">Back to Excerpts</a>
+        </div>
+        <div class="content-block">
+          <div class="panel">
+            <h3>Key Signals</h3>
+            <ul>
+              <li>Stripe data: AI startups reach <b>$1M ARR median time of just 11.5 months</b>, ~4 months faster than the fastest SaaS companies; new-gen AI companies' first-year revenue is 7×+ that of the previous generation.</li>
+              <li>Anthropic enterprise share surpasses OpenAI for the first time: Ramp data (50K+ enterprises) shows Anthropic at <b>34.4%</b> vs. OpenAI 32.3%.</li>
+              <li>Kling AI spin-off valued at <b>$20B</b> (exceeding Kuaishou's total market cap of $29B), ARR <b>$500M</b> (doubled from pre-CNY), 70% from professional user subscriptions.</li>
+              <li>Cloudflare laid off 1,100+ employees, roughly 20% of staff, with the CEO explicitly saying AI is making some roles disappear. White-collar substitution is moving from forecast to lived reality.</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Model + Harness Narrative</h3>
+            <ul>
+              <li>The Artificial Analysis Coding Agent Index offers the first systematic evaluation of model-harness combinations. Cursor remains cost-competitive, with Composer 2.5 at <b>$0.07</b> per task versus comparable competitors at $1.24-2.21.</li>
+              <li>Karpathy joins Anthropic, focused on using Claude itself to accelerate pre-training research; rumored <b>2M chip</b> cluster for autonomous model self-training.</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Robotics Evolution</h3>
+            <p>2025 looks like the year of demos, 2026 the year of interaction, and 2027 the possible beginning of productivity validation. Figure 03's 200 hours of continuous operation and 250K parcel-sorting events mark an early reliability proof point in a constrained scenario.</p>
+          </div>
+          <div class="signal-matrix">
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">11.5 mo</div>
+              <div class="matrix-cell"><div class="matrix-title">Median time for AI startups to reach $1M ARR (Stripe data).</div></div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">$20B</div>
+              <div class="matrix-cell"><div class="matrix-title">Kling AI spin-off valuation (ARR $500M, exceeding Kuaishou total market cap).</div></div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">$0.07</div>
+              <div class="matrix-cell"><div class="matrix-title">Cursor Composer 2.5 single-task cost vs. competitors $1.24–2.21.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 Video -->
+    <section class="framework-section" id="detail-video" style="scroll-margin-top:92px;background:var(--bg-warm);">
+      <div class="container section-grid">
+        <div class="section-lede">
+          <span class="kicker">Deep Research · Video Generation</span>
+          <h2>Physical Realism vs. Controllability: The Paths Are Diverging.</h2>
+          <p>Both models are first-tier, but their technical paths are diverging. Vidu leans toward physical consistency and world-model exploration; Seedance leans toward controllable production workflows and real-time interactive video.</p>
+          <a class="back-to-showcases" href="#showcases">Back to Excerpts</a>
+        </div>
+        <div class="content-block">
+          <div class="panel">
+            <h3>Architectural Differences</h3>
+            <ul>
+              <li><b>Vidu Q3</b>: U-ViT (All-as-words unified sequence) + long skip connections maintaining spatiotemporal consistency. TurboDiffusion compresses single RTX 5090 1080p generation from <b>900s to 8s</b>.</li>
+              <li><b>Seedance 2.0</b>: MMDiT dual-branch + spatiotemporal decoupling + MoE sparsification + inference-stage Refiner Model. Up to <b>12 inputs</b> of multimodal material combinations.</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Key Metrics</h3>
+            <ul>
+              <li>Vidu supports <b>1–16s</b> 1080p; Seedance supports <b>4–15s</b>, up to 2K.</li>
+              <li>Pricing: Vidu standard ~<b>¥1.92/s</b>; Seedance basic ~<b>¥0.3/s</b>. ByteDance has significant pricing advantage.</li>
+              <li>Shengshu achieved <b>10×+ growth</b> in users and revenue in 2025, covering 90%+ of film & TV content companies (Sony, Tencent Animation, Yuewen, etc.).</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Where the Paths Diverge</h3>
+            <ul>
+              <li><b>Vidu needs to remove the crutch</b>: Move beyond long skip-connection scaffolding, shift to native spatiotemporal consistency modeling, moving toward cinematic-grade 3D video.</li>
+              <li><b>Seedance needs to get leaner</b>: Flatten architecture to reduce communication overhead, support real-time interaction and move toward interactive 3D interfaces for AR and VR.</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Commercialization Assessment</h3>
+            <p>Seedance is better suited for creators and professional users who need predictability, storyboard control, and integration with existing short-video workflows. Its ByteDance ecosystem, including Jimeng, CapCut, and Douyin, gives it strong consumer reach. Vidu may be more differentiated in premium creative use cases, overseas enterprise expansion, and scenarios that require physical realism, native visual dynamics, or future adjacency to world models. Its coverage of 90%+ of film and TV content companies, including Sony, Tencent Animation, and Yuewen, gives it a clearer enterprise wedge.</p>
+          </div>
+          <div class="signal-matrix">
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">900→8s</div>
+              <div class="matrix-cell"><div class="matrix-title">Vidu TurboDiffusion compresses 1080p generation 100×.</div></div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">10×</div>
+              <div class="matrix-cell"><div class="matrix-title">Shengshu's 2025 user and revenue growth multiplier.</div></div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">90%+</div>
+              <div class="matrix-cell"><div class="matrix-title">Shengshu's coverage of film & TV content companies (Sony, Tencent Animation, Yuewen, etc.).</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 Capital -->
+    <section class="framework-section" id="detail-capital" style="scroll-margin-top:92px;">
+      <div class="container section-grid">
+        <div class="section-lede">
+          <span class="kicker">Deep Research · Capital Landscape</span>
+          <h2>Capital Is Moving Earlier, While Scale Concentrates.</h2>
+          <p>China's 2025 private market is increasingly led by state-backed and industrial capital, while USD capital plays a more supplementary role. AI funding is concentrated in embodied AI, autonomous driving, and general-purpose models for enterprise scenarios.</p>
+          <a class="back-to-showcases" href="#showcases">Back to Excerpts</a>
+        </div>
+        <div class="content-block">
+          <div class="panel">
+            <h3>China's Private Market</h3>
+            <p>In 2025, China recorded <b>9,058 private-market deals</b>, up 28% year over year. Early-stage deals accounted for <b>66.8%</b>, a five-year high, but thousands of early-stage companies received only about 25% of market capital. Strategic investments represented 11.76% of deals but absorbed <b>¥359.1B</b>.</p>
+          </div>
+          <div class="panel">
+            <h3>AI Funding Flows</h3>
+            <ul>
+              <li>In AI, 930 companies raised a total of <b>¥107.07B</b>.</li>
+              <li>Embodied AI leads with 194 companies and <b>¥33.77B</b> in funding, growing nearly <b>2×</b> YoY (305+ deals).</li>
+              <li>Enterprise-oriented projects account for <b>62.17%</b> of the top 10 tracks.</li>
+              <li>Eight major technology groups made 62 investments during the year, led by Baidu Ventures with 13.</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Global Comparison</h3>
+            <ul>
+              <li>Global 2025 AI funding reached <b>$225.8B</b> (nearly 2× of 2024).</li>
+              <li>LLM developers captured <b>41%</b> of all AI funding ($93.1B); OpenAI + Anthropic + xAI combined <b>$86.3B</b>.</li>
+              <li>In the US, more than 40% of capital went to large-model platforms. In China, capital concentrated in robotics, autonomous driving, and AI plus manufacturing, with almost no $1B+ AI mega-rounds.</li>
+            </ul>
+          </div>
+          <div class="signal-matrix">
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">9,058</div>
+              <div class="matrix-cell"><div class="matrix-title">China primary market deal count (+28% YoY).</div></div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">¥33.77B</div>
+              <div class="matrix-cell"><div class="matrix-title">Embodied AI funding (194 companies, ~2× YoY growth).</div></div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">$86.3B</div>
+              <div class="matrix-cell"><div class="matrix-title">OpenAI + Anthropic + xAI combined funding (USD).</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 Founder -->
+    <section class="framework-section" id="detail-founder" style="scroll-margin-top:92px;background:var(--bg-warm);">
+      <div class="container section-grid">
+        <div class="section-lede">
+          <span class="kicker">Specialized Tool · Founder Tracking</span>
+          <h2>Jiaye Teng: Dense Theoretical Signal, Founder Intent Still Unclear.</h2>
+          <p>Teng is an ML theory researcher from Tsinghua IIIS, a former Princeton visiting scholar, and the organizer of FAI-Seminar, which has run for three years across 80+ sessions and 380K+ views. His work is shifting from pure theory toward LLM training dynamics.</p>
+          <a class="back-to-showcases" href="#showcases">Back to Excerpts</a>
+        </div>
+        <div class="content-block">
+          <div class="panel">
+            <h3>Academic Signal</h3>
+            <ul>
+              <li><b>13 papers</b> during 4-year PhD (11 top conferences: ICLR ×4, ICML ×3, NeurIPS ×2, AISTATS ×2).</li>
+              <li>Co-authored papers with two Turing Award winners, Andrew Yao and Yoshua Bengio.</li>
+              <li>Visited Princeton under Sanjeev Arora.</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Research Trajectory</h3>
+            <p>Conformal prediction → generalization theory → Transformer theoretical analysis → <b>LLM self-improvement training dynamics</b> (Solver-Verifier Gap). Since 2025-2026, his work has moved toward practical training problems for large models.</p>
+          </div>
+          <div class="panel">
+            <h3>Community Building</h3>
+            <p>Founded FAI-Seminar, the International AI Foundations Seminar, in February 2023. The weekly series has run for three years, with <b>80+ sessions</b> and speakers from MIT, Princeton, CMU, and DeepMind. His personal Bilibili promotional video reached <b>245K views</b>, and the community has expanded into the in-person FAIC 2026 conference with <b>400+ attendees</b>.</p>
+          </div>
+          <div class="panel">
+            <h3>Commercialization Paths and Risks</h3>
+            <ul>
+              <li>Conformal prediction → AI safety and uncertainty quantification in finance, healthcare, and autonomous driving.</li>
+              <li>Scaling-law theory → lower training costs.</li>
+              <li>LLM self-improvement theory → optimization of large-model training.</li>
+              <li><b>Core risk</b>: No commercial track record: no company registrations and no industry operating experience. He also started a tenure-track position in 2024, which may constrain founder availability.</li>
+            </ul>
+          </div>
+          <div class="signal-matrix">
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">13 Papers</div>
+              <div class="matrix-cell"><div class="matrix-title">Papers during 4-year PhD (11 top conferences).</div></div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">80+ Sessions</div>
+              <div class="matrix-cell"><div class="matrix-title">FAI-Seminar weekly seminar sustained for 3 years (380K+ views).</div></div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">400+</div>
+              <div class="matrix-cell"><div class="matrix-title">FAIC 2026 in-person conference attendees.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ─── Footer ─── -->
+  <footer>
+    <div class="container footer-inner">
+      <span>LinkX Capital</span>
+      <strong>Insight and Timing Are the Real Edge</strong>
+      <div class="footer-actions">
+        <button class="pdf-btn" onclick="window.print()" aria-label="Download PDF">Download PDF</button>
+        <a href="#top">Back to Top</a>
+        <div class="language-toggle" aria-label="Language switcher">
+          <span class="lang-current" aria-current="page">EN</span>
+          <a href="lp-ai-insights-brief-zh.html" hreflang="zh-CN">中文</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

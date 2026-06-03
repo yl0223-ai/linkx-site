@@ -1,0 +1,1808 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>星连行研部 · 研究成果展示 - LinkX Capital</title>
+  <meta name="description" content="星连基金行业研究部成果展示：认知差与时间差是最核心的竞争力，行研部通过两条主线、五层信号、六维研究构建 AI 前沿认知体系。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F7F2EA;
+      --bg-warm: #ECE2D4;
+      --paper: #FFFCF6;
+      --border: rgba(25, 23, 22, 0.18);
+      --border-light: rgba(25, 23, 22, 0.10);
+      --text: #191716;
+      --muted: #706A62;
+      --light: #A49A8C;
+      --purple: #5D126A;
+      --purple-mid: #8C3A83;
+      --purple-soft: #C99CC4;
+      --purple-pale: #EFE0EC;
+      --purple-wash: #F3E9F0;
+      --moss: #6F7F55;
+      --rust: #A95532;
+      --gold: #B88A38;
+      --dark: #181318;
+      --shadow: 0 26px 80px rgba(58, 41, 28, 0.13);
+      --serif: "Instrument Serif", Georgia, serif;
+      --sans: "Instrument Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
+      --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      --max: 1180px;
+      --px: clamp(22px, 5vw, 76px);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        linear-gradient(90deg, rgba(25, 23, 22, 0.035) 1px, transparent 1px) 0 0 / 42px 42px,
+        linear-gradient(180deg, rgba(25, 23, 22, 0.028) 1px, transparent 1px) 0 0 / 42px 42px,
+        var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.68;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      line-break: strict;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+    a { color: inherit; }
+    h1, h2, h3 { text-wrap: balance; }
+    p, li { text-wrap: pretty; }
+    .container {
+      width: min(var(--max), 100%);
+      margin: 0 auto;
+      padding: 0 var(--px);
+    }
+    .kicker {
+      display: inline-flex;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--purple);
+    }
+    .section-title {
+      margin: 16px 0 0;
+      font-family: var(--serif);
+      font-size: clamp(32px, 3.6vw, 52px);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.12;
+      max-width: 13em;
+    }
+    .section-intro {
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: clamp(15px, 1vw, 16px);
+      line-height: 1.86;
+      max-width: 54em;
+    }
+
+    /* ─── Site Header ─── */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(247, 242, 234, 0.82);
+      border-bottom: 1px solid var(--border-light);
+      backdrop-filter: blur(18px) saturate(120%);
+    }
+    .nav {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 0 clamp(20px, 4vw, 48px);
+    }
+    .brand {
+      display: inline-grid;
+      gap: 1px;
+      text-decoration: none;
+      line-height: 1;
+    }
+    .brand strong {
+      font-size: 20px;
+      letter-spacing: 0.03em;
+    }
+    .brand span {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: clamp(14px, 2.6vw, 30px);
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .nav-links a { text-decoration: none; padding: 10px 0; white-space: nowrap; }
+    .nav-links a:hover, .nav-links a:focus-visible { color: var(--purple); outline: none; }
+    .language-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      padding: 3px;
+      border: 1px solid var(--border);
+      background: rgba(255, 252, 246, 0.48);
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+    .language-toggle a,
+    .language-toggle .lang-current {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 34px;
+      min-height: 24px;
+      padding: 6px 8px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .language-toggle a { color: var(--muted); transition: background 180ms ease, color 180ms ease; }
+    .language-toggle a:hover,
+    .language-toggle a:focus-visible { color: var(--purple); background: var(--purple-wash); outline: none; }
+    .language-toggle .lang-current { color: #fff; background: var(--purple); }
+    footer .language-toggle {
+      border-color: rgba(250, 248, 244, 0.24);
+      background: rgba(250, 248, 244, 0.08);
+    }
+    footer .language-toggle a { color: rgba(250, 248, 244, 0.58); }
+    footer .language-toggle a:hover,
+    footer .language-toggle a:focus-visible { color: rgba(250, 248, 244, 0.96); background: rgba(250, 248, 244, 0.14); }
+    footer .language-toggle .lang-current { color: var(--dark); background: rgba(250, 248, 244, 0.86); }
+
+    /* ─── Hero ─── */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(62px, 8vw, 112px) 0 clamp(52px, 6vw, 84px);
+      background:
+        radial-gradient(circle at 88% 8%, rgba(93, 18, 106, 0.08), transparent 28%),
+        linear-gradient(180deg, rgba(255, 252, 246, 0.72) 0%, rgba(247, 242, 234, 0.92) 100%);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 20px clamp(18px, 3vw, 42px);
+      pointer-events: none;
+      border: 1px solid var(--border-light);
+      border-radius: 2px;
+      mask-image: linear-gradient(90deg, #000 0 18%, transparent 18% 82%, #000 82%);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(320px, 1.02fr) minmax(360px, 0.98fr);
+      gap: clamp(34px, 5vw, 72px);
+      align-items: start;
+    }
+    h1 {
+      margin: 18px 0 0;
+      font-family: var(--serif);
+      font-size: clamp(42px, 4.8vw, 64px);
+      font-weight: 400;
+      line-height: 1.09;
+      letter-spacing: -0.02em;
+      max-width: 12ch;
+    }
+    h1 em { color: var(--purple); font-style: italic; }
+    .hero-copy p {
+      margin: clamp(22px, 3vw, 34px) 0 0;
+      max-width: 42em;
+      color: var(--muted);
+      font-size: clamp(15px, 1.02vw, 16px);
+      line-height: 1.9;
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0;
+      margin-top: 32px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .stat {
+      background: transparent;
+      padding: 18px 18px 18px 0;
+      min-height: 98px;
+      border-right: 1px solid var(--border-light);
+    }
+    .stat:last-child { border-right: none; }
+    .stat b {
+      display: block;
+      font-family: var(--serif);
+      font-size: clamp(28px, 3.2vw, 44px);
+      line-height: 1;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    }
+    .stat span {
+      display: block;
+      margin-top: 9px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.65;
+    }
+
+    /* ─── Feature Rail ─── */
+    .feature-rail { min-width: 0; display: grid; gap: 14px; }
+    .feature-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+    }
+    .feature-head .hint {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--light);
+      text-transform: uppercase;
+    }
+    .featured-showcase {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .feature-card {
+      position: relative;
+      min-height: auto;
+      display: grid;
+      gap: 10px;
+      padding: clamp(18px, 2vw, 24px);
+      color: var(--text);
+      text-decoration: none;
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      background: rgba(255, 252, 246, 0.56);
+      transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+    }
+    .feature-card:first-child { grid-row: auto; }
+    .feature-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 3px;
+      background: var(--purple);
+      opacity: 0;
+      transition: opacity 200ms ease;
+    }
+    .feature-card:hover,
+    .feature-card:focus-visible {
+      border-color: rgba(93, 18, 106, 0.26);
+      box-shadow: 0 12px 34px rgba(58, 41, 28, 0.08);
+      transform: translateY(-2px);
+      outline: none;
+    }
+    .feature-card:hover::before,
+    .feature-card:focus-visible::before { opacity: 1; }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      font-family: var(--mono);
+      font-size: 9.5px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .meta span {
+      color: var(--light);
+      border: 1px solid var(--border-light);
+      background: rgba(255, 252, 246, 0.42);
+      padding: 3px 9px;
+    }
+    .feature-card h2,
+    .feature-card h3 {
+      margin: 0;
+      max-width: 19em;
+      color: var(--text);
+      font-family: var(--serif);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      text-shadow: none;
+    }
+    .feature-card h2 { font-size: clamp(22px, 1.9vw, 29px); }
+    .feature-card h3 { font-size: clamp(19px, 1.55vw, 24px); }
+    .feature-card p {
+      margin: 0;
+      max-width: 38em;
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.72;
+    }
+
+    /* ─── Main Framework Section ─── */
+    .framework-section {
+      padding: clamp(42px, 6vw, 78px) 0;
+      border-top: 1px solid var(--border);
+    }
+    .section-grid {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.76fr) minmax(0, 1.24fr);
+      gap: clamp(34px, 6vw, 86px);
+      align-items: start;
+    }
+    .section-lede {
+      position: sticky;
+      top: 104px;
+      padding-left: clamp(0px, 1.8vw, 18px);
+      border-left: 1px solid var(--border-light);
+    }
+    .section-lede h2 {
+      margin: 16px 0 0;
+      font-family: var(--serif);
+      font-size: clamp(31px, 3.45vw, 50px);
+      line-height: 1.12;
+      font-weight: 400;
+      letter-spacing: -0.018em;
+      max-width: 11.5em;
+    }
+    .section-lede p {
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: clamp(15px, 1vw, 16px);
+      line-height: 1.86;
+    }
+    .back-to-showcases {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      min-height: 34px;
+      margin-top: 22px;
+      padding: 8px 12px;
+      color: var(--purple);
+      background: rgba(255, 252, 246, 0.52);
+      border: 1px solid var(--purple-soft);
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      line-height: 1;
+      text-decoration: none;
+      text-transform: uppercase;
+      white-space: nowrap;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+    }
+    .back-to-showcases:hover,
+    .back-to-showcases:focus-visible {
+      transform: translateY(-1px);
+      background: var(--purple-wash);
+      border-color: var(--purple);
+      outline: none;
+    }
+    .content-block { display: grid; gap: 22px; }
+    .panel {
+      border-top: 1px solid var(--border);
+      padding-top: clamp(18px, 2.2vw, 24px);
+    }
+    .panel h3 {
+      margin: 0 0 12px;
+      font-size: 13px;
+      font-family: var(--mono);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple);
+      font-weight: 500;
+    }
+    .panel p {
+      margin: 0 0 14px;
+      color: var(--text);
+      font-size: 15.25px;
+      line-height: 1.86;
+    }
+    .panel ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+    .panel li {
+      position: relative;
+      padding-left: 20px;
+      color: var(--text);
+      font-size: 14.75px;
+      line-height: 1.84;
+    }
+    .panel li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.78em;
+      width: 6px;
+      height: 1px;
+      background: var(--purple);
+    }
+
+    /* ─── L1-L5 Matrix ─── */
+    .signal-matrix {
+      display: grid;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .matrix-row {
+      display: grid;
+      grid-template-columns: minmax(74px, 0.18fr) 1fr;
+      gap: 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .matrix-row:last-child { border-bottom: none; }
+    .matrix-label {
+      background: rgba(255, 252, 246, 0.72);
+      padding: 14px;
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      font-weight: 500;
+      color: var(--purple);
+      display: flex;
+      align-items: start;
+      border-right: 1px solid var(--border-light);
+    }
+    .matrix-cell {
+      background: rgba(255, 252, 246, 0.72);
+      padding: 14px 18px;
+    }
+    .matrix-title {
+      font-size: 14.75px;
+      color: var(--text);
+      font-weight: 500;
+      line-height: 1.62;
+    }
+    .matrix-sub {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-top: 4px;
+    }
+    .matrix-sub::before {
+      content: "↳ ";
+      color: var(--light);
+    }
+
+    /* ─── Research Products ─── */
+    .products-section {
+      padding: clamp(42px, 6vw, 78px) 0;
+      border-top: 1px solid var(--border);
+      background: var(--bg-warm);
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+    .product-card {
+      position: relative;
+      overflow: hidden;
+      background: rgba(255, 252, 246, 0.76);
+      border: 1px solid var(--border-light);
+      box-shadow: 0 18px 54px rgba(58, 41, 28, 0.075);
+      padding: clamp(22px, 2.5vw, 30px);
+      display: grid;
+      gap: 12px;
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+    }
+    .product-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--purple), var(--rust), var(--gold));
+      opacity: 0.72;
+    }
+    .product-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(93, 18, 106, 0.24);
+      box-shadow: 0 24px 68px rgba(58, 41, 28, 0.12);
+    }
+    .product-card .prod-tag {
+      font-family: var(--mono);
+      font-size: 9.5px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple);
+      border: 1px solid var(--purple-soft);
+      padding: 3px 9px;
+      width: fit-content;
+    }
+    .product-card h3 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(20px, 1.65vw, 24px);
+      font-weight: 400;
+      letter-spacing: -0.005em;
+      line-height: 1.36;
+    }
+    .product-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13.75px;
+      line-height: 1.78;
+    }
+    .product-card .prod-meta {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      color: var(--light);
+      border-top: 1px solid var(--border-light);
+      padding-top: 10px;
+    }
+    .product-card a {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--purple);
+      text-decoration: none;
+      border-bottom: 1px solid var(--purple-soft);
+      width: fit-content;
+    }
+    .product-card a:hover { color: var(--purple-mid); }
+
+    /* ─── Pipeline Section ─── */
+    .pipeline-section {
+      padding: clamp(42px, 6vw, 78px) 0;
+      border-top: 1px solid var(--border);
+    }
+    .pipeline-flow {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 24px;
+    }
+    .pipe-step {
+      background: rgba(255, 252, 246, 0.72);
+      padding: 18px 20px;
+      display: grid;
+      gap: 8px;
+    }
+    .pipe-step .step-num {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--light);
+    }
+    .pipe-step .step-title {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      color: var(--text);
+      font-weight: 500;
+    }
+    .pipe-step .step-desc {
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.68;
+    }
+
+    /* ─── Tools Roadmap ─── */
+    .tools-section {
+      padding: clamp(42px, 6vw, 78px) 0;
+      border-top: 1px solid var(--border);
+      background: var(--bg-warm);
+    }
+    .roadmap {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 32px;
+    }
+    .roadmap-col {
+      display: grid;
+      gap: 16px;
+    }
+    .roadmap-col h3 {
+      margin: 0;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+    }
+    .roadmap-col .col-subtitle {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: -8px;
+    }
+    .tool-item {
+      background: rgba(255, 252, 246, 0.62);
+      border: 1px solid var(--border-light);
+      border-left: 3px solid rgba(93, 18, 106, 0.28);
+      padding: 14px 16px;
+      display: grid;
+      gap: 6px;
+    }
+    .tool-item .tool-name {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--text);
+      font-weight: 500;
+    }
+    .tool-item .tool-desc {
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.68;
+    }
+
+    /* ─── Showcases ─── */
+    .showcase-section {
+      padding: clamp(42px, 6vw, 78px) 0;
+      border-top: 1px solid var(--border);
+    }
+    .showcase-list {
+      display: grid;
+      gap: 0;
+      border-top: 1px solid var(--border);
+      margin-top: 32px;
+    }
+    .showcase-item {
+      display: grid;
+      grid-template-columns: 78px minmax(0, 1fr);
+      gap: 32px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      transition: background 220ms ease, transform 220ms ease, padding-left 220ms ease;
+      cursor: pointer;
+    }
+    .showcase-item:hover, .showcase-item:focus-visible {
+      background: rgba(255, 252, 246, 0.72);
+      transform: translateX(8px);
+      padding-left: 18px;
+      outline: none;
+    }
+    .showcase-date {
+      padding-top: 5px;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: var(--light);
+      text-transform: uppercase;
+    }
+    .showcase-date .day {
+      display: block;
+      font-family: var(--serif);
+      font-size: 24px;
+      line-height: 1;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+    .showcase-item h3 {
+      margin: 0;
+      font-family: var(--serif);
+      max-width: 30em;
+      font-size: clamp(19px, 1.45vw, 23px);
+      line-height: 1.42;
+      font-weight: 400;
+      letter-spacing: -0.005em;
+    }
+    .showcase-item h3 a {
+      text-decoration: none;
+      background-image: linear-gradient(var(--purple-soft), var(--purple-soft));
+      background-position: 0 100%;
+      background-repeat: no-repeat;
+      background-size: 0 1px;
+      transition: color 180ms ease, background-size 220ms ease;
+    }
+    .showcase-item h3 a:hover,
+    .showcase-item h3 a:focus-visible {
+      color: var(--purple);
+      background-size: 100% 1px;
+      outline: none;
+    }
+    .showcase-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .download-btn,
+    .detail-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+      text-transform: uppercase;
+      text-decoration: none;
+      line-height: 1;
+      transition: transform 180ms ease, background 180ms ease, color 180ms ease, border-color 180ms ease;
+    }
+    .download-btn {
+      color: #fff;
+      background: var(--purple);
+      border: 1px solid var(--purple);
+      padding: 8px 12px;
+      box-shadow: 0 10px 28px rgba(93, 18, 106, 0.18);
+    }
+    .detail-link {
+      color: var(--purple);
+      border: 1px solid var(--purple-soft);
+      padding: 8px 11px;
+      background: rgba(255, 252, 246, 0.5);
+    }
+    .download-btn:hover,
+    .download-btn:focus-visible,
+    .detail-link:hover,
+    .detail-link:focus-visible {
+      transform: translateY(-1px);
+      outline: none;
+    }
+    .download-btn:hover,
+    .download-btn:focus-visible { background: var(--purple-mid); border-color: var(--purple-mid); }
+    .detail-link:hover,
+    .detail-link:focus-visible { background: var(--purple-wash); border-color: var(--purple); }
+    .showcase-item p {
+      margin: 12px 0 0;
+      max-width: 66ch;
+      color: var(--muted);
+      font-size: 14.75px;
+      line-height: 1.82;
+    }
+    .showcase-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 9px;
+    }
+    .showcase-tag {
+      font-family: var(--mono);
+      font-size: 9.5px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple);
+      border: 1px solid var(--purple-soft);
+      padding: 3px 10px;
+    }
+    .showcase-track {
+      font-family: var(--mono);
+      font-size: 9.5px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--light);
+      padding: 4px 0;
+    }
+
+    /* ─── Footer ─── */
+    footer {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(201, 156, 196, 0.22), transparent 34%),
+        radial-gradient(circle at 86% 72%, rgba(169, 85, 50, 0.18), transparent 36%),
+        linear-gradient(135deg, #171318 0%, #261829 46%, #171318 100%);
+      color: rgba(250, 248, 244, 0.68);
+      padding: clamp(48px, 7vw, 76px) 0 clamp(28px, 4vw, 40px);
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: end;
+      gap: 24px;
+      font-size: 11px;
+    }
+    .footer-inner span:first-child,
+    .footer-inner a {
+      font-family: var(--mono);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(250, 248, 244, 0.54);
+      text-decoration: none;
+    }
+    .footer-inner strong {
+      justify-self: center;
+      color: rgba(250, 248, 244, 0.82);
+      font-size: 13px;
+      letter-spacing: 0.02em;
+      font-weight: 500;
+    }
+    .footer-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      justify-self: end;
+    }
+    .pdf-btn {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(250, 248, 244, 0.7);
+      background: rgba(250, 248, 244, 0.12);
+      border: 1px solid rgba(250, 248, 244, 0.24);
+      padding: 7px 14px;
+      cursor: pointer;
+      transition: all 200ms ease;
+      text-decoration: none;
+    }
+    .pdf-btn:hover, .pdf-btn:focus-visible {
+      background: rgba(250, 248, 244, 0.2);
+      color: rgba(250, 248, 244, 0.95);
+      outline: none;
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .section-grid { grid-template-columns: 1fr; }
+      .section-lede { position: static; }
+      .featured-showcase { grid-template-columns: 1fr; }
+      .feature-card:first-child { grid-row: auto; }
+      .roadmap { grid-template-columns: 1fr; }
+      .section-lede { padding-left: 0; border-left: none; }
+    }
+    @media (max-width: 720px) {
+      .nav { height: 66px; }
+      .nav-links { display: none; }
+      .hero { padding-top: 44px; }
+      .hero::before { display: none; }
+      h1 { font-size: clamp(38px, 11vw, 48px); max-width: 11ch; line-height: 1.12; }
+      .section-title,
+      .section-lede h2 { font-size: clamp(30px, 8.5vw, 40px); line-height: 1.16; max-width: 12em; }
+      .section-intro,
+      .section-lede p,
+      .hero-copy p { line-height: 1.82; }
+      .feature-card { min-height: auto; }
+      .feature-card h2 { font-size: clamp(23px, 6.5vw, 30px); }
+      .feature-card h3 { font-size: clamp(20px, 5.6vw, 25px); }
+      .matrix-row { grid-template-columns: minmax(62px, 0.24fr) 1fr; }
+      .hero-stats { grid-template-columns: 1fr; }
+      .stat { border-right: none; border-bottom: 1px solid var(--border-light); }
+      .stat:last-child { border-bottom: none; }
+      .products-grid,
+      .pipeline-flow { grid-template-columns: 1fr; }
+      .showcase-item { grid-template-columns: 1fr; gap: 12px; padding: 24px 0; }
+      .showcase-item:hover,
+      .showcase-item:focus-visible { transform: none; padding-left: 0; }
+      .showcase-actions { gap: 8px; }
+      .download-btn,
+      .detail-link { min-height: 32px; padding: 8px 10px; font-size: 9.5px; }
+      .showcase-date .day { display: inline; font-family: var(--mono); font-size: 12px; margin-right: 6px; }
+      .footer-inner { grid-template-columns: 1fr; align-items: start; gap: 14px; }
+      .footer-inner strong, .footer-inner a, .footer-actions { justify-self: start; }
+      .footer-actions { flex-direction: row; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── Header ─── -->
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="#top" aria-label="LinkX Capital">
+        <strong>LinkX</strong>
+        <span>Capital</span>
+      </a>
+      <div class="nav-links">
+        <a href="#framework">研究框架</a>
+        <a href="#products">研究产品</a>
+        <a href="#pipeline">自动化管线</a>
+        <a href="#tools">AI 开发蓝图</a>
+        <a href="#showcases">成果索引</a>
+        <div class="language-toggle" aria-label="语言切换">
+          <span class="lang-current" aria-current="page">中文</span>
+          <a href="lp-ai-insights-brief.html" hreflang="en">EN</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- ─── Hero ─── -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="kicker">行业研究部 · 成果展示</span>
+          <h1 id="hero-title">认知差与时间差<br>是最核心的<em>竞争力</em></h1>
+          <p>
+            密切追踪全球 AI 前沿进展，依托 2,000+ AI 科学家、创业者与被投企业网络，持续获取技术前沿、产业一线与创业现场的信号，通过系统化研究形成前瞻判断，在关键窗口期转化为投资决策、投后赋能与生态布局。
+          </p>
+          <div class="hero-stats" aria-label="核心数据">
+            <div class="stat"><b>90+</b><span>自动化管线稳定运行天数，自 2026 年 3 月起每日覆盖全球 AI 核心动态</span></div>
+            <div class="stat"><b>2,000+</b><span>AI 科学家、创业者与被投企业网络，持续输送一手信号</span></div>
+            <div class="stat"><b>5</b><span>研究产品体系：每日动态 / Onepage / 每周简报 / 专题研究 / 季度分享</span></div>
+          </div>
+        </div>
+        <div class="feature-rail">
+          <div class="feature-head">
+            <span class="kicker">精选成果</span>
+            <span class="hint">点击卡片阅读概要</span>
+          </div>
+          <div class="featured-showcase">
+            <a class="feature-card" href="#detail-agi">
+              <div class="meta"><span>LinkX Ideas</span><span>年度观点</span></div>
+              <h2>AGI 拐点尚未到来，技术优先仍是第一优先级。</h2>
+              <p>模型能力仍主要呈线性增长，两项核心任务是持续探索智能上限，以及激活模型内部在真实环境中难以释放的能力。</p>
+            </a>
+            <a class="feature-card" href="#detail-agent-os">
+              <div class="meta"><span>专题研究</span><span>2026 Q2</span></div>
+              <h3>OpenClaw：Agent 软件栈迁移的一个切面。</h3>
+              <p>竞争单元从单一模型转向模型 + 运行时 + 记忆 + 工具链 + 可观测性 + 人机交互。</p>
+            </a>
+            <a class="feature-card" href="#detail-self-evolution">
+              <div class="meta"><span>专题研究</span><span>2026 Q1</span></div>
+              <h3>自进化 AI：将 Scaling 重新定义为经验、反馈与实验循环。</h3>
+              <p>L2-L3 近期前沿集中，L4-L5 长期期权价值在于能力反馈飞轮。</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Framework Section ─── -->
+    <section class="framework-section" id="framework">
+      <div class="container section-grid">
+        <div class="section-lede">
+          <span class="kicker">研究框架</span>
+          <h2>两条主线 × 五层信号<br>× 六维研究</h2>
+          <p>
+            研究围绕两条主线展开，持续跟踪技术与需求两条主线的交汇点。
+          </p>
+        </div>
+        <div class="content-block">
+
+          <div class="panel">
+            <h3>两条主线</h3>
+            <ul>
+              <li><b>一条向上：智能的上界</b> — 跟踪 Scaling 曲线的演进路径（参数规模、训练算力、推理成本、能力边界），抓住一段时间内的经验规律与拐点信号；</li>
+              <li><b>一条向下：智能的下界</b> — 判断市场的 PMF，识别哪些方向已经出现真实用户端的实际使用与商业验证，尤其关注尚在前沿、正在形成趋势的阶段。</li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <h3>五层信号（L1–L5）</h3>
+            <p>从新的计算平台到新的组织形式，逐层追踪信号在技术栈中的传导。每一层同时观察「能力跃迁」和「效率革命」，形成 2×5 信号矩阵，按周回溯与结构化研判。</p>
+          </div>
+
+          <div class="signal-matrix">
+            <div class="matrix-row">
+              <div class="matrix-label">L5</div>
+              <div class="matrix-cell">
+                <div class="matrix-title">新的组织形式、生产关系、商业模式与治理体系</div>
+              </div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label">L4</div>
+              <div class="matrix-cell">
+                <div class="matrix-title">新的软硬件、交互形式与智能体经济</div>
+                <div class="matrix-sub">按工作类型追踪 PMF：编程、法律、客服、医疗、金融……</div>
+              </div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label">L3</div>
+              <div class="matrix-cell">
+                <div class="matrix-title">新的开发平台与支撑部署的基础设施</div>
+                <div class="matrix-sub">Agent Infra · 端侧与边缘推理 · MLSys · 推理架构优化</div>
+              </div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label">L2</div>
+              <div class="matrix-cell">
+                <div class="matrix-title">智能基座 / 基础模型</div>
+                <div class="matrix-sub">五大能力方向：认知模型 / 情景智能 / 具身智能 / 空间智能 / AI4Science</div>
+                <div class="matrix-sub">模型架构 · 训练方法 · 评测 · 安全与对齐</div>
+              </div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label">L1</div>
+              <div class="matrix-cell">
+                <div class="matrix-title">新的计算平台</div>
+                <div class="matrix-sub">新型计算范式 · 算力供给 · 推理成本曲线</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h3>六个研究维度</h3>
+            <ul>
+              <li>模型前沿 — 算力追踪 — 研究关注</li>
+              <li>产业动态 — 初创与融资 — 前沿观点讨论</li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <h3>服务层级</h3>
+            <ul>
+              <li><b>投前</b>：提前识别 AI 前沿方向与创业窗口，提升项目筛选与判断质量；</li>
+              <li><b>投后</b>：为被投企业的战略、场景、GTM 与技术路径判断与验证赋能，提升成功率与估值弹性；</li>
+              <li><b>长期</b>：打通「产 × 研 × 投 × 创」循环，为 Researcher Founder 与孵化提供认知与机制基础。</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Research Products ─── -->
+    <section class="products-section" id="products">
+      <div class="container">
+        <span class="kicker">研究产品体系</span>
+        <h2 class="section-title">
+          从信号到判断<br>完整的研究闭环
+        </h2>
+        <p class="section-intro">
+          每日动态捕捉离散信号 → Onepage 对重要信号做轻量深读 → 每周简报通过信号矩阵做结构化综合 → 专题研究在关键方向做深度剖析 → 季度/年度分享沉淀趋势级认知。从密到疏、从广到深、从信号到判断，形成完整的研究闭环。
+        </p>
+        <div class="products-grid">
+          <div class="product-card">
+            <span class="prod-tag">每日推送</span>
+            <h3>每日前沿动态</h3>
+            <p>追踪全球 AI 前沿进展，信号源覆盖全球顶尖科技企业、重点实验室与核心人才，每日自动化管线推送。</p>
+            <div class="prod-meta">六大板块 · 每日更新 · 90+ 天稳定运行</div>
+            <a href="https://linkx-capital.github.io/ai-daily-news/" target="_blank">查看每日动态 →</a>
+          </div>
+          <div class="product-card">
+            <span class="prod-tag">每周发布 · 数量不固定</span>
+            <h3>Onepage（OP）</h3>
+            <p>每日动态中重要信号的轻量化深度解读（一页讲透背景、影响与判断），或内部专家访谈与海外精选研究的提炼再分发。</p>
+            <div class="prod-meta">单页深读 · 本周代表：AGI 路径 / Agent OS / 自进化</div>
+            <a href="#showcases">查看 Onepage →</a>
+          </div>
+          <div class="product-card">
+            <span class="prod-tag">每周一发 · 结构化长文</span>
+            <h3>每周简报（Weekly）</h3>
+            <p>通过 L1–L5 × 能力跃迁/效率革命信号矩阵做全景扫描，提炼 2–3 条主线趋势（含核心命题、本周证据、反直觉推论、与前周联动）。</p>
+            <div class="prod-meta">本周代表：4 月信号 / 5 月信号</div>
+            <a href="#showcases">查看每周简报 →</a>
+          </div>
+          <div class="product-card">
+            <span class="prod-tag">1–3 个月产出 · 深度报告</span>
+            <h3>专题研究</h3>
+            <p>针对特定技术方向（世界模型、Agent 栈、具身智能）、产业赛道或投融资市场进行深度剖析，为投前判断与投后赋能提供核心参考。</p>
+            <div class="prod-meta">本周代表：视频模型对比 / 2025 资本格局 / 创始人追踪</div>
+            <a href="#showcases">查看专题研究 →</a>
+          </div>
+          <div class="product-card">
+            <span class="prod-tag">LinkX Ideas · 年度发布</span>
+            <h3>LinkX Ideas</h3>
+            <p>系统性梳理和发布年度趋势级研究（Big Ideas），输出对 AI 行业未来 1–3 年的关键判断，沉淀长期认知资产，树立行业话语权。</p>
+            <div class="prod-meta">代表主题：AGI 路径 / Agent 栈年度叙事</div>
+            <a href="#showcases">查看 LinkX Ideas →</a>
+          </div>
+
+          <div class="product-card">
+            <span class="prod-tag">专项工具 · 按需调用</span>
+            <h3>创始人背景调查工具</h3>
+            <p>多轮递进式检索 + AI 抽取与去重，自动输出结构化创始人档案与红旗清单，支撑项目触达和初步尽调。</p>
+            <div class="prod-meta">代表产出：滕佳烨 · 理论人才档案</div>
+            <a href="#showcases">查看产出示例 →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Pipeline Section ─── -->
+    <section class="pipeline-section" id="pipeline">
+      <div class="container section-grid">
+        <div class="section-lede">
+          <span class="kicker">自动化管线</span>
+          <h2>前沿动态自动化管线<br>90 天稳定运行</h2>
+          <p>
+            全球AI前沿动态捕捉自动化管线，把分散在各公开渠道的一手信息自动聚合、清洗、分类、摘要、质检、分发，每日产出并向团队同步推送。
+          </p>
+        </div>
+        <div class="content-block">
+          <div class="panel">
+            <h3>管线流程</h3>
+            <p>除人工最后审核阶段，全链路 cron 调度，已稳定运行 3 个月以上。</p>
+          </div>
+          <div class="pipeline-flow">
+            <div class="pipe-step">
+              <div class="step-num">Step 01</div>
+              <div class="step-title">公开渠道信号抓取</div>
+              <div class="step-desc">多渠道公开信息自动聚合</div>
+            </div>
+            <div class="pipe-step">
+              <div class="step-num">Step 02</div>
+              <div class="step-title">LLM 分类与摘要</div>
+              <div class="step-desc">多模型协作，内容结构化</div>
+            </div>
+            <div class="pipe-step">
+              <div class="step-num">Step 03</div>
+              <div class="step-title">多级 QA 质检</div>
+              <div class="step-desc">句数检测 / 关键词校验 / 事实核查</div>
+            </div>
+            <div class="pipe-step">
+              <div class="step-num">Step 04</div>
+              <div class="step-title">内容质量优化</div>
+              <div class="step-desc">去重 / 信息密度提升 / 格式规范化</div>
+            </div>
+            <div class="pipe-step">
+              <div class="step-num">Step 05</div>
+              <div class="step-title">HTML / 截图 / 飞书推送</div>
+              <div class="step-desc">多渠道同步分发</div>
+            </div>
+            <div class="pipe-step">
+              <div class="step-num">Step 06</div>
+              <div class="step-title">GitHub Pages 归档</div>
+              <div class="step-desc">可回溯的时间线知识库</div>
+            </div>
+          </div>
+          <div class="panel" style="margin-top:22px;">
+            <h3>每日动态</h3>
+            <ul>
+              <li>每日前沿动态 → <a href="https://linkx-capital.github.io/ai-daily-news/" target="_blank" style="color:var(--purple);">linkx-capital.github.io/ai-daily-news</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Tools Roadmap ─── -->
+    <section class="tools-section" id="tools">
+      <div class="container">
+        <span class="kicker">AI 开发蓝图</span>
+        <h2 class="section-title">
+          用 AI 重构研究工作流
+        </h2>
+        <p class="section-intro">已实现的自动化与深度研究能力，正在向情报挖掘、机会发现和投研决策辅助延伸。</p>
+        <div class="roadmap">
+          <div class="roadmap-col">
+            <h3>1. 已实现（基础设施层）</h3>
+            <div class="tool-item">
+              <div class="tool-name">每日 AI 前沿动态自动化管线</div>
+              <div class="tool-desc">公开渠道信号抓取 → LLM 分类与摘要 → 多级 QA 质检 → 内容质量优化 → HTML/截图/飞书推送 → GitHub Pages 归档，全链路 cron 调度。</div>
+            </div>
+            <div class="tool-item">
+              <div class="tool-name">多 Agent 深度研究系统</div>
+              <div class="tool-desc">基于 Planner / Collector / Analyst / Critic 四 Agent 循环，自动完成任意 AI 主题的深度研究：规划框架 → 多轮检索 → 结构化撰写 → 事实核查与质量打分 → 补漏迭代。</div>
+            </div>
+            <div class="tool-item">
+              <div class="tool-name">创始人背景调查工具</div>
+              <div class="tool-desc">多轮递进式检索 + AI 抽取与去重，自动输出结构化创始人档案与红旗清单，支撑项目触达和初步尽调。</div>
+            </div>
+            <div class="tool-item">
+              <div class="tool-name">前沿模型追踪数据库</div>
+              <div class="tool-desc">覆盖 10+ 厂商、30+ 模型、20+ benchmark 的时间序列数据，支持迭代节奏、成本演化、能力曲线等维度的按周分析。</div>
+            </div>
+          </div>
+          <div class="roadmap-col">
+            <h3>2. 正在实现（情报与机会挖掘层）</h3>
+            <div class="tool-item">
+              <div class="tool-name">算力动态追踪系统</div>
+              <div class="tool-desc">覆盖模型定价、云平台 AI 负载定价、芯片厂商动态、模型公司算力投入等八大维度，支撑算力供需与成本曲线的实时判断。</div>
+            </div>
+            <div class="tool-item">
+              <div class="tool-name">四赛道日度情报分析</div>
+              <div class="tool-desc">在每日动态之上，自动按「模型 / 算力 / 研究 / 应用」四赛道做结构化深度解读，输出跨赛道交叉洞察、投融资热点、竞争空白点、技术-产品桥接机会。</div>
+            </div>
+            <div class="tool-item">
+              <div class="tool-name">前沿团队与人才发现</div>
+              <div class="tool-desc">自动从学术与产业一线挖掘值得关注的研究者与早期团队，沉淀为可回溯的发现时间线。</div>
+            </div>
+          </div>
+          <div class="roadmap-col">
+            <h3>3. 未来规划（决策与赋能层）</h3>
+            <div class="tool-item">
+              <div class="tool-name">研究知识图谱与时间线记忆</div>
+              <div class="tool-desc">把日常研究沉淀为可被查询、可被推理的结构化知识库，支撑任意时点的「在某一方向上我们已经知道什么、还缺什么、下一步该问什么」。</div>
+            </div>
+            <div class="tool-item">
+              <div class="tool-name">投研一体化决策辅助</div>
+              <div class="tool-desc">把研究管线的能力延伸到投前尽调、投后跟踪、组合复盘等具体环节，把行研能力嵌入投资流程的关键节点。</div>
+            </div>
+            <div class="tool-item">
+              <div class="tool-name">被投企业赋能平台</div>
+              <div class="tool-desc">为被投公司提供 AI 方向的战略研判、竞品追踪、技术路径验证等能力，把行研从「内部研究」升级为「投后价值放大器」。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Showcases ─── -->
+    <section class="showcase-section" id="showcases">
+      <div class="container">
+        <span class="kicker">成果索引</span>
+        <h2 class="section-title">
+          研究成果摘录
+        </h2>
+
+        <div class="showcase-list">
+
+          <article class="showcase-item">
+            <div class="showcase-date"><span class="day">LI</span>LinkX Ideas</div>
+            <div>
+              <div class="showcase-meta">
+                <span class="showcase-tag">LinkX Ideas</span>
+                <span class="showcase-track">模型 / Scaling</span>
+              </div>
+              <h3><a href="#detail-agi">AGI 拐点尚未到来，技术优先仍是第一优先级</a></h3>
+              <div class="showcase-actions">
+                <a class="download-btn" href="assets/reports/linkx-ideas-agi-inflection-en.pdf" download>下载英文报告</a>
+                <a class="detail-link" href="#detail-agi">阅读概要</a>
+              </div>
+              <p>模型能力仍主要呈线性增长。Scaling 尚未结束；约束不仅在于模型规模，更在于如何激活长尾能力。两条主线交汇处，是最关键的投资标的。</p>
+            </div>
+          </article>
+
+          <article class="showcase-item">
+            <div class="showcase-date"><span class="day">OP</span>Onepage</div>
+            <div>
+              <div class="showcase-meta">
+                <span class="showcase-tag">系统</span>
+                <span class="showcase-track">Agent 栈</span>
+              </div>
+              <h3><a href="#detail-agent-os">OpenClaw：Agent 软件栈迁移的可见切面</a></h3>
+              <div class="showcase-actions">
+                <a class="download-btn" href="assets/reports/openclaw-agent-stack-migration-en.pdf" download>下载英文报告</a>
+                <a class="detail-link" href="#detail-agent-os">阅读概要</a>
+              </div>
+              <p>竞争单元从单一模型转向模型 + 运行时 + 记忆 + 工具链 + 可观测性 + 人机交互。中国开发者更快采用 Agent 基础设施，美国前沿实验室保有更强模型和安全优势。</p>
+            </div>
+          </article>
+
+          <article class="showcase-item">
+            <div class="showcase-date"><span class="day">OP</span>Onepage</div>
+            <div>
+              <div class="showcase-meta">
+                <span class="showcase-tag">前沿</span>
+                <span class="showcase-track">Scaling 新路径</span>
+              </div>
+              <h3><a href="#detail-self-evolution">自进化 AI：将 Scaling 重新定义为经验、反馈与实验循环</a></h3>
+              <div class="showcase-actions">
+                <a class="download-btn" href="assets/reports/ai-self-evolution-neo-lab-en.pdf" download>下载英文报告</a>
+                <a class="detail-link" href="#detail-self-evolution">阅读概要</a>
+              </div>
+              <p>L2-L3 近期可验证拐点：自动研究或实验循环。L4 真正的分界线：经验反馈到下一代系统。代码、数学、仿真和实验室实验是最可投资的早期环境。</p>
+            </div>
+          </article>
+
+          <article class="showcase-item">
+            <div class="showcase-date"><span class="day">04</span>每周简报</div>
+            <div>
+              <div class="showcase-meta">
+                <span class="showcase-tag">每周</span>
+                <span class="showcase-track">效率 / 基础设施</span>
+              </div>
+              <h3><a href="#detail-april">4 月信号：在下一代模型出现前，效率成为可见的故事</a></h3>
+              <div class="showcase-actions">
+                <a class="download-btn" href="assets/reports/weekly-briefing-0420-0426-en.pdf" download>下载英文报告</a>
+                <a class="detail-link" href="#detail-april">阅读概要</a>
+              </div>
+              <p>MoE、KV-cache 压缩、混合注意力、跨集群推理和路由都更靠近竞争中心。DeepSeek V4 在国内芯片上完成全流程训练是重要信号。</p>
+            </div>
+          </article>
+
+          <article class="showcase-item">
+            <div class="showcase-date"><span class="day">05</span>每周简报</div>
+            <div>
+              <div class="showcase-meta">
+                <span class="showcase-tag">每周</span>
+                <span class="showcase-track">部署 / 商业化</span>
+              </div>
+              <h3><a href="#detail-may">5 月信号：企业部署更靠近执行</a></h3>
+              <div class="showcase-actions">
+                <a class="download-btn" href="assets/reports/weekly-briefing-0505-0524-en.pdf" download>下载英文报告</a>
+                <a class="detail-link" href="#detail-may">阅读概要</a>
+              </div>
+              <p>ToB 部署和 L2-L3 自进化加速。真实部署产生任务经验。Anthropic 在 Ramp 数据中企业份额达 34.4% 超越 OpenAI。模型 + Harness 叙事正在加强。</p>
+            </div>
+          </article>
+
+          <article class="showcase-item">
+            <div class="showcase-date"><span class="day">专</span>专题研究</div>
+            <div>
+              <div class="showcase-meta">
+                <span class="showcase-tag">专题研究</span>
+                <span class="showcase-track">视频生成</span>
+              </div>
+              <h3><a href="#detail-video">Vidu Q3 vs Seedance 2.0：物理真实与可控性的分野</a></h3>
+              <div class="showcase-actions">
+                <a class="download-btn" href="assets/reports/vidu-q3-vs-seedance-2-en.pdf" download>下载英文报告</a>
+                <a class="detail-link" href="#detail-video">阅读概要</a>
+              </div>
+              <p>两款模型均属第一梯队，架构选择指向不同终极方向。Vidu 偏向物理一致性和电影感涌现；Seedance 偏向可控生产工作流和实时交互视频。</p>
+            </div>
+          </article>
+
+          <article class="showcase-item">
+            <div class="showcase-date"><span class="day">专</span>专题研究</div>
+            <div>
+              <div class="showcase-meta">
+                <span class="showcase-tag">专题研究</span>
+                <span class="showcase-track">资本格局</span>
+              </div>
+              <h3><a href="#detail-capital">2025 中国 AI 资本：更活跃、更战略、更 ToB</a></h3>
+              <div class="showcase-actions">
+                <a class="download-btn" href="assets/reports/2025-investment-financing-situation-en.pdf" download>下载英文报告</a>
+                <a class="detail-link" href="#detail-capital">阅读概要</a>
+              </div>
+              <p>全年 9,058 笔交易（+28% YoY），其中国有机构渗透率 44.55%。AI 领域 930 家公司融资 1,070.7 亿元，机器人领域增长 220.1%。超过 60% AI 资金流向 ToB 场景。</p>
+            </div>
+          </article>
+
+          <article class="showcase-item">
+            <div class="showcase-date"><span class="day">工</span>专项工具</div>
+            <div>
+              <div class="showcase-meta">
+                <span class="showcase-tag">创始人背景调查</span>
+                <span class="showcase-track">理论人才</span>
+              </div>
+              <h3><a href="#detail-founder">滕佳烨：高信号 AI 理论人才，创始人意向待验证</a></h3>
+              <div class="showcase-actions">
+                <a class="download-btn" href="assets/reports/founder-profile-teng-jiaye-en.pdf" download>下载英文报告</a>
+                <a class="detail-link" href="#detail-founder">阅读概要</a>
+              </div>
+              <p>上海财经大学 tenure-track 助理教授，博士毕业于清华叉院。博士期间 7 篇顶会论文（含 ICML/ICLR/NeurIPS），确认与姚期智、Yoshua Bengio 两位图灵奖得主合作。B 站 FAI-Seminar 观看 20 万+ 次。</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Detail Sections ─── -->
+
+    <!-- 01 AGI Path -->
+    <section class="framework-section" id="detail-agi" style="scroll-margin-top:92px;">
+      <div class="container section-grid">
+        <div class="section-lede">
+          <span class="kicker">LinkX Ideas</span>
+          <h2>技术优先仍是第一优先级。</h2>
+          <p>AGI 的拐点尚未到来，核心任务是在持续探索智能上限的同时，将模型已具备的能力在真实场景中有效激活与释放。</p>
+          <a class="back-to-showcases" href="#showcases">返回研究成果摘录</a>
+        </div>
+        <div class="content-block">
+          <div class="panel">
+            <h3>Scaling 仍是提升智能上限最高效的方法</h3>
+            <p>更大规模数据（含合成/蒸馏数据）、更大参数、更多算力投入依然必要。真正决定智能上限的依然是<b>文本</b>——即使经过两年的多模态和端到端语音探索。</p>
+          </div>
+          <div class="panel">
+            <h3>激活对齐与增强推理是释放能力的关键</h3>
+            <ul>
+              <li>强化学习正逐步替代 SFT/CoT 成为对齐主流路径；Mid-training 和 Post-training 将使更多场景的快速对齐成为可能。</li>
+              <li>Agent 跨环境泛化与迁移仍是难题——最简路径是构造更多环境数据并针对不同环境做强化学习。</li>
+              <li>模型下一步突破重点在<b>记忆、在线学习与自我评估</b>——context/RAG/参数分别对应短/中/长期记忆；自我评估机制可能孕育新的 scaling 范式。</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>应用层的策略</h3>
+            <ul>
+              <li>应用层必须做得足够「薄」以适应模型能力快速演进。</li>
+              <li>领域模型在 AGI 终局下很可能被基座模型覆盖，但当前窗口期仍有竞争机会。</li>
+              <li>应围绕实际工作类型组织，而非 SaaS 时代的软件类别。</li>
+            </ul>
+          </div>
+          <div class="signal-matrix">
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">Scaling</div>
+              <div class="matrix-cell"><div class="matrix-title">仍是提升模型能力最高效的方法，文本是核心载体。</div></div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">记忆</div>
+              <div class="matrix-cell"><div class="matrix-title">Context（短期）/ RAG（中期）/ 参数（长期）三层记忆架构。</div></div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">自我评估</div>
+              <div class="matrix-cell"><div class="matrix-title">Continual / Real-time / Online Learning 可能成为新 Scaling 范式。</div></div>
+            </div>
+          </div>
+          <div class="panel">
+            <h3>关注要点</h3>
+            <ul>
+              <li>中训练和后训练能否将模型快速对齐到长尾真实场景。</li>
+              <li>持续学习、在线学习和实时学习是否成为新的 Scaling 范式。</li>
+              <li>领域模型是成为持久公司，还是最终被更强大的通用基础模型吸收。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 Agent OS -->
+    <section class="framework-section" id="detail-agent-os" style="scroll-margin-top:92px;background:var(--bg-warm);">
+      <div class="container section-grid">
+        <div class="section-lede">
+          <span class="kicker">Onepage · Agent OS</span>
+          <h2>从"响应式操作系统"到"Agent 行动系统"。</h2>
+          <p>OpenClaw 现象的本质不是一款产品的成功，而是软件第一次从"被操作对象"变成了"行动主体"的范式迁移。</p>
+          <a class="back-to-showcases" href="#showcases">返回研究成果摘录</a>
+        </div>
+        <div class="content-block">
+          <div class="panel">
+            <h3>增长数据</h3>
+            <p>OpenClaw <b>60 天</b>突破 <b>25 万</b> star，超越 React（24.3 万）和 Linux Kernel（21.8 万）成为 GitHub 历史上增长最快的软件项目。ClawHub 累计 <b>2.6 万</b>个 skills，Discord 成员 <b>12 万</b>。</p>
+            <p>中国应用落地速度首次超越美国：国产模型成本低 <b>60–80%</b>；多个地方政府推出扶持政策（合肥最高 1000 万元、无锡约 30 亿元产业基金）。</p>
+          </div>
+          <div class="panel">
+            <h3>核心瓶颈</h3>
+            <ul>
+              <li><b>Token 成本</b>：Agent 的 token 消耗量是传统聊天的 <b>100–1000 倍</b>；单次 agent loop 每次都重新加载历史消息+系统提示词+工具定义；"一夜之间因重试循环损失 120 美元"。</li>
+              <li><b>鲁棒性</b>：EvoClaw 测试显示最先进 Agent 在长序列任务平均成功率仅 <b>38%</b>，最复杂场景跌至 <b>13.37%</b>。</li>
+              <li><b>安全</b>：258 个历史漏洞，ClawHub 插件恶意代码占比 <b>10.8%–26%</b>。</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>范式转移</h3>
+            <ul>
+              <li>竞争单位从「模型」变为「系统栈」：模型 + runtime + memory + toolchain + eval/observability + human interface。</li>
+              <li>经济单位从「参数规模」转向「单位 Token 产出效率」——tokens per dollar, tokens per watt, 任务完成总成本。</li>
+              <li>控制运行时者也可能控制训练，因为执行轨迹、反馈和强化学习循环在运行时内部生成。</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>行业分层视图</h3>
+            <ul>
+              <li><b>模型 / 平台层（OpenAI / Anthropic）</b>：开发者操作系统，控制模型 + Agent OS + 接口。Anthropic 全栈布局 MCP、Claude Code、经济指数与 Agent 自治；OpenAI 整合 Computer Use、Agent、工具与容器。竞争焦点是默认基础与默认协议。</li>
+              <li><b>中间层</b>：核心价值在于让 Agent 真正可用——设计 Agent 运行时执行环境。涵盖 Agent 编排、工作流 + 记忆 + 评测、评测与安全、可观测性（循环、Token 成本）。典型形态可能是 TaaS（如 Mechanize、Beam AI-Runtime）。</li>
+              <li><b>应用层</b>：可能诞生新形态——从 human-in-the-loop 工具演变为 human-on-the-loop 控制面板（cockpit / control panel）。Agent 价值越来越取决于安全执行环境、可组合技能/插件和工作流原生界面。</li>
+            </ul>
+          </div>
+          <div class="signal-matrix">
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">25 万</div>
+              <div class="matrix-cell"><div class="matrix-title">60 天 GitHub Star，超越 React 和 Linux Kernel。</div></div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">38%</div>
+              <div class="matrix-cell"><div class="matrix-title">最先进 Agent 长序列任务平均成功率（EvoClaw）。</div></div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">100–1000×</div>
+              <div class="matrix-cell"><div class="matrix-title">Agent token 消耗量 vs 传统聊天。</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 Self-Evolution -->
+    <section class="framework-section" id="detail-self-evolution" style="scroll-margin-top:92px;">
+      <div class="container section-grid">
+        <div class="section-lede">
+          <span class="kicker">Onepage · 自进化</span>
+          <h2>从 Scale 模型到 Scale 经验闭环。</h2>
+          <p>AI 自进化是从"scale 参数×数据×算力"到"scale experience/feedback/experiments/discovery loop"的新 Scaling 方向。L3 是当前可验证拐点，L4 是分水岭。</p>
+          <a class="back-to-showcases" href="#showcases">返回研究成果摘录</a>
+        </div>
+        <div class="content-block">
+          <div class="panel">
+            <h3>自进化分级</h3>
+            <ul>
+              <li><b>L0</b>：单点工具 → <b>L1</b>：单任务自修正 → <b>L2</b>：跨任务经验积累</li>
+              <li><b>L3</b>：自动研究闭环（假设→实验→反馈→再假设）→ 当前可验证拐点</li>
+              <li><b>L4</b>：能力回流闭环（经验进入下一代模型）→ 真正的分水岭</li>
+              <li><b>L5</b>：开放式递归自我改进 → 高度不确定</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>反馈层级（V5→V0）</h3>
+            <p>最强验证来自<b>代码和数学</b>（即时客观可重复）；最大挑战在 V0 开放式创新（幻觉式进步风险最高）。代码测试、数学证明、仿真和实验室实验是最可投资的早期环境。</p>
+          </div>
+          <div class="panel">
+            <h3>代表性公司融资</h3>
+            <ul>
+              <li>Recursive：<b>6.5 亿美元</b>融资，估值 46.5 亿</li>
+              <li>Ineffable：<b>11 亿美元</b>融资，估值 51 亿</li>
+              <li>Periodic Labs：约 3 亿美元 seed</li>
+              <li>Isomorphic Labs：2026 年融资 21 亿美元</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>前沿动态</h3>
+            <ul>
+              <li>OpenAI 模型推翻离散几何猜想（L2-L3 级别）</li>
+              <li>AlphaEvolve 实现"生成→评估→迭代"闭环（L3）</li>
+              <li>Sakana AI Scientist-v2 论文通过 ICLR 盲审（L3 向 L4 探索）</li>
+            </ul>
+          </div>
+          <div class="signal-matrix">
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">L3</div>
+              <div class="matrix-cell"><div class="matrix-title">当前可验证拐点：自动研究或实验闭环。</div></div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">L4</div>
+              <div class="matrix-cell"><div class="matrix-title">分水岭：经验反馈到下一代系统，形成数据/模型飞轮。</div></div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">11 亿美元</div>
+              <div class="matrix-cell"><div class="matrix-title">Ineffable 融资额，代表最高期权价值的递归实验室。</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 April Signals -->
+    <section class="framework-section" id="detail-april" style="scroll-margin-top:92px;background:var(--bg-warm);">
+      <div class="container section-grid">
+        <div class="section-lede">
+          <span class="kicker">每周简报 · 4 月</span>
+          <h2>代际跃升前的效率革命。</h2>
+          <p>MoE 架构和软硬件协同优化愈发重要，AI 对劳动力市场的渗透呈现"暴露高×感知替代风险低"的蓝海机会结构。</p>
+          <a class="back-to-showcases" href="#showcases">返回研究成果摘录</a>
+        </div>
+        <div class="content-block">
+          <div class="panel">
+            <h3>模型与架构效率</h3>
+            <ul>
+              <li>DeepSeek V4 在纯国产芯片上跑通训练，模型规模外推到 <b>1.6T 总参 / 49B 激活</b>；KV Cache 占用仅为上一代的 <b>7%</b>（V4-Flash）。</li>
+              <li>Kimi KDA 的 3:1 层级配比使 KV Cache 需求下降 <b>75%</b>。</li>
+              <li>GPT-5.5 Terminal-Bench 2.0 达 <b>82.7%</b>，SWE-Bench Pro 达 58.6%；API 定价 $5 输入 / $30 输出 per 1M tokens。</li>
+              <li>Google DeepMind 组建"突击小组"追赶 Claude 编程能力——Sergey Brin 亲自参与，Claude Code 曾在一小时内完成 Google 工程师团队数月工作量。</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>劳动力市场信号</h3>
+            <p>Anthropic 8 万人调查：<b>AI 暴露高 × 感知替代风险低</b>的领域（数据科学家、金融分析师、法律顾问）是 copilot 机会的蓝海——用户不觉得自己会被替代，付费意愿更理性持续。</p>
+          </div>
+          <div class="panel">
+            <h3>新交互关注</h3>
+            <ul>
+              <li>NeoCognition（4000 万美元种子轮）：构建"微观世界模型"，让 Agent 从通才变为领域专家。</li>
+              <li>Flipbook：实时像素渲染范式——从"模型生成代码"到"模型直接渲染像素"的交互跃迁。</li>
+            </ul>
+          </div>
+          <div class="signal-matrix">
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">7%</div>
+              <div class="matrix-cell"><div class="matrix-title">DeepSeek V4-Flash KV Cache 占用 vs 上一代。</div></div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">75%</div>
+              <div class="matrix-cell"><div class="matrix-title">Kimi KDA 3:1 配比降低的 KV Cache 需求。</div></div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">22T</div>
+              <div class="matrix-cell"><div class="matrix-title">Openrouter 月 token 调用量（环比增 5%）。</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 May Signals -->
+    <section class="framework-section" id="detail-may" style="scroll-margin-top:92px;">
+      <div class="container section-grid">
+        <div class="section-lede">
+          <span class="kicker">每周简报 · 5 月</span>
+          <h2>从 Coding 上限到 ToB 真实部署。</h2>
+          <p>Coding 带来的模型能力提升将在今年接近上限，产业重点转向 ToB 真实环境部署 + L2-L3 级别自进化探索。</p>
+          <a class="back-to-showcases" href="#showcases">返回研究成果摘录</a>
+        </div>
+        <div class="content-block">
+          <div class="panel">
+            <h3>核心信号</h3>
+            <ul>
+              <li>Stripe 数据：AI 初创公司达 <b>100 万美元 ARR 中位时间仅 11.5 个月</b>，比最快 SaaS 公司还快约 4 个月；新一代 AI 公司第一年收入是老一代的 7 倍以上。</li>
+              <li>Anthropic B 端份额首超 OpenAI：Ramp 数据（5 万+企业）显示 Anthropic 占 <b>34.4%</b> vs OpenAI 32.3%。</li>
+              <li>可灵 AI 分拆估值 <b>200 亿美元</b>（超快手整体市值 290 亿），ARR <b>5 亿美元</b>（较春节前翻倍），70% 来自专业用户订阅。</li>
+              <li>Cloudflare 裁员 1100+ 人（20%），CEO 明确"AI 让岗位消失"——AI 替代白领从预测变为现实。</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Model + Harness 叙事</h3>
+            <ul>
+              <li>Artificial Analysis Coding Agent Index 首次系统评测"模型×harness"组合：Cursor 仍具性价比竞争力（Composer 2.5 单任务成本 <b>$0.07</b>，同等水平竞品 $1.24–2.21）。</li>
+              <li>Karpathy 加入 Anthropic，专注用 Claude 自身加速预训练研究；传闻 <b>200 万芯片</b>集群用于自主模型自我训练。</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>机器人演进</h3>
+            <p>2025 定性为"表演年"，2026 为"交互年"，2027 为生产力工具验证可能的开始。Figure 03 的 200 小时连续运行 + 25 万包裹分拣标志着收敛场景的可靠性验证。</p>
+          </div>
+          <div class="signal-matrix">
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">11.5 月</div>
+              <div class="matrix-cell"><div class="matrix-title">AI 初创公司达到 $1M ARR 的中位时间（Stripe 数据）。</div></div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">200 亿</div>
+              <div class="matrix-cell"><div class="matrix-title">可灵 AI 分拆估值（ARR 5 亿美元，超快手整体市值）。</div></div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">$0.07</div>
+              <div class="matrix-cell"><div class="matrix-title">Cursor Composer 2.5 单任务成本 vs 竞品 $1.24–2.21。</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 Video -->
+    <section class="framework-section" id="detail-video" style="scroll-margin-top:92px;background:var(--bg-warm);">
+      <div class="container section-grid">
+        <div class="section-lede">
+          <span class="kicker">专题研究 · 视频生成</span>
+          <h2>物理真实 vs 可控性，路线分化已现。</h2>
+          <p>两者都处于第一梯队，但技术路线和未来终局将分化——Vidu 偏物理一致性 & 世界模型探索，Seedance 偏可控生产力 & 实时可交互视频生成。</p>
+          <a class="back-to-showcases" href="#showcases">返回研究成果摘录</a>
+        </div>
+        <div class="content-block">
+          <div class="panel">
+            <h3>架构差异</h3>
+            <ul>
+              <li><b>Vidu Q3</b>：U-ViT（All as words 统一序列）+ 长跳连接维持时空一致性。TurboDiffusion 将单张 RTX 5090 上 1080p 生成从 <b>900 秒压缩到 8 秒</b>。</li>
+              <li><b>Seedance 2.0</b>：MMDiT 双分支 + 时空解耦 + MoE 稀疏化 + 推理阶段 Refiner Model。最多 <b>12 份</b>多模态素材组合输入。</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>关键指标</h3>
+            <ul>
+              <li>Vidu 支持 <b>1–16 秒</b> 1080p；Seedance 支持 <b>4–15 秒</b>，最高 2K。</li>
+              <li>价格：Vidu 标准版每秒约 <b>1.92 元</b>；Seedance 基础版每秒约 <b>0.3 元</b>，字节价格优势明显。</li>
+              <li>生数 2025 年用户和收入<b>超 10 倍增长</b>，覆盖影视 90%+ 内容方（索尼、腾讯动漫、阅文等）。</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>未来分化方向</h3>
+            <ul>
+              <li><b>Vidu 需"拆链"</b>：拆除长跳连接拐杖，转向原生时空一致性建模，向 3D 影视级视频发展。</li>
+              <li><b>Seedance 需"减负"</b>：扁平化架构降低通信开销，支撑实时交互速度，向实时交互 3D（AR/VR 接口）发展。</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>商业化判断</h3>
+            <p>Seedance 更适合需要确定性、分镜控制和与现有短视频工作流集成的创作者和 B/Pro-C 用户，依托字节生态（即梦、剪映、抖音）C 端渗透率高。Vidu 在高溢价创意用例、海外 B 端扩展，以及需要物理真实感、原生视觉动态或未来世界模型邻接性的路径上可能有更大差异化，覆盖影视 90%+ 内容方（索尼、腾讯动漫、阅文等），B 端优势突出。</p>
+          </div>
+          <div class="signal-matrix">
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">900→8 秒</div>
+              <div class="matrix-cell"><div class="matrix-title">Vidu TurboDiffusion 将 1080p 生成压缩 100×。</div></div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">10 倍</div>
+              <div class="matrix-cell"><div class="matrix-title">生数 2025 年用户和收入增长倍数。</div></div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">90%+</div>
+              <div class="matrix-cell"><div class="matrix-title">生数覆盖影视内容方比例（索尼、腾讯动漫、阅文等）。</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 Capital -->
+    <section class="framework-section" id="detail-capital" style="scroll-margin-top:92px;">
+      <div class="container section-grid">
+        <div class="section-lede">
+          <span class="kicker">专题研究 · 资本格局</span>
+          <h2>钱在前移，规模在集中。</h2>
+          <p>2025 年中国一级市场呈现国资和产业资本主导、美元资本退居补充角色的格局，AI 资金集中流向具身智能、自动驾驶和通用模型等 ToB 场景。</p>
+          <a class="back-to-showcases" href="#showcases">返回研究成果摘录</a>
+        </div>
+        <div class="content-block">
+          <div class="panel">
+            <h3>中国一级市场</h3>
+            <p>2025 年共 <b>9,058 起交易</b>（同比增 28%），早期投资占 <b>66.8%</b>（近五年新高），但数千家早期公司仅获市场约 25% 资金。战略投资以 11.76% 交易数吸纳 <b>3,591 亿元</b>资金。</p>
+          </div>
+          <div class="panel">
+            <h3>AI 赛道资金流向</h3>
+            <ul>
+              <li>AI 领域 930 家企业融资共 <b>1,070.7 亿元</b>。</li>
+              <li>具身智能以 194 家企业、<b>337.7 亿元</b>融资额排名第一，同比增长近 <b>2 倍</b>（305+ 起）。</li>
+              <li>ToB 项目占 TOP10 赛道的 <b>62.17%</b>。</li>
+              <li>8 家核心大厂全年投资 62 次（百度风投 13 次居首）。</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>全球对比</h3>
+            <ul>
+              <li>全球 2025 年 AI 融资达 <b>2,258 亿美元</b>（接近 2024 年 2 倍）。</li>
+              <li>LLM 开发商拿走 <b>41%</b> 全部 AI 融资（931 亿美元），OpenAI + Anthropic + xAI 三家合计 <b>863 亿美元</b>。</li>
+              <li>美国 40%+ 资金投向大模型平台；中国集中在机器人、自动驾驶、AI+制造，几乎没有 10 亿美元级 AI mega-round。</li>
+            </ul>
+          </div>
+          <div class="signal-matrix">
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">9,058</div>
+              <div class="matrix-cell"><div class="matrix-title">中国一级市场交易笔数（+28% YoY）。</div></div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">337.7 亿</div>
+              <div class="matrix-cell"><div class="matrix-title">具身智能融资额（194 家，同比增长近 2 倍）。</div></div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">863 亿</div>
+              <div class="matrix-cell"><div class="matrix-title">OpenAI + Anthropic + xAI 三家合计融资（美元）。</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 Founder -->
+    <section class="framework-section" id="detail-founder" style="scroll-margin-top:92px;background:var(--bg-warm);">
+      <div class="container section-grid">
+        <div class="section-lede">
+          <span class="kicker">专项工具 · 创始人追踪</span>
+          <h2>滕佳烨：理论密度极高，创始人画像待验证。</h2>
+          <p>清华叉院出身、Princeton 访问过的 ML 理论研究者，FAI-Seminar 3 年持续运营者（80+ 场、38 万+ 播放量），研究方向正从纯理论转向 LLM 训练动力学。</p>
+          <a class="back-to-showcases" href="#showcases">返回研究成果摘录</a>
+        </div>
+        <div class="content-block">
+          <div class="panel">
+            <h3>学术密度</h3>
+            <ul>
+              <li>4 年博士期间 <b>13 篇论文</b>（11 篇顶会：ICLR ×4, ICML ×3, NeurIPS ×2, AISTATS ×2）。</li>
+              <li>与两位图灵奖得主（姚期智、Bengio）合作发表论文。</li>
+              <li>访问 Princeton 师从 Sanjeev Arora。</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>研究方向演化</h3>
+            <p>共形预测 → 泛化理论 → Transformer 理论分析 → <b>LLM 自我改进训练动力学</b>（Solver-Verifier Gap）。2025-2026 年开始研究大模型实际训练问题。</p>
+          </div>
+          <div class="panel">
+            <h3>社区组织力</h3>
+            <p>2023 年 2 月创办 FAI-Seminar（国际人工智能基础研讨班），每周一次，持续 3 年，<b>80+ 场</b>，讲者来自 MIT/Princeton/CMU/DeepMind 等顶级机构。B 站个人宣传视频 <b>24.5 万播放</b>。升级为 FAIC 2026 线下大会（<b>400+ 人</b>）。</p>
+          </div>
+          <div class="panel">
+            <h3>商业化路径潜力与风险</h3>
+            <ul>
+              <li>共形预测 → AI 安全/不确定性量化（金融/医疗/自动驾驶）。</li>
+              <li>Scaling Law 理论 → 降低训练成本。</li>
+              <li>LLM 自我改进理论 → 大模型训练优化。</li>
+              <li><b>核心风险</b>：商业经验完全空白（无公司注册、无产业界经历）；2024 年刚入职 tenure-track，学术职位约束。</li>
+            </ul>
+          </div>
+          <div class="signal-matrix">
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">13 篇</div>
+              <div class="matrix-cell"><div class="matrix-title">4 年博士期间论文数（11 篇顶会）。</div></div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">80+ 场</div>
+              <div class="matrix-cell"><div class="matrix-title">FAI-Seminar 持续 3 年的每周研讨会（38 万+ 播放）。</div></div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-label" style="font-size:11px;">400+ 人</div>
+              <div class="matrix-cell"><div class="matrix-title">FAIC 2026 线下大会参会人数。</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ─── Footer ─── -->
+  <footer>
+    <div class="container footer-inner">
+      <span>LinkX Capital</span>
+      <strong>认知差与时间差是最核心的竞争力</strong>
+      <div class="footer-actions">
+        <button class="pdf-btn" onclick="window.print()" aria-label="下载 PDF">下载 PDF</button>
+        <a href="#top">返回顶部</a>
+        <div class="language-toggle" aria-label="语言切换">
+          <span class="lang-current" aria-current="page">中文</span>
+          <a href="lp-ai-insights-brief.html" hreflang="en">EN</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
